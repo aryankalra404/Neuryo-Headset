@@ -568,7 +568,7 @@ function makePod(kind) {
 }
 const COLLARS = [];
 function placePod(kind, S, key, cupDist, spDist, collarY) {
-  const pd = makePod(kind); orient(pd.g, S); headset.add(pd.g); addTo(key, pd.g);
+  const pd = makePod(kind); orient(pd.g, S); headset.add(pd.g); addTo(key, pd.g); pd.g.userData.grabRoot = true;
   explode(pd.cupG, UP, cupDist); explode(pd.sponge, UP, spDist);
   if (collarY) { const col = new THREE.Mesh(new THREE.TorusGeometry(8.1, 1.4, 12, 48), kind === 'hair' ? M.strap : M.band); col.rotation.x = Math.PI / 2; col.position.y = collarY; pd.g.add(col); COLLARS.push(col); }
   return pd;
@@ -1336,14 +1336,14 @@ const BTNS = [
   { id: 'inside', label: 'Inside', x: 40, y: 120, w: 300, h: 100 }, { id: 'elec', label: 'Electronics only', x: 362, y: 120, w: 300, h: 100 }, { id: 'labels', label: 'Labels', x: 684, y: 120, w: 300, h: 100 },
   { id: 'h-solid', label: 'Solid', x: 190, y: 250, w: 250, h: 100 }, { id: 'h-ghost', label: 'Ghost', x: 452, y: 250, w: 250, h: 100 }, { id: 'h-off', label: 'Hidden', x: 714, y: 250, w: 270, h: 100 },
   { id: 'ex-', label: '−', x: 250, y: 380, w: 120, h: 100 }, { id: 'ex+', label: '+', x: 864, y: 380, w: 120, h: 100 },
-  { id: 'reset', label: 'Bring it back', x: 40, y: 500 - 10, w: 460, h: 90 }, { id: 'exit', label: 'Exit', x: 524, y: 500 - 10, w: 460, h: 90 },
+  { id: 'reset', label: 'Reset', x: 40, y: 500 - 10, w: 460, h: 90 }, { id: 'exit', label: 'Exit', x: 524, y: 500 - 10, w: 460, h: 90 },
 ];
 const panelTex = textCanvas(PANEL.w, PANEL.h, () => {});
 function drawPanel() {
   const g = panelTex.cv.getContext('2d'), W = PANEL.w, H = PANEL.h;
   g.clearRect(0, 0, W, H); roundRect(g, 4, 4, W - 8, H - 8, 36); g.fillStyle = '#ffffff'; g.fill(); g.strokeStyle = '#dfe3e6'; g.lineWidth = 4; g.stroke();
   g.fillStyle = '#111417'; g.font = `600 52px ${XR_FONT}`; g.textBaseline = 'middle'; g.fillText('Neuryo', 44, 62);
-  g.fillStyle = '#6b737b'; g.font = `400 34px ${XR_FONT}`; g.fillText('Pinch or grip empty space to move it', 250, 64);
+  g.fillStyle = '#6b737b'; g.font = `400 34px ${XR_FONT}`; g.font = `400 30px ${XR_FONT}`; g.fillText('Pinch a part to pick it up · pinch empty space to move all', 220, 64);
   g.font = `500 36px ${XR_FONT}`; g.fillStyle = '#6b737b'; g.fillText('Head', 44, 300); g.fillText('Explode', 44, 430);
   { const x0 = 384, x1 = 850, y = 430; g.fillStyle = '#e3e6e9'; roundRect(g, x0, y - 8, x1 - x0, 16, 8); g.fill(); g.fillStyle = '#111417'; roundRect(g, x0, y - 8, (x1 - x0) * state.exT, 16, 8); g.fill(); g.beginPath(); g.arc(x0 + (x1 - x0) * state.exT, y, 20, 0, 7); g.fill(); }
   const on = { inside: state.xray, elec: state.elec, labels: state.labels, 'h-solid': state.head === 'solid', 'h-ghost': state.head === 'ghost', 'h-off': state.head === 'off' };
@@ -1378,7 +1378,7 @@ const ctrls = [0, 1].map(i => {
   c.addEventListener('disconnected', () => { c.userData.src = null; });
   c.addEventListener('selectstart', () => xrSelect(c));
   c.addEventListener('selectend', () => xrRelease(c));
-  c.addEventListener('squeezestart', () => xrGrab(c));
+  c.addEventListener('squeezestart', () => xrGrabAt(c, false));
   c.addEventListener('squeezeend', () => xrRelease(c));
   scene.add(c);
   const grip = renderer.xr.getControllerGrip(i); scene.add(grip); c.userData.grip = grip;
@@ -1401,21 +1401,42 @@ function xrHitPart() {
     if (h.object === headMesh) return null;
     if (state.xray && h.object.userData.xrayGhost) continue;
     let vis = true; h.object.traverseAncestors(a => { if (!a.visible) vis = false; }); if (!h.object.visible || !vis) continue;
-    return h.object.userData.part;
+    return { k: h.object.userData.part, obj: h.object };
   }
   return null;
 }
+// What a hand picks up: an electrode pod on its own, otherwise the whole headset (it is one connected piece).
+function grabTargetFor(obj) { let o = obj; while (o && o !== headset) { if (o.userData.grabRoot) return o; o = o.parent; } return headset; }
+const GRABBED = new Set();
 function xrSelect(c) {
   rayFrom(c);
   const ph = panel.visible ? xrRay.intersectObject(panel, false)[0] : null;
   if (ph) { const px = ph.uv.x * PANEL.w, py = (1 - ph.uv.y) * PANEL.h; const b = BTNS.find(b2 => px >= b2.x && px <= b2.x + b2.w && py >= b2.y && py <= b2.y + b2.h); if (b) xrButton(b.id); return; }
   if (card.visible && xrRay.intersectObject(card, false)[0]) { select(null); drawCard(null); return; }
-  const k = xrHitPart();
-  if (k) { select(k, false); drawCard(k); return; }
-  xrGrab(c);
+  xrGrabAt(c, true);
 }
-function xrGrab(c) { if (xr.grab) return; xr.grab = c; c.attach(world); }
-function xrRelease(c) { if (xr.grab === c) { scene.attach(world); xr.grab = null; } }
+function xrGrabAt(c, showCard) {
+  rayFrom(c); const hit = xrHitPart();
+  if (hit) { if (showCard) { select(hit.k, false); drawCard(hit.k); } xrGrab(c, grabTargetFor(hit.obj)); }
+  else xrGrab(c, world);
+}
+function xrGrab(c, obj) {
+  if (c.userData.held) return;
+  if ([...ctrls].some(o => o !== c && o.userData.held === obj)) return;
+  if (obj !== world && !obj.userData.home) obj.userData.home = { parent: obj.parent, p: obj.position.clone(), q: obj.quaternion.clone(), s: obj.scale.clone() };
+  obj.userData.from = obj.parent; c.userData.held = obj; c.attach(obj); if (obj !== world) { GRABBED.add(obj); xr.displaced = true; }
+}
+function xrRelease(c) {
+  const obj = c.userData.held; if (!obj) return; c.userData.held = null; (obj === world ? scene : obj.userData.from).attach(obj);
+  const h = obj.userData.home;   // a quick tap that barely moved it counts as a click, not a pick-up
+  if (h && obj.parent === h.parent && obj.position.distanceTo(h.p) < 4 && obj.quaternion.angleTo(h.q) < 0.08) { obj.position.copy(h.p); obj.quaternion.copy(h.q); GRABBED.delete(obj); delete obj.userData.home; }
+  xr.displaced = GRABBED.size > 0;
+}
+function putPartsBack() {
+  for (const c of ctrls) xrRelease(c);
+  for (const o of GRABBED) { const h = o.userData.home; h.parent.add(o); o.position.copy(h.p); o.quaternion.copy(h.q); o.scale.copy(h.s); delete o.userData.home; }
+  GRABBED.clear(); xr.displaced = false;
+}
 function xrButton(id) {
   if (id === 'inside') setXray(!state.xray);
   else if (id === 'elec') setElec(!state.elec);
@@ -1423,7 +1444,7 @@ function xrButton(id) {
   else if (id.startsWith('h-')) setHead(id.slice(2));
   else if (id === 'ex-') state.exT = Math.max(0, state.exT - 0.25);
   else if (id === 'ex+') state.exT = Math.min(1, state.exT + 0.25);
-  else if (id === 'reset') { xr.placed = false; }
+  else if (id === 'reset') { putPartsBack(); xr.placed = false; }
   else if (id === 'exit') { const s = renderer.xr.getSession(); if (s) s.end(); }
   exEl.value = Math.round(state.exT * 100); drawPanel();
 }
@@ -1450,12 +1471,12 @@ function xrUpdate(now) {
     if (src.handedness === 'right' && Math.abs(ay) > 0.15) { state.exT = Math.min(1, Math.max(0, state.exT - ay * dt * 0.9)); exEl.value = Math.round(state.exT * 100); drawPanel(); }
     if (src.handedness === 'left') {
       if (Math.abs(ay) > 0.15) { xr.scale = Math.min(4, Math.max(0.5, xr.scale * (1 - ay * dt * 0.9))); world.scale.setScalar(0.001 * xr.scale); }
-      if (Math.abs(ax) > 0.15 && !xr.grab) world.rotation.y += ax * dt * 1.6;
+      if (Math.abs(ax) > 0.15 && !ctrls.some(c => c.userData.held === world)) world.rotation.y += ax * dt * 1.6;
     }
   }
   for (const c of ctrls) { if (!c.userData.line.visible) continue; rayFrom(c); const hit = [panel, card].filter(o => o.visible).map(o => xrRay.intersectObject(o, false)[0]).filter(Boolean)[0]; c.userData.line.scale.z = hit ? hit.distance : 0.6; }
   xrLabels.visible = true;
-  for (const sp of xrLabels.children) sp.visible = state.labels && state.explode < 0.05 && (sp.userData.kind === 'part' ? (state.xray || state.elec) : true);
+  for (const sp of xrLabels.children) sp.visible = !xr.displaced && state.labels && state.explode < 0.05 && (sp.userData.kind === 'part' ? (state.xray || state.elec) : true);
 }
 async function startXR(mode) {
   if (!navigator.xr) return xrUnavailable();
@@ -1472,7 +1493,7 @@ async function startXR(mode) {
     scene.background = mode === 'immersive-vr' ? new THREE.Color(0xeef0f2) : null; xrFloor.visible = mode === 'immersive-vr';
     panel.visible = true; drawPanel(); document.body.classList.add('xrmode');
     session.addEventListener('end', () => {
-      xr.mode = null; xr.grab = null; scene.attach(world); world.scale.setScalar(1); world.position.set(0, 0, 0); world.rotation.set(0, 0, 0);
+      putPartsBack(); xr.mode = null; scene.attach(world); world.scale.setScalar(1); world.position.set(0, 0, 0); world.rotation.set(0, 0, 0);
       scene.background = null; xrFloor.visible = false; panel.visible = false; card.visible = false; xrLabels.visible = false; controls.enabled = true;
       if (xr.nf) { camera.near = xr.nf[0]; camera.far = xr.nf[1]; } document.body.classList.remove('xrmode'); resize();
     });
