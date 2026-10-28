@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neuryo Try-On</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Layout: camera stage fitted to the video's aspect, centred on white; brand top-left, fit controls in one bottom bar. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff; --bg-2: #eef0f2; --fg: #111417; --muted: #6b737b; --line: #e3e6e9; --ink: #111417;
+  --f: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f); overflow: hidden; -webkit-font-smoothing: antialiased; }
+#stageWrap { position: fixed; inset: 0; display: grid; place-items: center; padding: calc(64px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(150px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+#stage { position: relative; width: 100%; max-width: 100%; aspect-ratio: 4 / 3; max-height: 100%; border-radius: 16px; overflow: hidden; background: var(--bg-2); box-shadow: 0 0 0 1px var(--line); }
+#stage video, #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#stage video { object-fit: fill; }
+.mirror video, .mirror canvas { transform: scaleX(-1); }
+.top { position: fixed; top: calc(18px + env(safe-area-inset-top, 0px)); left: max(20px, env(safe-area-inset-left, 0px)); right: max(20px, env(safe-area-inset-right, 0px)); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand b { display: block; font-size: 17px; font-weight: 600; } .brand span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+a.tg, button.tg { text-decoration: none; color: var(--fg); border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 7px 13px; font: 500 12.5px var(--f); cursor: pointer; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.bar { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: min(760px, calc(100vw - 32px));
+  background: var(--bg); border-radius: 16px; box-shadow: 0 6px 24px rgba(17,20,23,.08), 0 0 0 1px var(--line); padding: 12px 14px; display: grid; gap: 10px; }
+.sliders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sl { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+.sl div { display: flex; justify-content: space-between; } .sl b { font-weight: 500; color: var(--fg); font-variant-numeric: tabular-nums; }
+.sl input { width: 100%; accent-color: var(--ink); }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 500; }
+.btn.pri { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--bg-2); border-color: var(--fg); }
+.hint { margin-left: auto; font-size: 12px; color: var(--muted); }
+#status { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); background: rgba(17,20,23,.82); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 12.5px; white-space: nowrap; pointer-events: none; }
+#start { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px; background: var(--bg-2); }
+#start h1 { margin: 0 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+#start p { margin: 0 auto 16px; max-width: 42ch; font-size: 14px; line-height: 1.5; color: #3d454c; }
+#start small { display: block; margin-top: 12px; font-size: 12px; color: var(--muted); max-width: 46ch; }
+@media (max-width: 640px) {
+  .sliders { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .sl { font-size: 11px; }
+  .hint { display: none; } .brand span { display: none; }
+  #stageWrap { padding-bottom: calc(160px + env(safe-area-inset-bottom, 0px)); }
+}
+</style>
+
+<header class="top">
+  <div class="brand"><b>Neuryo try-on</b><span>See the headset on a real head</span></div>
+  <a class="tg" href="./">3D model</a>
+</header>
+
+<div id="stageWrap">
+  <div id="stage" class="mirror">
+    <video id="cam" playsinline muted></video>
+    <canvas id="c"></canvas>
+    <div id="status" hidden></div>
+    <div id="start">
+      <div>
+        <h1>Try on Neuryo</h1>
+        <p>Face the camera and the headset appears on your head, true to size. Turn your head up to about three-quarters; a full side view loses the face.</p>
+        <button class="btn pri" id="go">Start camera</button>
+        <small id="startNote">The video stays on this device. Face tracking runs in your browser (Google MediaPipe); nothing is uploaded.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="bar" aria-label="Fit">
+  <div class="sliders">
+    <label class="sl" for="size"><div><span>Size</span><b id="sizeV">100%</b></div><input id="size" type="range" min="85" max="115" value="100"></label>
+    <label class="sl" for="up"><div><span>Up / down</span><b id="upV">0 mm</b></div><input id="up" type="range" min="-30" max="30" value="0"></label>
+    <label class="sl" for="fwd"><div><span>Forward / back</span><b id="fwdV">0 mm</b></div><input id="fwd" type="range" min="-30" max="30" value="0"></label>
+  </div>
+  <div class="btns">
+    <button class="btn pri" id="photo" disabled>Take photo</button>
+    <button class="btn" id="guide" aria-pressed="false">Show head guide</button>
+    <button class="btn" id="flip">Switch camera</button>
+    <span class="hint">Use the head guide to line up the fit, then hide it.</span>
+  </div>
+</section>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const VISION = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21';
+const MODEL = 'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
+
+// MediaPipe returns the face pose in a camera space measured in cm, for a perspective camera with a 63° vertical field of view.
+// The Neuryo model is in mm, centred in the head; its nasion (bridge of the nose) is at (0, 0, 97 mm).
+// MediaPipe's canonical face has its nasion (landmark 168) at (0, 3.27, 5.24) cm, so the model is shifted by (0, 3.27, 5.24 − 9.7) cm.
+// Both heads are about 15.2–15.3 cm wide, so no extra scaling is needed by default.
+const NASION_SHIFT = new THREE.Vector3(0, 3.27, 5.24 - 9.7);
+
+const stage = document.getElementById('stage'), video = document.getElementById('cam'), canvas = document.getElementById('c');
+const statusEl = document.getElementById('status');
+const say = (t) => { statusEl.textContent = t; statusEl.hidden = !t; };
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8580, 0.7));
+const key = new THREE.DirectionalLight(0xffffff, 1.3); key.position.set(30, 60, 40); scene.add(key);
+const camera = new THREE.PerspectiveCamera(63, 4 / 3, 1, 10000);
+
+const anchor = new THREE.Group(); anchor.matrixAutoUpdate = false; anchor.visible = false; scene.add(anchor);
+const fit = new THREE.Group(); anchor.add(fit);
+const loader = new GLTFLoader();
+let occluderMats = [];
+const ready = Promise.all([
+  loader.loadAsync('neuryo-headset.glb').then(g => fit.add(g.scene)),
+  loader.loadAsync('head-occluder.glb').then(g => {
+    // invisible head: writes depth only, so the strap and band behind a real head are hidden by it
+    g.scene.traverse(m => { if (m.isMesh) { m.material = new THREE.MeshBasicMaterial({ color: 0x9aa3ab, colorWrite: false, transparent: false }); m.renderOrder = -1; occluderMats.push(m.material); } });
+    fit.add(g.scene);
+  }),
+]);
+
+// fit controls
+const size = document.getElementById('size'), up = document.getElementById('up'), fwd = document.getElementById('fwd');
+function applyFit() {
+  const s = size.value / 100;
+  fit.scale.setScalar(0.1 * s);
+  fit.position.copy(NASION_SHIFT).add(new THREE.Vector3(0, up.value / 10, fwd.value / 10));
+  document.getElementById('sizeV').textContent = size.value + '%';
+  document.getElementById('upV').textContent = up.value + ' mm';
+  document.getElementById('fwdV').textContent = fwd.value + ' mm';
+}
+[size, up, fwd].forEach(el => el.addEventListener('input', applyFit)); applyFit();
+const guideBtn = document.getElementById('guide');
+guideBtn.addEventListener('click', () => {
+  const on = guideBtn.getAttribute('aria-pressed') !== 'true'; guideBtn.setAttribute('aria-pressed', on);
+  guideBtn.textContent = on ? 'Hide head guide' : 'Show head guide';
+  for (const m of occluderMats) { m.colorWrite = on; m.transparent = on; m.opacity = on ? 0.35 : 1; m.needsUpdate = true; }
+});
+
+// camera + tracking
+let landmarker = null, stream = null, facing = 'user', lastVideoTime = -1, lastSeen = 0;
+async function loadTracker() {
+  const { FaceLandmarker, FilesetResolver } = await import(VISION + '/vision_bundle.mjs');
+  const files = await FilesetResolver.forVisionTasks(VISION + '/wasm');
+  const opts = (delegate) => ({ baseOptions: { modelAssetPath: MODEL, delegate }, runningMode: 'VIDEO', numFaces: 1, outputFacialTransformationMatrixes: true, outputFaceBlendshapes: false });
+  try { return await FaceLandmarker.createFromOptions(files, opts('GPU')); } catch (e) { return await FaceLandmarker.createFromOptions(files, opts('CPU')); }
+}
+async function startCamera() {
+  if (stream) stream.getTracks().forEach(t => t.stop());
+  stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
+  video.srcObject = stream; await video.play();
+  stage.classList.toggle('mirror', facing === 'user');
+  layout();
+}
+function layout() {
+  const vw = video.videoWidth || 4, vh = video.videoHeight || 3;
+  stage.style.aspectRatio = `${vw} / ${vh}`;
+  const wrap = document.getElementById('stageWrap').getBoundingClientRect();
+  const cs = getComputedStyle(document.getElementById('stageWrap'));
+  const aw = wrap.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), ah = wrap.height - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+  const w = Math.min(aw, ah * vw / vh); stage.style.width = w + 'px';
+  const r = stage.getBoundingClientRect(); renderer.setSize(r.width, r.height, false);
+  camera.aspect = vw / vh; camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', layout);
+
+document.getElementById('go').addEventListener('click', async () => {
+  const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Starting…';
+  try {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('This browser has no camera access. Open the page over https in Chrome or Safari.');
+    await startCamera();
+    document.getElementById('start').hidden = true; say('Loading face tracking…');
+    [landmarker] = await Promise.all([loadTracker(), ready]);
+    say('Look at the camera'); document.getElementById('photo').disabled = false;
+  } catch (e) {
+    go.disabled = false; go.textContent = 'Try again';
+    document.getElementById('startNote').textContent = e && e.name === 'NotAllowedError' ? 'Camera permission was blocked. Allow the camera for this site in the browser settings, then try again.' : (e && e.message ? e.message : 'The camera could not start.');
+    document.getElementById('start').hidden = false; say('');
+  }
+});
+document.getElementById('flip').addEventListener('click', async () => { if (!stream) return; facing = facing === 'user' ? 'environment' : 'user'; try { await startCamera(); } catch (e) { facing = 'user'; await startCamera(); } });
+
+// smoothing between frames
+const mNew = new THREE.Matrix4(), pNew = new THREE.Vector3(), qNew = new THREE.Quaternion(), sNew = new THREE.Vector3();
+const pCur = new THREE.Vector3(), qCur = new THREE.Quaternion(); let haveCur = false;
+function readMatrix(d) {
+  // MediaPipe's matrix layout: accept either column- or row-major (bottom row must be 0 0 0 1)
+  const colMajor = Math.abs(d[3]) + Math.abs(d[7]) + Math.abs(d[11]) < 1e-4;
+  mNew.fromArray(Array.from(d)); if (!colMajor) mNew.transpose();
+}
+function track() {
+  if (!landmarker || video.readyState < 2) return;
+  if (video.currentTime === lastVideoTime) return; lastVideoTime = video.currentTime;
+  const res = landmarker.detectForVideo(video, performance.now());
+  const mats = res && res.facialTransformationMatrixes;
+  if (mats && mats.length) {
+    readMatrix(mats[0].data); mNew.decompose(pNew, qNew, sNew);
+    if (!haveCur) { pCur.copy(pNew); qCur.copy(qNew); haveCur = true; } else { pCur.lerp(pNew, 0.55); qCur.slerp(qNew, 0.55); }
+    anchor.matrix.compose(pCur, qCur, sNew); anchor.visible = true; lastSeen = performance.now(); say('');
+  } else if (performance.now() - lastSeen > 400) { anchor.visible = false; haveCur = false; say('Looking for a face…'); }
+}
+function loop() { track(); renderer.render(scene, camera); requestAnimationFrame(loop); }
+loop();
+
+// photo: the camera frame and the headset together, as the viewer sees them
+document.getElementById('photo').addEventListener('click', () => {
+  const w = video.videoWidth, h = video.videoHeight; if (!w) return;
+  const out = document.createElement('canvas'); out.width = w; out.height = h; const g = out.getContext('2d');
+  // saved the way other people see you (not mirrored), so the NEURYO wordmark reads correctly
+  g.drawImage(video, 0, 0, w, h); renderer.render(scene, camera); g.drawImage(canvas, 0, 0, w, h);
+  out.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'neuryo-try-on.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png');
+});
+window.__tryon = { anchor, fit, camera, renderer, scene, readMatrix, mNew, ready };
+</script>
+</html>
