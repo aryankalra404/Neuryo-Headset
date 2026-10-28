@@ -7,7 +7,7 @@ Interactive 3D model of the Neuryo EEG + heart-rate headset, with an AR mode for
 ## Using it on Meta Quest 3S
 1. Open the link above in the **Meta Quest Browser**.
 2. Tap **View in AR** and allow the permission prompt.
-3. Pinch a part to see what it is. Pinch or grip empty space to move the model.
+3. Pinch the headset to lift it off the mannequin, or pinch an electrode pod to pull it out on its own. Pinch empty space to move everything. Reset on the panel puts parts back.
    Right stick: explode. Left stick: turn and resize. Use the floating panel for Inside, Electronics only, Labels and Head.
 
 ## In a normal browser
