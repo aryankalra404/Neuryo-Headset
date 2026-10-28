@@ -1428,8 +1428,12 @@ function xrButton(id) {
   exEl.value = Math.round(state.exT * 100); drawPanel();
 }
 function placeInFront() {
-  const xc = renderer.xr.getCamera(); const p = new THREE.Vector3().setFromMatrixPosition(xc.matrixWorld);
-  const f = new THREE.Vector3(0, 0, -1).applyQuaternion(new THREE.Quaternion().setFromRotationMatrix(xc.matrixWorld)); f.y = 0; if (f.lengthSq() < 1e-4) f.set(0, 0, -1); f.normalize();
+  const frame = renderer.xr.getFrame && renderer.xr.getFrame(), ref = renderer.xr.getReferenceSpace();
+  const pose = frame && ref ? frame.getViewerPose(ref) : null;
+  if (!pose) return;                     // tracking not ready yet: try again next frame
+  const tp = pose.transform.position, to = pose.transform.orientation;
+  const p = new THREE.Vector3(tp.x, tp.y, tp.z);
+  const f = new THREE.Vector3(0, 0, -1).applyQuaternion(new THREE.Quaternion(to.x, to.y, to.z, to.w)); f.y = 0; if (f.lengthSq() < 1e-4) f.set(0, 0, -1); f.normalize();
   const left = new THREE.Vector3().crossVectors(UP, f).normalize();
   xr.scale = 1; world.scale.setScalar(0.001);
   world.position.copy(p).addScaledVector(f, 0.55).add(V3(0, -0.05, 0)); world.rotation.set(0, Math.atan2(-f.x, -f.z), 0);
@@ -1464,13 +1468,13 @@ async function startXR(mode) {
     renderer.xr.setReferenceSpaceType('local-floor');
     await renderer.xr.setSession(session);
     loadControllerModels();
-    controls.enabled = false; camera.clearViewOffset();
+    controls.enabled = false; camera.clearViewOffset(); xr.nf = [camera.near, camera.far]; camera.near = 0.01; camera.far = 50; camera.updateProjectionMatrix();
     scene.background = mode === 'immersive-vr' ? new THREE.Color(0xeef0f2) : null; xrFloor.visible = mode === 'immersive-vr';
     panel.visible = true; drawPanel(); document.body.classList.add('xrmode');
     session.addEventListener('end', () => {
       xr.mode = null; xr.grab = null; scene.attach(world); world.scale.setScalar(1); world.position.set(0, 0, 0); world.rotation.set(0, 0, 0);
       scene.background = null; xrFloor.visible = false; panel.visible = false; card.visible = false; xrLabels.visible = false; controls.enabled = true;
-      document.body.classList.remove('xrmode'); resize();
+      if (xr.nf) { camera.near = xr.nf[0]; camera.far = xr.nf[1]; } document.body.classList.remove('xrmode'); resize();
     });
   } catch (e) { xrUnavailable(mode, e); }
 }
