@@ -230,6 +230,11 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
       <li><b>Earlobe PPG (D22).</b> Earlobe PRV vs ECG HRV r &gt; 0.92 at rest. <a href="https://www.mdpi.com/1424-8220/18/3/844" target="_blank" rel="noopener">Vescio 2018</a> · earlobe and finger closest to ECG. <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2020.00779/pdf" target="_blank" rel="noopener">Mejía-Mejía 2020</a></li>
       <li><b>Fitted frame (D19).</b> Re-placement 3.0 mm with a fitted cap vs 9.8 mm with straps. <a href="https://link.springer.com/10.1186/s12938-020-00792-1" target="_blank" rel="noopener">Hunold 2020</a> · Indian adult head circumference 499–578 mm. <a href="https://proc.3dbody.tech/papers/2018/18114shah.pdf" target="_blank" rel="noopener">Shah 2018</a></li>
     </ul>
+    <div class="grp">Mannequin</div>
+    <ul class="refs">
+      <li><b>Head, ears, neck.</b> MakeHuman base mesh, released under CC0. Scaled to a 540 mm head circumference, the middle of Indian adult male (548 mm) and female (532 mm) means. <a href="https://github.com/makehumancommunity/makehuman" target="_blank" rel="noopener">MakeHuman</a> · <a href="https://proc.3dbody.tech/papers/2018/18114shah.pdf" target="_blank" rel="noopener">Shah 2018</a></li>
+      <li><b>Electrode sites measured on this head</b> with the 10-20 rules: nasion to inion, ear to ear over Cz, and the circumference. TP9 and TP10 moved back along their ring to clear this mannequin’s ear.</li>
+    </ul>
     <div class="grp">Still to prove on this hardware</div>
     <ul class="refs">
       <li>Same-day and 1-week test-retest against a wet cap.</li>
@@ -274,9 +279,11 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 try { await Promise.race([document.fonts.load('500 20px "IBM Plex Mono"'), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
+// Mannequin head (MakeHuman CC0 base mesh) and its measured skull surface + 10-20 sites. Built by the head prep script; see head.json 'about'.
+const [HEAD, HEADGLB] = await Promise.all([fetch('head.json').then(r => r.json()), new GLTFLoader().loadAsync('head.glb')]);
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const V2 = (x, y) => new THREE.Vector2(x, y);
@@ -307,28 +314,21 @@ const fill = new THREE.DirectionalLight(0xffffff, 0.35); fill.position.set(-200,
 const inner = new THREE.DirectionalLight(0xffffff, 0.6); inner.position.set(0, -80, -300); scene.add(inner);
 
 // ---------- head surface (mm; y up, face toward +z, subject's left = +x) ----------
-function F(u) {
-  const t = Math.max(0, -u.y);
-  let X = u.x * 76, Y = u.y * (100 + 16 * smooth(0, 0.5, t)), Z = u.z * 97;
-  X *= 1 - 0.30 * smooth(0.3, 1, t);
-  if (u.z < 0) Z *= 1 - 0.45 * smooth(0.15, 0.85, t); else Z *= 1 + 0.30 * smooth(0.05, 0.75, t) * Math.sqrt(u.z);
-  return V3(X, Y, Z);
+// Skull surface: radius from the head centre, sampled every 1 degree of azimuth and elevation on the mannequin
+// (ears masked out and filled, so parts sit on the skull, not on the ear). Bicubic between samples.
+const FLD = (() => { const f = HEAD.field, b = Uint8Array.from(atob(f.u16_base64), c => c.charCodeAt(0));
+  return { ...f, r: new Uint16Array(b.buffer) }; })();
+const cr = (p0, p1, p2, p3, t) => 0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t * t * t);
+function radius(az, el) {
+  const x = ((az % 360) + 360) % 360, y = Math.min(90, Math.max(-90, el)) + 90;
+  const i = Math.floor(x), j = Math.floor(y), tx = x - i, ty = y - j;
+  const g = (ii, jj) => FLD.r[Math.min(Math.max(jj, 0), FLD.nel - 1) * FLD.naz + (((ii % 360) + 360) % 360)] * FLD.scale;
+  const row = (jj) => cr(g(i - 1, jj), g(i, jj), g(i + 1, jj), g(i + 2, jj), tx);
+  return cr(row(j - 1), row(j), row(j + 1), row(j + 2), ty);
 }
-const gs = (x, c, s) => Math.exp(-((x - c) / s) * ((x - c) / s));
-function faceDisp(u) {
-  const el = Math.asin(Math.max(-1, Math.min(1, u.y))) * 57.2958, az = Math.atan2(u.x, u.z) * 57.2958;
-  if (Math.abs(az) > 80 || el > 12) return 0;
-  let d = 0;
-  const nose = smooth(-1, -22, el) * (1 - smooth(-24, -30, el));
-  d += 15 * nose * gs(az, 0, 4.5 + 4 * smooth(-4, -26, el));
-  d += 3.2 * gs(el, -26, 3) * (gs(az, 7.5, 3.5) + gs(az, -7.5, 3.5));
-  d -= 5.5 * gs(el, -8, 5.5) * (gs(az, 19, 8) + gs(az, -19, 8));
-  d += 1.6 * gs(el, 0, 3) * (gs(az, 18, 11) + gs(az, -18, 11));
-  d += 2.6 * gs(el, -21, 6) * (gs(az, 33, 9) + gs(az, -33, 9));
-  d += 3.4 * gs(el, -39.5, 2.6) * gs(az, 0, 10) + 3 * gs(el, -45, 2.6) * gs(az, 0, 9);
-  d -= 1.4 * gs(el, -42.3, 1.1) * gs(az, 0, 11);
-  d += 4 * gs(el, -57, 6) * gs(az, 0, 11);
-  return d;
+function F(u) {
+  const el = Math.asin(Math.max(-1, Math.min(1, u.y))) * 57.29578, az = Math.atan2(u.x, u.z) * 57.29578;
+  return u.clone().multiplyScalar(radius(az, el));
 }
 function surfU(u) {
   u = u.clone().normalize();
@@ -402,17 +402,10 @@ XRAY_MATS.push([podCover, 0.2]);
 
 // ---------- head ----------
 const headGroup = new THREE.Group(); scene.add(headGroup);
-let hg = new THREE.SphereGeometry(1, 220, 170); hg.deleteAttribute('uv'); hg.deleteAttribute('normal');
-hg = mergeVertices(hg);
-{ const P = hg.attributes.position, u = new THREE.Vector3();
-  for (let i = 0; i < P.count; i++) { u.set(P.getX(i), P.getY(i), P.getZ(i)); const q = F(u); const d = faceDisp(u); if (d) q.addScaledVector(q.clone().normalize(), d); P.setXYZ(i, q.x, q.y, q.z); } }
-hg.computeVertexNormals();
-const headMesh = new THREE.Mesh(hg, M.head); headGroup.add(headMesh);
-const neck = new THREE.Mesh(new THREE.CylinderGeometry(33, 50, 170, 72, 1, false), M.head); neck.position.set(0, -185, 4); headGroup.add(neck);
-{ for (const sx of [1, -1]) { const e = surf(sx * 94, -13); const ear = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 36), M.head);
-    ear.scale.set(5.5, 27, 15); ear.position.copy(e.p).addScaledVector(e.n, 1.2); ear.rotation.set(0.18, sx * 0.32, sx * -0.05); headGroup.add(ear); }
-  const bust = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 64), M.head); bust.scale.set(165, 62, 92); bust.position.set(0, -262, -22); headGroup.add(bust);
-}
+let headMesh = null;
+HEADGLB.scene.traverse(o => { if (o.isMesh) { o.material = M.head; if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals(); if (!headMesh || o.name.includes('head')) headMesh = o; } });
+headGroup.add(HEADGLB.scene);
+if (!headMesh) throw new Error('head mesh missing');
 
 // ---------- registry ----------
 const headset = new THREE.Group(); scene.add(headset);
@@ -489,20 +482,19 @@ const nearest = (arr, f) => { let bi = 0, bv = Infinity; arr.forEach((s, i) => {
 
 // ---------- sites (10-20) ----------
 const SITE = {
-  Fp1: surf(18, 13), Fp2: surf(-18, 13), Fpz: surf(0, 13),
-  Fz: surf(0, 54), Pz: surf(0, 126), TP9: surf(125, -12), TP10: surf(235, -12),
-  EOG: surf(21, -19),
+  ...Object.fromEntries(['Fp1', 'Fp2', 'Fpz', 'Fz', 'Pz', 'TP9', 'TP10', 'EOG', 'Cz', 'T7', 'T8', 'Oz', 'Nz', 'Iz'].map(k => [k, surf(HEAD.sites[k].az, HEAD.sites[k].el)])),
 };
 
 // ---------- front module ----------
-const MOD = { azC: 0, elC: 20, azH: 45, elH: 16, T: 19, base: 1, wing: 0.68 };
+const MOD = { azC: 0, elC: HEAD.sites.Fp1.el + 5, azH: 45, elH: 16, T: 19, base: 1, wing: 0.68 };
+const EM = MOD.elC;  // module centre elevation; other module-relative spots are offsets from it
 const mod = shellPatch({ ...MOD, coverMat: M.cover, baseMat: M.base });
 mod.cover.renderOrder = 10; headset.add(mod.cover, mod.base);
 addTo('module', mod.cover, mod.base);
-const S0 = surf(0, 20), F0 = frameAt(S0);
+const S0 = surf(0, EM), F0 = frameAt(S0);
 explode(mod.cover, F0.n, 48);
 mod.cover.userData.xrayGhost = true;
-let statusLed; { const s = surf(0, 9.6), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(9, 1.6, 1.4, 2, 0.6), M.led);
+let statusLed; { const s = surf(0, EM - 10.4), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(9, 1.6, 1.4, 2, 0.6), M.led);
   led.position.copy(off(s, 1 + 19 * Math.pow(1 - Math.pow(0.65, 6), 0.3) - 0.35));
   led.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.y, f.n)); headset.add(led); addTo('module', led); explode(led, F0.n, 48); }
 
@@ -611,24 +603,27 @@ gelPad(SITE.Fpz, 'fpz', 11, 0);
 const eogPad = gelPad(SITE.EOG, 'eog', 6, 0);
 
 // ---------- rear band ----------
-const bandKeys = [[40, 20], [72, 20], [95, 17], [110, 9], [125, -12], [150, -13], [180, -11], [210, -13], [235, -12], [250, 9], [265, 17], [288, 20], [320, 20]];
+const ET = HEAD.earTop.el + 12;  // band centre stays 12 degrees above the top of the ear
+const BB = 1;  // band height at the back of the head: just under the occipital bulge, so it can't ride up
+const bandKeys = [[40, EM], [70, EM - 2], [98, ET + 1], [124, ET - 2], [152, BB + 5], [180, BB], [208, BB + 5], [236, ET - 2], [262, ET + 1], [290, EM - 2], [320, EM]];
 const bandSamples = new THREE.SplineCurve(bandKeys.map(k => V2(k[0], k[1]))).getSpacedPoints(260).map(v => Object.assign({ az: v.x, el: v.y }, surf(v.x, v.y)));
 const bump = (x, c, s) => Math.exp(-Math.pow((x - c) / s, 2));
-const bandMesh = sweep(bandSamples, 22, 3.5, s => 0.6 + 1.4 * (1 - smooth(40, 47, s.az)) + 1.4 * smooth(313, 320, s.az) + 4.4 * bump(s.az, 125, 7) + 4.4 * bump(s.az, 235, 7), M.band);
+const bandMesh = sweep(bandSamples, 22, 3.5, s => 0.6 + 1.4 * (1 - smooth(40, 47, s.az)) + 1.4 * smooth(313, 320, s.az) , M.band);
 bandMesh.renderOrder = 5; headset.add(bandMesh); addTo('band', bandMesh);
 const bTP9 = bandSamples[nearest(bandSamples, s => s.az - 125)], bTP10 = bandSamples[nearest(bandSamples, s => s.az - 235)];
-const tp9 = gelPad(SITE.TP9, 'ref', 9, 12); const tp10 = gelPad(SITE.TP10, 'tp10', 9, 12);
+const tp9 = gelPad(SITE.TP9, 'ref', 9, 0); const tp10 = gelPad(SITE.TP10, 'tp10', 9, 0);
 
 // ---------- midline strap ----------
 const strapSamples = [];
-for (let i = 0; i <= 240; i++) { const th = 34 + i * (186 - 34) / 240; strapSamples.push(Object.assign({ th }, surf(0, th))); }
-const strapMesh = sweep(strapSamples, 16, 3, s => 0.6 + 1.3 * (1 - smooth(34, 39, s.th)) + 9 * bump(s.th, 54, 6.5) + 9 * bump(s.th, 126, 6.5) + 3.8 * smooth(170, 182, s.th), M.strap);
+const TH0 = EM + 14, TH1 = 180 - BB + 3, THF = HEAD.sites.Fz.el, THP = 180 - HEAD.sites.Pz.el;
+for (let i = 0; i <= 240; i++) { const th = TH0 + i * (TH1 - TH0) / 240; strapSamples.push(Object.assign({ th }, surf(0, th))); }
+const strapMesh = sweep(strapSamples, 16, 3, s => 0.6 + 1.3 * (1 - smooth(TH0, TH0 + 5, s.th)) + 9 * bump(s.th, THF, 6.5) + 9 * bump(s.th, THP, 6.5) + 3.8 * smooth(TH1 - 14, TH1 - 3, s.th), M.strap);
 strapMesh.renderOrder = 5; headset.add(strapMesh); addTo('strap', strapMesh);
 const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13, 9.6 + 1.5), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13, 9.6 + 1.5);
 
 // ---------- battery pod ----------
-const SB = surf(180, -10), FB = frameAt(SB);
-const bp = shellPatch({ azC: 180, elC: -10, azH: 24, elH: 15, T: 17, base: 4.6, nr: 24, na: 96, coverMat: podCover, baseMat: M.base });
+const SB = surf(180, BB), FB = frameAt(SB);
+const bp = shellPatch({ azC: 180, elC: BB, azH: 24, elH: 15, T: 17, base: 4.6, nr: 24, na: 96, coverMat: podCover, baseMat: M.base });
 bp.cover.renderOrder = 10; bp.cover.userData.xrayGhost = true; headset.add(bp.cover, bp.base); addTo('batt', bp.cover, bp.base);
 explode(bp.cover, FB.n, 44);
 const battG = new THREE.Group(); battG.position.copy(off(SB, 10.2)); battG.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(FB.x, FB.y, FB.n));
@@ -640,24 +635,30 @@ const battG = new THREE.Group(); battG.position.copy(off(SB, 10.2)); battG.quate
 headset.add(battG); addTo('batt', battG); explode(battG, FB.n, 22);
 
 // ---------- earlobe heart-sensor clip (left ear) and external leads. Shapes: model estimate ----------
-const EAR = (() => { const e = surf(94, -13); return e.p.clone().addScaledVector(e.n, 1.2); })();
-const LOBE = EAR.clone().add(V3(0.5, -19, 2));
-const clip = new THREE.Group(); clip.position.copy(LOBE); clip.rotation.set(0.18, 0.32, -0.05);
+const LOBE = V3(...HEAD.lobe.p), LN = V3(...HEAD.lobe.n).normalize();
+const clip = new THREE.Group(); clip.position.copy(LOBE);
+{ const ly = UP.clone().addScaledVector(LN, -UP.dot(LN)).normalize(), lz = new THREE.Vector3().crossVectors(LN, ly);
+  clip.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(LN, ly, lz)); }
 { const shell = new THREE.MeshPhysicalMaterial({ color: 0xebe8e2, roughness: 0.45, clearcoat: 0.3 });
-  const outer = new THREE.Mesh(new RoundedBoxGeometry(3.6, 13, 15, 3, 1.4), shell); outer.position.x = 6.4;
-  const inner = new THREE.Mesh(new RoundedBoxGeometry(3.6, 13, 15, 3, 1.4), shell); inner.position.x = -6.4;
-  const hinge = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 16.4, 20), M.base); hinge.rotation.z = Math.PI / 2; hinge.position.y = 7.2;
-  const win = new THREE.Mesh(new RoundedBoxGeometry(0.8, 6, 7, 2, 0.3), M.glass); win.position.x = 4.4;
-  const chip = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.3, 5.6), M.redChip); chip.position.x = 5.2;
+  const outer = new THREE.Mesh(new RoundedBoxGeometry(3.4, 12, 13, 3, 1.3), shell); outer.position.x = 4.6;
+  const inner = new THREE.Mesh(new RoundedBoxGeometry(3.4, 12, 13, 3, 1.3), shell); inner.position.x = -4.6;
+  const hinge = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 12.6, 20), M.base); hinge.rotation.z = Math.PI / 2; hinge.position.y = 6.8;
+  const win = new THREE.Mesh(new RoundedBoxGeometry(0.8, 5.5, 6.5, 2, 0.3), M.glass); win.position.x = 2.6;
+  const chip = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.3, 5.6), M.redChip); chip.position.x = 3.4;
   clip.add(outer, inner, hinge, win, chip); }
 headset.add(clip); clip.updateMatrixWorld(true); addTo('ppg', clip); clip.userData.grabRoot = true; 
 function lead(pts, key, color = 0x2b2f33, r = 0.8) {
   const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, r, 8, false), new THREE.MeshStandardMaterial({ color, roughness: 0.6 }));
   headset.add(m); addTo(key, m); return m;
 }
-{ const b = bandSamples[nearest(bandSamples, s => s.az - 110)];
-  lead([clip.localToWorld(V3(-6.4, 6, -4)), off(surf(104, -25), 2.2), off(surf(110, -14), 2.2), off(surf(111, 0), 2.6), off(b, 4.2)], 'ppg'); }
-lead([off(SITE.EOG, 3.5), off(surf(30, -16), 4), off(surf(40, -6), 4.5), off(surf(44, 6), 5)], 'eog', 0x9ad17a, 0.6);
+{ const b = bandSamples[nearest(bandSamples, s => s.az - 132)], back = surf(HEAD.sites.TP9.az + 4, -24);
+  lead([clip.localToWorld(V3(0, 8.5, 0)), clip.localToWorld(V3(-3, 11, -8)), off(back, 3), off(surf(HEAD.sites.TP9.az + 6, -2), 3), off(b, 4.2)], 'ppg'); }
+// short snap leads from the behind-ear pads up into the band
+for (const [S, key, a] of [[SITE.TP9, 'ref', HEAD.sites.TP9.az], [SITE.TP10, 'tp10', HEAD.sites.TP10.az]]) {
+  const b = bandSamples[nearest(bandSamples, s => s.az - a)];
+  lead([off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5), off(b, 2)], key, 0x8a939b, 0.6); }
+const EOGs = HEAD.sites.EOG;
+lead([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5)], 'eog', 0x9ad17a, 0.6);
 
 
 // ---------- wires (shown with the see-through shell) ----------
@@ -667,20 +668,20 @@ function wire(pts, color, r = 0.6) {
   wires.add(m); return m;
 }
 const thin = (arr, a, b, step, side) => { const out = []; const d = a < b ? 1 : -1; for (let i = a; d > 0 ? i <= b : i >= b; i += d * step) out.push(along(arr[i], side)); return out; };
-const iStrapFz = nearest(strapSamples, s => s.th - 54), iStrapPz = nearest(strapSamples, s => s.th - 126), iStrap0 = nearest(strapSamples, s => s.th - 35);
+const iStrapFz = nearest(strapSamples, s => s.th - THF), iStrapPz = nearest(strapSamples, s => s.th - THP), iStrap0 = nearest(strapSamples, s => s.th - (TH0 + 1));
 const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20.5);
 const bandL = nearest(bandSamples, s => s.az - 44), bandR = nearest(bandSamples, s => s.az - 316);
-const iTP9 = nearest(bandSamples, s => s.az - 125), iTP10 = nearest(bandSamples, s => s.az - 235), iBack = nearest(bandSamples, s => s.az - 180);
+const iTP9 = nearest(bandSamples, s => s.az - HEAD.sites.TP9.az), iTP10 = nearest(bandSamples, s => s.az - HEAD.sites.TP10.az), iBack = nearest(bandSamples, s => s.az - 180);
 const inMod = (s, P2) => [off(s, 9), P2];
-wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, 32), J1)], '#7cc6fe');
-wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, 31), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
-wire([...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, 18), J2)], '#d9dee2');
-wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, 17), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
-wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, 16), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
-wire([...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, 18), J3)], '#d9dee2');
-wire([off(SITE.Fp1, 4), off(surf(24, 15), 6), J2.clone().add(V3(0, 2, 0))], '#f2a65a');
-wire([off(SITE.Fp2, 4), off(surf(-24, 15), 6), J3.clone().add(V3(0, 2, 0))], '#f7d070');
-wire([off(surf(44, 6), 5), off(surf(40, 12), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
+wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, EM + 12), J1)], '#7cc6fe');
+wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, EM + 11), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
+wire([...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#d9dee2');
+wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, EM - 3), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
+wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, EM - 4), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
+wire([...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, EM - 2), J3)], '#d9dee2');
+wire([off(SITE.Fp1, 4), off(surf(24, HEAD.sites.Fp1.el + 2), 6), J2.clone().add(V3(0, 2, 0))], '#f2a65a');
+wire([off(SITE.Fp2, 4), off(surf(-24, HEAD.sites.Fp2.el + 2), 6), J3.clone().add(V3(0, 2, 0))], '#f7d070');
+wire([off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
 wires.visible = false;
 
 // ---------- labels ----------
@@ -699,7 +700,7 @@ label('Pz', '', '#2f8fd8', off(SITE.Pz, 30), SITE.Pz.n);
 label('Reference (TP9)', '', '#8a939b', off(SITE.TP9, 18), SITE.TP9.n);
 label('TP10', '', '#a8977a', off(SITE.TP10, 18), SITE.TP10.n);
 label('Bias', '', '#2fa772', off(SITE.Fpz, 30), SITE.Fpz.n);
-label('Heart sensor', '', '#e0524a', LOBE.clone().add(V3(14, -8, 4)), surf(94, -13).n);
+label('Heart sensor', '', '#e0524a', LOBE.clone().addScaledVector(LN, 14).add(V3(0, -8, 0)), LN);
 const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y, z)) });
 labels.push(...[]);
 const partLabels = [
@@ -806,11 +807,11 @@ function dimLine(a, b, push, text) {
   const g = new THREE.BufferGeometry().setFromPoints(pts); const l = new THREE.LineSegments(g, dimMat); l.renderOrder = 20; dims.add(l);
   label(text || Math.round(a.distanceTo(b)) + ' mm', '', '#fff', a2.clone().lerp(b2, 0.5), null, 'dim');
 }
-{ const L = off(surf(45, 20), 1), Rr = off(surf(-45, 20), 1);
-  const Lt = off(surf(45, 34), 1), Rt = off(surf(-45, 34), 1);
+{ const L = off(surf(45, EM), 1), Rr = off(surf(-45, EM), 1);
+  const Lt = off(surf(45, EM + 14), 1), Rt = off(surf(-45, EM + 14), 1);
   dimLine(Rt, Lt, F0.y.clone().multiplyScalar(30).addScaledVector(F0.n, 12), Math.round(L.distanceTo(Rr)) + ' mm wide');
-  const T = off(surf(-46, 36), 1), B = off(surf(-46, 4), 1);
-  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, 36), 1).distanceTo(off(surf(0, 4), 1))) + ' mm tall');
+  const T = off(surf(-46, EM + 16), 1), B = off(surf(-46, EM - 16), 1);
+  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, EM + 16), 1).distanceTo(off(surf(0, EM - 16), 1))) + ' mm tall');
   const pa = pcbGroup.localToWorld(V3(-30, 22.5, 0.8)), pb = pcbGroup.localToWorld(V3(30, 22.5, 0.8));
   dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 45 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
 document.getElementById('dimsTg').addEventListener('click', e => { state.dims = !state.dims; dims.visible = state.dims; e.currentTarget.classList.toggle('on', state.dims); e.currentTarget.setAttribute('aria-pressed', state.dims); });
