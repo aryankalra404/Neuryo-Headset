@@ -444,10 +444,10 @@ const P = {
 };
 
 // ---------- shell patch (front module, battery pod) ----------
-function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, coverMat, baseMat }) {
+function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, coverMat, baseMat, low = null }) {
   const cov = [], bas = [], uv = [], idx = [];
   const push = (u, v, r) => {
-    const S = surf(azC + u * azH, elC + v * elH);
+    const az = azC + u * azH, S = surf(az, v < 0 && low ? elC + v * (elC - low(az)) : elC + v * elH);   // low(az): optional lower edge that follows a line
     const prof = Math.pow(Math.max(0, 1 - Math.pow(r, 6)), 0.3) * (wing + (1 - wing) * Math.exp(-Math.pow(Math.abs(u) / wingW, 3)));
     bas.push(...off(S, base).toArray()); cov.push(...off(S, base + T * prof).toArray()); uv.push((u + 1) / 2, (v + 1) / 2);
   };
@@ -491,7 +491,10 @@ const SITE = {
 };
 
 // ---------- front module ----------
-const MOD = { azC: 0, elC: HS('Fp1').el + 5, azH: 45, elH: 16, T: 19, base: 1, wing: 0.68 };
+// Eyebrow line: the module's lower edge follows it, 1 degree above, so it never covers the eyes.
+function elAtY(az, y) { let lo = -30, hi = 70; for (let k = 0; k < 40; k++) { const m = (lo + hi) / 2; if (surf(az, m).p.y < y) lo = m; else hi = m; } return (lo + hi) / 2; }
+const BROW = (az) => elAtY(az, HEAD.browY) + 1;
+const MOD = { azC: 0, elC: BROW(0) + 15, azH: 45, elH: 16, T: 19, base: 1, wing: 0.68, low: BROW };
 const EM = MOD.elC;  // module centre elevation; other module-relative spots are offsets from it
 const mod = shellPatch({ ...MOD, coverMat: M.cover, baseMat: M.base });
 mod.cover.renderOrder = 10; headset.add(mod.cover, mod.base);
@@ -499,7 +502,7 @@ addTo('module', mod.cover, mod.base);
 const S0 = surf(0, EM), F0 = frameAt(S0);
 explode(mod.cover, F0.n, 48);
 mod.cover.userData.xrayGhost = true;
-let statusLed; { const s = surf(0, EM - 10.4), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(9, 1.6, 1.4, 2, 0.6), M.led);
+let statusLed; { const s = surf(0, BROW(0) + 6), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(9, 1.6, 1.4, 2, 0.6), M.led);
   led.position.copy(off(s, 1 + 19 * Math.pow(1 - Math.pow(0.65, 6), 0.3) - 0.35));
   led.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.y, f.n)); headset.add(led); addTo('module', led); explode(led, F0.n, 48); }
 
@@ -824,8 +827,8 @@ function dimLine(a, b, push, text) {
 { const L = off(surf(45, EM), 1), Rr = off(surf(-45, EM), 1);
   const Lt = off(surf(45, EM + 14), 1), Rt = off(surf(-45, EM + 14), 1);
   dimLine(Rt, Lt, F0.y.clone().multiplyScalar(30).addScaledVector(F0.n, 12), Math.round(L.distanceTo(Rr)) + ' mm wide');
-  const T = off(surf(-46, EM + 16), 1), B = off(surf(-46, EM - 16), 1);
-  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, EM + 16), 1).distanceTo(off(surf(0, EM - 16), 1))) + ' mm tall');
+  const T = off(surf(-46, EM + 16), 1), B = off(surf(-46, BROW(-46)), 1);
+  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, EM + 16), 1).distanceTo(off(surf(0, BROW(0)), 1))) + ' mm tall');
   const pa = pcbGroup.localToWorld(V3(-30, 22.5, 0.8)), pb = pcbGroup.localToWorld(V3(30, 22.5, 0.8));
   dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 45 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
 document.getElementById('dimsTg').addEventListener('click', e => { state.dims = !state.dims; dims.visible = state.dims; e.currentTarget.classList.toggle('on', state.dims); e.currentTarget.setAttribute('aria-pressed', state.dims); });

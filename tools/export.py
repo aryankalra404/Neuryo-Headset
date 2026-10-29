@@ -30,6 +30,8 @@ J={'about':"Shared Neuryo mannequin head. Mesh: MakeHuman 1.x base mesh (CC0 1.0
    'extra_notes':{'TP9_clear':'TP9 moved %.0f mm back along its ring so a 9 mm pad clears this mannequin\'s ear.'%(meas['tp_shift_mm']*s),'TP10_clear':'Mirror of TP9_clear.','EOG_L':'About 20 mm below the centre of the left eye (vertical EOG).','EOG_R':'About 20 mm below the centre of the right eye.'},
    'lobe':{'p':T(lobe_c).round(2).tolist(),'n':en.round(4).tolist(),'note':'Left earlobe centre and the ear-plane normal (points outward).'},
    'earTop':{'az':round(ea,2),'el':round(ee,2)},
+   'eyes':{'L':T(meas['eyeL']).round(2).tolist(),'R':(T(meas['eyeL'])*np.array([-1,1,1])).round(2).tolist()},
+   'browY':round(float(T(meas['eyeL'])[1]+16),2),'brow_note':'Height (y) of the eyebrow line, about 16 mm above the eye centres. Head-worn parts keep their lower edge above it.',
    'field':{'about':'Skull radius from the origin every 1 degree, ears masked and filled. Read with bicubic interpolation.','az0':0,'az_step':1,'naz':361,'el0':-90,'el_step':1,'nel':181,'scale':0.01,'u16_base64':base64.b64encode(Rg.tobytes()).decode()}}
 json.dump(J,open(os.path.join(OUT,'head.json'),'w'))
 print('scale',round(s,4),'sites',len(sites),'extra',list(extra))
