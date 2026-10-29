@@ -37,4 +37,4 @@ Rotate and zoom the model, see inside, open the **Electrode build** and **Board 
 v1 is built from the 26 Oct design doc. v2 is built from the 29 Oct research plan; its module, board layout and battery are carried over from v1. Shapes and sizes neither source gives are marked as model estimates in the page. In v2, **All sites** shows every measured 10-10 position on the head.
 
 ## Shared head
-`designs/shared/head/` holds the mannequin every design uses: MakeHuman base mesh (CC0), 540 mm head circumference, sites measured with the 10-20 rules. The scripts in `tools/` rebuild it; see [docs/head.md](docs/head.md).
+`designs/shared/head/` holds the mannequin every design uses (v1 and v2): MakeHuman base mesh (CC0), 540 mm head circumference, sites measured with the 10-20 rules. The scripts in `tools/` rebuild it; see [docs/head.md](docs/head.md).
