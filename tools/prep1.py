@@ -14,13 +14,13 @@ def load_groups(path, groups):
 M=load_groups('base.obj',['body','helper-l-eye','helper-r-eye'])
 body=M['body']
 print('l-eye x mean', M['helper-l-eye'].vertices[:,0].mean(), 'faces eye', len(M['helper-l-eye'].faces))
-b=trimesh.intersections.slice_mesh_plane(body,[0,1,0],[0,470,0],cap=True)
-b=trimesh.intersections.slice_mesh_plane(b,[-1,0,0],[185,0,0],cap=True)
-b=trimesh.intersections.slice_mesh_plane(b,[1,0,0],[-185,0,0],cap=True)
-print('crop faces',len(b.faces),'watertight',b.is_watertight)
-v,f=trimesh.remesh.subdivide_loop(b.vertices,b.faces,iterations=1)
+# smooth the whole closed body first, then cut, so the cut edges stay straight and flat
+v,f=trimesh.remesh.subdivide_loop(body.vertices,body.faces,iterations=1)
 b1=trimesh.Trimesh(v,f,process=True)
-print('sub1 faces',len(b1.faces))
+b1=trimesh.intersections.slice_mesh_plane(b1,[0,1,0],[0,470,0],cap=True)
+b1=trimesh.intersections.slice_mesh_plane(b1,[-1,0,0],[185,0,0],cap=True)
+b1=trimesh.intersections.slice_mesh_plane(b1,[1,0,0],[-185,0,0],cap=True)
+print('faces',len(b1.faces),'watertight',b1.is_watertight)
 eyes=[]
 for k in ['helper-l-eye','helper-r-eye']:
     e=M[k]; v,f=trimesh.remesh.subdivide_loop(e.vertices,e.faces,iterations=1); eyes.append(trimesh.Trimesh(v,f,process=True))

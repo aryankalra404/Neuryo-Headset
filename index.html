@@ -71,6 +71,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--fg); outline-of
     <button class="home" id="home" aria-label="All designs">← <span>All designs</span></button>
     <div class="seg" id="seg" role="group" aria-label="Design"></div>
     <span class="spacer"></span>
+    <a class="ext" id="doc" target="_blank" rel="noopener">Design notes ↗</a>
     <a class="ext" id="ext" target="_blank" rel="noopener">Open on its own ↗</a>
   </header>
   <iframe id="frame" title="Neuryo headset 3D model" allow="xr-spatial-tracking; camera; fullscreen; accelerometer; gyroscope"></iframe>
@@ -78,7 +79,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--fg); outline-of
 
 <script>
 const picker = document.getElementById('picker'), viewer = document.getElementById('viewer');
-const list = document.getElementById('list'), seg = document.getElementById('seg'), frame = document.getElementById('frame'), ext = document.getElementById('ext');
+const list = document.getElementById('list'), seg = document.getElementById('seg'), frame = document.getElementById('frame'), ext = document.getElementById('ext'), doc = document.getElementById('doc');
+const REPO = 'https://github.com/aryankalra404/Neuryo-Headset/blob/main/';
 let designs = [], current = null;
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -102,6 +104,7 @@ function open(id, push = true) {
   if (current !== id) frame.src = d.path;
   current = id; document.title = 'Neuryo · ' + d.name;
   ext.href = d.path;
+  doc.hidden = !d.docs; if (d.docs) doc.href = REPO + d.docs;
   seg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.id === id));
   picker.hidden = true; viewer.hidden = false;
   if (push && location.hash !== '#' + id) history.pushState(null, '', '#' + id);
