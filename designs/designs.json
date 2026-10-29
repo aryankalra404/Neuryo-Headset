@@ -16,7 +16,17 @@
     "path": "designs/v2/",
     "channels": "6 EEG channels",
     "summary": "Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias. Hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip. Realistic 540 mm head with all 10-10 sites measured.",
-    "status": "Current plan",
+    "status": "Superseded by v3 (29 Oct review)",
     "docs": "docs/v2.md"
+  },
+  {
+    "id": "v3",
+    "name": "v3 · 29 Oct review",
+    "date": "2026-10-29",
+    "path": "designs/v3/",
+    "channels": "6 channels on the head, 8-channel chip",
+    "summary": "Fp1, Fp2, Fz, Pz, M2, eye (VEOG). M1 mastoid-bone reference on SRB2, Fpz bias, gain 12. One snap socket per site with swappable inserts: paste on the forehead, semi-dry pods in hair. Test kit toggle adds ECG on channel 7 and dry comparison inserts.",
+    "status": "Current plan",
+    "docs": "docs/v3.md"
   }
 ]

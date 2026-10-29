@@ -122,6 +122,6 @@ fetch('designs/designs.json', { cache: 'no-cache' }).then(r => { if (!r.ok) thro
   renderList();
   const id = location.hash.slice(1); if (id) open(id, false);
 }).catch(() => {
-  list.innerHTML = '<p class="err">Could not load the design list. Open the designs directly: <a href="designs/v1/">v1</a> · <a href="designs/v2/">v2</a>.</p>';
+  list.innerHTML = '<p class="err">Could not load the design list. Open the designs directly: <a href="designs/v1/">v1</a> · <a href="designs/v2/">v2</a> · <a href="designs/v3/">v3</a>.</p>';
 });
 </script>
