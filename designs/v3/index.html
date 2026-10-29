@@ -338,7 +338,10 @@ try { await Promise.race([document.fonts.load('500 20px "IBM Plex Mono"'), new P
 // Shared mannequin head (MakeHuman CC0 base mesh), its skull surface and all 77 measured 10-10 sites. See docs/head.md.
 const ALIAS = { M1: 'M1', M2: 'M2', EOG: 'EOG_L' };   // v3: mastoid-bone pads M1/M2 (tools/mastoid.py) and the left-eye EOG spot
 const HS = (k) => (ALIAS[k] && HEAD.extra[ALIAS[k]]) || HEAD.sites[k];
-const [HEAD, HEADGLB] = await Promise.all([fetch('../shared/head/head.json').then(r => r.json()), new GLTFLoader().loadAsync('../shared/head/head.glb')]);
+const [HEAD, HEADGLB] = await Promise.all([fetch('../shared/head/head.json', { cache: 'no-cache' }).then(r => r.json()), new GLTFLoader().loadAsync('../shared/head/head.glb')]);
+// A browser holding an older cached head.json has no M1/M2: fall back to the values tools/mastoid.py wrote.
+HEAD.extra.M1 ??= { az: 129.8, el: -21.568, xyz: [55.6, -28.6, -46.3] };
+HEAD.extra.M2 ??= { az: 230.2, el: -21.568, xyz: [-55.6, -28.6, -46.3] };
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const V2 = (x, y) => new THREE.Vector2(x, y);
