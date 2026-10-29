@@ -20,7 +20,7 @@ The skull surface the sites sit on has the ears masked out and filled, so parts 
 3. `surf(az, el)` gives the point and the outward normal on the skull at any spot.
 4. The **All sites** button in v2 shows every position below on the head.
 
-To change the head (another size, a female or male head), edit and re-run the scripts in `tools/` (order: `prep1.py`, `prep2.py`, `prep3.py`, `smooth.py`, `prep4.py`, `all1010.py`, `export.py <out folder>`). They need Python with `trimesh`, `numpy`, `scipy`, `rtree`, `shapely`, `manifold3d`, and the MakeHuman `base.obj` in the working folder.
+To change the head (another size, a female or male head), edit and re-run the scripts in `tools/` (order: `prep1.py`, `prep2.py`, `prep3.py`, `smooth.py`, `prep4.py`, `all1010.py`, `export.py <out folder>`, then `mastoid.py --write` to add M1/M2 again). They need Python with `trimesh`, `numpy`, `scipy`, `rtree`, `shapely`, `manifold3d`, and the MakeHuman `base.obj` in the working folder.
 
 ## Standard 10-10 sites (77)
 | Site | az (°) | el (°) | x, y, z (mm) |
@@ -110,11 +110,13 @@ To change the head (another size, a female or male head), edit and re-run the sc
 | TP10_clear | 233.1 | -11.1 | -60.8, -14.9, -45.7 | Mirror of TP9_clear. |
 | EOG_L | 27.3 | -16.3 | 36.1, -22.9, 69.7 | About 20 mm below the centre of the left eye (vertical EOG). |
 | EOG_R | 332.7 | -16.3 | -36.1, -22.9, 69.7 | About 20 mm below the centre of the right eye. |
+| M1 | 129.8 | -21.6 | 55.6, -28.6, -46.3 | Left mastoid bone, halfway between ear-canal and earlobe height, 16 mm behind the back edge of the ear so a 25 mm wide pad clears it (`tools/mastoid.py`). Used by v3. |
+| M2 | 230.2 | -21.6 | -55.6, -28.6, -46.3 | Mirror of M1. |
 
 ## Eyebrow line
 `HEAD.browY` is the height of the eyebrow line (about 16 mm above the eye centres, `HEAD.eyes`). Both designs keep the front module's lower edge 1 degree above it, so it never covers the eyes. On this head Fp1 sits about 30 mm and AF7 about 22 mm above the eye centre, i.e. just above the eyebrow, as on a real head.
 
 ## Limits
 - One average head. Real heads vary; the plan calls for a fitted frame covering about 500 to 580 mm (D19).
-- The inion is estimated (see method). TP9/TP10 in the standard table sit under this mannequin's ear overhang; designs use `TP9_clear` / `TP10_clear`.
+- The inion is estimated (see method). TP9/TP10 in the standard table sit under this mannequin's ear overhang; v2 uses `TP9_clear` / `TP10_clear`; v3 uses the mastoid-bone points `M1` / `M2`.
 - No hair is modelled.
