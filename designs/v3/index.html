@@ -66,7 +66,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--fg); outlin
 .seg button { border: 0; background: transparent; border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 500; color: var(--muted); }
 .seg button.on { background: var(--ink); color: #fff; }
 .seg .k { align-self: center; padding: 0 6px 0 10px; font-size: 12.5px; color: var(--muted); }
-#drawer { position: fixed; top: calc(68px + env(safe-area-inset-top, 0px)); right: calc(24px + env(safe-area-inset-right, 0px)); width: 300px;
+#drawer { position: fixed; top: calc(68px + env(safe-area-inset-top, 0px)); right: calc(24px + env(safe-area-inset-right, 0px)); width: 344px;
   max-height: calc(100% - 68px - 100px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
   background: var(--bg); border-radius: 14px; box-shadow: 0 6px 24px rgba(17,20,23,.08), 0 0 0 1px var(--line); padding: 6px 6px 10px; }
 .tabs { display: flex; gap: 2px; padding: 4px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
@@ -130,6 +130,7 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
 .leftcol .seg { display: flex; flex-wrap: wrap; margin-top: 8px; width: fit-content; max-width: 100%; }
 .leftcol .seg button { padding: 5px 9px; }
 .pnote { margin: 9px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
+.lgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; }
 .lg { display: flex; align-items: center; gap: 8px; margin-top: 7px; font-size: 12.5px; }
 .lg i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
 .chrow { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: start; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 7px 10px; font-size: 13px; line-height: 1.35; }
@@ -137,7 +138,70 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
 .chrow b { font-weight: 600; font-variant-numeric: tabular-nums; }
 .chrow small { display: block; color: var(--muted); font-size: 11.5px; }
 .chrow.test b, .chrow.test span { color: #b26a00; }
-.podmode .leftcol { display: none !important; }
+.podmode .leftcol, .podmode #measurePill, .podmode #help { display: none !important; }
+.top, .bar { z-index: 22; } #drawer, #info { z-index: 12; } .leftcol { z-index: 11; }
+.modeseg { pointer-events: auto; width: fit-content; box-shadow: 0 1px 2px rgba(17,20,23,.06); }
+.modeseg button { padding: 6px 13px; }
+.menuwrap { position: relative; }
+.car { font-size: 10px; margin-left: 2px; }
+.menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 236px; padding: 6px; background: var(--bg); border-radius: 12px; box-shadow: 0 10px 30px rgba(17,20,23,.12), 0 0 0 1px var(--line); }
+.menu.up { top: auto; bottom: calc(100% + 12px); right: auto; left: 50%; transform: translateX(-50%); min-width: 290px; }
+.mh { padding: 8px 10px 4px; font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.mi { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; color: var(--fg); }
+.mi:hover { background: var(--bg-2); }
+.mi i { width: 16px; height: 16px; flex: none; border-radius: 5px; box-shadow: inset 0 0 0 1.5px #c3c8cd; }
+.mi[aria-pressed="true"] i { background: var(--ink); box-shadow: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.mi kbd { margin-left: auto; font: 500 11px var(--f); color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+.mi.big { display: block; padding: 9px 12px; font-weight: 500; }
+.mi.big small { display: block; margin-top: 2px; font-weight: 400; font-size: 12px; color: var(--muted); }
+.tg.icon { width: 31px; padding: 6px 0; text-align: center; font-weight: 600; }
+.bar .btn[aria-expanded="true"], .tg[aria-expanded="true"] { color: var(--fg); border-color: var(--fg); }
+#info .badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 11.5px; font-weight: 500; padding: 3px 8px 3px 7px; border-radius: 999px; background: var(--bg-2); }
+#info .badge i { width: 8px; height: 8px; border-radius: 50%; }
+#info .buy { margin-top: 6px; font-size: 12px; color: #3d454c; line-height: 1.4; }
+#info .buy:empty, #info .badge:empty { display: none; }
+#info .buy b { font-weight: 500; color: var(--fg); }
+.brow, .wrow, .trow, .crow { box-sizing: border-box; }
+.brow { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 7px 10px; font-size: 13px; line-height: 1.35; }
+.brow:hover { background: var(--bg-2); }
+.brow:disabled { cursor: default; } .brow:disabled:hover { background: transparent; }
+.brow .r { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.brow small { grid-column: 1 / -1; color: var(--muted); font-size: 11.5px; }
+.brow.opt .r, .brow.opt span:first-child { color: var(--muted); }
+.brow.tot { border-top: 1px solid var(--line); border-radius: 0; margin-top: 4px; padding-top: 9px; font-weight: 600; }
+.wrow { display: grid; grid-template-columns: 50px 1fr auto; gap: 1px 8px; align-items: baseline; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 7px 10px; font-size: 13px; line-height: 1.35; }
+.wrow:hover { background: var(--bg-2); } .wrow.on { background: var(--bg-2); }
+.wrow b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.wrow .pin { font: 500 11.5px var(--f); color: #3d454c; background: var(--bg-2); border-radius: 5px; padding: 1px 6px; white-space: nowrap; }
+.wrow.on .pin { background: #fff; }
+.wrow small { grid-column: 2 / -1; color: var(--muted); font-size: 11.5px; }
+.wrow i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.wrow.test b, .wrow.test span { color: #b26a00; }
+.trow { display: block; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 8px 10px; font-size: 13px; line-height: 1.4; }
+.trow:hover { background: var(--bg-2); }
+.trow b { font-weight: 600; }
+.trow .pm { display: block; margin-top: 3px; font-size: 12px; } .trow .pm em { font-style: normal; font-weight: 500; }
+.trow small { display: block; margin-top: 2px; color: var(--muted); font-size: 11.5px; }
+.crow { display: block; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 9px 10px; font-size: 13px; line-height: 1.4; }
+.crow:hover { background: var(--bg-2); }
+.crow .ct { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-weight: 600; }
+.crow .ft { display: block; margin-top: 2px; font-size: 12px; color: #3d454c; font-variant-numeric: tabular-nums; }
+.crow .ft s { color: var(--muted); }
+.crow small { display: block; margin-top: 3px; color: var(--muted); font-size: 11.5px; }
+.sure { flex: none; font-size: 11px; font-weight: 500; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+.sure.g { background: #e3f4ea; color: #1d7a48; } .sure.a { background: #fbf0dc; color: #96610f; } .sure.p { background: #efe7f9; color: #6b45a8; } .sure.n { background: var(--bg-2); color: var(--muted); }
+#measurePill { position: fixed; top: calc(20px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 5px 5px 5px 14px; background: var(--ink); color: #fff; border-radius: 999px; font-size: 13px; font-weight: 500; z-index: 15; }
+#measurePill button { border: 0; background: #fff; color: var(--ink); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 500; }
+#measurePill button#measureClear { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+#measureLbl { position: fixed; left: 0; top: 0; pointer-events: none; }
+#toast { position: fixed; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; z-index: 30; }
+#help { position: fixed; left: 50%; bottom: calc(88px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); width: min(460px, calc(100vw - 32px)); padding: 16px 18px 14px; background: var(--bg); border-radius: 14px; box-shadow: 0 12px 36px rgba(17,20,23,.14), 0 0 0 1px var(--line); z-index: 25; }
+#help h4 { margin: 0 0 8px; font-size: 15px; font-weight: 600; }
+#help ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; color: #3d454c; }
+#help li { margin: 4px 0; } #help li b { color: var(--fg); font-weight: 500; }
+#help .keys { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+#help .nb { margin-top: 12px; float: right; }
+#help::after { content: ''; display: block; clear: both; }
 @media (max-width: 760px) {
   .leftcol { left: 16px; right: 16px; width: auto; top: calc(62px + env(safe-area-inset-top, 0px)); }
   .podtop { top: calc(56px + env(safe-area-inset-top, 0px)); left: 16px; right: 16px; }
@@ -170,16 +234,28 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
   <div class="brand"><b>Neuryo v3</b><span>29 Oct review · 6 channels on the head, 8-channel chip</span></div>
   <div class="toggles">
     <div class="seg" id="headSeg" role="group" aria-label="Head"><span class="k">Head</span><button data-h="solid" class="on" id="h-solid">Solid</button><button data-h="ghost" id="h-ghost">Ghost</button><button data-h="off" id="h-off">Hidden</button></div>
-    <button class="tg" id="labelsSw" aria-pressed="true">Labels</button>
-    <button class="tg" id="gridTg" aria-pressed="false" title="Show all 77 measured 10-10 positions on the head">All sites</button>
-    <button class="tg" id="testTg" aria-pressed="false" title="Show test-only parts: ECG pads and the comparison electrode inserts">Test kit</button>
-    <button class="tg" id="confTg" aria-pressed="false" title="Colour each part by how sure the plan is">Confidence</button>
-    <button class="tg" id="v2Tg" aria-pressed="false" title="Show where v2 put its behind-ear pads">v2 sites</button>
+    <div class="menuwrap">
+      <button class="tg" id="displayBtn" aria-haspopup="true" aria-expanded="false">Display <span class="car">▾</span></button>
+      <div class="menu" id="displayMenu" hidden>
+        <div class="mh">Show</div>
+        <button class="mi" id="xray" aria-pressed="false"><i></i>See-through shell<kbd>I</kbd></button>
+        <button class="mi" id="elecTg" aria-pressed="false"><i></i>Electronics only<kbd>E</kbd></button>
+        <div class="mh">Overlays</div>
+        <button class="mi" id="labelsSw" aria-pressed="true"><i></i>Labels<kbd>L</kbd></button>
+        <button class="mi" id="dimsTg" aria-pressed="false"><i></i>Sizes<kbd>S</kbd></button>
+        <button class="mi" id="confTg" aria-pressed="false"><i></i>Confidence colours<kbd>C</kbd></button>
+        <button class="mi" id="v2Tg" aria-pressed="false"><i></i>v2 behind-ear sites</button>
+        <button class="mi" id="gridTg" aria-pressed="false"><i></i>All 77 10-10 sites</button>
+      </div>
+    </div>
+    <button class="tg" id="shareBtn" title="Copy a link that opens exactly this view">Copy link</button>
     <button class="tg" id="detailsTg" aria-pressed="false">Details</button>
+    <button class="tg icon" id="helpBtn" aria-label="How to use this page" title="How to use this page">?</button>
     <button class="tg" id="xrAR" hidden>View in AR</button>
   </div>
 </header>
 <div class="leftcol">
+  <div class="seg modeseg" id="modeSeg" role="group" aria-label="Mode"><span class="k">Mode</span><button data-m="product" class="on" title="What a patient wears in a session">Product</button><button data-m="test" title="Adds ECG pads and the comparison electrode inserts">Test kit</button></div>
   <div class="panel" id="insertsUI" hidden>
     <div class="ph">Test kit · electrode inserts</div>
     <div class="seg" id="foreSeg" role="group" aria-label="Forehead insert"><span class="k">Forehead</span><button data-v="paste" class="on">Paste</button><button data-v="dry">Flat (dry)</button></div>
@@ -188,10 +264,10 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
   </div>
   <div class="panel" id="confUI" hidden>
     <div class="ph">How sure the plan is</div>
-    <div class="lg"><i style="background:#2fa772"></i>Decided: strong evidence</div>
-    <div class="lg"><i style="background:#e6a23c"></i>Needs testing on our hardware</div>
+    <div class="lgrid"><div class="lg" title="Strong, consistent evidence"><i style="background:#2fa772"></i>Decided</div>
+    <div class="lg" title="Needs testing on our own hardware"><i style="background:#e6a23c"></i>Needs testing</div>
     <div class="lg"><i style="background:#9b6fd6"></i>Judgement call</div>
-    <div class="lg"><i style="background:#9aa3ab"></i>Carried over from v1, not yet redesigned</div>
+    <div class="lg" title="Carried over from v1, not yet redesigned"><i style="background:#9aa3ab"></i>v1 shape</div></div>
   </div>
 </div>
 
@@ -202,28 +278,34 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
   <button class="btn" data-view="top" id="v-top">Top</button>
   <button class="btn" data-view="skin" id="v-skin">Skin side</button>
   <span class="sep"></span>
-  <button class="btn" id="xray" aria-pressed="false">Inside</button>
-  <button class="btn" id="elecTg" aria-pressed="false">Electronics only</button>
-  <button class="btn" id="dimsTg" aria-pressed="false">Size</button>
-  <button class="btn" id="openPod">Electrode build</button>
-  <button class="btn" id="openBoard">Board guide</button>
-  <span class="sep hide-sm"></span>
   <label class="ex" for="explode">Explode <input type="range" id="explode" min="0" max="100" value="0"></label>
+  <span class="sep"></span>
+  <button class="btn" id="measureTg" aria-pressed="false" title="Click two points to measure (M)">Measure</button>
+  <div class="menuwrap">
+    <button class="btn" id="guidesBtn" aria-haspopup="true" aria-expanded="false">Guides <span class="car">▴</span></button>
+    <div class="menu up" id="guidesMenu" hidden>
+      <button class="mi big" id="openPod">Electrode build<small>Semi-dry pod for Fz and Pz, step by step</small></button>
+      <button class="mi big" id="openBoard">Board guide<small>Main board: connectors, chip, power, layout</small></button>
+    </div>
+  </div>
 </nav>
 
 <div id="info" hidden>
   <button class="close" id="infoClose" aria-label="Close">×</button>
   <h4 id="infoName"></h4>
   <p id="infoBody"></p>
+  <div class="badge" id="infoConf"></div>
   <div class="spec" id="infoSpec"></div>
+  <div class="buy" id="infoBuy"></div>
   <div class="srcl" id="infoSrc"></div>
   <button class="isoBtn" id="isoBtn">View on its own</button>
 </div>
 <div id="isoPill" hidden><span id="isoName"></span><button id="isoExit">Show everything</button></div>
 <aside id="drawer" hidden>
-  <div class="tabs"><button class="on" data-tab="parts" id="t-parts">Parts</button><button data-tab="channels" id="t-channels">Channels</button><button data-tab="specs" id="t-specs">Specs</button><button data-tab="sources" id="t-sources">Sources</button></div>
+  <div class="tabs"><button class="on" data-tab="parts" id="t-parts">Parts</button><button data-tab="build" id="t-build">Build</button><button data-tab="changes" id="t-changes">Changes</button><button data-tab="specs" id="t-specs">Specs</button><button data-tab="sources" id="t-sources">Sources</button></div>
   <div id="tab-parts"></div>
-  <div id="tab-channels" hidden></div>
+  <div id="tab-build" hidden></div>
+  <div id="tab-changes" hidden></div>
   <div id="tab-specs" hidden>
     <dl>
       <div><dt>On the head</dt><dd>6 channels · Fp1, Fp2, Fz, Pz, M2, eye (VEOG)</dd></div>
@@ -297,6 +379,22 @@ dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; 
   </div>
 </aside>
 <div id="tip" hidden></div>
+<div id="measurePill" hidden><span id="measureText">Measure: click a point</span><button id="measureClear">Clear</button><button id="measureDone">Done</button></div>
+<div class="lbl dim" id="measureLbl" style="opacity:0"></div>
+<div id="toast" role="status" hidden></div>
+<section id="help" hidden aria-labelledby="helpH">
+  <h4 id="helpH">How to use this page</h4>
+  <ul>
+    <li><b>Turn and zoom</b>: drag and scroll. Click any part to see what it is, what to buy, how sure the plan is and where its numbers come from.</li>
+    <li><b>Mode</b> (top left): <i>Product</i> is what a patient wears; <i>Test kit</i> adds the ECG pads and lets you swap electrode inserts.</li>
+    <li><b>Display</b>: see-through shell, sizes, confidence colours, v2 sites.</li>
+    <li><b>Details</b>: Parts, <i>Build</i> (parts list, wiring, tests), <i>Changes</i> from v2, Specs, Sources.</li>
+    <li><b>Guides</b> walk through the electrode pod and the board. <b>Measure</b> gives the distance between two points.</li>
+    <li><b>Copy link</b> shares exactly what you are looking at. Anything marked <i>model estimate</i>: measure before you build.</li>
+  </ul>
+  <div class="keys">Keys: 1–5 views · I see-through · E electronics · L labels · S sizes · C confidence · M measure · T test kit · Esc close</div>
+  <button class="nb pri" id="helpOk">Got it</button>
+</section>
 <div id="podCallouts"></div>
 <div id="podUI" hidden>
   <header class="podtop">
@@ -500,6 +598,20 @@ const P = {
   ecg: part('ecg', { conf: 'test', test: true, name: 'ECG pads (test kit)', src: 'Review: validate the earlobe sensor against ECG on our own sensor and site (D09). Below the collarbones (modified lead I); both forearms work too. Not worn in sessions.', spec: 'Ch 7 · differential, SRB2 off · 2 adhesive gel pads', color: '#e0524a', body: 'Test kit only. Two stick-on pads record ECG on the spare chip channel while you check the earlobe sensor. Dropped once the earlobe sensor passes.' }),
 };
 const CONF = { high: '#2fa772', test: '#e6a23c', judge: '#9b6fd6', carry: '#9aa3ab' };
+const CONF_LABEL = { high: 'Decided: strong evidence', test: 'Needs testing on our hardware', judge: 'Judgement call', carry: 'v1 shape, not yet redesigned' };
+// Where each part comes from in the revised budget (29 Oct spend plan, prices as listed that day; ~ = estimate).
+const BUY = {
+  module: '3D-printed PETG (VIT printer, free)', strap: '3D-printed (VIT printer, free)', band: '3D-printed or sewn (free)',
+  batt: 'LiPo 3.7 V 2000 mAh · 2 for ~₹970 (Probots)', pcb: 'JLCPCB 4-layer + assembly · ~₹10,000 (get a quote first)',
+  ads: 'ADS1299IPAGR · 2 for ₹11,879 (LCSC C476817, fitted by JLCPCB)', esp: 'ESP32-S3-DevKitC-1 N8R2 · 2 for ₹2,598 (Probots)',
+  ppg: 'MAX30102 module · 2 for ₹398 (Probots). Clip: 3D-printed', imu: 'MPU6050 module · ₹199 (Probots)',
+  power: 'Passives in the JLCPCB order; regulators from the Cyton schematic', prot: 'Passives in the JLCPCB order',
+  usb: 'On the board. ADuM3160 isolator (₹1,018 for 2) is optional: not needed when streaming over Bluetooth',
+  fp: 'FRI TDE-211 flat Ag/AgCl snap (2 of 6) + Ten20 paste ₹1,512 · leads: FRI TDE-205', fpz: 'FRI TDE-211 (1 of 6) + Ten20 paste',
+  fz: 'Semi-dry pod: PVA sponge + saline ~₹500, TDE-211 core (1 of 6), printed cup. Test arm: TDE-212 spike (1 of 2)', pz: 'Same as Fz: TDE-211 core (1 of 6); test arm TDE-212 (1 of 2)',
+  ref: 'Neo Gel pad, 100 for ₹761 (Upside Down Labs India)', m2: 'Neo Gel pad (same pack)', eog: 'FRI TDE-211 (1 of 6) + Ten20 + a small adhesive ring',
+  ecg: 'Neo Gel pads (same pack) · J7 header in the JLCPCB order',
+};
 
 // ---------- shell patch (front module, battery pod) ----------
 function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, coverMat, baseMat, low = null }) {
@@ -856,6 +968,7 @@ wire([off(SITE.Fp1, 4), off(surf(24, HS('Fp1').el + 2), 6), J2.clone().add(V3(0,
 wire([off(SITE.Fp2, 4), off(surf(-24, HS('Fp2').el + 2), 6), J3.clone().add(V3(0, 2, 0))], '#f7d070');
 wire([off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
 wires.visible = false;
+['fz', 'pz', 'ref', 'batt', 'batt', 'm2', 'fp', 'fp', 'eog'].forEach((k, i) => { if (wires.children[i]) wires.children[i].userData.wkey = k; });
 
 // ---------- labels ----------
 const labelsEl = document.getElementById('labels');
@@ -884,7 +997,8 @@ const gridG = new THREE.Group(); gridG.visible = false; headGroup.add(gridG);
     const S = surf(v.az, v.el), used = USED.has(k);
     const dot = new THREE.Mesh(new THREE.SphereGeometry(used ? 2.2 : 1.6, 12, 8), used ? mUsed : mOther); dot.position.copy(off(S, 0.4)); gridG.add(dot);
     if (!used) label(k, '', '#a3abb2', off(S, 7), S.n, 'grid'); } }   // used sites already have the design's own label
-document.getElementById('gridTg').addEventListener('click', e => { state.grid = !state.grid; e.currentTarget.setAttribute('aria-pressed', state.grid); });
+function setGrid(on) { state.grid = on; document.getElementById('gridTg').setAttribute('aria-pressed', on); syncHash(); }
+document.getElementById('gridTg').addEventListener('click', () => setGrid(!state.grid));
 const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y, z)) });
 labels.push(...[]);
 const partLabels = [
@@ -894,7 +1008,7 @@ const partLabels = [
 for (const [t, c, src] of partLabels) { label(t, '', c, null, t === 'Battery' ? FB.n : F0.n, 'part'); labels[labels.length - 1].src = src; }
 
 // ---------- state & UI ----------
-const state = { head: 'solid', xray: false, elec: false, dims: false, iso: null, view: 'front', labels: true, explode: 0, exT: 0, sel: null, test: false, conf: false, v2: false };
+const state = { head: 'solid', xray: false, elec: false, dims: false, iso: null, view: 'front', labels: true, explode: 0, exT: 0, sel: null, test: false, conf: false, v2: false, measure: false, wireHL: null, grid: false };
 const ELEC = new Set(['pcb', 'ads', 'esp', 'imu', 'power', 'prot', 'usb', 'ppg', 'batt']);
 
 function setHead(mode) {
@@ -902,15 +1016,18 @@ function setHead(mode) {
   document.querySelectorAll('#headSeg button').forEach(b => b.classList.toggle('on', b.dataset.h === mode));
   headGroup.visible = mode !== 'off';
   M.head.transparent = mode === 'ghost'; M.head.opacity = mode === 'ghost' ? 0.18 : 1; M.head.depthWrite = mode !== 'ghost'; M.head.needsUpdate = true;
+  syncHash();
 }
 function setXray(on) {
   clearHighlight();
   state.xray = on;
   for (const [m, o] of XRAY_MATS) { m.transparent = on; m.opacity = on ? o : 1; m.depthWrite = !on; m.needsUpdate = true; }
-  const xb = document.getElementById('xray'); xb.setAttribute('aria-pressed', on); xb.classList.toggle('on', on);
+  const xb = document.getElementById('xray'); xb.setAttribute('aria-pressed', on);
+  if (typeof CONF_GHOST !== 'undefined' && CONF_GHOST) syncConfGhost();
   if (state.sel) applyHighlight(state.sel);
+  syncHash();
 }
-function setLabels(on) { state.labels = on; document.getElementById('labelsSw').setAttribute('aria-pressed', on); }
+function setLabels(on) { state.labels = on; document.getElementById('labelsSw').setAttribute('aria-pressed', on); syncHash(); }
 
 let hl = [];
 function clearHighlight() { for (const m of hl) { m.material.dispose?.(); m.material = m.userData.orig; } hl = []; }
@@ -926,17 +1043,21 @@ function select(k, fly) {
   clearHighlight();
   state.sel = k;
   if (state.iso && k && k !== state.iso) { state.iso = null; setIso(k); }
-  if (!k) { if (state.iso) setIso(null); info.hidden = true; document.querySelectorAll('.pbtn').forEach(b => b.classList.remove('on')); return; }
+  if (!k) { if (state.iso) setIso(null); info.hidden = true; state.wireHL = null; document.querySelectorAll('.pbtn, .wrow').forEach(b => b.classList.remove('on')); syncHash(); return; }
   const p = parts[k];
   document.getElementById('infoName').textContent = p.name;
   document.getElementById('infoSpec').textContent = specOf(k);
   document.getElementById('infoSrc').textContent = 'Source: ' + p.src;
+  document.getElementById('infoConf').innerHTML = `<i style="background:${CONF[p.conf]}"></i>${CONF_LABEL[p.conf]}`;
+  document.getElementById('infoBuy').innerHTML = BUY[k] ? '<b>Buy:</b> ' + BUY[k] : '';
+  if (state.wireHL && state.wireHL !== k) { state.wireHL = null; document.querySelectorAll('.wrow').forEach(b => b.classList.remove('on')); }
   document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   document.getElementById('infoBody').textContent = p.body;
   info.hidden = false; document.getElementById('isoBtn').hidden = false; document.getElementById('isoBtn').textContent = state.iso === k ? 'Show everything' : (['fz', 'pz'].includes(k) && INS.hair === 'semi') ? 'See how it’s built' : ['pcb', 'prot', 'ads', 'esp', 'ppg', 'imu', 'power', 'usb'].includes(k) ? 'Open board guide' : 'View on its own';
   if (ELEC.has(k) && !state.xray && !state.iso) setXray(true);
   applyHighlight(k);
   if (fly) flyToPart(k);
+  syncHash();
 }
 document.getElementById('infoClose').addEventListener('click', () => select(null));
 
@@ -958,6 +1079,7 @@ function setView(v) {
   if (v === 'skin') { state._autoOff = state.head !== 'off'; setHead('off'); } else if (state._autoOff) { state._autoOff = false; setHead('solid'); }
   document.querySelectorAll('#views .btn[data-view]').forEach(b => b.classList.toggle('on', b.dataset.view === v));
   const [p, t] = VIEWS[v](); flyTo(p, t);
+  syncHash();
 }
 function flyToPart(k) {
   if (k === 'ecg') { document.querySelectorAll('#views .btn[data-view]').forEach(b => b.classList.remove('on')); state.view = null; flyTo(V3(170, -95, 440), V3(0, -185, 25), 800); return; }
@@ -976,7 +1098,7 @@ const drawer = document.getElementById('drawer');
 document.getElementById('detailsTg').addEventListener('click', e => { drawer.hidden = !drawer.hidden; e.currentTarget.setAttribute('aria-pressed', !drawer.hidden); });
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-  for (const t of ['parts', 'channels', 'specs', 'sources']) document.getElementById('tab-' + t).hidden = b.dataset.tab !== t; }));
+  for (const t of ['parts', 'build', 'changes', 'specs', 'sources']) document.getElementById('tab-' + t).hidden = b.dataset.tab !== t; }));
 { const host = document.getElementById('tab-parts');
   for (const [g, keys] of [['Headset', ['module', 'strap', 'band', 'batt']], ['Sensors', ['fp', 'fz', 'pz', 'm2', 'eog', 'ref', 'fpz', 'ppg']], ['Test kit only', ['ecg']], ['Electronics', ['pcb', 'ads', 'esp', 'imu', 'power', 'prot', 'usb']]]) {
     const h = document.createElement('div'); h.className = 'grp'; h.textContent = g; host.appendChild(h);
@@ -990,42 +1112,138 @@ function specOf(k) {
   if (k === 'fz' || k === 'pz') return p.spec + ' · ' + INSERT_NAME[INS.hair === 'paste' ? 'hpaste' : INS.hair];
   return p.spec;
 }
-{ const host = document.getElementById('tab-channels');
-  const rows = [
-    ['Ch 1', 'Fp1', 'Forehead, left · core signal', 'fp'], ['Ch 2', 'Fp2', 'Forehead, right · core signal', 'fp'], ['Ch 3', 'Fz', 'Front-top, in hair', 'fz'], ['Ch 4', 'Pz', 'Back-top, in hair', 'pz'],
-    ['Ch 5', 'M2', 'Right mastoid bone · offline linked mastoids, heartbeat reference', 'm2'], ['Ch 6', 'Eye (VEOG)', 'Below the left eye · eye-artifact removal', 'eog'],
-    ['Ch 7', 'ECG', 'Test kit only · differential pair, SRB2 off', 'ecg', true], ['Ch 8', 'Spare', 'Free. Options: Fpz as a channel, or Cz', null],
-    ['SRB2', 'Reference M1', 'Left mastoid bone · every channel is measured against it', 'ref'], ['Bias', 'Fpz', 'Driven by the chip to cancel mains hum', 'fpz']];
-  const p = document.createElement('p'); p.className = 'note'; p.style.margin = '4px 10px 6px'; p.textContent = '8-channel ADS1299: 6 channels on the head, ECG on channel 7 only while testing, channel 8 free. Tap a row to see the part.'; host.appendChild(p);
-  for (const [ch, site, what, k, test] of rows) { const b = document.createElement('button'); b.className = 'chrow' + (test ? ' test' : '');
-    b.innerHTML = `<b>${ch}</b><span>${site}<small>${what}</small></span>`; if (k) b.addEventListener('click', () => { if (parts[k].test && !state.test) setTest(true); select(k, true); }); else b.disabled = true; host.appendChild(b); } }
+// ---------- Build tab: parts list, wiring, tests ----------
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(true); select(k, true); }
+{ const host = document.getElementById('tab-build');
+  host.appendChild(el('p', 'note', 'Everything needed to build the prototype: what to buy, what plugs in where, and what to test first. Tap a row to see the part on the model.'));
+  host.lastChild.style.margin = '4px 10px 2px';
+  // parts list = revised budget (29 Oct)
+  host.appendChild(el('div', 'grp', 'Parts list · ₹42,642 of ₹50,000'));
+  const BOM = [
+    ['ADS1299IPAGR, 8-ch EEG chip', '×2', '11,879', 'LCSC C476817, fitted by JLCPCB · 2 boards', 'ads'],
+    ['JLCPCB 4-layer PCB + assembly', '×1', '~10,000', 'Get the quote before ordering from abroad', 'pcb'],
+    ['FRI TDE-205 snap leads, 10-pack', '×1', '4,745', 'FRI (USA) · 8 head contacts + 2 ECG, no spare', null],
+    ['FRI TDE-211 flat Ag/AgCl snap', '×6', '2,822', 'Fp1, Fp2, Fpz, eye, 2 semi-dry pod cores', 'fp'],
+    ['ESP32-S3-DevKitC-1 N8R2', '×2', '2,598', 'Probots', 'esp'],
+    ['Ten20 EEG paste, 228 g', '×1', '1,512', 'Medikabazaar · forehead, eye, hair test arm', 'fp'],
+    ['ADuM3160 USB isolator', '×2', '1,018', 'Optional: only for wired streaming; skip if you stream over Bluetooth', 'usb', true],
+    ['LiPo 3.7 V 2000 mAh', '×2', '~970', 'Probots · one per board', 'batt'],
+    ['FRI TDE-212 Ag/AgCl 5 mm spike', '×2', '940', 'Dry test arm at Fz and Pz', 'fz'],
+    ['Neo Gel Ag/AgCl pads, 100', '×1', '761', 'Upside Down Labs India · M1, M2, ECG', 'ref'],
+    ['PVA sponge + 0.9% saline', '×1', '~500', 'Local pharmacy · semi-dry pods', 'fz'],
+    ['Lead connector on the board', '1 set', '~500', 'Header pins or touch-proof sockets to match the leads', 'pcb'],
+    ['MAX30102 module', '×2', '398', 'Probots · earlobe clip + spare', 'ppg'],
+    ['Prep kit', '×1', '~300', 'Alcohol swabs, cotton, blunt syringes, comb', null],
+    ['MPU6050 module', '×1', '199', 'Probots', 'imu'],
+    ['Shipping + customs, FRI order', '', '~3,500', 'Check at checkout; email FRI first about India shipping', null],
+  ];
+  for (const [n, q, p, sub, k, opt] of BOM) { const b = el('button', 'brow' + (opt ? ' opt' : ''), `<span>${n} <span style="color:var(--muted)">${q}</span></span><span class="r">${p.startsWith('~') ? '~₹' + p.slice(1) : '₹' + p}</span><small>${sub}</small>`);
+    if (k) b.addEventListener('click', () => goPart(k)); else b.disabled = true; host.appendChild(b); }
+  host.appendChild(el('div', 'brow tot', '<span>Total · reserve ₹7,358</span><span class="r">₹42,642</span><small style="font-weight:400">Prices as listed on 29 Oct; ~ = estimate. Without the optional isolator: ₹41,624. Free at VIT: 3D printer, the wet EEG cap for comparison, an ECE professor’s schematic review.</small>'));
+  // wiring
+  host.appendChild(el('div', 'grp', 'Wiring'));
+  const WIRING = [
+    ['Ch 1', 'Fp1', '#e8913a', 'J2', 'IN1N', 'fp', 'fp', 'Forehead socket, left'],
+    ['Ch 2', 'Fp2', '#e8913a', 'J3', 'IN2N', 'fp', 'fp', 'Forehead socket, right'],
+    ['Ch 3', 'Fz', '#2f8fd8', 'J1', 'IN3N', 'fz', 'fz', 'Top arc, front socket'],
+    ['Ch 4', 'Pz', '#8b6cf0', 'J1', 'IN4N', 'pz', 'pz', 'Top arc, back socket'],
+    ['Ch 5', 'M2', '#a8977a', 'J3', 'IN5N', 'm2', 'm2', 'Right mastoid pad, lead up into the band'],
+    ['Ch 6', 'Eye', '#5fa83f', 'J2', 'IN6N', 'eog', 'eog', 'Below the left eye, lead to the module'],
+    ['Ch 7', 'ECG + / −', '#e0524a', 'J7', 'IN7P / IN7N', 'ecg', null, 'Test kit only. SRB2 off on this channel'],
+    ['Ch 8', 'Free', '#c3c8cd', 'J1', 'IN8', null, null, 'Option: Fpz as a channel, or Cz'],
+    ['Ref', 'M1', '#8a939b', 'J2', 'SRB2', 'ref', 'ref', 'Left mastoid pad. Feeds every channel: check it first'],
+    ['Bias', 'Fpz', '#2fa772', 'stud', 'BIASOUT', 'fpz', null, 'Socket under the board'],
+    ['I²C', 'Heart sensor', '#e0524a', 'J6', 'ESP32 SDA/SCL', 'ppg', null, '4 wires: 3.3 V, GND, SDA, SCL'],
+    ['Power', 'Battery', '#222428', 'J5', '+ / −', 'batt', 'batt', 'Battery only while worn'],
+  ];
+  for (const [ch, site, col, j, pin, k, wk, sub] of WIRING) {
+    const b = el('button', 'wrow' + (ch === 'Ch 7' ? ' test' : ''), `<b>${ch}</b><span><i style="background:${col}"></i>${site} → ${j}</span><span class="pin">${pin}</span><small>${sub}</small>`);
+    if (k) b.addEventListener('click', () => { if (parts[k].test && !state.test) setTest(true); select(k, false); state.wireHL = wk;
+      if (wk) { if (!state.xray) setXray(true); flyTo(V3(330, 250, 360), V3(0, 25, -10), 800); document.querySelectorAll('#views .btn[data-view]').forEach(x => x.classList.remove('on')); state.view = null; } else flyToPart(k);
+      document.querySelectorAll('.wrow').forEach(x => x.classList.toggle('on', x === b)); }); else b.disabled = true;
+    host.appendChild(b); }
+  host.appendChild(el('p', 'note', 'Electrodes on the N inputs with the reference on SRB2 (P side) is the OpenBCI Cyton default; the signal comes out inverted, so flip it in software. Connector assignment is a model estimate: confirm it on your schematic. The highlighted lead shows with the see-through shell.'));
+  // tests
+  host.appendChild(el('div', 'grp', 'Tests, in order'));
+  const TESTS = [
+    ['Noise floor', 'Short the inputs together; record 1 min at gain 12, 250 SPS.', 'Under 6 µVpp', 'IEC limit as quoted in R17', 'ads'],
+    ['Contact on your own hair', 'Fz/Pz: semi-dry vs paste vs dry spike. Fp1/Fp2: paste vs dry flat. Oiled and washed hair. Impedance at 0, 15, 30, 45, 60 min, between blocks.', 'Stays low and steady for 60 min; semi-dry stayed under 40 kΩ for 5 h in P29', 'Judgement call', 'fz'],
+    ['Against the VIT wet cap', 'Eyes-closed rest with Neuryo and with the wet cap, same people, separate sessions.', 'Theta and alpha at Fp1, Fp2, Fz agree at r ≥ 0.8', 'Judgement call', 'fp'],
+    ['Week-to-week repeat', 'Same people, same day and 1 week later.', 'ICC ≥ 0.75 (a dry Fp1 sensor reached 0.76–0.85, P27)', 'Judgement call', 'fp'],
+    ['Earlobe sensor vs ECG', 'Test kit: ECG on ch 7 with the earlobe clip, 1 and 5 min windows, at rest.', 'Close to the r > 0.92 seen at the earlobe (X08)', 'D09', 'ppg'],
+    ['Mastoid pads', 'M1 vs TP9 on a few heads through a full session.', 'Pad stays on; impedance steady', 'Judgement call', 'ref'],
+  ];
+  TESTS.forEach(([n, how, pass, basis, k], i) => { const b = el('button', 'trow', `<b>${i + 1}. ${n}</b><small>${how}</small><span class="pm">Pass: <em>${pass}</em></span><small>Basis: ${basis}</small>`);
+    b.addEventListener('click', () => goPart(k)); host.appendChild(b); });
+}
+// ---------- Changes tab: what moved since v2, and why ----------
+{ const host = document.getElementById('tab-changes');
+  host.appendChild(el('p', 'note', 'Every change from v2, with the reason and how sure the plan is. Tap one to see it on the model.'));
+  host.lastChild.style.margin = '4px 10px 2px';
+  const SURE = { 'Very sure': 'g', 'High': 'g', 'High–medium': 'a', 'Medium': 'a', 'Low–medium': 'p', 'Judgement': 'p', 'Engineering': 'n' };
+  const CHANGES = [
+    ['Reference moved to the mastoid bone', 'TP9', 'M1', 'The bone behind the ear is described as hair free (P197); hair at TP9 is not reported, and stick-on pads fail through hair (L37).', 'Medium', { k: 'ref', v2: true, view: 'side' }],
+    ['Second mastoid channel moved with it', 'TP10', 'M2', 'Same reason. Still gives offline linked mastoids and a heartbeat reference.', 'Low–medium', { k: 'm2', v2: true }],
+    ['8-channel chip', 'ADS1299-6', 'ADS1299, 8 ch', 'Already the part in the budget; same package. Frees ch 7 for ECG and ch 8.', 'Very sure', { k: 'ads' }],
+    ['Gain 12', '24', '12', 'Gain 24 only accepts ±187.5 mV; electrodes need ±300 mV. Noise 0.16 vs 0.14 µVrms (D29).', 'Very sure', { board: 3 }],
+    ['Reference on SRB2', 'SRB1', 'SRB2, per channel', 'SRB1 ties every input together; SRB2 lets channel 7 record ECG as its own pair (X25).', 'High', { board: 3 }],
+    ['Paste on the forehead', 'Hydrogel pad', 'Snap + Ten20 paste', 'Fp1 to Fpz is 27 mm; the budget’s 32 × 25 mm pads would touch. Small hydrogel discs stay a valid option.', 'Medium', { k: 'fp', dims: true, view: 'front' }],
+    ['One snap socket per site', 'Fixed pods', 'Swappable inserts', 'Lets you compare paste, semi-dry and dry on the same frame, as the tests need.', 'Engineering', { k: 'fz', test: true }],
+    ['Dry only as a test arm', 'Not in the plan', 'Test arms (D30)', 'Dry raised delta and theta against gel and lost more data (L19, L02); slow noise grows in warm rooms (L46).', 'High–medium', { k: 'fz', test: true, hair: 'spike' }],
+    ['Eye contact', 'Small gel pad', 'Snap + paste, small ring', 'A 32 × 25 mm pad would reach the lower eyelid. Uses a part already bought.', 'Engineering', { k: 'eog' }],
+    ['Power supply', 'Boost to 5.6 V', 'Cyton-style ±2.5 V', 'No switching boost in front of the analog supply; matches the design being copied (X24).', 'Judgement', { board: 6 }],
+    ['Sliding Fz and Pz', 'Fixed', 'Slots: ±7 and ±17 mm', '10-20 sites scale with each head: 500–580 mm heads.', 'High', { k: 'strap', dims: true, view: 'side' }],
+    ['Earlobe sensor lead', 'Behind the ear', 'In front of the ear', 'Keeps it clear of the M1 pad.', 'Engineering', { k: 'ppg', view: 'side' }],
+    ['Test kit', 'None', 'ECG on ch 7 + inserts', 'Check the earlobe sensor against ECG before any HRV claim (D09).', 'High', { k: 'ecg', test: true }],
+  ];
+  for (const [t, from, to, why, sure, act] of CHANGES) {
+    const b = el('button', 'crow', `<span class="ct"><span>${t}</span><span class="sure ${SURE[sure]}">${sure}</span></span><span class="ft"><s>${from}</s> → ${to}</span><small>${why}</small>`);
+    b.addEventListener('click', () => {
+      if (act.board != null) { select(null); openBoard(act.board); return; }
+      if (act.test && !state.test) setTest(true);
+      if (act.hair) { INS.hair = act.hair; applyInserts(); }
+      if (act.v2 && !state.v2) setV2(true);
+      if (act.dims && !state.dims) setDims(true);
+      if (act.view) { setView(act.view); select(act.k, false); } else select(act.k, true);
+    });
+    host.appendChild(b); }
+}
 function applyInserts() {
   for (const ins of VARIANTS.fore) for (const c of ins.children) c.visible = c.userData.v === INS.fore;
   for (const ins of VARIANTS.hair) for (const c of ins.children) c.visible = c.userData.v === INS.hair;
   document.querySelectorAll('#foreSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === INS.fore));
   document.querySelectorAll('#hairSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === INS.hair));
   if (state.sel) document.getElementById('infoSpec').textContent = specOf(state.sel);
+  syncHash();
 }
 function setTest(on) {
-  state.test = on; testG.visible = on; document.getElementById('insertsUI').hidden = !on; document.getElementById('testTg').setAttribute('aria-pressed', on);
+  state.test = on; testG.visible = on; document.getElementById('insertsUI').hidden = !on;
+  document.querySelectorAll('#modeSeg button').forEach(b => b.classList.toggle('on', b.dataset.m === (on ? 'test' : 'product')));
   if (!on) { INS.fore = 'paste'; INS.hair = 'semi'; if (state.sel === 'ecg') select(null); }
-  applyInserts();
+  applyInserts(); syncHash();
 }
-document.getElementById('testTg').addEventListener('click', () => setTest(!state.test));
+document.querySelectorAll('#modeSeg button').forEach(b => b.addEventListener('click', () => setTest(b.dataset.m === 'test')));
 document.querySelectorAll('#foreSeg button').forEach(b => b.addEventListener('click', () => { INS.fore = b.dataset.v; applyInserts(); }));
 document.querySelectorAll('#hairSeg button').forEach(b => b.addEventListener('click', () => { INS.hair = b.dataset.v; applyInserts(); }));
 const CONF_MAT = Object.fromEntries(Object.entries(CONF).map(([k, c]) => [k, new THREE.MeshStandardMaterial({ color: c, roughness: 0.6 })]));
+// shell parts get their own copy so the see-through shell still works with confidence colours on
+var CONF_GHOST = Object.fromEntries(Object.entries(CONF).map(([k, c]) => [k, new THREE.MeshStandardMaterial({ color: c, roughness: 0.6 })]));
+const XRAY_SET = new Set(XRAY_MATS.map(x => x[0]));
+function syncConfGhost() { for (const g of Object.values(CONF_GHOST)) { g.transparent = state.xray; g.opacity = state.xray ? 0.25 : 1; g.depthWrite = !state.xray; g.needsUpdate = true; } }
 function setConf(on) {
   clearHighlight(); state.conf = on;
   for (const k in parts) for (const m of parts[k].meshes) {
-    if (on) { m.userData.preConf = m.material; m.material = CONF_MAT[parts[k].conf]; }
+    if (on) { m.userData.preConf = m.material; m.material = (XRAY_SET.has(m.material) ? CONF_GHOST : CONF_MAT)[parts[k].conf]; }
     else if (m.userData.preConf) { m.material = m.userData.preConf; delete m.userData.preConf; }
   }
   document.getElementById('confUI').hidden = !on; document.getElementById('confTg').setAttribute('aria-pressed', on);
   if (state.sel) applyHighlight(state.sel);
+  syncHash();
 }
 document.getElementById('confTg').addEventListener('click', () => setConf(!state.conf));
-document.getElementById('v2Tg').addEventListener('click', e => { state.v2 = !state.v2; v2G.visible = state.v2; e.currentTarget.setAttribute('aria-pressed', state.v2); });
+function setV2(on) { state.v2 = on; v2G.visible = on; document.getElementById('v2Tg').setAttribute('aria-pressed', on); syncHash(); }
+document.getElementById('v2Tg').addEventListener('click', () => setV2(!state.v2));
 applyInserts();
 // size overlay
 const dims = new THREE.Group(); dims.visible = false; headset.add(dims);
@@ -1048,7 +1266,8 @@ function dimLine(a, b, push, text) {
   for (const [th, half, name] of [[THF, SLIDE.fz, 'Fz'], [THP, SLIDE.pz, 'Pz']]) { const iC = nearest(strapSamples, s => s.th - th), c0 = STRAP_CUM[iC];
     const sel = strapSamples.filter((s, i) => Math.abs(STRAP_CUM[i] - c0) <= half), s0 = sel[0], s1 = sel[sel.length - 1];
     dimLine(along(s0, 9, 1), along(s1, 9, 1), s0.side.clone().multiplyScalar(14), name + ' slides ±' + Math.round(half) + ' mm'); } }
-document.getElementById('dimsTg').addEventListener('click', e => { state.dims = !state.dims; dims.visible = state.dims; e.currentTarget.classList.toggle('on', state.dims); e.currentTarget.setAttribute('aria-pressed', state.dims); });
+function setDims(on) { state.dims = on; dims.visible = on; document.getElementById('dimsTg').setAttribute('aria-pressed', on); syncHash(); }
+document.getElementById('dimsTg').addEventListener('click', () => setDims(!state.dims));
 document.getElementById('xray').addEventListener('click', () => setXray(!state.xray));
 document.getElementById('labelsSw').addEventListener('click', () => setLabels(!state.labels));
 const exEl = document.getElementById('explode');
@@ -1075,10 +1294,13 @@ let downAt = null;
 canvas.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; tween.on = false; });
 canvas.addEventListener('pointerup', e => {
   if (!downAt) return; const moved = Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]); downAt = null;
-  if (moved > 5) return; const k = pick(e); select(k, false);
+  if (moved > 5) return;
+  if (state.measure) { const p = pickPoint(e); if (p) addMeasure(p); return; }
+  const k = pick(e); select(k, false);
 });
 canvas.addEventListener('pointermove', e => {
   if (e.pointerType !== 'mouse' || e.buttons) { tip.hidden = true; return; }
+  if (state.measure) { canvas.style.cursor = 'crosshair'; tip.hidden = true; return; }
   const k = pick(e); canvas.style.cursor = k ? 'pointer' : 'grab';
   if (k) { tip.hidden = false; tip.textContent = parts[k].name; tip.style.transform = `translate(${e.clientX + 14}px, ${e.clientY + 12}px)`; } else tip.hidden = true;
 });
@@ -1099,7 +1321,7 @@ const SHELL = new Set([mod.cover, mod.base, statusLed, bandMesh, strapMesh, bp.c
 const REAR = new Set([strapMesh, bandMesh, bp.cover, bp.base, battG, fzPod.g, pzPod.g, m1Pad.g, m2Pad.g, clip, ...RAILS]);
 const MANAGED = [...new Set([...SHELL, ...REAR])];
 function setElec(on) {
-  state.elec = on; const b = document.getElementById('elecTg'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on);
+  state.elec = on; const b = document.getElementById('elecTg'); b.setAttribute('aria-pressed', on); syncHash();
   if (on) { state._headBefore = state.head; setHead('off'); } else if (state._headBefore) { setHead(state._headBefore); state._headBefore = null; }
 }
 document.getElementById('elecTg').addEventListener('click', () => setElec(!state.elec));
@@ -1591,6 +1813,7 @@ const [p0, t0] = VIEWS.front();
 camera.position.copy(p0); controls.target.copy(t0);
 if (narrow()) camera.position.multiplyScalar(1.12);
 const tmp = new THREE.Vector3(), toCam = new THREE.Vector3();
+const LPRI = { dim: 0, layer: 1, site: 2, part: 3, grid: 4 };
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 // ================= WebXR: Quest VR + AR passthrough (headset view) =================
 const world = new THREE.Group(); scene.add(world); world.add(headGroup, headset);
@@ -1818,8 +2041,12 @@ function frame(now) {
   gridG.visible = !!state.grid && !state.iso && state.explode < 0.05;
   wires.visible = !!(state.xray || state.elec) && state.explode < 0.03 && !skin && !state.iso;
   dims.visible = !!state.dims && state.explode < 0.05 && !state.elec; dims.children[2].visible = state.xray;
+  for (const m of wires.children) { const on = state.wireHL && m.userData.wkey === state.wireHL, dim = state.wireHL && !on;
+    m.material.emissive.set(on ? 0x2f8fd8 : 0x000000); m.material.emissiveIntensity = on ? 0.5 + 0.3 * Math.sin(now / 200) : 1; m.material.transparent = !!dim; m.material.opacity = dim ? 0.25 : 1; }
+  updateMeasureLabel();
   if (hl.length) { const I = 0.22 + 0.16 * Math.sin(now / 260); for (const m of hl) (Array.isArray(m.material) ? m.material : [m.material]).forEach(mm => { if (mm.emissive) mm.emissiveIntensity = I; }); }
   const w = window.innerWidth, h = window.innerHeight;
+  const cand = [];
   if (!inXR) for (const L of labels) {
     let show = state.labels;
     if (L.kind === 'grid') show = !!state.grid;
@@ -1834,11 +2061,126 @@ function frame(now) {
     if (show && L.normal && state.head === 'solid') { toCam.copy(camera.position).sub(P2).normalize(); if (L.normal.dot(toCam) < 0.05) show = false; }
     tmp.copy(P2).project(camera);
     if (tmp.z > 1) show = false;
-    L.el.style.opacity = show ? 1 : 0;
-    if (show) L.el.style.transform = `translate(${(tmp.x * 0.5 + 0.5) * w}px, ${(-tmp.y * 0.5 + 0.5) * h}px) translate(-50%, -50%)`;
+    if (show) cand.push({ L, x: (tmp.x * 0.5 + 0.5) * w, y: (-tmp.y * 0.5 + 0.5) * h }); else L.el.style.opacity = 0;
+  }
+  // declutter: place labels by priority and hide any that would overlap one already placed
+  cand.sort((a, b) => (LPRI[a.L.kind] ?? 2) - (LPRI[b.L.kind] ?? 2));
+  const placed = [];
+  for (const c of cand) {
+    const L = c.L; if (!L.w) { L.w = L.el.offsetWidth; L.h = L.el.offsetHeight; }
+    const r = [c.x - L.w / 2 - 3, c.y - L.h / 2 - 2, c.x + L.w / 2 + 3, c.y + L.h / 2 + 2];
+    if (L.kind !== 'dim' && placed.some(p => r[0] < p[2] && r[2] > p[0] && r[1] < p[3] && r[3] > p[1])) { L.el.style.opacity = 0; continue; }
+    placed.push(r); L.el.style.opacity = 1; L.el.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -50%)`;
   }
   renderer.render(scene, camera);
 }
+// ---------- menus ----------
+const MENUS = [['displayBtn', 'displayMenu'], ['guidesBtn', 'guidesMenu']];
+function closeMenus(except) { for (const [b, m] of MENUS) if (m !== except) { document.getElementById(m).hidden = true; document.getElementById(b).setAttribute('aria-expanded', false); } }
+for (const [b, m] of MENUS) document.getElementById(b).addEventListener('click', e => { e.stopPropagation(); const menu = document.getElementById(m), open = menu.hidden; closeMenus(m); menu.hidden = !open; e.currentTarget.setAttribute('aria-expanded', open); });
+document.addEventListener('click', e => { if (!e.target.closest('.menu')) closeMenus(); });
+document.getElementById('guidesMenu').addEventListener('click', () => closeMenus());
+
+// ---------- measure: straight-line distance between two clicked points ----------
+const measureG = new THREE.Group(); scene.add(measureG);
+const mDot = new THREE.MeshBasicMaterial({ color: 0x111417, depthTest: false }), mLine = new THREE.LineBasicMaterial({ color: 0x111417, depthTest: false });
+const mPts = [], mLbl = document.getElementById('measureLbl');
+function pickPoint(ev) {
+  const r = canvas.getBoundingClientRect(); ndc.set((ev.clientX - r.left) / r.width * 2 - 1, -(ev.clientY - r.top) / r.height * 2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const list = state.head !== 'off' ? [...pickables, headMesh] : pickables;
+  for (const h of ray.intersectObjects(list, false)) {
+    if (state.xray && h.object.userData.xrayGhost) continue;
+    let vis = true; h.object.traverseAncestors(a => { if (!a.visible) vis = false; }); if (!h.object.visible || !vis) continue;
+    return h.point.clone();
+  }
+  return null;
+}
+function drawMeasure() {
+  measureG.clear();
+  for (const p of mPts) { const d = new THREE.Mesh(new THREE.SphereGeometry(1.4, 16, 10), mDot); d.position.copy(p); d.renderOrder = 40; measureG.add(d); }
+  if (mPts.length === 2) { const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(mPts), mLine); l.renderOrder = 40; measureG.add(l); }
+  document.getElementById('measureText').textContent = mPts.length === 2 ? `${mPts[0].distanceTo(mPts[1]).toFixed(1)} mm · click to start again` : mPts.length === 1 ? 'Click the second point' : 'Measure: click a point';
+}
+function addMeasure(p) { if (mPts.length === 2) mPts.length = 0; mPts.push(p); drawMeasure(); }
+function setMeasure(on) {
+  state.measure = on; mPts.length = 0; drawMeasure(); measureG.visible = on;
+  document.getElementById('measurePill').hidden = !on; document.getElementById('measureTg').classList.toggle('on', on); document.getElementById('measureTg').setAttribute('aria-pressed', on);
+  if (on) select(null); canvas.style.cursor = on ? 'crosshair' : 'grab';
+}
+function updateMeasureLabel() {
+  const on = state.measure && mPts.length === 2; mLbl.style.opacity = on ? 1 : 0; if (!on) return;
+  tmp.copy(mPts[0]).lerp(mPts[1], 0.5).project(camera);
+  mLbl.textContent = mPts[0].distanceTo(mPts[1]).toFixed(1) + ' mm';
+  mLbl.style.transform = `translate(${(tmp.x * 0.5 + 0.5) * window.innerWidth}px, ${(-tmp.y * 0.5 + 0.5) * window.innerHeight - 18}px) translate(-50%, -50%)`;
+}
+document.getElementById('measureTg').addEventListener('click', () => setMeasure(!state.measure));
+document.getElementById('measureDone').addEventListener('click', () => setMeasure(false));
+document.getElementById('measureClear').addEventListener('click', () => { mPts.length = 0; drawMeasure(); });
+
+// ---------- keyboard ----------
+window.addEventListener('keydown', e => {
+  if (pod.active || board.active || e.metaKey || e.ctrlKey || e.altKey || /input|textarea/i.test(e.target.tagName)) return;
+  const k = e.key.toLowerCase();
+  if (k === 'escape') { closeMenus(); if (state.measure) setMeasure(false); else if (!document.getElementById('help').hidden) setHelp(false); else select(null); return; }
+  const V = { 1: 'front', 2: 'side', 3: 'back', 4: 'top', 5: 'skin' };
+  if (V[k]) setView(V[k]);
+  else if (k === 'i') setXray(!state.xray); else if (k === 'e') setElec(!state.elec); else if (k === 'l') setLabels(!state.labels);
+  else if (k === 's') setDims(!state.dims); else if (k === 'c') setConf(!state.conf); else if (k === 'm') setMeasure(!state.measure); else if (k === 't') setTest(!state.test);
+});
+
+// ---------- shareable links: the address remembers part, view, mode, inserts and overlays ----------
+const DESIGN = (location.pathname.match(/designs\/(v\d+)\//) || [])[1] || 'v3';
+var hashReady = false;   // var: syncHash can be called during setup, before this line runs
+function stateString() {
+  const q = new URLSearchParams();
+  if (state.sel) q.set('part', state.sel);
+  if (state.view && state.view !== 'front') q.set('view', state.view);
+  if (state.test) { q.set('mode', 'test'); if (INS.fore !== 'paste') q.set('fore', INS.fore); if (INS.hair !== 'semi') q.set('hair', INS.hair); }
+  if (state.head !== 'solid') q.set('head', state.head);
+  const ov = []; if (state.xray) ov.push('xray'); if (state.elec) ov.push('elec'); if (state.dims) ov.push('sizes'); if (state.conf) ov.push('conf'); if (state.v2) ov.push('v2'); if (state.grid) ov.push('grid'); if (!state.labels) ov.push('nolabels');
+  if (ov.length) q.set('show', ov.join(','));
+  return q.toString().replace(/%2C/g, ',');
+}
+function syncHash() {
+  if (!hashReady) return;
+  clearTimeout(syncHash.t); syncHash.t = setTimeout(() => {
+    const str = stateString();
+    try { history.replaceState(null, '', str ? '#' + str : location.pathname + location.search); } catch (e) {}
+    try { if (window.parent !== window && parent.location.hash.slice(1).split('/')[0] === DESIGN) parent.history.replaceState(null, '', '#' + DESIGN + (str ? '/' + str : '')); } catch (e) {}
+  }, 150);
+}
+function shareURL() {
+  const str = stateString();
+  try { if (window.parent !== window && parent.location.origin === location.origin) return parent.location.origin + parent.location.pathname + '#' + DESIGN + (str ? '/' + str : ''); } catch (e) {}
+  return location.origin + location.pathname + (str ? '#' + str : '');
+}
+function toast(t) { const el2 = document.getElementById('toast'); el2.textContent = t; el2.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { el2.hidden = true; }, 2200); }
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const u = shareURL();
+  try { await navigator.clipboard.writeText(u); toast('Link copied: it opens this exact view'); }
+  catch (e) { const ta = document.createElement('textarea'); ta.value = u; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {} ta.remove(); toast(ok ? 'Link copied: it opens this exact view' : u); }
+});
+function applyState(str) {
+  const q = new URLSearchParams(str); if (![...q.keys()].length) return;
+  const show = (q.get('show') || '').split(',').filter(Boolean);
+  if (q.get('head')) setHead(q.get('head'));
+  if (q.get('mode') === 'test') { setTest(true); if (q.get('fore')) INS.fore = q.get('fore'); if (q.get('hair')) INS.hair = q.get('hair'); applyInserts(); }
+  if (show.includes('xray')) setXray(true); if (show.includes('elec')) setElec(true); if (show.includes('sizes')) setDims(true);
+  if (show.includes('conf')) setConf(true); if (show.includes('v2')) setV2(true); if (show.includes('grid')) setGrid(true); if (show.includes('nolabels')) setLabels(false);
+  const k = q.get('part'), v = q.get('view');
+  if (v && VIEWS[v]) setView(v);
+  if (k && parts[k]) select(k, !v);
+}
+applyState(decodeURIComponent(location.hash.slice(1)));
+hashReady = true;
+
+// ---------- first-visit help ----------
+function setHelp(on) { document.getElementById('help').hidden = !on; if (!on) { try { localStorage.setItem('neuryo-help-seen', '1'); } catch (e) {} } }
+document.getElementById('helpBtn').addEventListener('click', () => setHelp(document.getElementById('help').hidden));
+document.getElementById('helpOk').addEventListener('click', () => setHelp(false));
+{ let seen = false; try { seen = localStorage.getItem('neuryo-help-seen') === '1'; } catch (e) {} if (!seen && !location.hash) setHelp(true); }
+
 renderer.setAnimationLoop(frame);
 document.getElementById('loading').remove();
 window.__ready = true;
