@@ -1,0 +1,1560 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neuryo Headset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Layout: full-bleed white product stage; wordmark top-left, display toggles top-right, one floating toolbar bottom-centre, part card bottom-left. Single light look by choice. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-2: #eef0f2;
+  --fg: #111417;
+  --muted: #6b737b;
+  --line: #e3e6e9;
+  --chip: #ffffff;
+  --ink: #111417;
+  --f: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html, body { height: 100%; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f); overflow: hidden; -webkit-font-smoothing: antialiased; }
+#stage { position: fixed; inset: 0; background: radial-gradient(90% 80% at 50% 42%, var(--bg) 0%, var(--bg) 45%, var(--bg-2) 100%); }
+#c { width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
+#labels { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.lbl { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 6px; padding: 4px 9px 4px 7px; border-radius: 999px;
+  background: var(--chip); box-shadow: 0 1px 2px rgba(17,20,23,.08), 0 0 0 1px var(--line); font: 500 11.5px/1.2 var(--f); color: var(--fg);
+  white-space: nowrap; transition: opacity .18s; will-change: transform; }
+.lbl i { width: 6px; height: 6px; border-radius: 50%; flex: none; }
+
+.top { position: fixed; top: calc(20px + env(safe-area-inset-top, 0px)); left: calc(24px + env(safe-area-inset-left, 0px)); right: calc(24px + env(safe-area-inset-right, 0px));
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; pointer-events: none; }
+.brand { pointer-events: auto; }
+.brand b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.brand span { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+.toggles { display: flex; gap: 6px; pointer-events: auto; flex-wrap: wrap; justify-content: flex-end; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.tg { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.tg[aria-pressed="true"] { color: var(--fg); border-color: var(--fg); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+.bar { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px; padding: 5px; background: var(--bg); border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(17,20,23,.08), 0 0 0 1px var(--line); max-width: calc(100vw - 32px); }
+.bar .btn { border: 0; background: transparent; padding: 8px 13px; border-radius: 10px; font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.bar .btn:hover { color: var(--fg); }
+.bar .btn.on { background: var(--ink); color: #fff; }
+.sep { width: 1px; align-self: stretch; margin: 6px 4px; background: var(--line); }
+.ex { display: flex; align-items: center; gap: 10px; padding: 0 10px 0 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.ex input { width: 110px; accent-color: var(--ink); }
+
+#info { position: fixed; left: calc(24px + env(safe-area-inset-left, 0px)); bottom: calc(88px + env(safe-area-inset-bottom, 0px)); width: 280px;
+  padding: 14px 16px; background: var(--bg); border-radius: 12px; box-shadow: 0 6px 24px rgba(17,20,23,.08), 0 0 0 1px var(--line); }
+#info h4 { margin: 0 24px 4px 0; font-size: 15px; font-weight: 600; }
+#info p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+#info .close { position: absolute; top: 8px; right: 8px; width: 26px; height: 26px; border: 0; border-radius: 7px; background: transparent; color: var(--muted); font-size: 16px; line-height: 1; }
+#info .close:hover { background: var(--bg-2); }
+#tip { position: fixed; left: 0; top: 0; pointer-events: none; padding: 4px 9px; border-radius: 6px; background: var(--ink); font: 500 12px var(--f); color: #fff; white-space: nowrap; }
+#loading { position: fixed; inset: 0; display: grid; place-items: center; font-size: 13px; color: var(--muted); pointer-events: none; }
+
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; background: var(--bg); }
+.seg button { border: 0; background: transparent; border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.seg button.on { background: var(--ink); color: #fff; }
+.seg .k { align-self: center; padding: 0 6px 0 10px; font-size: 12.5px; color: var(--muted); }
+#drawer { position: fixed; top: calc(68px + env(safe-area-inset-top, 0px)); right: calc(24px + env(safe-area-inset-right, 0px)); width: 300px;
+  max-height: calc(100% - 68px - 100px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
+  background: var(--bg); border-radius: 14px; box-shadow: 0 6px 24px rgba(17,20,23,.08), 0 0 0 1px var(--line); padding: 6px 6px 10px; }
+.tabs { display: flex; gap: 2px; padding: 4px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.tabs button { flex: 1; border: 0; background: transparent; padding: 7px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.tabs button.on { color: var(--fg); background: var(--bg-2); }
+.grp { padding: 10px 10px 4px; font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pbtn { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; border: 0; background: transparent; border-radius: 8px; padding: 7px 10px; font-size: 13.5px; }
+.pbtn:hover { background: var(--bg-2); }
+.pbtn.on { background: var(--bg-2); font-weight: 500; }
+.pbtn i { width: 8px; height: 8px; border-radius: 50%; flex: none; box-shadow: 0 0 0 1px rgba(17,20,23,.12); }
+dl { margin: 0; padding: 4px 10px; }
+dl div { display: grid; grid-template-columns: 112px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.4; }
+dl div:last-child { border-bottom: 0; }
+dt { color: var(--muted); } dd { margin: 0; font-variant-numeric: tabular-nums; }
+.refs { margin: 4px 0 6px; padding: 0 10px 0 26px; font-size: 12.5px; line-height: 1.45; color: #3d454c; }
+.refs li { margin: 6px 0; }
+.refs a { color: var(--fg); }
+.note { margin: 8px 10px 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
+#info .srcl { margin-top: 6px; font-size: 11.5px; line-height: 1.4; color: var(--muted); }
+#info .spec { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg); font-variant-numeric: tabular-nums; }
+.lbl.dim { background: var(--ink); color: #fff; box-shadow: none; padding: 3px 8px; font-variant-numeric: tabular-nums; }
+.isoBtn { margin-top: 12px; width: 100%; border: 1px solid var(--fg); background: var(--bg); border-radius: 9px; padding: 8px; font-size: 13px; font-weight: 500; }
+.isoBtn:hover { background: var(--ink); color: #fff; }
+#isoPill { position: fixed; top: calc(20px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px;
+  padding: 5px 5px 5px 14px; background: var(--ink); color: #fff; border-radius: 999px; font-size: 13px; font-weight: 500; }
+#isoPill button { border: 0; background: #fff; color: var(--ink); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 500; }
+.lbl.layer { background: var(--ink); color: #fff; box-shadow: none; }
+.lbl.layer i { display: none; }
+.podmode #views, .podmode .toggles, .podmode #info, .podmode #drawer, .podmode #isoPill, .podmode #labels, .podmode #tip { display: none !important; }
+#flipTg { display: none; } .boardmode #flipTg { display: inline-block; } .boardmode #tipSeg, .boardmode #cutTg, .boardmode #tipNote { display: none !important; }
+#podCallouts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.co { position: absolute; left: 0; top: 0; }
+.cod { position: absolute; left: -3.5px; top: -3.5px; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 2px #fff; }
+.col { position: absolute; left: 0; top: 0; height: 1px; background: var(--ink); transform-origin: 0 50%; }
+.cot { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 12.5px; font-weight: 500; color: var(--fg); background: rgba(255,255,255,.92); padding: 3px 8px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
+.cot.dim { background: var(--ink); color: #fff; box-shadow: none; font-variant-numeric: tabular-nums; }
+.podtop { position: fixed; top: calc(64px + env(safe-area-inset-top, 0px)); left: calc(24px + env(safe-area-inset-left, 0px)); right: calc(24px + env(safe-area-inset-right, 0px)); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.podctl { display: flex; gap: 6px; flex-wrap: wrap; }
+.tg.back { color: var(--fg); }
+.stepcard { position: fixed; left: calc(24px + env(safe-area-inset-left, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); width: 340px; padding: 18px 18px 14px;
+  background: var(--bg); border-radius: 14px; box-shadow: 0 8px 28px rgba(17,20,23,.09), 0 0 0 1px var(--line); }
+.stepno { font-size: 12px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stepcard h2 { margin: 4px 0 8px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+.stepcard p { margin: 0; font-size: 13.5px; line-height: 1.5; color: #3d454c; }
+.need { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; align-items: center; }
+.needh { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.chip { font-size: 12px; padding: 4px 9px; border-radius: 999px; background: var(--bg-2); }
+.stepcard .src { margin-top: 10px; font-size: 11.5px; line-height: 1.4; color: var(--muted); }
+.tipnote { margin-top: 10px !important; font-size: 12px !important; color: var(--muted) !important; padding-top: 10px; border-top: 1px solid var(--line); }
+.stepnav { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; gap: 10px; }
+.dots { display: flex; gap: 6px; }
+.dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: var(--line); }
+.dots button.on { background: var(--ink); width: 20px; border-radius: 4px; }
+.navb { display: flex; gap: 6px; }
+.nb { border: 1px solid var(--line); background: var(--bg); border-radius: 9px; padding: 7px 14px; font-size: 13px; font-weight: 500; }
+.nb:disabled { opacity: .4; cursor: default; }
+.nb.pri { background: var(--ink); color: #fff; border-color: var(--ink); }
+@media (max-width: 760px) {
+  .podtop { top: calc(56px + env(safe-area-inset-top, 0px)); left: 16px; right: 16px; }
+  .stepcard { left: 0; right: 0; bottom: 0; width: auto; border-radius: 14px 14px 0 0; padding: 14px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); max-height: 46%; overflow-y: auto; }
+  .stepcard h2 { font-size: 17px; } .stepcard p { font-size: 13px; }
+  .cot { font-size: 11px; padding: 2px 6px; }
+  #isoPill { top: auto; bottom: calc(118px + env(safe-area-inset-bottom, 0px)); }
+  .brand span { display: none; }
+  #drawer { left: 16px; right: 16px; width: auto; top: calc(64px + env(safe-area-inset-top, 0px)); max-height: 52%; }
+  .top { left: 16px; right: 16px; }
+  .toggles .tg { padding: 5px 10px; font-size: 12px; }
+  .bar { flex-wrap: wrap; justify-content: center; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .bar .btn { padding: 7px 10px; font-size: 12.5px; }
+  .sep.hide-sm { display: none; }
+  .ex input { width: 90px; }
+  #info { left: 16px; right: 16px; width: auto; bottom: auto; top: calc(78px + env(safe-area-inset-top, 0px)); }
+  .lbl { font-size: 10.5px; padding: 3px 7px 3px 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .lbl { transition: none; } }
+</style>
+
+<div id="stage"><canvas id="c" tabindex="0" aria-label="3D model of the Neuryo headset. Drag to rotate, scroll to zoom."></canvas></div>
+<div id="labels"></div>
+<div id="loading">Loading model…</div>
+
+<header class="top">
+  <div class="brand"><b>Neuryo</b><span>EEG + heart-rate headset</span></div>
+  <div class="toggles">
+    <div class="seg" id="headSeg" role="group" aria-label="Head"><span class="k">Head</span><button data-h="solid" class="on" id="h-solid">Solid</button><button data-h="ghost" id="h-ghost">Ghost</button><button data-h="off" id="h-off">Hidden</button></div>
+    <button class="tg" id="labelsSw" aria-pressed="true">Labels</button>
+    <button class="tg" id="detailsTg" aria-pressed="false">Details</button>
+    <a class="tg" id="tryOn" href="https://aryankalra404.github.io/Neuryo-Headset/tryon.html" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">Try it on</a>
+    <button class="tg" id="xrAR">View in AR</button>
+  </div>
+</header>
+
+<nav class="bar" id="views">
+  <button class="btn on" data-view="front" id="v-front">Front</button>
+  <button class="btn" data-view="side" id="v-side">Side</button>
+  <button class="btn" data-view="back" id="v-back">Back</button>
+  <button class="btn" data-view="top" id="v-top">Top</button>
+  <button class="btn" data-view="skin" id="v-skin">Skin side</button>
+  <span class="sep"></span>
+  <button class="btn" id="xray" aria-pressed="false">Inside</button>
+  <button class="btn" id="elecTg" aria-pressed="false">Electronics only</button>
+  <button class="btn" id="dimsTg" aria-pressed="false">Size</button>
+  <button class="btn" id="openPod">Electrode build</button>
+  <button class="btn" id="openBoard">Board guide</button>
+  <span class="sep hide-sm"></span>
+  <label class="ex" for="explode">Explode <input type="range" id="explode" min="0" max="100" value="0"></label>
+</nav>
+
+<div id="info" hidden>
+  <button class="close" id="infoClose" aria-label="Close">×</button>
+  <h4 id="infoName"></h4>
+  <p id="infoBody"></p>
+  <div class="spec" id="infoSpec"></div>
+  <div class="srcl" id="infoSrc"></div>
+  <button class="isoBtn" id="isoBtn">View on its own</button>
+</div>
+<div id="isoPill" hidden><span id="isoName"></span><button id="isoExit">Show everything</button></div>
+<aside id="drawer" hidden>
+  <div class="tabs"><button class="on" data-tab="parts" id="t-parts">Parts</button><button data-tab="specs" id="t-specs">Specs</button><button data-tab="sources" id="t-sources">Sources</button></div>
+  <div id="tab-parts"></div>
+  <div id="tab-specs" hidden>
+    <dl>
+      <div><dt>EEG channels</dt><dd>4 · AF7, AF8, Fz, Pz</dd></div>
+      <div><dt>Reference</dt><dd>Both mastoids, linked</dd></div>
+      <div><dt>Ground (bias)</dt><dd>Fpz, centre forehead</dd></div>
+      <div><dt>Electrodes</dt><dd>Saline sponge on Ag/AgCl</dd></div>
+      <div><dt>Heart</dt><dd>Forehead PPG · HR, HRV, breathing</dd></div>
+      <div><dt>Sampling</dt><dd>250 samples/s · 24-bit</dd></div>
+      <div><dt>Wireless</dt><dd>Bluetooth LE</dd></div>
+      <div><dt>Battery</dt><dd>2000 mAh · ≥ 3 h target</dd></div>
+      <div><dt>Session</dt><dd>≈ 3 min setup + 2 min test</dd></div>
+      <div><dt>Front module</dt><dd>≈ 105 × 55 × 19 mm</dd></div>
+      <div><dt>Parts cost</dt><dd>≈ ₹10,700 per headset</dd></div>
+      <div><dt>Intended use</dt><dd>Tracks change across clinic visits. Research device; no diagnosis.</dd></div>
+    </dl>
+    <p class="note">From the 26 Oct design doc. The module size is from this model.</p>
+  </div>
+  <div id="tab-sources" hidden>
+    <p class="note" style="margin-top:4px">Every part card says where its details come from. <b>Design doc</b>: your 26 Oct NeuroRipple design doc. <b>Model estimate</b>: a shape or size the doc doesn’t give, worked out to make the parts fit; check before building. <b>Added</b>: a build detail not in the doc, backed by the source below.</p>
+    <div class="grp">Added build details</div>
+    <ul class="refs">
+      <li><b>Seal the solder joint; choose sintered Ag/AgCl.</b> In saline, sintered Ag/AgCl had the most stable potential and lowest noise; tin (the main metal in solder) corroded and had noise 1–2 orders of magnitude higher. <a href="https://doi.org/10.3390/coatings16070781" target="_blank" rel="noopener">Alves, Fiedler &amp; Fonseca, Coatings 2026</a></li>
+      <li><b>Hole in the electrode for saline.</b> Standard EEG cups have “a hole in the top for electrolyte injection.” <a href="https://electrodestore.com/products/gh" target="_blank" rel="noopener">Electrode Store, GH series</a></li>
+      <li><b>Blot excess saline.</b> Electrolyte spreading between electrodes forms bridges that shrink the signal; remove excess before recording. <a href="https://doi.org/10.1016/j.clinph.2003.10.028" target="_blank" rel="noopener">Greischar et al., Clin. Neurophysiol. 2004</a></li>
+      <li><b>Sliding pod mounts.</b> 10–20 sites are set at 10% and 20% steps of each person’s own nasion–inion distance, so fixed spacing can’t fit every head. <a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)" target="_blank" rel="noopener">10–20 system (after Jasper 1958)</a></li>
+    </ul>
+    <div class="grp">Ideas for the team (not in the model)</div>
+    <ul class="refs">
+      <li><b>Smaller front module:</b> ESP32-S3-MINI-1 is 15.4 × 20.5 × 2.4 mm vs 18 × 25.5 × 3.1 mm, but has 2 MB PSRAM instead of 8 MB. <a href="https://documentation.espressif.com/esp32-s3-mini-1_mini-1u_datasheet_en.pdf" target="_blank" rel="noopener">Espressif datasheet</a></li>
+      <li><b>Heart sensor pressure:</b> PPG amplitude rises steadily with contact pressure, so keep strap pressure consistent and test it. <a href="https://doi.org/10.1117/12.3091708" target="_blank" rel="noopener">Bangari et al., SPIE 2026</a></li>
+    </ul>
+  </div>
+</aside>
+<div id="tip" hidden></div>
+<div id="podCallouts"></div>
+<div id="podUI" hidden>
+  <header class="podtop">
+    <button class="tg back" id="podBack">← Headset</button>
+    <div class="podctl">
+      <div class="seg" id="tipSeg" role="group" aria-label="Sponge tip"><span class="k">Tip</span><button data-tip="dome" class="on" id="tip-dome">Dome</button><button data-tip="fingers" id="tip-fingers">Fingers</button><button data-tip="flat" id="tip-flat">Flat</button></div>
+      <button class="tg" id="cutTg" aria-pressed="true">Cutaway</button>
+      <button class="tg" id="flipTg" aria-pressed="false">Show underside</button>
+    </div>
+  </header>
+  <section class="stepcard" aria-live="polite">
+    <div class="stepno" id="podStepNo"></div>
+    <h2 id="podTitle"></h2>
+    <p id="podText"></p>
+    <div class="need" id="podNeed"></div>
+    <p class="src" id="podSrc"></p>
+    <p class="tipnote" id="tipNote"></p>
+    <div class="stepnav">
+      <div class="dots" id="podDots"></div>
+      <div class="navb"><button id="podPrev" class="nb">Back</button><button id="podNext" class="nb pri">Next</button></div>
+    </div>
+  </section>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+
+try { await Promise.race([document.fonts.load('500 20px "IBM Plex Mono"'), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
+
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
+const V2 = (x, y) => new THREE.Vector2(x, y);
+const UP = V3(0, 1, 0);
+const rad = THREE.MathUtils.degToRad;
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+const sp = (v, e) => Math.sign(v) * Math.pow(Math.abs(v), e);
+const ACCENT = new THREE.Color('#2f8fd8');
+
+// ---------- renderer / scene ----------
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.95;
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(30, 1, 5, 6000);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.minDistance = 90; controls.maxDistance = 1200;
+scene.add(new THREE.HemisphereLight(0xdde7ee, 0x2a2622, 0.55));
+const key = new THREE.DirectionalLight(0xfff6ec, 1.5); key.position.set(320, 420, 300); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.75); rim.position.set(-320, 160, -340); scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffffff, 0.35); fill.position.set(-200, -60, 300); scene.add(fill);
+const inner = new THREE.DirectionalLight(0xffffff, 0.6); inner.position.set(0, -80, -300); scene.add(inner);
+
+// ---------- head surface (mm; y up, face toward +z, subject's left = +x) ----------
+function F(u) {
+  const t = Math.max(0, -u.y);
+  let X = u.x * 76, Y = u.y * (100 + 16 * smooth(0, 0.5, t)), Z = u.z * 97;
+  X *= 1 - 0.30 * smooth(0.3, 1, t);
+  if (u.z < 0) Z *= 1 - 0.45 * smooth(0.15, 0.85, t); else Z *= 1 + 0.30 * smooth(0.05, 0.75, t) * Math.sqrt(u.z);
+  return V3(X, Y, Z);
+}
+const gs = (x, c, s) => Math.exp(-((x - c) / s) * ((x - c) / s));
+function faceDisp(u) {
+  const el = Math.asin(Math.max(-1, Math.min(1, u.y))) * 57.2958, az = Math.atan2(u.x, u.z) * 57.2958;
+  if (Math.abs(az) > 80 || el > 12) return 0;
+  let d = 0;
+  const nose = smooth(-1, -22, el) * (1 - smooth(-24, -30, el));
+  d += 15 * nose * gs(az, 0, 4.5 + 4 * smooth(-4, -26, el));
+  d += 3.2 * gs(el, -26, 3) * (gs(az, 7.5, 3.5) + gs(az, -7.5, 3.5));
+  d -= 5.5 * gs(el, -8, 5.5) * (gs(az, 19, 8) + gs(az, -19, 8));
+  d += 1.6 * gs(el, 0, 3) * (gs(az, 18, 11) + gs(az, -18, 11));
+  d += 2.6 * gs(el, -21, 6) * (gs(az, 33, 9) + gs(az, -33, 9));
+  d += 3.4 * gs(el, -39.5, 2.6) * gs(az, 0, 10) + 3 * gs(el, -45, 2.6) * gs(az, 0, 9);
+  d -= 1.4 * gs(el, -42.3, 1.1) * gs(az, 0, 11);
+  d += 4 * gs(el, -57, 6) * gs(az, 0, 11);
+  return d;
+}
+function surfU(u) {
+  u = u.clone().normalize();
+  const t1 = new THREE.Vector3().crossVectors(u, Math.abs(u.y) < 0.9 ? UP : V3(1, 0, 0)).normalize();
+  const t2 = new THREE.Vector3().crossVectors(u, t1).normalize();
+  const e = 0.002;
+  const a = F(u.clone().addScaledVector(t1, e).normalize()).sub(F(u.clone().addScaledVector(t1, -e).normalize()));
+  const b = F(u.clone().addScaledVector(t2, e).normalize()).sub(F(u.clone().addScaledVector(t2, -e).normalize()));
+  const p = F(u);
+  const n = new THREE.Vector3().crossVectors(a, b).normalize();
+  if (n.dot(p) < 0) n.negate();
+  return { p, n };
+}
+function surf(az, el) {
+  const A = rad(az), E = rad(el);
+  return surfU(V3(Math.sin(A) * Math.cos(E), Math.sin(E), Math.cos(A) * Math.cos(E)));
+}
+const off = (S, d) => S.p.clone().addScaledVector(S.n, d);
+function orient(obj, S, d = 0) { obj.position.copy(off(S, d)); obj.quaternion.setFromUnitVectors(UP, S.n); }
+function frameAt(S) {
+  const x = new THREE.Vector3().crossVectors(UP, S.n).normalize();
+  if (x.lengthSq() < 0.5) x.set(1, 0, 0);
+  const y = new THREE.Vector3().crossVectors(S.n, x).normalize();
+  return { x, y, n: S.n.clone() };
+}
+
+// ---------- materials ----------
+function tex(w, h, draw) {
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  draw(cv.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+const M = {
+  head: new THREE.MeshStandardMaterial({ color: 0xe2dfda, roughness: 0.82, metalness: 0 }),
+  cover: new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.42, clearcoat: 0.35, clearcoatRoughness: 0.4, side: THREE.DoubleSide,
+    map: tex(1024, 512, (g, w, h) => {
+      g.fillStyle = '#f4f3f0'; g.fillRect(0, 0, w, h);
+      g.fillStyle = '#a9a69f'; g.font = '500 30px "IBM Plex Mono", monospace'; g.textAlign = 'center';
+      g.fillText('N E U R Y O', w / 2, h * 0.66);
+    }) }),
+  base: new THREE.MeshStandardMaterial({ color: 0x2c3034, roughness: 0.8, side: THREE.DoubleSide }),
+  band: new THREE.MeshStandardMaterial({ color: 0x353b41, roughness: 0.95 }),
+  strap: new THREE.MeshStandardMaterial({ color: 0x41484f, roughness: 0.92 }),
+  pod: new THREE.MeshPhysicalMaterial({ color: 0x4ea7a0, roughness: 0.45, clearcoat: 0.2 }),
+  podLid: new THREE.MeshStandardMaterial({ color: 0x2f7d77, roughness: 0.5 }),
+  hole: new THREE.MeshBasicMaterial({ color: 0x07090a }),
+  sponge: new THREE.MeshStandardMaterial({ color: 0xf0df9c, roughness: 1 }),
+  metal: new THREE.MeshStandardMaterial({ color: 0xc9cbc6, metalness: 1, roughness: 0.32 }),
+  chip: new THREE.MeshStandardMaterial({ color: 0x18191b, roughness: 0.55 }),
+  pins: new THREE.MeshStandardMaterial({ color: 0xb9b6ad, metalness: 1, roughness: 0.4 }),
+  pcbSide: new THREE.MeshStandardMaterial({ color: 0x0d4434, roughness: 0.6 }),
+  shield: new THREE.MeshStandardMaterial({ color: 0xd0d3d7, metalness: 1, roughness: 0.28 }),
+  conn: new THREE.MeshStandardMaterial({ color: 0xf1ede2, roughness: 0.6 }),
+  passive: new THREE.MeshStandardMaterial({ color: 0x8a7a63, roughness: 0.6 }),
+  res: new THREE.MeshStandardMaterial({ color: 0x1e1e1e, roughness: 0.6 }),
+  ferrite: new THREE.MeshStandardMaterial({ color: 0x55595d, roughness: 0.5 }),
+  glass: new THREE.MeshPhysicalMaterial({ color: 0x0a0c0e, roughness: 0.08, clearcoat: 1 }),
+  foam: new THREE.MeshStandardMaterial({ color: 0xeef1f2, roughness: 0.95 }),
+  gel: new THREE.MeshPhysicalMaterial({ color: 0xa9d3e4, roughness: 0.25, clearcoat: 0.6 }),
+  pouch: new THREE.MeshStandardMaterial({ color: 0xc4c8cd, metalness: 0.65, roughness: 0.42 }),
+  led: new THREE.MeshStandardMaterial({ color: 0x2f8fd8, emissive: 0x2f8fd8, emissiveIntensity: 1.4 }),
+  ledG: new THREE.MeshStandardMaterial({ color: 0x5be38f, emissive: 0x5be38f, emissiveIntensity: 1.2 }),
+  ledB: new THREE.MeshStandardMaterial({ color: 0x5aa8ff, emissive: 0x5aa8ff, emissiveIntensity: 1.2 }),
+  redChip: new THREE.MeshStandardMaterial({ color: 0x241417, roughness: 0.4, emissive: 0xff3b3b, emissiveIntensity: 0.35 }),
+};
+const XRAY_MATS = [
+  [M.cover, 0.2], [M.band, 0.32], [M.strap, 0.32], [M.base, 0.55]
+];
+const podCover = M.cover.clone(); podCover.map = tex(512, 512, (g, w, h) => { g.fillStyle = '#ebe8e2'; g.fillRect(0, 0, w, h); });
+XRAY_MATS.push([podCover, 0.2]);
+
+// ---------- head ----------
+const headGroup = new THREE.Group(); scene.add(headGroup);
+let hg = new THREE.SphereGeometry(1, 220, 170); hg.deleteAttribute('uv'); hg.deleteAttribute('normal');
+hg = mergeVertices(hg);
+{ const P = hg.attributes.position, u = new THREE.Vector3();
+  for (let i = 0; i < P.count; i++) { u.set(P.getX(i), P.getY(i), P.getZ(i)); const q = F(u); const d = faceDisp(u); if (d) q.addScaledVector(q.clone().normalize(), d); P.setXYZ(i, q.x, q.y, q.z); } }
+hg.computeVertexNormals();
+const headMesh = new THREE.Mesh(hg, M.head); headGroup.add(headMesh);
+const neck = new THREE.Mesh(new THREE.CylinderGeometry(33, 50, 170, 72, 1, false), M.head); neck.position.set(0, -185, 4); headGroup.add(neck);
+{ for (const sx of [1, -1]) { const e = surf(sx * 94, -13); const ear = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 36), M.head);
+    ear.scale.set(5.5, 27, 15); ear.position.copy(e.p).addScaledVector(e.n, 1.2); ear.rotation.set(0.18, sx * 0.32, sx * -0.05); headGroup.add(ear); }
+  const bust = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 64), M.head); bust.scale.set(165, 62, 92); bust.position.set(0, -262, -22); headGroup.add(bust);
+}
+
+// ---------- registry ----------
+const headset = new THREE.Group(); scene.add(headset);
+const pickables = [];
+const parts = {};
+const explodables = [];
+function part(key, def) { parts[key] = Object.assign({ meshes: [], key }, def); return parts[key]; }
+function addTo(key, ...objs) { for (const o of objs) o.traverse(m => { if (m.isMesh) { m.userData.part = key; parts[key].meshes.push(m); pickables.push(m); } }); }
+function explode(obj, dir, dist) { explodables.push({ obj, base: obj.position.clone(), dir: dir.clone().normalize(), dist }); }
+
+const P = {
+  module: part('module', { name: 'Front module', src: 'Layout: design doc. Outer size and shape: model estimate.', spec: '≈ 105 × 55 × 19 mm · 3D-printed PETG', color: '#ebe8e2', body: 'Holds the main circuit board, 19 mm at its thickest. Electrodes and the heart sensor sit on its underside.' }),
+  strap: part('strap', { name: 'Top strap', src: 'Design doc. Shape: model estimate. Tip: make the pod mounts slide, since 10–20 sites are a percentage of each head’s own measurements.', spec: 'Elastic · carries 2 pods', color: '#41484f', body: 'Holds the two scalp electrodes over the middle of the head.' }),
+  band: part('band', { name: 'Head band', src: 'Design doc. Shape: model estimate.', spec: 'Neoprene · adjusts at the back', color: '#353b41', body: 'Goes around the head and holds the reference electrodes behind the ears.' }),
+  batt: part('batt', { name: 'Battery', src: 'Design doc (BOM). Pod shape and size: model estimate.', spec: 'LiPo 3.7 V 2000 mAh · ≥ 3 h target', color: '#c4c8cd', body: '2000 mAh rechargeable battery at the back, balancing the front.' }),
+  pcb: part('pcb', { name: 'Main board', src: 'Design doc.', spec: '4-layer · 60 × 45 mm', color: '#1c6b52', body: '60 × 45 mm circuit board inside the front module.' }),
+  ads: part('ads', { name: 'EEG chip', src: 'Design doc.', spec: 'ADS1299-4 · 250 samples/s · 24-bit', color: '#7cc6fe', body: 'ADS1299. Reads the brain signals from the electrodes.' }),
+  esp: part('esp', { name: 'Microcontroller', src: 'Design doc. Module size 18 × 25.5 × 3.1 mm (Espressif).', spec: 'ESP32-S3-WROOM-1 · Bluetooth LE', color: '#d0d3d7', body: 'ESP32-S3. Runs the firmware, collects EEG, heart and motion data, and sends it to the app over Bluetooth.' }),
+  ppg: part('ppg', { name: 'Heart sensor', src: 'Design doc.', spec: 'MAX30102 · heart rate, HRV, breathing', color: '#ff7b7b', body: 'MAX30102. Measures heart rate through a small window on the forehead.' }),
+  imu: part('imu', { name: 'Motion sensor', src: 'Design doc.', spec: 'MPU-6050 · 6-axis', color: '#b0b8bf', body: 'MPU-6050. Flags head movement so noisy data can be dropped.' }),
+  power: part('power', { name: 'Power circuit', src: 'Design doc.', spec: 'TP4056 · MT3608 · TPS7A20 LDOs', color: '#c7a35a', body: 'Charges the battery and powers the board.' }),
+  prot: part('prot', { name: 'Input protection', src: 'Design doc.', spec: '4.7 kΩ + TVS diode · ×10', color: '#8a7a63', body: 'Protects the electronics on every electrode line.' }),
+  usb: part('usb', { name: 'USB-C port', src: 'Design doc says the port should be awkward to reach while worn; exact spot is a model estimate.', spec: 'Disabled for streaming while charging', color: '#c9cbc6', body: 'For charging only.' }),
+  af: part('af', { name: 'Forehead electrodes', src: 'Positions and pod: design doc. Flat sponge length: model estimate.', spec: 'Channels 1 and 2 · flat saline sponge', color: '#f2a65a', body: 'AF7 and AF8. Pick up blinks and eye movement.' }),
+  fz: part('fz', { name: 'Fz electrode', src: 'Position and pod: design doc. Sponge plug length: model estimate.', spec: 'Channel 3 · 30% nasion to inion', color: '#7cc6fe', body: 'Front-top of the head. Saline sponge in a 3D-printed pod.' }),
+  pz: part('pz', { name: 'Pz electrode', src: 'Position and pod: design doc. Sponge plug length: model estimate.', spec: 'Channel 4 · 70% nasion to inion', color: '#b69cff', body: 'Back-top of the head. Saline sponge in a 3D-printed pod.' }),
+  tp: part('tp', { name: 'Reference electrodes', src: 'Positions and pod: design doc. Flat sponge length: model estimate.', spec: 'Linked mastoids into SRB1', color: '#d9dee2', body: 'Behind each ear (TP9, TP10).' }),
+  fpz: part('fpz', { name: 'Ground electrode', src: 'Design doc.', spec: 'Bias / DRL · disposable hydrogel snap', color: '#6fd3a2', body: 'Fpz. Stick-on gel pad in the middle of the forehead.' }),
+};
+
+// ---------- shell patch (front module, battery pod) ----------
+function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, coverMat, baseMat }) {
+  const cov = [], bas = [], uv = [], idx = [];
+  const push = (u, v, r) => {
+    const S = surf(azC + u * azH, elC + v * elH);
+    const prof = Math.pow(Math.max(0, 1 - Math.pow(r, 6)), 0.3) * (wing + (1 - wing) * Math.exp(-Math.pow(Math.abs(u) / wingW, 3)));
+    bas.push(...off(S, base).toArray()); cov.push(...off(S, base + T * prof).toArray()); uv.push((u + 1) / 2, (v + 1) / 2);
+  };
+  push(0, 0, 0);
+  for (let i = 1; i <= nr; i++) { const r = i / nr;
+    for (let j = 0; j < na; j++) { const a = j / na * Math.PI * 2, c = Math.cos(a), s = Math.sin(a);
+      push(r * sp(c, 2 / pw), r * sp(s, 2 / pw), r); } }
+  const id = (i, j) => i === 0 ? 0 : 1 + (i - 1) * na + ((j % na) + na) % na;
+  for (let j = 0; j < na; j++) idx.push(0, id(1, j), id(1, j + 1));
+  for (let i = 1; i < nr; i++) for (let j = 0; j < na; j++) { const a = id(i, j), b = id(i, j + 1), c = id(i + 1, j), d = id(i + 1, j + 1); idx.push(a, c, b, b, c, d); }
+  const mk = (arr, mat) => { const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(arr, 3));
+    g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals(); return new THREE.Mesh(g, mat); };
+  return { cover: mk(cov, coverMat), base: mk(bas, baseMat) };
+}
+
+// ---------- swept straps ----------
+function sweep(samples, w, th, offFn, mat) {
+  const N = 22, prof = [];
+  for (let k = 0; k < N; k++) { const a = k / N * Math.PI * 2; prof.push([w / 2 * sp(Math.cos(a), 0.22), th / 2 * sp(Math.sin(a), 0.32) + th / 2]); }
+  const pos = [], idx = [];
+  samples.forEach((s, i) => {
+    const a = samples[Math.max(0, i - 1)].p, b = samples[Math.min(samples.length - 1, i + 1)].p;
+    const t = b.clone().sub(a).normalize();
+    const side = new THREE.Vector3().crossVectors(t, s.n).normalize();
+    const nn = new THREE.Vector3().crossVectors(side, t).normalize();
+    const o = offFn(s, i);
+    Object.assign(s, { t, side, nn, o, thk: th });
+    for (const [x, y] of prof) pos.push(...s.p.clone().addScaledVector(nn, o + y).addScaledVector(side, x).toArray());
+  });
+  for (let i = 0; i < samples.length - 1; i++) for (let k = 0; k < N; k++) {
+    const a = i * N + k, b = i * N + (k + 1) % N, c = (i + 1) * N + k, d = (i + 1) * N + (k + 1) % N; idx.push(a, c, b, b, c, d); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  return new THREE.Mesh(g, mat);
+}
+const along = (s, side, lift = 0.5) => s.p.clone().addScaledVector(s.nn, s.o + s.thk * lift).addScaledVector(s.side, side);
+const nearest = (arr, f) => { let bi = 0, bv = Infinity; arr.forEach((s, i) => { const v = Math.abs(f(s)); if (v < bv) { bv = v; bi = i; } }); return bi; };
+
+// ---------- sites (10-20) ----------
+const SITE = {
+  AF7: surf(36, 21), AF8: surf(-36, 21), Fpz: surf(0, 13), PPG: surf(12, 24),
+  Fz: surf(0, 54), Pz: surf(0, 126), TP9: surf(125, -12), TP10: surf(235, -12),
+};
+
+// ---------- front module ----------
+const MOD = { azC: 0, elC: 20, azH: 45, elH: 16, T: 19, base: 1, wing: 0.68 };
+const mod = shellPatch({ ...MOD, coverMat: M.cover, baseMat: M.base });
+mod.cover.renderOrder = 10; headset.add(mod.cover, mod.base);
+addTo('module', mod.cover, mod.base);
+const S0 = surf(0, 20), F0 = frameAt(S0);
+explode(mod.cover, F0.n, 48);
+mod.cover.userData.xrayGhost = true;
+let statusLed; { const s = surf(0, 9.6), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(9, 1.6, 1.4, 2, 0.6), M.led);
+  led.position.copy(off(s, 1 + 19 * Math.pow(1 - Math.pow(0.65, 6), 0.3) - 0.35));
+  led.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.y, f.n)); headset.add(led); addTo('module', led); explode(led, F0.n, 48); }
+
+// ---------- PCB ----------
+const pcbGroup = new THREE.Group();
+pcbGroup.position.copy(off(S0, 4.8));
+pcbGroup.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(F0.x, F0.y, F0.n));
+headset.add(pcbGroup); explode(pcbGroup, F0.n, 27);
+const ESP = { x: -19, y: 9.25, w: 18, h: 25.5 };
+// Series resistor (R) then TVS diode (D) next to each connector. 10 pairs, as in the BOM. Positions are a model estimate.
+const PROT = [
+  ...[-9, -6, -3, 0].map(y => ({ c: 'J2', r: [24.3, y], d: [21.3, y], v: false })),
+  ...[3.5, 6, 8.5].map(x => ({ c: 'J1', r: [x, 17], d: [x, 14.5], v: true })),
+  ...[3.5, 6, 8.5].map(x => ({ c: 'J3', r: [x, -17], d: [x, -14.5], v: true })),
+];
+const pcbTex = tex(960, 720, (g, W, H) => {
+  const S = 16, X = x => (x + 30) * S, Y = y => (22.5 - y) * S;
+  g.fillStyle = '#0e4535'; g.fillRect(0, 0, W, H);
+  g.fillStyle = 'rgba(40,120,88,0.28)'; g.fillRect(X(-0.5), 0, W - X(-0.5), H);
+  g.fillStyle = '#0a3127'; g.fillRect(X(ESP.x - 9.5), 0, 19 * S, 7.5 * S);
+  g.strokeStyle = 'rgba(233,239,233,0.25)'; g.lineWidth = 2;
+  for (let k = -10; k < 40; k++) { g.beginPath(); g.moveTo(X(ESP.x - 9.5) + k * 14, 0); g.lineTo(X(ESP.x - 9.5) + k * 14 - 120, 7.5 * S); g.stroke(); }
+  const tr = (pts, w = 0.28) => { g.lineWidth = w * S; g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y))); g.stroke(); };
+  g.strokeStyle = 'rgba(206,170,92,0.55)'; g.lineJoin = 'round'; g.lineCap = 'round';
+  PROT.forEach((p, k) => { if (p.c === 'J2') { const y = p.r[1]; tr([[27.6, y], [24.3, y], [21.3, y], [16, -2 + (y + 4.5) * 0.4], [11.2, -2 + (y + 4.5) * 0.4]]); }
+    else if (p.c === 'J1') tr([[p.r[0], 19], [p.r[0], 17], [p.d[0], 14.5], [p.d[0], 3.2]]);
+    else tr([[p.r[0], -19], [p.r[0], -17], [p.d[0], -14.5], [p.d[0], -7.2]]); });
+  for (let k = 0; k < 5; k++) { const y = 1.5 - k * 1.4; tr([[0.8, y], [-3, y], [-6, y + 3], [-10, y + 3]]); }
+  g.strokeStyle = 'rgba(206,170,92,0.75)';
+  tr([[-24, -16], [-20, -16], [-17.5, -17]], 0.9); tr([[-17.5, -12], [-11, -12], [-6, -9]], 0.9); tr([[-11, -18], [-6, -12]], 0.9); tr([[-5.5, 17.5], [-8, -4.5], [-24, -4.5], [-24, -14]], 0.7); tr([[-25.5, -18.5], [-25.5, -17]], 0.9); tr([[-11, -18], [-1.5, -18], [-1.5, -6], [1, -5]], 0.7);
+  g.fillStyle = '#d4b56a';
+  for (let i = 0; i < 46; i++) { const x = -27 + ((i * 37) % 54), y = -20 + ((i * 23) % 40); if (x > ESP.x - 9.5 && x < ESP.x + 9.5 && y > 15) continue; g.beginPath(); g.arc(X(x), Y(y), 0.35 * S, 0, 7); g.fill(); }
+  for (const [x, y] of [[27.5, -19.5], [27.5, 19.5], [-27.5, 19.5]]) { g.beginPath(); g.arc(X(x), Y(y), 1.4 * S, 0, 7); g.fill(); g.fillStyle = '#05140f'; g.beginPath(); g.arc(X(x), Y(y), 0.8 * S, 0, 7); g.fill(); g.fillStyle = '#d4b56a'; }
+  g.setLineDash([10, 8]); g.strokeStyle = 'rgba(233,239,233,0.55)'; g.lineWidth = 2; g.strokeRect(X(-0.5), Y(22.2), 30.2 * S, 44.4 * S); g.setLineDash([]);
+  g.fillStyle = '#e9efe9'; g.font = '500 20px "IBM Plex Mono", monospace';
+  g.fillText('ANALOG', X(13.5), Y(-18.6)); g.fillText('KEEP OUT', X(ESP.x - 8.5), Y(21.2) + 12);
+  g.font = '500 16px "IBM Plex Mono", monospace'; g.fillText('NEURYO EEG MAIN REV A', X(-16), Y(-21.4));
+  const ref = [['U1', 1, 4.6], ['U2', -12.5, -5], ['U3', -3, -12], ['U4', -27, -12.6], ['J1', 10.5, 21], ['J2', 26, -12.2], ['J3', 10.5, -21.5], ['J4', -9.8, 16.2], ['J5', -29.5, -17.6], ['SW1', 11, 18.6], ['R1-4 D1-4', 19.6, 2.4], ['R5-7 D5-7', 10, 16.6], ['R8-10 D8-10', 10, -12.8]];
+  g.font = '500 15px "IBM Plex Mono", monospace'; for (const [t, x, y] of ref) g.fillText(t, X(x), Y(y));
+});
+const pcbMesh = new THREE.Mesh(new THREE.BoxGeometry(60, 45, 1.6), [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: pcbTex, roughness: 0.55 }), M.pcbSide]);
+pcbGroup.add(pcbMesh); addTo('pcb', pcbMesh);
+function comp(key, w, h, d, x, y, mat, z = 0.8) {
+  const m = new THREE.Mesh(Array.isArray(mat) ? new THREE.BoxGeometry(w, h, d) : new RoundedBoxGeometry(w, h, d, 1, Math.min(w, h, d) * 0.12), mat);
+  m.position.set(x, y, z + d / 2); pcbGroup.add(m); addTo(key, m); return m;
+}
+const chipTex = (lines, w = 256, h = 256) => tex(w, h, (g) => { g.fillStyle = '#17181a'; g.fillRect(0, 0, w, h); g.fillStyle = '#9a9a96'; g.font = `500 ${Math.round(w / 9)}px "IBM Plex Mono", monospace`;
+  lines.forEach((l, i) => g.fillText(l, w * 0.12, h * 0.36 + i * h * 0.17)); g.beginPath(); g.arc(w * 0.16, h * 0.82, w * 0.05, 0, 7); g.fill(); });
+const adsTop = new THREE.MeshStandardMaterial({ map: chipTex(['TI', 'ADS1299', '4PAG']), roughness: 0.5 });
+comp('ads', 12, 12, 0.25, 6, -2, M.pins);
+comp('ads', 10, 10, 1.0, 6, -2, [M.chip, M.chip, M.chip, M.chip, adsTop, M.chip], 1.05);
+{ const espBoard = tex(360, 510, (g, w, h) => { g.fillStyle = '#1b2531'; g.fillRect(0, 0, w, h); g.strokeStyle = '#c9a75c'; g.lineWidth = 7;
+    g.beginPath(); let x = 30; g.moveTo(x, 100); for (let k = 0; k < 6; k++) { g.lineTo(x, 22); x += 25; g.lineTo(x, 22); g.lineTo(x, 100); x += 25; g.lineTo(x, 100); } g.stroke(); });
+  comp('esp', ESP.w, ESP.h, 0.8, ESP.x, ESP.y, [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: espBoard, roughness: 0.5 }), M.pcbSide]);
+  const shTex = tex(332, 372, (g, w, h) => { g.fillStyle = '#cfd2d6'; g.fillRect(0, 0, w, h); g.fillStyle = '#5c6066'; g.font = '500 24px "IBM Plex Mono", monospace';
+    ['ESP32-S3-WROOM-1', 'N8R8', '', 'FCC ID 2AC7Z', '-ESPS3WROOM1'].forEach((l, i) => g.fillText(l, 22, 80 + i * 40)); });
+  const shTop = new THREE.MeshStandardMaterial({ map: shTex, metalness: 0.85, roughness: 0.32 });
+  comp('esp', 16.6, 18.6, 2.3, ESP.x, ESP.y - 2.85, [M.shield, M.shield, M.shield, M.shield, shTop, M.shield], 1.6); }
+comp('imu', 4, 4, 0.9, -3, -15, M.chip);
+comp('power', 4.9, 3.9, 1.5, -24, -16, M.chip); comp('power', 2.9, 1.6, 1.1, -17.5, -18, M.chip);
+comp('power', 4, 4, 2, -17.5, -12, M.ferrite); comp('power', 2, 2, 0.6, -11, -18, M.chip); comp('power', 2, 2, 0.6, -11, -12, M.chip);
+comp('power', 2, 1.25, 0.9, -6, -9, M.ferrite); comp('power', 2, 1.25, 0.9, -6, -12, M.ferrite);
+for (const p of PROT) { comp('prot', p.v ? 0.8 : 1.6, p.v ? 1.6 : 0.8, 0.45, p.r[0], p.r[1], M.res); comp('prot', p.v ? 0.8 : 1.2, p.v ? 1.2 : 0.8, 0.6, p.d[0], p.d[1], M.chip); }
+for (const [x, y] of [[1.5, 5.4], [12, 4.5], [1.5, -9.4], [12, -8.5], [13, -2], [-1, -2], [-8, 0], [-8, 3], [-21, -21.6], [-14, -21], [-7, -16]]) comp('pcb', 1.6, 0.8, 0.8, x, y, M.passive);
+for (const c of [comp('pcb', 7, 4.2, 2.9, 6, 20.6, M.conn), comp('pcb', 4.2, 9, 2.9, 27.6, -6, M.conn), comp('pcb', 7, 4.2, 2.9, 6, -20.6, M.conn), comp('pcb', 5, 4, 2.9, -25.5, -20.5, M.conn)]) c.userData.sub = 'conn';
+comp('usb', 9, 7.4, 3.2, -5.5, 21.2, M.metal); comp('pcb', 6.6, 2.6, 1.4, 14, 21, M.chip);
+comp('pcb', 1.6, 0.8, 0.6, 19.5, 20.6, M.ledG); comp('pcb', 1.6, 0.8, 0.6, 21.8, 20.6, M.ledB);
+pcbGroup.updateMatrixWorld(true);
+const JW = (x, y) => pcbGroup.localToWorld(V3(x, y, 2.2));
+
+// ---------- skin-side contacts on the module ----------
+function makePod(kind) {
+  // Same cup for every pod (design doc): 14 mm wide, 20 mm tall. Hair pods: domed plug sticks out 5 mm.
+  // Flat pods: shorter, flat sponge; the 2 mm it sticks out is a model estimate (the doc gives no number).
+  const hair = kind === 'hair', c0 = hair ? 5 : 2, c1 = c0 + 20, r = 7;
+  const g = new THREE.Group();
+  const sponge = new THREE.Mesh(new THREE.LatheGeometry(hair
+    ? [V2(0.01, 0), V2(1.5, 0.12), V2(2.8, 0.5), V2(3.9, 1.2), V2(4.6, 2.2), V2(5, 3.4), V2(5, 10), V2(0.01, 10)]
+    : [V2(0.01, 0), V2(4.7, 0), V2(5, 0.4), V2(5, 7), V2(0.01, 7)], 40), M.sponge);
+  const cupG = new THREE.Group();
+  const cup = new THREE.Mesh(new THREE.LatheGeometry([V2(0.01, c0), V2(r - 1.2, c0), V2(r, c0 + 1.2), V2(r, c1 - 0.5), V2(r - 0.3, c1), V2(0.01, c1)], 44), M.pod);
+  const lid = new THREE.Mesh(new THREE.LatheGeometry([V2(1.25, c1), V2(r + 0.4, c1), V2(r + 0.4, c1 + 1.8), V2(1.25, c1 + 1.8), V2(1.25, c1)], 44), M.podLid);
+  const hole = new THREE.Mesh(new THREE.CircleGeometry(1.3, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = c1 + 1.0;
+  const metal = new THREE.Mesh(new THREE.CylinderGeometry(5.4, 5.4, 1.6, 32), M.metal); metal.position.y = c0 + 5.8;
+  cupG.add(cup, lid, hole, metal); g.add(sponge, cupG);
+  return { g, cupG, sponge, top: c1 + 1.8, c0, c1 };
+}
+const COLLARS = [];
+function placePod(kind, S, key, cupDist, spDist, collarY) {
+  const pd = makePod(kind); orient(pd.g, S); headset.add(pd.g); addTo(key, pd.g); pd.g.userData.grabRoot = true;
+  explode(pd.cupG, UP, cupDist); explode(pd.sponge, UP, spDist);
+  if (collarY) { const col = new THREE.Mesh(new THREE.TorusGeometry(8.1, 1.4, 12, 48), kind === 'hair' ? M.strap : M.band); col.rotation.x = Math.PI / 2; col.position.y = collarY; pd.g.add(col); COLLARS.push(col); }
+  return pd;
+}
+placePod('flat', SITE.AF7, 'af', 20, 8); placePod('flat', SITE.AF8, 'af', 20, 8);
+{ const g = new THREE.Group(); orient(g, SITE.Fpz);
+  const pad = new THREE.Mesh(new THREE.CylinderGeometry(11, 11, 0.9, 48), M.foam); pad.position.y = 0.45;
+  const gel = new THREE.Mesh(new THREE.CylinderGeometry(7, 7, 1.2, 40), M.gel); gel.position.y = 0.42;
+  const stud = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.8, 3.2, 24), M.metal); stud.position.y = 2.4;
+  g.add(pad, gel, stud); headset.add(g); addTo('fpz', g); }
+{ const S = SITE.PPG, f = frameAt(S), q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.y, f.n));
+  const win = new THREE.Mesh(new RoundedBoxGeometry(11, 7, 0.8, 2, 0.3), M.glass); win.position.copy(off(S, 0.75)); win.quaternion.copy(q);
+  const brd = new THREE.Mesh(new THREE.BoxGeometry(13, 13, 1), M.pcbSide); brd.position.copy(off(S, 2.6)); brd.quaternion.copy(q);
+  const chip = new THREE.Mesh(new THREE.BoxGeometry(5.6, 3.3, 1.4), M.redChip); chip.position.copy(off(S, 1.5)); chip.quaternion.copy(q);
+  headset.add(win, brd, chip); addTo('ppg', win, brd, chip); explode(brd, F0.n, 14); explode(chip, F0.n, 14); }
+
+// ---------- rear band ----------
+const bandKeys = [[40, 20], [72, 20], [95, 17], [110, 9], [125, -12], [150, -13], [180, -11], [210, -13], [235, -12], [250, 9], [265, 17], [288, 20], [320, 20]];
+const bandSamples = new THREE.SplineCurve(bandKeys.map(k => V2(k[0], k[1]))).getSpacedPoints(260).map(v => Object.assign({ az: v.x, el: v.y }, surf(v.x, v.y)));
+const bump = (x, c, s) => Math.exp(-Math.pow((x - c) / s, 2));
+const bandMesh = sweep(bandSamples, 22, 3.5, s => 0.6 + 1.4 * (1 - smooth(40, 47, s.az)) + 1.4 * smooth(313, 320, s.az) + 6.6 * bump(s.az, 125, 7) + 6.6 * bump(s.az, 235, 7), M.band);
+bandMesh.renderOrder = 5; headset.add(bandMesh); addTo('band', bandMesh);
+const bTP9 = bandSamples[nearest(bandSamples, s => s.az - 125)], bTP10 = bandSamples[nearest(bandSamples, s => s.az - 235)];
+const tp9 = placePod('flat', SITE.TP9, 'tp', 20, 8, 0.6 + 6.6 - 0.2); const tp10 = placePod('flat', SITE.TP10, 'tp', 20, 8, 0.6 + 6.6 - 0.2);
+
+// ---------- midline strap ----------
+const strapSamples = [];
+for (let i = 0; i <= 240; i++) { const th = 34 + i * (186 - 34) / 240; strapSamples.push(Object.assign({ th }, surf(0, th))); }
+const strapMesh = sweep(strapSamples, 16, 3, s => 0.6 + 1.3 * (1 - smooth(34, 39, s.th)) + 9 * bump(s.th, 54, 6.5) + 9 * bump(s.th, 126, 6.5) + 3.8 * smooth(170, 182, s.th), M.strap);
+strapMesh.renderOrder = 5; headset.add(strapMesh); addTo('strap', strapMesh);
+const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13, 9.6 + 1.5), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13, 9.6 + 1.5);
+
+// ---------- battery pod ----------
+const SB = surf(180, -10), FB = frameAt(SB);
+const bp = shellPatch({ azC: 180, elC: -10, azH: 24, elH: 15, T: 17, base: 4.6, nr: 24, na: 96, coverMat: podCover, baseMat: M.base });
+bp.cover.renderOrder = 10; bp.cover.userData.xrayGhost = true; headset.add(bp.cover, bp.base); addTo('batt', bp.cover, bp.base);
+explode(bp.cover, FB.n, 44);
+const battG = new THREE.Group(); battG.position.copy(off(SB, 10.2)); battG.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(FB.x, FB.y, FB.n));
+{ const lbl = tex(500, 340, (g, w, h) => { g.fillStyle = '#2f5f93'; g.fillRect(0, 0, w, h); g.fillStyle = '#e7eef6'; g.font = '500 34px "IBM Plex Mono", monospace';
+    g.fillText('Li-Polymer 3.7V', 36, 120); g.fillText('2000mAh  7.4Wh', 36, 172); g.font = '400 24px "IBM Plex Mono", monospace'; g.fillText('PCM protected · 103450', 36, 230); });
+  const cell = new THREE.Mesh(new THREE.BoxGeometry(50, 34, 9), [M.pouch, M.pouch, M.pouch, M.pouch, new THREE.MeshStandardMaterial({ map: lbl, roughness: 0.55 }), M.pouch]);
+  const pcm = new THREE.Mesh(new THREE.BoxGeometry(3, 30, 3.5), M.pcbSide); pcm.position.set(26.5, 0, -1.5);
+  battG.add(cell, pcm); }
+headset.add(battG); addTo('batt', battG); explode(battG, FB.n, 22);
+
+// ---------- wires (shown with the see-through shell) ----------
+const wires = new THREE.Group(); headset.add(wires);
+function wire(pts, color, r = 0.6) {
+  const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), Math.max(24, pts.length * 3), r, 7, false), new THREE.MeshStandardMaterial({ color, roughness: 0.5 }));
+  wires.add(m); return m;
+}
+const thin = (arr, a, b, step, side) => { const out = []; const d = a < b ? 1 : -1; for (let i = a; d > 0 ? i <= b : i >= b; i += d * step) out.push(along(arr[i], side)); return out; };
+const iStrapFz = nearest(strapSamples, s => s.th - 54), iStrapPz = nearest(strapSamples, s => s.th - 126), iStrap0 = nearest(strapSamples, s => s.th - 35);
+const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20.5);
+const bandL = nearest(bandSamples, s => s.az - 44), bandR = nearest(bandSamples, s => s.az - 316);
+const iTP9 = nearest(bandSamples, s => s.az - 125), iTP10 = nearest(bandSamples, s => s.az - 235), iBack = nearest(bandSamples, s => s.az - 180);
+const inMod = (s, P2) => [off(s, 9), P2];
+wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, 32), J1)], '#7cc6fe');
+wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, 31), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
+wire([...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, 18), J2)], '#d9dee2');
+wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, 17), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
+wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, 16), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
+wire([...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, 18), J3)], '#d9dee2');
+wire([off(SITE.AF7, 9), off(surf(31, 22), 11), J2.clone().add(V3(0, 2, 0))], '#f2a65a');
+wire([off(SITE.AF8, 9), off(surf(-31, 22), 11), J3.clone().add(V3(0, 2, 0))], '#f7d070');
+wires.visible = false;
+
+// ---------- labels ----------
+const labelsEl = document.getElementById('labels');
+const labels = [];
+function label(text, sub, color, pos, normal, kind = 'site') {
+  const el = document.createElement('div'); el.className = 'lbl' + (kind === 'part' ? ' part' : kind === 'dim' ? ' dim' : kind === 'layer' ? ' layer' : '');
+  el.innerHTML = kind === 'dim' ? `<span>${text}</span>` : `<i style="background:${color}"></i><span>${text}</span>`;
+  labelsEl.appendChild(el); labels.push({ el, pos, normal, kind }); return el;
+}
+label('AF7', '', '#e8913a', off(SITE.AF7, 24), SITE.AF7.n);
+label('AF8', '', '#e8913a', off(SITE.AF8, 24), SITE.AF8.n);
+label('Fz', '', '#2f8fd8', off(SITE.Fz, 30), SITE.Fz.n);
+label('Pz', '', '#2f8fd8', off(SITE.Pz, 30), SITE.Pz.n);
+label('Reference', '', '#8a939b', off(SITE.TP9, 18), SITE.TP9.n);
+label('Reference', '', '#8a939b', off(SITE.TP10, 18), SITE.TP10.n);
+label('Ground', '', '#2fa772', off(SITE.Fpz, 24), SITE.Fpz.n);
+label('Heart sensor', '', '#e0524a', off(SITE.PPG, 26), SITE.PPG.n);
+const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y, z)) });
+labels.push(...[]);
+const partLabels = [
+  ['EEG chip', '#111417', PL(6, -2, 3)], ['Microcontroller', '#111417', PL(ESP.x, ESP.y, 5)], ['Motion sensor', '#111417', PL(-3, -15, 2.5)],
+  ['USB-C', '#111417', PL(-5.5, 22, 4.5)], ['Battery', '#111417', { get: () => battG.localToWorld(V3(0, 0, 6)) }],
+];
+for (const [t, c, src] of partLabels) { label(t, '', c, null, t === 'Battery' ? FB.n : F0.n, 'part'); labels[labels.length - 1].src = src; }
+
+// ---------- state & UI ----------
+const state = { head: 'solid', xray: false, elec: false, dims: false, iso: null, view: 'front', labels: true, explode: 0, exT: 0, sel: null };
+const ELEC = new Set(['pcb', 'ads', 'esp', 'imu', 'power', 'prot', 'usb', 'ppg', 'batt']);
+
+function setHead(mode) {
+  state.head = mode;
+  document.querySelectorAll('#headSeg button').forEach(b => b.classList.toggle('on', b.dataset.h === mode));
+  headGroup.visible = mode !== 'off';
+  M.head.transparent = mode === 'ghost'; M.head.opacity = mode === 'ghost' ? 0.18 : 1; M.head.depthWrite = mode !== 'ghost'; M.head.needsUpdate = true;
+}
+function setXray(on) {
+  clearHighlight();
+  state.xray = on;
+  for (const [m, o] of XRAY_MATS) { m.transparent = on; m.opacity = on ? o : 1; m.depthWrite = !on; m.needsUpdate = true; }
+  const xb = document.getElementById('xray'); xb.setAttribute('aria-pressed', on); xb.classList.toggle('on', on);
+  if (state.sel) applyHighlight(state.sel);
+}
+function setLabels(on) { state.labels = on; document.getElementById('labelsSw').setAttribute('aria-pressed', on); }
+
+let hl = [];
+function clearHighlight() { for (const m of hl) { m.material.dispose?.(); m.material = m.userData.orig; } hl = []; }
+function applyHighlight(k) {
+  for (const m of parts[k].meshes) {
+    m.userData.orig = m.material;
+    const mk = (mat) => { const c = mat.clone(); if (c.emissive) { c.emissive = ACCENT.clone(); c.emissiveIntensity = 0.3; } return c; };
+    m.material = Array.isArray(m.material) ? m.material.map(mk) : mk(m.material); hl.push(m);
+  }
+}
+const info = document.getElementById('info');
+function select(k, fly) {
+  clearHighlight();
+  state.sel = k;
+  if (state.iso && k && k !== state.iso) { state.iso = null; setIso(k); }
+  if (!k) { if (state.iso) setIso(null); info.hidden = true; document.querySelectorAll('.pbtn').forEach(b => b.classList.remove('on')); return; }
+  const p = parts[k];
+  document.getElementById('infoName').textContent = p.name;
+  document.getElementById('infoSpec').textContent = p.spec;
+  document.getElementById('infoSrc').textContent = 'Source: ' + p.src;
+  document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  document.getElementById('infoBody').textContent = p.body;
+  info.hidden = false; document.getElementById('isoBtn').hidden = false; document.getElementById('isoBtn').textContent = state.iso === k ? 'Show everything' : ['fz', 'pz', 'af', 'tp'].includes(k) ? 'See how it’s built' : ['pcb', 'prot', 'ads', 'esp', 'ppg', 'imu', 'power', 'usb'].includes(k) ? 'Open board guide' : 'View on its own';
+  if (ELEC.has(k) && !state.xray && !state.iso) setXray(true);
+  applyHighlight(k);
+  if (fly) flyToPart(k);
+}
+document.getElementById('infoClose').addEventListener('click', () => select(null));
+
+// camera presets
+const tween = { on: false };
+function flyTo(pos, target, dur = 900) {
+  Object.assign(tween, { on: true, t0: performance.now(), dur, p0: camera.position.clone(), q0: controls.target.clone(), p1: pos.clone(), q1: target.clone() });
+}
+const VIEWS = {
+  front: () => [V3(260, 110, 430), V3(0, -5, 0)],
+  side: () => [V3(500, 70, 10), V3(0, 10, 0)],
+  back: () => [V3(-210, 120, -440), V3(0, 5, 0)],
+  top: () => [V3(0, 560, 70), V3(0, 0, 0)],
+  inside: () => { const c = off(S0, 8); return [c.clone().addScaledVector(F0.n, 200).add(V3(70, 40, 0)), c]; },
+  skin: () => [V3(0, 14, -95), V3(0, 18, 90)],
+};
+function setView(v) {
+  state.view = v;
+  if (v === 'skin') { state._autoOff = state.head !== 'off'; setHead('off'); } else if (state._autoOff) { state._autoOff = false; setHead('solid'); }
+  document.querySelectorAll('#views .btn[data-view]').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+  const [p, t] = VIEWS[v](); flyTo(p, t);
+}
+function flyToPart(k) {
+  const box = new THREE.Box3(); for (const m of parts[k].meshes) box.expandByObject(m);
+  const c = box.getCenter(new THREE.Vector3()); const size = Math.max(box.getSize(new THREE.Vector3()).length(), 30);
+  const dir = c.clone().setY(c.y * 0.6).normalize(); if (dir.lengthSq() < 0.1) dir.set(0, 0.4, 1).normalize();
+  dir.add(V3(0, 0.25, 0)).normalize();
+  const dist = THREE.MathUtils.clamp(size * 3.2, 150, 520) + 90;
+  document.querySelectorAll('#views .btn[data-view]').forEach(b => b.classList.remove('on')); state.view = null;
+  if (state._autoOff) { state._autoOff = false; setHead('solid'); }
+  flyTo(c.clone().addScaledVector(dir, dist), c, 800);
+}
+document.querySelectorAll('#views .btn[data-view]').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+document.querySelectorAll('#headSeg button').forEach(b => b.addEventListener('click', () => setHead(b.dataset.h)));
+const drawer = document.getElementById('drawer');
+document.getElementById('detailsTg').addEventListener('click', e => { drawer.hidden = !drawer.hidden; e.currentTarget.setAttribute('aria-pressed', !drawer.hidden); });
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+  for (const t of ['parts', 'specs', 'sources']) document.getElementById('tab-' + t).hidden = b.dataset.tab !== t; }));
+{ const host = document.getElementById('tab-parts');
+  for (const [g, keys] of [['Headset', ['module', 'strap', 'band', 'batt']], ['Sensors', ['fz', 'pz', 'af', 'tp', 'fpz', 'ppg']], ['Electronics', ['pcb', 'ads', 'esp', 'imu', 'power', 'prot', 'usb']]]) {
+    const h = document.createElement('div'); h.className = 'grp'; h.textContent = g; host.appendChild(h);
+    for (const k of keys) { const b = document.createElement('button'); b.className = 'pbtn'; b.dataset.k = k; b.id = 'p-' + k;
+      b.innerHTML = `<i style="background:${parts[k].color}"></i><span>${parts[k].name}</span>`; b.addEventListener('click', () => select(k, true)); host.appendChild(b); } } }
+if (window.innerWidth >= 1100) { drawer.hidden = false; document.getElementById('detailsTg').setAttribute('aria-pressed', true); }
+// size overlay
+const dims = new THREE.Group(); dims.visible = false; headset.add(dims);
+const dimMat = new THREE.LineBasicMaterial({ color: 0x111417, depthTest: false, transparent: true });
+function dimLine(a, b, push, text) {
+  const a2 = a.clone().add(push), b2 = b.clone().add(push), dir = b2.clone().sub(a2).normalize(), tick = push.clone().normalize().multiplyScalar(4);
+  const pts = [a, a2.clone().add(tick), b, b2.clone().add(tick), a2, b2];
+  const g = new THREE.BufferGeometry().setFromPoints(pts); const l = new THREE.LineSegments(g, dimMat); l.renderOrder = 20; dims.add(l);
+  label(text || Math.round(a.distanceTo(b)) + ' mm', '', '#fff', a2.clone().lerp(b2, 0.5), null, 'dim');
+}
+{ const L = off(surf(45, 20), 1), Rr = off(surf(-45, 20), 1);
+  const Lt = off(surf(45, 34), 1), Rt = off(surf(-45, 34), 1);
+  dimLine(Rt, Lt, F0.y.clone().multiplyScalar(30).addScaledVector(F0.n, 12), Math.round(L.distanceTo(Rr)) + ' mm wide');
+  const T = off(surf(-46, 36), 1), B = off(surf(-46, 4), 1);
+  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, 36), 1).distanceTo(off(surf(0, 4), 1))) + ' mm tall');
+  const pa = pcbGroup.localToWorld(V3(-30, 22.5, 0.8)), pb = pcbGroup.localToWorld(V3(30, 22.5, 0.8));
+  dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 45 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
+document.getElementById('dimsTg').addEventListener('click', e => { state.dims = !state.dims; dims.visible = state.dims; e.currentTarget.classList.toggle('on', state.dims); e.currentTarget.setAttribute('aria-pressed', state.dims); });
+document.getElementById('xray').addEventListener('click', () => setXray(!state.xray));
+document.getElementById('labelsSw').addEventListener('click', () => setLabels(!state.labels));
+const exEl = document.getElementById('explode');
+exEl.addEventListener('input', () => { state.exT = exEl.value / 100; });
+
+// picking
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+const tip = document.getElementById('tip');
+function pick(ev) {
+  if (pod.active || board.active) return null;
+  const r = canvas.getBoundingClientRect(); ndc.set((ev.clientX - r.left) / r.width * 2 - 1, -(ev.clientY - r.top) / r.height * 2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const list = state.head === 'solid' ? [...pickables, headMesh] : pickables;
+  const hits = ray.intersectObjects(list, false);
+  for (const h of hits) {
+    if (h.object === headMesh) return null;
+    if (state.xray && h.object.userData.xrayGhost) continue;
+    let vis = true; h.object.traverseAncestors(a => { if (!a.visible) vis = false; }); if (!h.object.visible || !vis) continue;
+    return h.object.userData.part;
+  }
+  return null;
+}
+let downAt = null;
+canvas.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; tween.on = false; });
+canvas.addEventListener('pointerup', e => {
+  if (!downAt) return; const moved = Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]); downAt = null;
+  if (moved > 5) return; const k = pick(e); select(k, false);
+});
+canvas.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse' || e.buttons) { tip.hidden = true; return; }
+  const k = pick(e); canvas.style.cursor = k ? 'pointer' : 'grab';
+  if (k) { tip.hidden = false; tip.textContent = parts[k].name; tip.style.transform = `translate(${e.clientX + 14}px, ${e.clientY + 12}px)`; } else tip.hidden = true;
+});
+canvas.addEventListener('pointerleave', () => { tip.hidden = true; });
+
+// ---------- pod layer labels (shown when one hair pod is viewed on its own) ----------
+for (const [key, pd] of [['fz', fzPod], ['pz', pzPod]]) {
+  const cup = pd.cupG.children;
+  for (const [text, obj, y, side] of [['Lid with refill hole', cup[1], 26, 1], ['3D-printed cup', cup[0], 16, -1], ['Ag/AgCl contact', cup[3], 10.8, 1], ['PVA sponge', pd.sponge, 3, -1]]) {
+    label(text, '', '#fff', null, null, 'layer');
+    const L = labels[labels.length - 1]; L.iso = key;
+    const mover = obj === pd.sponge ? pd.sponge : pd.cupG; L.src = { get: () => pd.g.localToWorld(V3(side * 17, mover.position.y + y, 0)) };
+  }
+}
+
+// ---------- visibility modes ----------
+const SHELL = new Set([mod.cover, mod.base, statusLed, bandMesh, strapMesh, bp.cover, bp.base, ...COLLARS]);
+const REAR = new Set([strapMesh, bandMesh, bp.cover, bp.base, battG, fzPod.g, pzPod.g, tp9.g, tp10.g]);
+const MANAGED = [...new Set([...SHELL, ...REAR])];
+function setElec(on) {
+  state.elec = on; const b = document.getElementById('elecTg'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on);
+  if (on) { state._headBefore = state.head; setHead('off'); } else if (state._headBefore) { setHead(state._headBefore); state._headBefore = null; }
+}
+document.getElementById('elecTg').addEventListener('click', () => setElec(!state.elec));
+const isoPill = document.getElementById('isoPill');
+function setIso(k) {
+  state.iso = k;
+  isoPill.hidden = !k; document.getElementById('isoBtn').textContent = k ? 'Show everything' : 'View on its own';
+  if (k) {
+    document.getElementById('isoName').textContent = parts[k].name;
+    if (!state._isoHead) state._isoHead = state.head; setHead('off');
+    const pod = k === 'fz' || k === 'pz' || k === 'tp' || k === 'af';
+    if (state._isoEx == null) state._isoEx = state.exT; state.exT = pod ? 0.75 : state.exT; exEl.value = Math.round(state.exT * 100);
+    if (k === 'fz' || k === 'pz') { const S = k === 'fz' ? SITE.Fz : SITE.Pz; const c = off(S, 22); flyTo(c.clone().add(V3(135, 20, 0)), c, 800); }
+    else flyToPart(k);
+  } else {
+    if (state._isoHead) { setHead(state._isoHead); state._isoHead = null; }
+    if (state._isoEx != null) { state.exT = state._isoEx; exEl.value = Math.round(state.exT * 100); state._isoEx = null; }
+  }
+}
+const BOARD_STEP = { pcb: 0, prot: 2, ads: 3, esp: 4, ppg: 5, imu: 5, power: 6, usb: 6 };
+document.getElementById('isoBtn').addEventListener('click', () => { const k = state.sel; if (!state.iso && ['fz', 'pz', 'af', 'tp'].includes(k)) { openPod(k === 'fz' || k === 'pz' ? 'dome' : 'flat'); return; } if (!state.iso && k in BOARD_STEP) { select(null); openBoard(BOARD_STEP[k]); return; } setIso(state.iso ? null : k); });
+document.getElementById('isoExit').addEventListener('click', () => setIso(null));
+const ALL_MESHES = []; headset.traverse(m => { if (m.isMesh && m.parent !== wires && m.parent !== dims) ALL_MESHES.push(m); });
+
+// ================= ELECTRODE POD STUDIO =================
+const pod = { active: false, step: 0, tip: 'dome', cut: true, t0: 0, cur: {}, saved: null };
+const podScene = new THREE.Scene(); podScene.environment = scene.environment;
+podScene.add(new THREE.HemisphereLight(0xffffff, 0x8f8a84, 0.75));
+{ const k = new THREE.DirectionalLight(0xffffff, 1.5); k.position.set(70, 110, 90); podScene.add(k);
+  const r = new THREE.DirectionalLight(0xffffff, 0.55); r.position.set(-90, 40, -70); podScene.add(r);
+  const f = new THREE.DirectionalLight(0xffffff, 0.35); f.position.set(20, -60, 80); podScene.add(f); }
+const PM = {
+  cup: new THREE.MeshPhysicalMaterial({ color: 0x4ea7a0, roughness: 0.42, clearcoat: 0.25, side: THREE.DoubleSide }),
+  cupCut: new THREE.MeshStandardMaterial({ color: 0x86cbc5, roughness: 0.7, side: THREE.DoubleSide }),
+  lid: new THREE.MeshPhysicalMaterial({ color: 0x2f7d77, roughness: 0.45, clearcoat: 0.2, side: THREE.DoubleSide }),
+  lidCut: new THREE.MeshStandardMaterial({ color: 0x5aa39d, roughness: 0.7, side: THREE.DoubleSide }),
+  agcl: new THREE.MeshStandardMaterial({ color: 0xb9b8b2, metalness: 1, roughness: 0.38, side: THREE.DoubleSide }),
+  wire: new THREE.MeshStandardMaterial({ color: 0x2f8fd8, roughness: 0.5 }),
+  copper: new THREE.MeshStandardMaterial({ color: 0xc98a4b, metalness: 1, roughness: 0.35 }),
+  seal: new THREE.MeshPhysicalMaterial({ color: 0xf4f6f7, roughness: 0.3, transparent: true, opacity: 0.85 }),
+  liquid: new THREE.MeshPhysicalMaterial({ color: 0x4aa8ff, roughness: 0.05, transparent: true, opacity: 0.5, depthWrite: false, side: THREE.DoubleSide }),
+  barrel: new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.05, transparent: true, opacity: 0.22, depthWrite: false, side: THREE.DoubleSide }),
+  plunger: new THREE.MeshStandardMaterial({ color: 0x2b2f33, roughness: 0.6 }),
+  rod: new THREE.MeshStandardMaterial({ color: 0xf2f2f0, roughness: 0.5 }),
+  skin: new THREE.MeshStandardMaterial({ color: 0xe5c3a6, roughness: 0.8 }),
+  hair: new THREE.MeshStandardMaterial({ color: 0x2c221b, roughness: 0.7 }),
+  strap: new THREE.MeshStandardMaterial({ color: 0x41484f, roughness: 0.9, transparent: true, opacity: 0.35, depthWrite: false }),
+  signal: new THREE.MeshBasicMaterial({ color: 0x2fb36f }),
+  slot: new THREE.MeshBasicMaterial({ color: 0x1a3f3c }),
+};
+// sponge: dry → wet by height, with a pore texture, driven by uWet
+const spongeU = { uWet: { value: 11 } };
+const spongeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 1, side: THREE.DoubleSide });
+spongeMat.onBeforeCompile = (sh) => {
+  sh.uniforms.uWet = spongeU.uWet;
+  sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP;')
+    .replace('#include <begin_vertex>', '#include <begin_vertex>\nvWP = (modelMatrix * vec4(position, 1.0)).xyz;');
+  sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
+uniform float uWet; varying vec3 vWP;
+float hsh(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float vn(vec3 x){ vec3 i = floor(x), f = fract(x); f = f*f*(3.0-2.0*f);
+  return mix(mix(mix(hsh(i), hsh(i+vec3(1,0,0)), f.x), mix(hsh(i+vec3(0,1,0)), hsh(i+vec3(1,1,0)), f.x), f.y),
+             mix(mix(hsh(i+vec3(0,0,1)), hsh(i+vec3(1,0,1)), f.x), mix(hsh(i+vec3(0,1,1)), hsh(i+vec3(1,1,1)), f.x), f.y), f.z); }`)
+    .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `
+float wet = smoothstep(uWet - 0.7, uWet + 0.7, vWP.y - pOff.y);
+vec3 dry = vec3(0.95, 0.89, 0.66), wetc = vec3(0.70, 0.62, 0.36);
+float pores = vn(vWP * 2.4) * 0.6 + vn(vWP * 6.0) * 0.4;
+vec3 col = mix(dry, wetc, wet) * (0.82 + 0.22 * pores);
+col = mix(col, col * vec3(0.86, 0.95, 1.08), wet * 0.35);
+vec4 diffuseColor = vec4(col, opacity);`).replace('uniform float uWet;', 'uniform float uWet; uniform vec3 pOff;');
+  sh.uniforms.pOff = spongeOff;
+};
+const spongeOff = { value: new THREE.Vector3() };
+
+const crisp = (pts) => { const out = []; for (let i = 0; i < pts.length; i++) { const a = pts[i], b = pts[(i + 1) % pts.length];
+  out.push(a); const d = b.clone().sub(a); const L = d.length(); if (L > 0.2 && i < pts.length - 1) { out.push(a.clone().addScaledVector(d, 0.03 / L)); out.push(b.clone().addScaledVector(d, -0.03 / L)); } } return out; };
+const CUTS = [Math.PI / 2, Math.PI * 2];
+function revolve(prof, mat, capMat, capShapes, seg = 96) {
+  const P = crisp(prof.map(([r, y]) => V2(Math.max(r, 0.001), y)));
+  const g = new THREE.Group();
+  const full = new THREE.Mesh(new THREE.LatheGeometry(P, seg), mat);
+  const cut = new THREE.Group(); cut.add(new THREE.Mesh(new THREE.LatheGeometry(P, seg * 0.75, Math.PI / 2, Math.PI * 1.5), mat));
+  CUTS.forEach((phi, ci) => { for (const sp2 of (capShapes ? capShapes[ci] : [prof])) {
+    const m = new THREE.Mesh(new THREE.ShapeGeometry(new THREE.Shape(sp2.map(([r, y]) => V2(r, y)))), capMat || mat); m.rotation.y = phi - Math.PI / 2; cut.add(m); } });
+  g.add(full, cut); g.userData.full = full; g.userData.cut = cut; return g;
+}
+const REV = [];
+const PG = new THREE.Group(); podScene.add(PG);
+// cup: 14 mm wide, 20 mm tall (y 5..25); 10 mm bore below the ledge, 11.2 mm chamber above
+const cupProf = [[5.0, 5], [7, 5], [7, 25], [5.6, 25], [5.6, 10], [5.0, 10], [5.0, 5]];
+const cupLow = [[5.0, 5], [7, 5], [7, 11.7], [5.6, 11.7], [5.6, 10], [5.0, 10], [5.0, 5]], cupHigh = [[5.6, 13.1], [7, 13.1], [7, 25], [5.6, 25], [5.6, 13.1]];
+const cupG = revolve(cupProf, PM.cup, PM.cupCut, [[cupLow, cupHigh], [cupProf]]); PG.add(cupG); REV.push(cupG);
+{ const slot = new THREE.Mesh(new THREE.BoxGeometry(0.3, 1.5, 2.2), PM.slot); slot.position.set(7.02, 12.4, 0); cupG.userData.full.add(slot); }
+const lidG = new THREE.Group(); PG.add(lidG);
+const lidRev = revolve([[1.25, 25.0], [5.1, 25.0], [5.1, 23.4], [5.5, 23.4], [5.5, 25.0], [7.4, 25.0], [7.4, 26.8], [1.25, 26.8], [1.25, 25.0]], PM.lid, PM.lidCut); lidG.add(lidRev); REV.push(lidRev);
+// Ag/AgCl cup electrode, concave side down, 1.6 mm centre hole, lead out through the slot
+const elecG = new THREE.Group(); PG.add(elecG);
+const elecRev = revolve([[0.8, 11.1], [4.9, 11.1], [4.9, 10.0], [5.4, 10.0], [5.4, 11.6], [0.8, 11.6], [0.8, 11.1]], PM.agcl); elecG.add(elecRev); REV.push(elecRev);
+const leadPts = [V3(3, 11.6, 0), V3(3.6, 12.4, 0), V3(5.6, 12.4, 0), V3(7.2, 12.4, 0), V3(9.5, 12.9, 0), V3(14, 14.8, 0), V3(22, 16, 0)];
+const leadCurve = new THREE.CatmullRomCurve3(leadPts);
+elecG.add(new THREE.Mesh(new THREE.TubeGeometry(leadCurve, 64, 0.55, 10, false), PM.wire));
+{ const tab = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.5, 16), PM.copper); tab.position.set(3, 11.8, 0); elecG.add(tab);
+  const epoxy = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 16), new THREE.MeshPhysicalMaterial({ color: 0xf2c46b, roughness: 0.15, clearcoat: 1, transparent: true, opacity: 0.7 })); epoxy.scale.set(2.0, 1.1, 2.0); epoxy.position.set(3.1, 11.9, 0); elecG.add(epoxy); }
+// sponge variants
+const spongeG = new THREE.Group(); PG.add(spongeG);
+const SP = {
+  dome: revolve([[0, 0], [1.5, 0.12], [2.8, 0.5], [3.9, 1.2], [4.6, 2.2], [5, 3.4], [5, 10], [0, 10], [0, 0]], spongeMat),
+  flat: revolve([[0, 3], [4.7, 3], [5, 3.4], [5, 10], [0, 10], [0, 3]], spongeMat),
+  fingers: (() => { const g = new THREE.Group(); const base = revolve([[0, 4], [5, 4], [5, 10], [0, 10], [0, 4]], spongeMat); g.add(base); REV.push(base);
+    for (let k = 0; k < 4; k++) { const a = Math.PI / 4 + k * Math.PI / 2; const f = new THREE.Mesh(new THREE.CapsuleGeometry(1.45, 2.8, 8, 20), spongeMat); f.position.set(Math.sin(a) * 2.7, 2.9, Math.cos(a) * 2.7); g.add(f); } return g; })(),
+};
+REV.push(SP.dome, SP.flat);
+for (const k in SP) spongeG.add(SP[k]);
+// silicone seal
+const seal = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 16), PM.seal); seal.scale.set(1.0, 1.5, 1.9); seal.position.set(7.35, 12.5, 0); PG.add(seal);
+// saline in the chamber (scaled in y) + stream through the centre hole
+const liqG = new THREE.Group(); liqG.position.y = 11.62; PG.add(liqG);
+const liqFull = new THREE.Mesh(new THREE.CylinderGeometry(5.5, 5.5, 1, 64, 1, false).translate(0, 0.5, 0), PM.liquid);
+const liqCut = new THREE.Group();
+liqCut.add(new THREE.Mesh(new THREE.CylinderGeometry(5.5, 5.5, 1, 48, 1, false, Math.PI / 2, Math.PI * 1.5).translate(0, 0.5, 0), PM.liquid));
+for (const phi of CUTS) { const pl = new THREE.Mesh(new THREE.PlaneGeometry(5.5, 1).translate(2.75, 0.5, 0), PM.liquid); pl.rotation.y = phi - Math.PI / 2; liqCut.add(pl); }
+liqG.add(liqFull, liqCut);
+const stream = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 2.2, 16).translate(0, 1.1, 0), PM.liquid); stream.position.y = 9.6; PG.add(stream);
+// syringe (needle-free, 2 ml)
+const syr = new THREE.Group(); PG.add(syr);
+const syrLiq = new THREE.Mesh(new THREE.CylinderGeometry(4.2, 4.2, 1, 40).translate(0, 0.5, 0), PM.liquid);
+const plunger = new THREE.Group();
+{ const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.1, 6, 24).translate(0, 3, 0), PM.barrel); tip.position.y = 25.6;
+  const nozzleLiq = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 6, 12).translate(0, 3, 0), PM.liquid); nozzleLiq.position.y = 25.6;
+  const cone = new THREE.Mesh(new THREE.CylinderGeometry(4.6, 1.1, 2.4, 40).translate(0, 1.2, 0), PM.barrel); cone.position.y = 31.6;
+  const barrel = new THREE.Mesh(new THREE.CylinderGeometry(4.6, 4.6, 24, 48, 1, true).translate(0, 12, 0), PM.barrel); barrel.position.y = 34;
+  const flange = new THREE.Mesh(new RoundedBoxGeometry(16, 1.2, 9, 2, 0.5), PM.barrel); flange.position.y = 58;
+  for (let i = 0; i <= 10; i++) { const tk = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.12, i % 5 ? 2 : 3.4), PM.plunger); tk.position.set(Math.sin(1.2) * 4.62, 35 + i * 1.5, Math.cos(1.2) * 4.62); tk.rotation.y = 1.2; syr.add(tk); }
+  syrLiq.position.y = 34;
+  const rubber = new THREE.Mesh(new THREE.CylinderGeometry(4.4, 4.4, 2.2, 40).translate(0, 1.1, 0), PM.plunger);
+  const rod = new THREE.Mesh(new THREE.BoxGeometry(1.4, 30, 6), PM.rod); rod.position.y = 17.2; const rod2 = rod.clone(); rod2.rotation.y = Math.PI / 2;
+  const thumb = new THREE.Mesh(new THREE.CylinderGeometry(6, 6, 1.2, 40), PM.rod); thumb.position.y = 32.4;
+  plunger.add(rubber, rod, rod2, thumb);
+  syr.add(tip, nozzleLiq, cone, barrel, flange, syrLiq, plunger); }
+const drops = []; for (let i = 0; i < 3; i++) { const d = new THREE.Mesh(new THREE.SphereGeometry(0.55, 16, 12), PM.liquid); d.scale.y = 1.3; PG.add(d); drops.push(d); }
+const bead = new THREE.Mesh(new THREE.SphereGeometry(1, 20, 14), PM.liquid); bead.scale.set(1.4, 0.7, 1.4); PG.add(bead);
+// scalp + hair + strap for step 6
+const scalpG = new THREE.Group(); PG.add(scalpG); let scalpHair;
+{ const R0 = 160; const sc = new THREE.Mesh(new THREE.SphereGeometry(R0, 128, 32, 0, Math.PI * 2, 0, 0.23), PM.skin); sc.position.y = -R0 - 0.1; scalpG.add(sc);
+  const N = 1400, hair = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.07, 0.09, 1, 5).translate(0, 0.5, 0), PM.hair, N);
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(); let n = 0, seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  while (n < N) { const r = 5.6 + Math.sqrt(rnd()) * 30, a = rnd() * Math.PI * 2; const x = Math.sin(a) * r, z = Math.cos(a) * r; if (x > 0 && z > 0 && r < 12 && rnd() < 0.85) continue;
+    const L = 4 + rnd() * 5; const away = V3(x, 0, z).normalize().multiplyScalar(r < 10 ? 0.9 : 0.25);
+    q.setFromUnitVectors(UP, V3(-0.55 + away.x + (rnd() - 0.5) * 0.35, 1, 0.25 + away.z + (rnd() - 0.5) * 0.35).normalize());
+    m4.compose(V3(x, -0.15 - r * r / (2 * R0), z), q, V3(0.8, L, 0.8)); hair.setMatrixAt(n++, m4); }
+  scalpG.add(hair); scalpHair = hair;
+  const collar = new THREE.Mesh(new THREE.TorusGeometry(8, 1.3, 12, 48), PM.strap); collar.rotation.x = Math.PI / 2; collar.position.y = 15.5; scalpG.add(collar); }
+const sigDots = []; const sigCurve = new THREE.CatmullRomCurve3([V3(0, -0.6, 0), V3(0, 4, 0), V3(0, 9.6, 0), V3(1.6, 11.2, 0), ...leadPts.slice(0)]);
+for (let i = 0; i < 9; i++) { const d = new THREE.Mesh(new THREE.SphereGeometry(0.75, 14, 10), PM.signal); PG.add(d); sigDots.push(d); }
+// dimension lines (step 1)
+const podDims = new THREE.Group(); PG.add(podDims);
+const dimM = new THREE.LineBasicMaterial({ color: 0x111417 });
+const pdir = V3(1, 0, -1).normalize(), ldir = V3(-1, 0, 1).normalize();
+function pline(pts) { podDims.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), dimM)); }
+{ const a = pdir.clone().multiplyScalar(-7), b = pdir.clone().multiplyScalar(7);
+  pline([a.clone().setY(5), a.clone().setY(1.2), b.clone().setY(5), b.clone().setY(1.2), a.clone().setY(2), b.clone().setY(2)]);
+  const s = ldir.clone().multiplyScalar(7.3), s2 = ldir.clone().multiplyScalar(11.5);
+  pline([s.clone().setY(5), s2.clone().setY(5), s.clone().setY(25), s2.clone().setY(25), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(5), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(25)]); }
+
+// ---------- steps ----------
+const STEPS = [
+  { src: 'Design doc', title: 'Print the cup and lid', need: ['3D printer', 'PETG filament (TPU 95A later)'],
+    text: 'Print the cup and its snap-on lid. The cup is about 14 mm wide and 20 mm tall, with a side slot for the lead. The lid has a 2–3 mm refill hole. Six pods print in 1–2 hours.',
+    cam: [V3(62, 46, 78), V3(0, 17, 0)], st: { lid: 14, elec: null, sponge: null, seal: 0 },
+    co: [['Refill hole, 2–3 mm', () => V3(0, 26.8 + pod.cur.lid, 0), 110, -40], ['Snap-on lid', () => V3(-5.2, 26 + pod.cur.lid, 5.2), -130, -10],
+         ['Cup, PETG', () => V3(-5, 19, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
+    dims: [['14 mm', () => V3(0, 2, 0), 0, 26], ['20 mm', () => ldir.clone().multiplyScalar(11.5).setY(15), -50, 0]] },
+  { src: 'Design doc. Added: sealing the joint and choosing sintered Ag/AgCl (Alves et al. 2026); hole for saline (standard on EEG cups).', title: 'Fit the Ag/AgCl contact', need: ['Sintered Ag/AgCl cup electrode with lead', 'Epoxy'],
+    text: 'Cover the solder joint on the back of the electrode with epoxy so saline never reaches it. Press the electrode into the cup, concave side down, so it rests on the inner ledge, and route the lead out through the side slot. Pick one with a hole in the top so saline can pass.',
+    cam: [V3(64, 36, 82), V3(0, 13, 0)], st: { lid: 14, elec: 0, sponge: null, seal: 0 },
+    co: [['Ag/AgCl contact, concave side down', () => V3(-4.4, 10.6 + pod.cur.elec, 4.4), -170, -20], ['Centre hole lets saline through', () => V3(0, 11.6 + pod.cur.elec, 0), 120, -60],
+         ['Lead exits through the slot', () => V3(10, 13.2 + pod.cur.elec, 0), 110, 30], ['Solder joint sealed in epoxy', () => V3(-1, 12.4 + pod.cur.elec, -2), -150, -70]] },
+  { src: 'Design doc. Plug length (10 mm) is a model estimate.', title: 'Push in the sponge', need: ['PVA sponge block', 'Cork borer or sharpened tube'],
+    flat: { src: 'Design doc: forehead and mastoid pods use the same cup with a shorter, flat sponge. The 2 mm it sticks out is a model estimate.',
+      text: 'Cut a 10 mm plug with a flat end and push it in from below, under the metal. Forehead and behind-the-ear pods use this shorter, flat sponge because there is no hair to get through.',
+      co: [['Flat PVA sponge, 10 mm wide', () => V3(-3.5, 8 + pod.cur.sponge, 3.5), -170, -10], ['Sticks out about 2 mm', () => V3(3.4, 3.4 + pod.cur.sponge, 3.4), 130, 30],
+           ['Touches the underside of the metal', () => V3(0, 10 + pod.cur.sponge, 0), 130, -50]] },
+    text: 'Cut a 10 mm plug from the PVA block and round one end. Push it in from below, under the metal, so 4–6 mm sticks out of the cup.',
+    cam: [V3(60, 26, 78), V3(0, 9, 0)], st: { lid: 14, elec: 0, sponge: 0, seal: 0 },
+    co: [['PVA sponge plug, 10 mm wide', () => V3(-3.5, 7 + pod.cur.sponge, 3.5), -170, -10], ['Sticks out 4–6 mm', () => V3(3.4, 1.4 + pod.cur.sponge, 3.4), 130, 30],
+         ['Touches the underside of the metal', () => V3(0, 10 + pod.cur.sponge, 0), 130, -50]] },
+  { src: 'Design doc', title: 'Seal and close', need: ['Silicone sealant or hot glue'],
+    text: 'Seal the wire slot with silicone or hot glue so saline can’t leak out, then snap the lid on. About 10 minutes per pod once the parts exist.',
+    cam: [V3(60, 34, 76), V3(0, 14, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1 },
+    co: [['Seal over the slot', () => V3(8.2, 12.5, 0), 120, 10], ['Lid snapped on', () => V3(-5.2, 26.6 + pod.cur.lid, 5.2), -140, -20]] },
+  { src: 'Design doc. Added: blotting excess saline (Greischar et al. 2004).', title: 'Fill with saline', need: ['0.9% saline (pharmacy or contact-lens)', 'Needle-free 2 ml syringe'],
+    text: 'Push the syringe into the refill hole and add about 1 ml of saline. It collects above the contact, drains through the centre hole and soaks the sponge from the top down. Blot any drips: saline running between two electrodes joins them and weakens both signals. Re-wet any pod the app shows in red.',
+    cam: [V3(96, 58, 118), V3(0, 31, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, fill: true },
+    co: [['1 ml of 0.9% saline', () => V3(-4.6, 44 + syr.position.y, 0), -140, -10], ['Saline sits above the contact', () => V3(-3.6, 15, 3.6), -170, 10],
+         ['Sponge soaks from the top down', () => V3(3.5, 4, 3.5), 140, 30]] },
+  { src: 'Design doc', title: 'How it picks up the signal', need: [],
+    flat: { text: 'On the forehead and behind the ears there is no hair. The band presses the flat sponge onto bare skin; saline carries the signal to the metal, which never touches the skin. The lead runs to the board.',
+      co: [['Flat sponge rests on bare skin', () => V3(3.4, 3.2, 3.4), 150, 60], ['Saline carries the signal up', () => V3(-3.5, 7, 3.5), -180, -10],
+           ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead to the board', () => V3(20, 15.8, 0), 40, -50]] },
+    text: 'The strap presses the pod down, so the sponge parts the hair and touches the scalp. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. The lead runs inside the strap to the board.',
+    cam: [V3(82, 40, 104), V3(0, 10, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, wet: true, scalp: true },
+    co: [['Sponge parts the hair, touches the scalp', () => V3(2.6, 0.8, 2.6), 150, 70], ['Saline carries the signal up', () => V3(-3.5, 6, 3.5), -180, -10],
+         ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead to the board', () => V3(20, 15.8, 0), 40, -50], ['Strap mount', () => V3(-5.6, 15.5, 5.6), -150, -40]] },
+];
+const HIDE = { lid: 24, elec: -24, sponge: -30 };
+pod.cur = { lid: 14, elec: HIDE.elec, sponge: HIDE.sponge, seal: 0 };
+
+// ---------- pod UI ----------
+const podUI = document.getElementById('podUI'), podCo = document.getElementById('podCallouts');
+const coEls = [];
+function renderSteps(fly = true) {
+  const s0 = STEPS[pod.step], s = pod.tip === 'flat' && s0.flat ? Object.assign({}, s0, s0.flat) : s0;
+  document.getElementById('podSrc').textContent = 'Source: ' + s.src;
+  document.getElementById('podStepNo').textContent = `Step ${pod.step + 1} of ${STEPS.length}`;
+  document.getElementById('podTitle').textContent = s.title;
+  document.getElementById('podText').textContent = s.text;
+  const nd = document.getElementById('podNeed'); nd.innerHTML = ''; nd.hidden = !s.need.length;
+  if (s.need.length) { const h = document.createElement('span'); h.className = 'needh'; h.textContent = 'You need'; nd.appendChild(h); for (const n of s.need) { const c = document.createElement('span'); c.className = 'chip'; c.textContent = n; nd.appendChild(c); } }
+  document.querySelectorAll('#podDots button').forEach((b, i) => { b.classList.toggle('on', i === pod.step); b.setAttribute('aria-current', i === pod.step ? 'step' : 'false'); });
+  document.getElementById('podPrev').disabled = pod.step === 0;
+  document.getElementById('podNext').textContent = pod.step === STEPS.length - 1 ? 'Start again' : 'Next';
+  podCo.innerHTML = ''; coEls.length = 0;
+  for (const [text, at, dx, dy] of [...s.co, ...(s.dims || []).map(d => [...d, 'dim'])]) {
+    const el = document.createElement('div'); el.className = 'co';
+    const isDim = !!(s.dims || []).find(d => d[0] === text);
+    el.innerHTML = isDim ? `<span class="cot dim">${text}</span>` : `<i class="cod"></i><i class="col"></i><span class="cot">${text}</span>`;
+    podCo.appendChild(el); coEls.push({ el, at, dx, dy, isDim });
+  }
+  if (!fly) return;
+  pod.t0 = performance.now();
+  const [p, t] = s.cam; flyTo(p, t, 900);
+}
+function setStep(i) { pod.step = (i + STEPS.length) % STEPS.length; renderSteps(); }
+function setTip(t) { pod.tip = t; if (pod.active && document.getElementById('podStepNo').textContent) renderSteps(false); document.querySelectorAll('#tipSeg button').forEach(b => b.classList.toggle('on', b.dataset.tip === t)); for (const k in SP) SP[k].visible = k === t;
+  document.getElementById('tipNote').textContent = { dome: 'Dome: Fz and Pz (in hair). Default tip in the design doc.', fingers: 'Fingers: a study option in the design doc. Better on thick hair, holds less saline.', flat: 'Flat: AF7, AF8 and the two mastoid pods. Same cup, shorter flat sponge (design doc).' }[t]; }
+function setCut(on) { pod.cut = on; const b = document.getElementById('cutTg'); b.setAttribute('aria-pressed', on); for (const g of REV) { g.userData.full.visible = !on; g.userData.cut.visible = on; }
+  liqFull.visible = !on; liqCut.visible = on; }
+function openPod(tip = 'dome') {
+  if (typeof board !== 'undefined' && board.active) closeBoard();
+  buildDots(6);
+  document.getElementById('podStepNo').textContent = '';
+  pod.saved = { p: camera.position.clone(), t: controls.target.clone() };
+  pod.active = true; document.body.classList.add('podmode'); podUI.hidden = false;
+  controls.minDistance = 25; controls.maxDistance = 400; podOffset();
+  setTip(tip); setCut(true); setStep(0);
+}
+function closePod() {
+  pod.active = false; document.body.classList.remove('podmode'); podUI.hidden = true; podCo.innerHTML = '';
+  controls.minDistance = 90; controls.maxDistance = 1200; resize();
+  if (pod.saved) flyTo(pod.saved.p, pod.saved.t, 700);
+}
+document.getElementById('podBack').addEventListener('click', () => board.active ? closeBoard() : closePod());
+document.getElementById('podPrev').addEventListener('click', () => board.active ? bSetStep(board.step - 1) : setStep(pod.step - 1));
+document.getElementById('podNext').addEventListener('click', () => board.active ? bSetStep(board.step + 1) : setStep(pod.step + 1));
+document.querySelectorAll('#tipSeg button').forEach(b => b.addEventListener('click', () => setTip(b.dataset.tip)));
+document.getElementById('cutTg').addEventListener('click', () => setCut(!pod.cut));
+document.getElementById('openPod').addEventListener('click', () => openPod('dome'));
+window.addEventListener('keydown', e => { if (board.active) { if (e.key === 'ArrowRight') bSetStep(board.step + 1); if (e.key === 'ArrowLeft') bSetStep(board.step - 1); if (e.key === 'Escape') closeBoard(); return; }
+  if (!pod.active) return; if (e.key === 'ArrowRight') setStep(pod.step + 1); if (e.key === 'ArrowLeft') setStep(pod.step - 1); if (e.key === 'Escape') closePod(); });
+
+function podOffset() { const w = window.innerWidth, h = window.innerHeight; if (w >= 760) camera.setViewOffset(w, h, -Math.min(210, w * 0.14), 0, w, h); else camera.setViewOffset(w, h, 0, h * 0.2, w, h); camera.updateProjectionMatrix(); }
+window.addEventListener('resize', () => { if (pod.active || (typeof board !== 'undefined' && board.active)) podOffset(); });
+const ease = (x) => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
+function podUpdate(now) {
+  const s = STEPS[pod.step].st, t = (now - pod.t0) / 1000, k = reduce ? 1 : 0.11;
+  const tgt = { lid: s.lid, elec: s.elec === null ? HIDE.elec : s.elec, sponge: s.sponge === null ? HIDE.sponge : s.sponge, seal: s.seal };
+  for (const key in tgt) pod.cur[key] += (tgt[key] - pod.cur[key]) * k;
+  lidG.position.y = pod.cur.lid; elecG.position.y = pod.cur.elec; spongeG.position.y = pod.cur.sponge; spongeOff.value.set(0, pod.cur.sponge, 0);
+  elecG.visible = s.elec !== null || Math.abs(pod.cur.elec - HIDE.elec) > 0.5; spongeG.visible = s.sponge !== null || Math.abs(pod.cur.sponge - HIDE.sponge) > 0.5;
+  seal.visible = pod.cur.seal > 0.05; seal.scale.set(1.0, 1.5, 1.9).multiplyScalar(Math.max(0.01, pod.cur.seal));
+  podDims.visible = pod.step === 0; scalpG.visible = !!s.scalp; scalpHair.visible = pod.tip !== 'flat'; scalpG.position.y = pod.tip === 'flat' ? 3 : 0;
+  // saline timeline
+  let level = 0, wet = 11, syrY = 60, plung = 0, showStream = false, beadS = 0, dropOn = false;
+  if (s.fill) {
+    const T = reduce ? 8 : t % 10;
+    syrY = 20 * (1 - ease(T / 0.9)) + 20 * ease((T - 7.4) / 0.8);
+    const push = ease((T - 1.0) / 3.6); plung = push;
+    const drain = ease((T - 2.2) / 4.6);
+    level = 10.0 * push - 2.6 * drain; wet = 10.6 - 11.6 * drain;
+    showStream = T > 2.2 && T < 7.2; dropOn = T > 1.0 && T < 4.7; beadS = ease((T - 6.6) / 1.2);
+  } else if (s.wet) { level = 7.4; wet = -1; beadS = 0.6; }
+  spongeU.uWet.value = wet;
+  liqG.visible = level > 0.05; liqG.scale.y = Math.max(level, 0.001);
+  stream.visible = showStream; if (showStream) stream.scale.set(0.8 + 0.2 * Math.sin(now / 90), 1, 0.8 + 0.2 * Math.sin(now / 90));
+  syr.visible = !!s.fill; syr.position.y = syrY;
+  plunger.position.y = 36 + 15 * (1 - plung); syrLiq.scale.y = Math.max(0.001, 2 + 15 * (1 - plung));
+  drops.forEach((d, i) => { const ph = ((now / 1000) * 1.6 + i / 3) % 1; d.visible = dropOn; const top = 25.2, bot = 11.62 + Math.max(level, 0); d.position.set(0, top - (top - bot) * ph * ph, 0); });
+  bead.visible = beadS > 0.02 && pod.tip !== 'fingers'; bead.position.set(0, pod.tip === 'flat' ? 2.8 : -0.25, 0); bead.scale.set(1.5 * beadS, 0.6 * beadS, 1.5 * beadS);
+  sigDots.forEach((d, i) => { d.visible = !!s.scalp; if (d.visible) { const u = ((now / 1000) * 0.18 + i / sigDots.length) % 1; d.position.copy(sigCurve.getPointAt(u)); const sc = 0.7 + 0.5 * Math.sin(u * Math.PI); d.scale.setScalar(sc); } });
+  // callouts
+  const w = window.innerWidth, h = window.innerHeight;
+  for (const c of coEls) {
+    tmp.copy(c.at()).project(camera); const ax = (tmp.x * 0.5 + 0.5) * w, ay = (-tmp.y * 0.5 + 0.5) * h;
+    const sx = w < 760 ? 0.55 : 1; const dx = c.dx * sx, dy = c.dy * sx;
+    if (c.isDim) { c.el.style.transform = `translate(${ax + dx}px, ${ay + dy}px) translate(-50%, -50%)`; continue; }
+    const L = Math.hypot(dx, dy), ang = Math.atan2(dy, dx) * 57.2958;
+    c.el.style.transform = `translate(${ax}px, ${ay}px)`;
+    const line = c.el.children[1], txt = c.el.children[2];
+    line.style.width = L + 'px'; line.style.transform = `rotate(${ang}deg)`;
+    txt.style.transform = `translate(${dx}px, ${dy}px) translate(${dx < 0 ? '-100%' : '0'}, -50%)`;
+  }
+}
+
+// ================= BOARD GUIDE =================
+// Board-local coordinates in mm: x across the board (+x = wearer's left), y up the board, z out of the top face.
+const board = { active: false, step: 0, t0: 0, flip: 0, flipT: 0, saved: null };
+const boardScene = new THREE.Scene(); boardScene.environment = scene.environment;
+boardScene.add(new THREE.HemisphereLight(0xffffff, 0x8f8a84, 0.8));
+{ const k = new THREE.DirectionalLight(0xffffff, 1.3); k.position.set(40, 120, 80); boardScene.add(k);
+  const r = new THREE.DirectionalLight(0xffffff, 0.5); r.position.set(-80, 60, -60); boardScene.add(r); }
+const BG = new THREE.Group(); boardScene.add(BG);
+const BOARD_MESHES = [];
+for (const ch of pcbGroup.children) {
+  const c = ch.clone(); const mk = mm => { const m2 = mm.clone(); m2.userData.base = { t: m2.transparent, o: m2.opacity }; return m2; };
+  c.material = Array.isArray(c.material) ? c.material.map(mk) : mk(c.material);
+  BG.add(c); BOARD_MESHES.push(c);
+}
+const L = (x, y, z = 0) => V3(x, y, z);
+const toLocal = (wp) => pcbGroup.worldToLocal(wp.clone());
+// underside: MAX30102 breakout (BOM: "MAX30102 module") behind the skin window, and the Fpz snap stud
+const ppgL = toLocal(off(SITE.PPG, 2.6)), fpzTop = toLocal(off(SITE.Fpz, 4.0)), fpzBot = toLocal(off(SITE.Fpz, 0.9));
+const bExtra = [];
+{ const brd = new THREE.Mesh(new THREE.BoxGeometry(13, 13, 1), M.pcbSide.clone()); brd.position.set(ppgL.x, ppgL.y, ppgL.z);
+  const chip = new THREE.Mesh(new THREE.BoxGeometry(5.6, 3.3, 1.4), M.redChip.clone()); chip.position.set(ppgL.x, ppgL.y, ppgL.z - 1.2);
+  brd.userData.part = chip.userData.part = 'ppg'; BG.add(brd, chip); bExtra.push(brd, chip);
+  for (let i = 0; i < 4; i++) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, Math.abs(ppgL.z) - 1.3, 8), new THREE.MeshStandardMaterial({ color: ['#e0524a', '#222428', '#2f8fd8', '#f2c94c'][i] }));
+    w.rotation.x = Math.PI / 2; w.position.set(ppgL.x - 4.5 + i * 3, ppgL.y + 6, (ppgL.z + 0.5 - 0.8) / 2); w.userData.part = 'ppg'; BG.add(w); bExtra.push(w); }
+  const stud = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.8, Math.abs(fpzBot.z - (-0.8)), 24), M.metal.clone()); stud.rotation.x = Math.PI / 2;
+  stud.position.set(fpzTop.x, fpzTop.y, (-0.8 + fpzBot.z) / 2); stud.userData.part = 'fpz'; BG.add(stud); bExtra.push(stud); }
+// incoming leads (stubs) so students see what plugs in where
+const LEADS = [
+  ['Fz', '#2f8fd8', [[4.8, 32, 2.2], [4.8, 22.6, 2.2]]], ['Pz', '#8b6cf0', [[7.2, 32, 2.2], [7.2, 22.6, 2.2]]],
+  ['AF7', '#e8913a', [[40, -4.5, 2.2], [29.7, -4.5, 2.2]]], ['TP9 (ref)', '#8a939b', [[40, -7.5, 2.2], [29.7, -7.5, 2.2]]],
+  ['AF8', '#e8913a', [[4.8, -32, 2.2], [4.8, -22.6, 2.2]]], ['TP10 (ref)', '#8a939b', [[7.2, -32, 2.2], [7.2, -22.6, 2.2]]],
+  ['Battery +', '#e0524a', [[-26.5, -32, 2.2], [-26.5, -22.5, 2.2]]], ['Battery −', '#222428', [[-24.5, -32, 2.2], [-24.5, -22.5, 2.2]]],
+];
+for (const [, col, pts] of LEADS) { const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.LineCurve3(L(...pts[0]), L(...pts[1])), 4, 0.6, 8), new THREE.MeshStandardMaterial({ color: col, roughness: 0.5 })); BG.add(m); }
+// zone overlays (layout step)
+const zones = new THREE.Group(); BG.add(zones);
+const zmat = (c, o) => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: o, depthWrite: false, side: THREE.DoubleSide });
+{ const a = new THREE.Mesh(new THREE.PlaneGeometry(30.2, 45), zmat(0x2fb36f, 0.16)); a.position.set(14.6, 0, 4.2);
+  const d = new THREE.Mesh(new THREE.PlaneGeometry(29.5, 45), zmat(0x2f8fd8, 0.10)); d.position.set(-15.25, 0, 4.2);
+  const k = new THREE.Mesh(new THREE.PlaneGeometry(19, 7.5), zmat(0xe0524a, 0.30)); k.position.set(ESP.x, 18.75, 4.4);
+  zones.add(a, d, k); }
+// animated flows
+const FLOW_MAT = (c) => new THREE.MeshBasicMaterial({ color: c, depthTest: false, transparent: true });
+function makeFlow(pts, color, n = 6, speed = 14, z = 1.9) {
+  const path = new THREE.CurvePath(); for (let i = 0; i < pts.length - 1; i++) path.add(new THREE.LineCurve3(L(pts[i][0], pts[i][1], pts[i][2] ?? z), L(pts[i + 1][0], pts[i + 1][1], pts[i + 1][2] ?? z)));
+  const g = new THREE.Group(); const dots = []; const mat = FLOW_MAT(color);
+  for (let i = 0; i < n; i++) { const d = new THREE.Mesh(new THREE.SphereGeometry(0.6, 12, 8), mat); d.renderOrder = 30; g.add(d); dots.push(d); }
+  BG.add(g); return { g, dots, path, len: path.getLength(), speed };
+}
+const C = { sig: '#2fb36f', spike: '#e0524a', spi: '#8b6cf0', i2c: '#22a6c9', bias: '#f2c94c', bat: '#e0524a', v56: '#f08c2e', v5: '#f2c94c', v33: '#2f8fd8' };
+const FLOWS = {
+  sig: [
+    makeFlow([[34, -4.5], [27.6, -4.5], [26, -3], [24.3, -3], [21.3, -3], [16, -2.4], [11.2, -2.4]], C.sig),
+    makeFlow([[34, -7.5], [27.6, -7.5], [26, -6], [24.3, -6], [21.3, -6], [16, -3.6], [11.2, -3.6]], C.sig),
+    makeFlow([[4.8, 30], [4.8, 22.6], [3.5, 19.5], [3.5, 17], [3.5, 14.5], [3.5, 3.2]], C.sig),
+    makeFlow([[7.2, 30], [7.2, 22.6], [6, 19.5], [6, 17], [6, 14.5], [6, 3.2]], C.sig),
+    makeFlow([[4.8, -30], [4.8, -22.6], [3.5, -19.5], [3.5, -17], [3.5, -14.5], [3.5, -7.2]], C.sig),
+    makeFlow([[7.2, -30], [7.2, -22.6], [6, -19.5], [6, -17], [6, -14.5], [6, -7.2]], C.sig),
+  ],
+  spike: [makeFlow([[40, -4.5], [27.6, -4.5], [26, -3], [24.3, -3], [21.3, -3], [21.3, -3, -0.2]], C.spike, 3, 22)],
+  bias: [makeFlow([[6, -7.2], [fpzTop.x + 2, fpzTop.y + 2], [fpzTop.x, fpzTop.y], [fpzTop.x, fpzTop.y, fpzBot.z]], C.bias, 5, 10)],
+  spi: [0, 1, 2, 3].map(k => makeFlow([[0.8, 1.5 - k * 1.4], [-3, 1.5 - k * 1.4], [-6, 4.5 - k * 1.4], [-10, 4.5 - k * 1.4]], C.spi, 4, 12)),
+  i2c: [makeFlow([[-3, -15], [-9, -6], [-12, -3.5]], C.i2c, 4, 10), makeFlow([[ppgL.x - 3, ppgL.y + 6, ppgL.z + 0.5], [ppgL.x - 3, ppgL.y + 6, 1.9], [-10, 8]], C.i2c, 5, 12)],
+  power: [
+    makeFlow([[-25.5, -32], [-25.5, -18.5], [-24, -16], [-20, -16], [-17.5, -18]], C.bat, 5, 10),
+    makeFlow([[-17.5, -18], [-17.5, -12], [-14, -15], [-11, -18], [-1.5, -18], [-1.5, -6], [1, -5]], C.v5, 7, 10),
+    makeFlow([[-17.5, -12], [-11, -12], [-6, -12], [-6, -9], [-10, -1]], C.v33, 5, 10),
+    makeFlow([[-5.5, 26], [-5.5, 17.5], [-8, -4.5], [-24, -4.5], [-24, -14]], C.v56, 6, 12),
+  ],
+};
+const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.18, 8, 48), new THREE.MeshBasicMaterial({ color: 0x2f8fd8, transparent: true, depthWrite: false })); r.position.set(ESP.x, 19, 5); BG.add(r); rings.push(r); }
+
+const P_ = (x, y, z) => () => BG.localToWorld(L(x, y, z));
+const BSTEPS = [
+  { title: 'Meet the main board', src: 'Design doc (4-layer, 60 × 45 mm, analog/digital split). Part positions: model estimate.', parts: ['4-layer PCB'],
+    text: 'This board sits inside the front module, a few millimetres above the forehead. The right half (green) is the quiet analog side: the EEG chip and its input protection. The left half holds the microcontroller and the power circuit, which are noisier.',
+    focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],
+    co: [['Analog side', P_(22, 12, 4.2), -30, -120], ['Digital + power side', P_(-20, 8, 4.2), -30, -150], ['60 × 45 mm', P_(29, -22, 0.8), -40, 70]] },
+  { title: 'Where the wires plug in', src: 'Design doc: JST leads, USB-C, snap for Fpz. Which lead goes to which connector: model estimate.', parts: ['JST connectors', 'Snap stud'],
+    text: 'Each electrode lead runs inside the strap or band and plugs in here. J1 takes Fz and Pz from the top strap, J2 takes AF7 and the left mastoid, J3 takes AF8 and the right mastoid, J5 takes the battery. The Fpz ground pad clicks onto a metal stud under the board.',
+    focus: ['conn', 'fpz'], cam: [L(6, -74, 120), L(6, 0, 0)],
+    co: [['J1 · Fz, Pz', P_(6, 22.6, 3.5), 90, -40], ['J2 · AF7, left mastoid', P_(29.6, -6, 3.5), -20, -140], ['J3 · AF8, right mastoid', P_(6, -22.6, 3.5), 90, 40], ['J5 · battery', P_(-25.5, -22.4, 3.5), -110, 40]] },
+  { title: 'Protect every input', src: 'Design doc: 4.7 kΩ 1% resistor + low-capacitance bidirectional TVS on every head contact, at the connector (10 pairs in the BOM).', parts: ['4.7 kΩ resistors ×10', 'TVS diodes ×10'],
+    text: 'Right after each connector, the signal passes a 4.7 kΩ resistor, then a TVS diode to ground. Normal EEG passes straight through. A spike, like a static shock (red), is clamped by the diode and dumped to ground before it reaches the EEG chip. The resistor limits the current.',
+    focus: ['prot'], flows: ['spike'], flash: true, cam: [L(14, -48, 84), L(10, 0, 0)],
+    co: [['Resistor 4.7 kΩ', P_(24.3, -3, 1.4), 90, -60], ['TVS diode → ground', P_(21.3, -3, 1.4), 70, 70], ['Same pair on J1 and J3', P_(6, 15.7, 1.4), -150, -40]] },
+  { title: 'Measure the brain signal', src: 'Design doc (gain 24, 250 SPS, internal reference, lead-off 31.2 Hz / 6 nA, BIASOUT → Fpz, mastoids → SRB1). 24-bit: TI ADS1299.', parts: ['ADS1299-4'],
+    text: 'The four EEG channels (green) enter the ADS1299. It measures each one against the linked mastoids, amplifies it 24 times and converts it to a 24-bit number 250 times a second. It also drives the Fpz pad (yellow) to cancel mains hum, and checks every contact.',
+    focus: ['ads', 'fpz'], flows: ['sig', 'bias'], cam: [L(6, -50, 88), L(2, -2, 0)],
+    co: [['ADS1299-4 EEG chip', P_(6, -2, 2.3), -170, -50], ['EEG channels in', P_(3.5, 10, 1.9), -130, -30], ['Bias out → Fpz pad', P_(fpzTop.x, fpzTop.y, 0.5), -150, 40], ['Mastoid reference in', P_(18, -3.5, 1.9), 110, 50]] },
+  { title: 'Collect and send', src: 'Design doc (ESP32-S3, BLE, PSRAM buffer, antenna at the edge with no copper under it). SPI and I²C are the standard interfaces of these chips.', parts: ['ESP32-S3-WROOM-1-N8R8'],
+    text: 'The microcontroller reads the EEG chip over SPI (purple) and the heart and motion sensors over I²C (blue). It packs the readings into numbered frames, buffers them in memory in case Bluetooth drops, and sends them to the app. Its antenna sits at the board edge with no copper underneath.',
+    focus: ['esp'], flows: ['spi', 'i2c'], rings: true, cam: [L(-14, -52, 92), L(-18, 4, 0)],
+    co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['Bluetooth antenna', P_(-19, 19.5, 2), -130, -40]] },
+  { title: 'Heart and motion sensors', src: 'Design doc (MAX30102 behind a window, ≥ 2 cm from electrodes; MPU-6050 for artifact flags; BOM lists both as modules). Mounting: model estimate.', parts: ['MAX30102 module', 'MPU-6050'],
+    text: 'Flipped over: the MAX30102 heart sensor sits under the board, looking through a window in the skin side. It shines red and infrared light into the forehead and reads the pulse. The Fpz snap stud is here too. The MPU-6050 motion sensor is on the top side and flags head movement.',
+    focus: ['ppg', 'imu', 'fpz'], flip: true, flows: ['i2c'], cam: [L(10, -52, 90), L(4, 2, 0)],
+    co: [['MAX30102 heart sensor', P_(ppgL.x, ppgL.y, ppgL.z - 2), 110, -40], ['Fpz snap stud', P_(fpzTop.x, fpzTop.y, fpzBot.z), -130, 40], ['4 wires: power, ground, SDA, SCL', P_(ppgL.x, ppgL.y + 6, -1.5), 120, 50]] },
+  { title: 'Power', src: 'Design doc (TP4056, MT3608 at ≈ 5.6 V, TPS7A2050 5 V analog, TPS7A2033 3.3 V, ferrite bead, USB-C charging only). Which rail feeds the 3.3 V regulator: model estimate.', parts: ['TP4056', 'MT3608', 'TPS7A2050', 'TPS7A2033', 'Ferrite beads'],
+    text: 'The battery (red) feeds the TP4056 charger, which USB-C (orange) refills. The MT3608 boosts the battery to about 5.6 V so the TPS7A2050 can make a very clean 5 V for the EEG chip (yellow). The TPS7A2033 makes 3.3 V for the digital parts (blue), and ferrite beads keep digital noise off the analog side.',
+    focus: ['power', 'usb'], flows: ['power'], cam: [L(-16, -54, 92), L(-22, -6, 0)],
+    co: [['Battery in', P_(-25.5, -26, 2.2), -120, 30], ['TP4056 charger', P_(-24, -16, 2.6), -140, -20], ['MT3608 boost ≈ 5.6 V', P_(-17.5, -18, 2.2), -60, 70], ['5 V for the EEG chip', P_(-11, -18, 1.6), 80, 60], ['3.3 V regulator', P_(-11, -12, 1.6), 90, -30], ['Ferrite beads', P_(-6, -10.5, 1.8), 110, 10], ['USB-C, charging only', P_(-5.5, 21, 4), -160, -20]] },
+  { title: 'Layout rules', src: 'Design doc (unbroken ground under the analog side, protection at the connectors, antenna with no copper under it, full 8-input array laid out, battery only, not IEC 60601-1).', parts: [],
+    text: 'Keep the analog side quiet with an unbroken ground layer underneath. Put protection right at each connector. Keep copper away from under the antenna. Lay out the pads for the 8-channel ADS1299 so it can drop in later. While worn, the board runs on battery only; firmware stops streaming when USB is plugged in.',
+    focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],
+    co: [['Quiet analog zone', P_(22, 12, 4.2), -30, -120], ['Antenna keep-out', P_(-19, 18.75, 4.4), -140, -40], ['Pads ready for ADS1299-8', P_(6, -2, 2.3), 140, 60]] },
+];
+function bFocusMatch(m, focus) { return focus.includes(m.userData.part) || focus.includes(m.userData.sub); }
+function bRender(fly = true) {
+  const s = BSTEPS[board.step];
+  document.getElementById('podStepNo').textContent = `Step ${board.step + 1} of ${BSTEPS.length}`;
+  document.getElementById('podTitle').textContent = s.title;
+  document.getElementById('podText').textContent = s.text;
+  document.getElementById('podSrc').textContent = 'Source: ' + s.src;
+  const nd = document.getElementById('podNeed'); nd.innerHTML = ''; nd.hidden = !s.parts.length;
+  if (s.parts.length) { const h = document.createElement('span'); h.className = 'needh'; h.textContent = 'Parts'; nd.appendChild(h); for (const n of s.parts) { const c = document.createElement('span'); c.className = 'chip'; c.textContent = n; nd.appendChild(c); } }
+  document.querySelectorAll('#podDots button').forEach((b, i) => { b.classList.toggle('on', i === board.step); b.setAttribute('aria-current', i === board.step ? 'step' : 'false'); });
+  document.getElementById('podPrev').disabled = board.step === 0;
+  document.getElementById('podNext').textContent = board.step === BSTEPS.length - 1 ? 'Start again' : 'Next';
+  board.flipT = s.flip ? 1 : 0; document.getElementById('flipTg').setAttribute('aria-pressed', !!s.flip);
+  // emphasis: focus parts glow, the rest fade back
+  for (const m of [...BOARD_MESHES, ...bExtra]) {
+    const mats = Array.isArray(m.material) ? m.material : [m.material];
+    const isBoard = m.geometry.parameters && m.geometry.parameters.width === 60;
+    const hit = bFocusMatch(m, s.focus), dim = s.focus.length && !hit && !isBoard;
+    for (const mt of mats) { if (mt.emissive) { mt.emissive.set(hit ? 0x2f8fd8 : 0x000000); mt.emissiveIntensity = hit ? 0.35 : 1; }
+      mt.transparent = dim || (mt.userData.base && mt.userData.base.t); mt.opacity = dim ? 0.28 : (mt.userData.base ? mt.userData.base.o : 1); mt.depthWrite = !dim; mt.needsUpdate = true; }
+  }
+  podCo.innerHTML = ''; coEls.length = 0;
+  for (const [text, at, dx, dy] of s.co) { const el = document.createElement('div'); el.className = 'co'; el.innerHTML = `<i class="cod"></i><i class="col"></i><span class="cot">${text}</span>`; podCo.appendChild(el); coEls.push({ el, at, dx, dy, isDim: false }); }
+  if (!fly) return;
+  board.t0 = performance.now();
+  const [p, t] = s.cam; flyTo(p.clone().setY(p.z).setZ(-p.y), t.clone().setY(0).setZ(-t.y), 900);
+}
+function bSetStep(i) { board.step = (i + BSTEPS.length) % BSTEPS.length; bRender(); }
+function buildDots(n) { const d = document.getElementById('podDots'); d.innerHTML = ''; for (let i = 0; i < n; i++) { const b = document.createElement('button'); b.setAttribute('aria-label', 'Step ' + (i + 1)); b.addEventListener('click', () => board.active ? bSetStep(i) : setStep(i)); d.appendChild(b); } }
+function openBoard(step = 0) {
+  if (pod.active) closePod();
+  board.saved = { p: camera.position.clone(), t: controls.target.clone() };
+  board.active = true; document.body.classList.add('podmode', 'boardmode'); podUI.hidden = false;
+  controls.minDistance = 30; controls.maxDistance = 400; podOffset();
+  buildDots(BSTEPS.length); board.step = step; bRender();
+}
+function closeBoard() {
+  board.active = false; document.body.classList.remove('podmode', 'boardmode'); podUI.hidden = true; podCo.innerHTML = ''; coEls.length = 0;
+  controls.minDistance = 90; controls.maxDistance = 1200; resize();
+  if (board.saved) flyTo(board.saved.p, board.saved.t, 700);
+}
+document.getElementById('openBoard').addEventListener('click', () => openBoard(0));
+document.getElementById('flipTg').addEventListener('click', e => { board.flipT = board.flipT ? 0 : 1; e.currentTarget.setAttribute('aria-pressed', !!board.flipT); });
+function boardUpdate(now) {
+  const s = BSTEPS[board.step], t = (now - board.t0) / 1000;
+  board.flip += (board.flipT - board.flip) * (reduce ? 1 : 0.1);
+  BG.rotation.set(-Math.PI / 2 + board.flip * Math.PI, 0, 0);
+  zones.visible = !!s.zones;
+  const active = new Set(s.flows || []);
+  for (const key in FLOWS) for (const f of FLOWS[key]) {
+    const on = active.has(key); f.g.visible = on; if (!on) continue;
+    f.dots.forEach((d, i) => { const u = ((t * f.speed / f.len) + i / f.dots.length) % 1; const pt = f.path.getPointAt(Math.min(u, 0.995)); if (pt) d.position.copy(pt); d.material.opacity = key === 'spike' ? (u < 0.9 ? 1 : 0) : 0.95; });
+  }
+  rings.forEach((r, i) => { r.visible = !!s.rings; if (!r.visible) return; const u = ((t * 0.6) + i / 3) % 1; r.scale.setScalar(2 + 12 * u); r.material.opacity = 0.6 * (1 - u); });
+  if (s.flash) { const hot = (Math.sin(t * 6) > 0.2); for (const m of BOARD_MESHES) if (m.userData.part === 'prot' && Math.abs(m.position.x - 21.3) < 0.1 && Math.abs(m.position.y + 3) < 0.1) { const mt = m.material; if (mt.emissive) { mt.emissive.set(hot ? 0xe0524a : 0x2f8fd8); mt.emissiveIntensity = hot ? 0.9 : 0.35; } } }
+  const w = window.innerWidth, h = window.innerHeight;
+  for (const c of coEls) {
+    tmp.copy(c.at()).project(camera); const ax = (tmp.x * 0.5 + 0.5) * w, ay = (-tmp.y * 0.5 + 0.5) * h;
+    const sx = w < 760 ? 0.55 : 1, dx = c.dx * sx, dy = c.dy * sx, Lh = Math.hypot(dx, dy), ang = Math.atan2(dy, dx) * 57.2958;
+    c.el.style.transform = `translate(${ax}px, ${ay}px)`; c.el.children[1].style.width = Lh + 'px'; c.el.children[1].style.transform = `rotate(${ang}deg)`;
+    c.el.children[2].style.transform = `translate(${dx}px, ${dy}px) translate(${dx < 0 ? '-100%' : '0'}, -50%)`;
+  }
+}
+
+// ---------- loop ----------
+function resize() {
+  const w = window.innerWidth, h = window.innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
+  camera.fov = w < 760 ? 40 : 30;
+  if (w >= 760) camera.setViewOffset(w, h, 0, -h * 0.02, w, h); else camera.setViewOffset(w, h, 0, h * 0.06, w, h);
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize); resize();
+const narrow = () => window.innerWidth < 760;
+const [p0, t0] = VIEWS.front();
+camera.position.copy(p0); controls.target.copy(t0);
+if (narrow()) camera.position.multiplyScalar(1.12);
+const tmp = new THREE.Vector3(), toCam = new THREE.Vector3();
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// ================= WebXR: Quest VR + AR passthrough (headset view) =================
+const world = new THREE.Group(); scene.add(world); world.add(headGroup, headset);
+renderer.xr.enabled = true;
+const xr = { mode: null, placed: false, last: 0, grab: null, scale: 1 };
+// floor for VR (hidden in AR so the real room shows)
+const xrFloor = new THREE.Group(); xrFloor.visible = false; scene.add(xrFloor);
+{ const g = new THREE.GridHelper(6, 30, 0xb9bec4, 0xd6dade); xrFloor.add(g);
+  const disc = new THREE.Mesh(new THREE.CircleGeometry(3, 64), new THREE.MeshStandardMaterial({ color: 0xf1f2f4, roughness: 1 })); disc.rotation.x = -Math.PI / 2; disc.position.y = -0.002; xrFloor.add(disc); }
+// 3D text helpers
+function textCanvas(w, h, draw) { const cv = document.createElement('canvas'); cv.width = w; cv.height = h; draw(cv.getContext('2d'), w, h); const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return { cv, t }; }
+function roundRect(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+const XR_FONT = '"Geist", "Helvetica Neue", Arial, sans-serif';
+// 3D labels: built once from the page's label list, in model space (mm), so they move and scale with the model
+const xrLabels = new THREE.Group(); xrLabels.visible = false; world.add(xrLabels);
+for (const L of labels) {
+  if (L.kind === 'layer' || L.kind === 'dim') continue;
+  const text = L.el.textContent.trim(); const dot = L.el.querySelector('i'); const col = dot ? dot.style.background : '#111417';
+  const fs = 44, pad = 22; let tw = 0; { const c = document.createElement('canvas').getContext('2d'); c.font = `500 ${fs}px ${XR_FONT}`; tw = c.measureText(text).width; }
+  const W = Math.ceil(tw + pad * 2 + 34), H = 76;
+  const { t } = textCanvas(W, H, (g) => { roundRect(g, 2, 2, W - 4, H - 4, 34); g.fillStyle = 'rgba(255,255,255,0.96)'; g.fill(); g.strokeStyle = '#d9dde1'; g.lineWidth = 3; g.stroke();
+    g.fillStyle = col || '#111417'; g.beginPath(); g.arc(pad + 8, H / 2, 9, 0, 7); g.fill(); g.fillStyle = '#111417'; g.font = `500 ${fs}px ${XR_FONT}`; g.textBaseline = 'middle'; g.fillText(text, pad + 26, H / 2 + 2); });
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true })); sp.renderOrder = 50;
+  const hmm = 7.5; sp.scale.set(hmm * W / H, hmm, 1);
+  sp.position.copy(L.src ? L.src.get() : L.pos); sp.userData.kind = L.kind; xrLabels.add(sp);
+}
+// floating control panel
+const PANEL = { w: 1024, h: 600 };
+const BTNS = [
+  { id: 'inside', label: 'Inside', x: 40, y: 120, w: 300, h: 100 }, { id: 'elec', label: 'Electronics only', x: 362, y: 120, w: 300, h: 100 }, { id: 'labels', label: 'Labels', x: 684, y: 120, w: 300, h: 100 },
+  { id: 'h-solid', label: 'Solid', x: 190, y: 250, w: 250, h: 100 }, { id: 'h-ghost', label: 'Ghost', x: 452, y: 250, w: 250, h: 100 }, { id: 'h-off', label: 'Hidden', x: 714, y: 250, w: 270, h: 100 },
+  { id: 'ex-', label: '−', x: 250, y: 380, w: 120, h: 100 }, { id: 'ex+', label: '+', x: 864, y: 380, w: 120, h: 100 },
+  { id: 'reset', label: 'Reset', x: 40, y: 500 - 10, w: 460, h: 90 }, { id: 'exit', label: 'Exit', x: 524, y: 500 - 10, w: 460, h: 90 },
+];
+const panelTex = textCanvas(PANEL.w, PANEL.h, () => {});
+function drawPanel() {
+  const g = panelTex.cv.getContext('2d'), W = PANEL.w, H = PANEL.h;
+  g.clearRect(0, 0, W, H); roundRect(g, 4, 4, W - 8, H - 8, 36); g.fillStyle = '#ffffff'; g.fill(); g.strokeStyle = '#dfe3e6'; g.lineWidth = 4; g.stroke();
+  g.fillStyle = '#111417'; g.font = `600 52px ${XR_FONT}`; g.textBaseline = 'middle'; g.fillText('Neuryo', 44, 62);
+  g.fillStyle = '#6b737b'; g.font = `400 34px ${XR_FONT}`; g.font = `400 30px ${XR_FONT}`; g.fillText('Pinch a part to pick it up · pinch empty space to move all', 220, 64);
+  g.font = `500 36px ${XR_FONT}`; g.fillStyle = '#6b737b'; g.fillText('Head', 44, 300); g.fillText('Explode', 44, 430);
+  { const x0 = 384, x1 = 850, y = 430; g.fillStyle = '#e3e6e9'; roundRect(g, x0, y - 8, x1 - x0, 16, 8); g.fill(); g.fillStyle = '#111417'; roundRect(g, x0, y - 8, (x1 - x0) * state.exT, 16, 8); g.fill(); g.beginPath(); g.arc(x0 + (x1 - x0) * state.exT, y, 20, 0, 7); g.fill(); }
+  const on = { inside: state.xray, elec: state.elec, labels: state.labels, 'h-solid': state.head === 'solid', 'h-ghost': state.head === 'ghost', 'h-off': state.head === 'off' };
+  for (const b of BTNS) { roundRect(g, b.x, b.y, b.w, b.h, 22); g.fillStyle = on[b.id] ? '#111417' : '#f1f3f5'; g.fill(); if (!on[b.id]) { g.strokeStyle = '#dfe3e6'; g.lineWidth = 3; g.stroke(); }
+    g.fillStyle = on[b.id] ? '#ffffff' : '#111417'; g.font = `500 ${b.label.length < 3 ? 60 : 38}px ${XR_FONT}`; g.textAlign = 'center'; g.fillText(b.label, b.x + b.w / 2, b.y + b.h / 2 + 2); g.textAlign = 'left'; }
+  panelTex.t.needsUpdate = true;
+}
+const panel = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34 * PANEL.h / PANEL.w), new THREE.MeshBasicMaterial({ map: panelTex.t, transparent: true, toneMapped: false }));
+panel.visible = false; scene.add(panel);
+// selected-part card
+const cardTex = textCanvas(1024, 440, () => {});
+const card = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34 * 440 / 1024), new THREE.MeshBasicMaterial({ map: cardTex.t, transparent: true, toneMapped: false }));
+card.visible = false; scene.add(card);
+function wrapText(g, text, x, y, maxW, lh) { const words = text.split(' '); let line = ''; for (const w of words) { const t2 = line ? line + ' ' + w : w; if (g.measureText(t2).width > maxW && line) { g.fillText(line, x, y); line = w; y += lh; } else line = t2; } if (line) g.fillText(line, x, y); }
+function drawCard(k) {
+  const g = cardTex.cv.getContext('2d'), W = 1024, H = 440; g.clearRect(0, 0, W, H);
+  if (!k) { card.visible = false; return; }
+  const p = parts[k]; roundRect(g, 4, 4, W - 8, H - 8, 32); g.fillStyle = '#ffffff'; g.fill(); g.strokeStyle = '#dfe3e6'; g.lineWidth = 4; g.stroke();
+  g.textBaseline = 'top'; g.fillStyle = '#111417'; g.font = `600 50px ${XR_FONT}`; g.fillText(p.name, 44, 36);
+  g.fillStyle = '#3d454c'; g.font = `400 34px ${XR_FONT}`; wrapText(g, p.body, 44, 112, W - 88, 44);
+  g.fillStyle = '#111417'; g.font = `500 32px ${XR_FONT}`; g.fillText(p.spec, 44, H - 112);
+  g.fillStyle = '#6b737b'; g.font = `400 26px ${XR_FONT}`; g.fillText(('Source: ' + p.src).slice(0, 78), 44, H - 62);
+  cardTex.t.needsUpdate = true; card.visible = renderer.xr.isPresenting;
+}
+// controllers and hands
+const xrRay = new THREE.Raycaster(), xrMat = new THREE.Matrix4();
+const ctrls = [0, 1].map(i => {
+  const c = renderer.xr.getController(i);
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([V3(0, 0, 0), V3(0, 0, -1)]), new THREE.LineBasicMaterial({ color: 0x111417, transparent: true, opacity: 0.55 }));
+  line.scale.z = 0.6; c.add(line); c.userData.line = line;
+  c.addEventListener('connected', e => { c.userData.src = e.data; line.visible = e.data.targetRayMode === 'tracked-pointer'; });
+  c.addEventListener('disconnected', () => { c.userData.src = null; });
+  c.addEventListener('selectstart', () => xrSelect(c));
+  c.addEventListener('selectend', () => xrRelease(c));
+  c.addEventListener('squeezestart', () => xrGrabAt(c, false));
+  c.addEventListener('squeezeend', () => xrRelease(c));
+  scene.add(c);
+  const grip = renderer.xr.getControllerGrip(i); scene.add(grip); c.userData.grip = grip;
+  const hand = renderer.xr.getHand(i); scene.add(hand); c.userData.hand = hand;
+  return c;
+});
+let modelFactories = null;
+async function loadControllerModels() {
+  if (modelFactories) return; modelFactories = true;
+  try {
+    const [{ XRControllerModelFactory }, { XRHandModelFactory }] = await Promise.all([import('three/addons/webxr/XRControllerModelFactory.js'), import('three/addons/webxr/XRHandModelFactory.js')]);
+    const cf = new XRControllerModelFactory(), hf = new XRHandModelFactory();
+    for (const c of ctrls) { c.userData.grip.add(cf.createControllerModel(c.userData.grip)); c.userData.hand.add(hf.createHandModel(c.userData.hand, 'spheres')); }
+  } catch (e) { /* controllers still work without their 3D models */ }
+}
+function rayFrom(c) { xrMat.identity().extractRotation(c.matrixWorld); xrRay.ray.origin.setFromMatrixPosition(c.matrixWorld); xrRay.ray.direction.set(0, 0, -1).applyMatrix4(xrMat); }
+function xrHitPart() {
+  const list = state.head === 'solid' ? [...pickables, headMesh] : pickables;
+  for (const h of xrRay.intersectObjects(list, false)) {
+    if (h.object === headMesh) return null;
+    if (state.xray && h.object.userData.xrayGhost) continue;
+    let vis = true; h.object.traverseAncestors(a => { if (!a.visible) vis = false; }); if (!h.object.visible || !vis) continue;
+    return { k: h.object.userData.part, obj: h.object };
+  }
+  return null;
+}
+// What a hand picks up: an electrode pod on its own, otherwise the whole headset (it is one connected piece).
+function grabTargetFor(obj) { let o = obj; while (o && o !== headset) { if (o.userData.grabRoot) return o; o = o.parent; } return headset; }
+const GRABBED = new Set();
+function xrSelect(c) {
+  rayFrom(c);
+  const ph = panel.visible ? xrRay.intersectObject(panel, false)[0] : null;
+  if (ph) { const px = ph.uv.x * PANEL.w, py = (1 - ph.uv.y) * PANEL.h; const b = BTNS.find(b2 => px >= b2.x && px <= b2.x + b2.w && py >= b2.y && py <= b2.y + b2.h); if (b) xrButton(b.id); return; }
+  if (card.visible && xrRay.intersectObject(card, false)[0]) { select(null); drawCard(null); return; }
+  xrGrabAt(c, true);
+}
+function xrGrabAt(c, showCard) {
+  rayFrom(c); const hit = xrHitPart();
+  if (hit) { if (showCard) { select(hit.k, false); drawCard(hit.k); } xrGrab(c, grabTargetFor(hit.obj)); }
+  else xrGrab(c, world);
+}
+function xrGrab(c, obj) {
+  if (c.userData.held) return;
+  if ([...ctrls].some(o => o !== c && o.userData.held === obj)) return;
+  if (obj !== world && !obj.userData.home) obj.userData.home = { parent: obj.parent, p: obj.position.clone(), q: obj.quaternion.clone(), s: obj.scale.clone() };
+  obj.userData.from = obj.parent; c.userData.held = obj; c.attach(obj); if (obj !== world) { GRABBED.add(obj); xr.displaced = true; }
+}
+function xrRelease(c) {
+  const obj = c.userData.held; if (!obj) return; c.userData.held = null; (obj === world ? scene : obj.userData.from).attach(obj);
+  const h = obj.userData.home;   // a quick tap that barely moved it counts as a click, not a pick-up
+  if (h && obj.parent === h.parent && obj.position.distanceTo(h.p) < 4 && obj.quaternion.angleTo(h.q) < 0.08) { obj.position.copy(h.p); obj.quaternion.copy(h.q); GRABBED.delete(obj); delete obj.userData.home; }
+  xr.displaced = GRABBED.size > 0;
+}
+function putPartsBack() {
+  for (const c of ctrls) xrRelease(c);
+  for (const o of GRABBED) { const h = o.userData.home; h.parent.add(o); o.position.copy(h.p); o.quaternion.copy(h.q); o.scale.copy(h.s); delete o.userData.home; }
+  GRABBED.clear(); xr.displaced = false;
+}
+function xrButton(id) {
+  if (id === 'inside') setXray(!state.xray);
+  else if (id === 'elec') setElec(!state.elec);
+  else if (id === 'labels') setLabels(!state.labels);
+  else if (id.startsWith('h-')) setHead(id.slice(2));
+  else if (id === 'ex-') state.exT = Math.max(0, state.exT - 0.25);
+  else if (id === 'ex+') state.exT = Math.min(1, state.exT + 0.25);
+  else if (id === 'reset') { putPartsBack(); xr.placed = false; }
+  else if (id === 'exit') { const s = renderer.xr.getSession(); if (s) s.end(); }
+  exEl.value = Math.round(state.exT * 100); drawPanel();
+}
+function placeInFront() {
+  const frame = renderer.xr.getFrame && renderer.xr.getFrame(), ref = renderer.xr.getReferenceSpace();
+  const pose = frame && ref ? frame.getViewerPose(ref) : null;
+  if (!pose) return;                     // tracking not ready yet: try again next frame
+  const tp = pose.transform.position, to = pose.transform.orientation;
+  const p = new THREE.Vector3(tp.x, tp.y, tp.z);
+  const f = new THREE.Vector3(0, 0, -1).applyQuaternion(new THREE.Quaternion(to.x, to.y, to.z, to.w)); f.y = 0; if (f.lengthSq() < 1e-4) f.set(0, 0, -1); f.normalize();
+  const left = new THREE.Vector3().crossVectors(UP, f).normalize();
+  xr.scale = 1; world.scale.setScalar(0.001);
+  world.position.copy(p).addScaledVector(f, 0.55).add(V3(0, -0.05, 0)); world.rotation.set(0, Math.atan2(-f.x, -f.z), 0);
+  panel.position.copy(p).addScaledVector(f, 0.48).addScaledVector(left, 0.36).add(V3(0, -0.06, 0)); panel.lookAt(p.x, panel.position.y, p.z);
+  card.position.copy(panel.position).add(V3(0, -0.2, 0)); card.quaternion.copy(panel.quaternion);
+  xr.placed = true;
+}
+function xrUpdate(now) {
+  const dt = Math.min(0.05, (now - (xr.last || now)) / 1000); xr.last = now;
+  if (!xr.placed) placeInFront();
+  const session = renderer.xr.getSession();
+  if (session) for (const src of session.inputSources) {
+    const gp = src.gamepad; if (!gp || gp.axes.length < 4) continue; const ax = gp.axes[2], ay = gp.axes[3];
+    if (src.handedness === 'right' && Math.abs(ay) > 0.15) { state.exT = Math.min(1, Math.max(0, state.exT - ay * dt * 0.9)); exEl.value = Math.round(state.exT * 100); drawPanel(); }
+    if (src.handedness === 'left') {
+      if (Math.abs(ay) > 0.15) { xr.scale = Math.min(4, Math.max(0.5, xr.scale * (1 - ay * dt * 0.9))); world.scale.setScalar(0.001 * xr.scale); }
+      if (Math.abs(ax) > 0.15 && !ctrls.some(c => c.userData.held === world)) world.rotation.y += ax * dt * 1.6;
+    }
+  }
+  for (const c of ctrls) { if (!c.userData.line.visible) continue; rayFrom(c); const hit = [panel, card].filter(o => o.visible).map(o => xrRay.intersectObject(o, false)[0]).filter(Boolean)[0]; c.userData.line.scale.z = hit ? hit.distance : 0.6; }
+  xrLabels.visible = true;
+  for (const sp of xrLabels.children) sp.visible = !xr.displaced && state.labels && state.explode < 0.05 && (sp.userData.kind === 'part' ? (state.xray || state.elec) : true);
+}
+async function startXR(mode) {
+  if (!navigator.xr) return xrUnavailable();
+  let ok = false; try { ok = await navigator.xr.isSessionSupported(mode); } catch (e) { ok = false; }
+  if (!ok) return xrUnavailable(mode);
+  try {
+    const session = await navigator.xr.requestSession(mode, { optionalFeatures: ['local-floor', 'hand-tracking'] });
+    if (pod.active) closePod(); if (board.active) closeBoard(); if (state.iso) setIso(null); select(null);
+    xr.mode = mode; xr.placed = false; xr.last = 0; xr.saved = { head: state.head };
+    renderer.xr.setReferenceSpaceType('local-floor');
+    await renderer.xr.setSession(session);
+    loadControllerModels();
+    controls.enabled = false; camera.clearViewOffset(); xr.nf = [camera.near, camera.far]; camera.near = 0.01; camera.far = 50; camera.updateProjectionMatrix();
+    scene.background = mode === 'immersive-vr' ? new THREE.Color(0xeef0f2) : null; xrFloor.visible = mode === 'immersive-vr';
+    panel.visible = true; drawPanel(); document.body.classList.add('xrmode');
+    session.addEventListener('end', () => {
+      putPartsBack(); xr.mode = null; scene.attach(world); world.scale.setScalar(1); world.position.set(0, 0, 0); world.rotation.set(0, 0, 0);
+      scene.background = null; xrFloor.visible = false; panel.visible = false; card.visible = false; xrLabels.visible = false; controls.enabled = true;
+      if (xr.nf) { camera.near = xr.nf[0]; camera.far = xr.nf[1]; } document.body.classList.remove('xrmode'); resize();
+    });
+  } catch (e) { xrUnavailable(mode, e); }
+}
+function xrUnavailable(mode, err) {
+  document.getElementById('infoName').textContent = 'Open this on your Quest';
+  document.getElementById('infoBody').textContent = 'AR needs the hosted version of this page, opened in the Meta Quest browser. It can’t start inside claude.ai or on a browser without a headset.';
+  document.getElementById('infoSpec').textContent = err ? String(err.message || err).slice(0, 120) : (mode ? mode + ' is not available here.' : 'WebXR is not available in this browser.');
+  document.getElementById('infoSrc').textContent = ''; document.getElementById('isoBtn').hidden = true; info.hidden = false;
+}
+document.getElementById('xrAR').addEventListener('click', () => startXR('immersive-ar'));
+
+function frame(now) {
+  const inXR = renderer.xr.isPresenting;
+  if (inXR) xrUpdate(now);
+  if (!inXR && tween.on) {
+    let k = Math.min(1, (now - tween.t0) / (reduce ? 1 : tween.dur)); const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    camera.position.lerpVectors(tween.p0, tween.p1, e); controls.target.lerpVectors(tween.q0, tween.q1, e); if (k >= 1) tween.on = false;
+  }
+  if (!inXR) controls.update();
+  if (!inXR && pod.active) { podUpdate(now); renderer.render(podScene, camera); return; }
+  if (!inXR && board.active) { boardUpdate(now); renderer.render(boardScene, camera); return; }
+  state.explode += (state.exT - state.explode) * (reduce ? 1 : 0.14);
+  for (const x of explodables) x.obj.position.copy(x.base).addScaledVector(x.dir, x.dist * state.explode);
+  const skin = state.view === 'skin';
+  if (state.iso) {
+    for (const o of MANAGED) o.visible = true;
+    for (const m of ALL_MESHES) m.visible = m.userData.part === state.iso && !COLLARS.includes(m);
+  } else {
+    if (state._wasIso) for (const m of ALL_MESHES) m.visible = true;
+    for (const o of MANAGED) o.visible = !(state.elec && SHELL.has(o)) && !(skin && REAR.has(o));
+  }
+  state._wasIso = !!state.iso;
+  wires.visible = !!(state.xray || state.elec) && state.explode < 0.03 && !skin && !state.iso;
+  dims.visible = !!state.dims && state.explode < 0.05 && !state.elec; dims.children[2].visible = state.xray;
+  if (hl.length) { const I = 0.22 + 0.16 * Math.sin(now / 260); for (const m of hl) (Array.isArray(m.material) ? m.material : [m.material]).forEach(mm => { if (mm.emissive) mm.emissiveIntensity = I; }); }
+  const w = window.innerWidth, h = window.innerHeight;
+  if (!inXR) for (const L of labels) {
+    let show = state.labels;
+    if (L.kind === 'layer') show = state.labels && state.iso === L.iso && state.explode > 0.4;
+    else if (state.iso && L.kind !== 'dim') show = false;
+    if (L.kind === 'part') show = show && (state.xray || state.elec || state.explode > 0.25);
+    if (skin && (L.normal === SITE.Fz.n || L.normal === SITE.Pz.n || L.normal === SITE.TP9.n || L.normal === SITE.TP10.n || L.normal === FB.n)) show = false;
+    if (L.kind === 'dim') show = !state.elec && !!state.dims && state.explode < 0.05 && (L !== dims.userData.boardLabel || state.xray);
+    const P2 = L.src ? L.src.get() : L.pos;
+    if (show && L.normal && state.head === 'solid') { toCam.copy(camera.position).sub(P2).normalize(); if (L.normal.dot(toCam) < 0.05) show = false; }
+    tmp.copy(P2).project(camera);
+    if (tmp.z > 1) show = false;
+    L.el.style.opacity = show ? 1 : 0;
+    if (show) L.el.style.transform = `translate(${(tmp.x * 0.5 + 0.5) * w}px, ${(-tmp.y * 0.5 + 0.5) * h}px) translate(-50%, -50%)`;
+  }
+  renderer.render(scene, camera);
+}
+renderer.setAnimationLoop(frame);
+document.getElementById('loading').remove();
+window.__ready = true;
+</script>
+<script>
+window.addEventListener('error', e => { const d = document.getElementById('loading'); if (d) d.textContent = 'The 3D view could not start: ' + (e.message || 'WebGL error'); });
+</script>
+
+</html>

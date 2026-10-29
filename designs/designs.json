@@ -1,0 +1,20 @@
+[
+  {
+    "id": "v1",
+    "name": "v1 · 26 Oct design",
+    "date": "2026-10-26",
+    "path": "designs/v1/",
+    "channels": "4 EEG channels",
+    "summary": "AF7, AF8, Fz, Pz. TP9 + TP10 linked as reference, Fpz ground. Saline sponge pods, forehead heart sensor. Includes AR and try-on.",
+    "status": "Retired by D24 in the research plan"
+  },
+  {
+    "id": "v2",
+    "name": "v2 · 29 Oct research plan",
+    "date": "2026-10-29",
+    "path": "designs/v2/",
+    "channels": "6 EEG channels",
+    "summary": "Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias. Hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip.",
+    "status": "Current plan"
+  }
+]
