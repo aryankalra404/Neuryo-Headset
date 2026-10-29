@@ -35,6 +35,8 @@ Open https://aryankalra404.github.io/Neuryo-Headset/tryon.html on a laptop or ph
 ## In a normal browser
 Rotate and zoom the model, see inside, open the **Electrode build** and **Board guide** walkthroughs, and check sources under **Details → Sources**.
 
+v3 adds a Product / Test kit mode switch, a **Display** menu, **Copy link** (opens exactly what you are looking at), **Measure**, and two new Details tabs: **Build** (parts list, wiring, tests) and **Changes** (what moved since v2 and why). See [docs/v3.md](docs/v3.md#on-the-page).
+
 v1 is built from the 26 Oct design doc. v2 is built from the 29 Oct research plan; its module, board layout and battery are carried over from v1. Shapes and sizes neither source gives are marked as model estimates in the page. In v2, **All sites** shows every measured 10-10 position on the head.
 
 ## Shared head

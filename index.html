@@ -99,15 +99,16 @@ function renderList() {
     b.addEventListener('click', () => open(d.id)); seg.appendChild(b);
   }
 }
-function open(id, push = true) {
+// Hash: #v3 opens a design; #v3/part=fz&view=side… also passes the design page's own view state (its "Copy link" makes these).
+function open(id, push = true, st = '') {
   const d = designs.find(x => x.id === id); if (!d) return showPicker(push);
-  if (current !== id) frame.src = d.path;
+  if (current !== id || st) frame.src = d.path + (st ? '#' + st : '');
   current = id; document.title = 'Neuryo · ' + d.name;
   ext.href = d.path;
   doc.hidden = !d.docs; if (d.docs) doc.href = REPO + d.docs;
   seg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.id === id));
   picker.hidden = true; viewer.hidden = false;
-  if (push && location.hash !== '#' + id) history.pushState(null, '', '#' + id);
+  if (push && location.hash.slice(1).split('/')[0] !== id) history.pushState(null, '', '#' + id);
   frame.focus();
 }
 function showPicker(push = true) {
@@ -115,12 +116,13 @@ function showPicker(push = true) {
   if (push && location.hash) history.pushState(null, '', location.pathname + location.search);
 }
 document.getElementById('home').addEventListener('click', () => showPicker());
-window.addEventListener('popstate', () => { const id = location.hash.slice(1); id ? open(id, false) : showPicker(false); });
+const parseHash = () => { const h = location.hash.slice(1), i = h.indexOf('/'); return i < 0 ? [h, ''] : [h.slice(0, i), h.slice(i + 1)]; };
+window.addEventListener('popstate', () => { const [id, st] = parseHash(); id ? open(id, false, st) : showPicker(false); });
 
 fetch('designs/designs.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(data => {
   designs = Array.isArray(data) ? data : [];
   renderList();
-  const id = location.hash.slice(1); if (id) open(id, false);
+  const [id, st] = parseHash(); if (id) open(id, false, st);
 }).catch(() => {
   list.innerHTML = '<p class="err">Could not load the design list. Open the designs directly: <a href="designs/v1/">v1</a> · <a href="designs/v2/">v2</a> · <a href="designs/v3/">v3</a>.</p>';
 });
