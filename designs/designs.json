@@ -14,7 +14,7 @@
     "date": "2026-10-29",
     "path": "designs/v2/",
     "channels": "6 EEG channels",
-    "summary": "Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias. Hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip.",
+    "summary": "Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias. Hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip. Realistic mannequin head (540 mm) with every site measured by the 10-20 rules.",
     "status": "Current plan"
   }
 ]

@@ -7,7 +7,7 @@ Interactive 3D models of the Neuryo EEG + heart-rate headset. Each design is its
 | Design | What it is | Direct link |
 |---|---|---|
 | v1 · 26 Oct design | 4 channels: AF7, AF8, Fz, Pz. TP9 + TP10 linked reference, Fpz ground, saline sponge pods, forehead heart sensor. Has AR and try-on. | https://aryankalra404.github.io/Neuryo-Headset/designs/v1/ |
-| v2 · 29 Oct research plan | 6 channels: Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias, hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip. Built from the Neuryo-Research library (00-montage-options.md, decisions D01 to D28). | https://aryankalra404.github.io/Neuryo-Headset/designs/v2/ |
+| v2 · 29 Oct research plan | 6 channels: Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias, hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip. Built from the Neuryo-Research library (00-montage-options.md, decisions D01 to D28). Mannequin: MakeHuman base mesh (CC0), 540 mm head, sites measured with the 10-20 rules. | https://aryankalra404.github.io/Neuryo-Headset/designs/v2/ |
 
 Add `#v1` or `#v2` to the start page link to open a design straight away.
 
@@ -32,3 +32,6 @@ Open https://aryankalra404.github.io/Neuryo-Headset/tryon.html on a laptop or ph
 Rotate and zoom the model, see inside, open the **Electrode build** and **Board guide** walkthroughs, and check sources under **Details → Sources**.
 
 v1 is built from the 26 Oct design doc. v2 is built from the 29 Oct research plan; its module, board layout and battery are carried over from v1. Shapes and sizes neither source gives are marked as model estimates in the page.
+
+## Mannequin head (v2)
+`designs/v2/head.glb` and `head.json` are built by the scripts in `tools/` from the MakeHuman base mesh (`makehuman/data/3dobjs/base.obj`, CC0). Run them in order from a folder holding `base.obj`: `prep1.py` (cut head, neck and shoulders, smooth), `prep2.py` (find the ears), `prep3.py` (skull surface with the ears masked), `prep4.py` (10-20 measurement), `export.py`. Needs Python with `trimesh`, `numpy`, `scipy`, `rtree`, `shapely`, `manifold3d`.
