@@ -15,6 +15,8 @@ Add `#v1`, `#v2`, `#v3` or `#v4` to the start page link to open a design straigh
 
 **Docs:** [docs/](docs/README.md): one file per design ([v1](docs/v1.md), [v2](docs/v2.md), [v3](docs/v3.md), [v4](docs/v4.md), each with why it changed from the one before) and the [shared head](docs/head.md) with all 77 measured 10-10 positions plus the mastoid points M1/M2.
 
+**PCB:** [pcb/](pcb/README.md): rev A EEG board (30 Oct 2026), KiCad project, JLCPCB fab files (gerbers, BOM, CPL), design notes and review checklist. Not yet reviewed or ordered.
+
 ## Adding a new design
 1. Copy the latest design folder, for example `designs/v4/` to `designs/v5/`, and change the model in `designs/v5/index.html`. It already loads the shared head from `designs/shared/head/`; pick electrode sites by name (`HEAD.sites.F3`, `HEAD.extra.M1` and so on, see [docs/head.md](docs/head.md)).
 2. Add an entry to `designs/designs.json` with its `id`, `name`, `date`, `path`, `channels`, `summary` and `status`.
