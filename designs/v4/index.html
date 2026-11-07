@@ -333,7 +333,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
     <button class="btn" id="guidesBtn" aria-haspopup="true" aria-expanded="false">Guides <span class="car">▴</span></button>
     <div class="menu up" id="guidesMenu" hidden>
       <button class="mi big" id="openSess">Session walkthrough<small>A 12-minute clinic session, step by step</small></button>
-      <button class="mi big" id="openPod">Electrode build<small>Semi-dry pod for Fz, Cz and Pz (the cup inside each pod cap)</small></button>
+      <button class="mi big" id="openPod">Electrode build<small>Semi-dry pod body for Fz, Cz and Pz (inside each carriage)</small></button>
       <button class="mi big" id="openBoard">Board guide<small>Main board: connectors, chip, power, layout</small></button>
     </div>
   </div>
@@ -365,7 +365,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div><dt>Reference / bias</dt><dd>M1 left mastoid on SRB2 (D25) · bias at Fpz (centre pad of the strip)</dd></div>
       <div><dt>Gain, sampling</dt><dd>12 (±375 mV range, D29) · 250 samples/s · 24-bit · noise target &lt; 6 µVpp</dd></div>
       <div><dt>Forehead</dt><dd>Single-use 3-pad hydrogel strip, Ag/AgCl (Fp1, Fpz, Fp2), placed on the skin with a nasion template (centre pad at 10% of nasion–inion) and plugged into the brow module by a 3-way tail. One size: pads about 16 mm, centres 27 mm apart (25.0–29.0 mm needed on 500–580 mm heads)</dd></div>
-      <div><dt>In hair</dt><dd>Semi-dry pods at Fz, Cz, Pz inside wipe-clean caps · single-use, pre-wetted foam tip cartridge that clicks onto each pod · no reservoir: 2–4 drops (0.1–0.2 ml) of 0.9% saline through a 2 mm lid hole only when the contact check asks</dd></div>
+      <div><dt>In hair</dt><dd>Semi-dry pods at Fz, Cz, Pz: a 9 mm sealed pod body (cup + epoxied lid, 4 mm stud) inside a one-piece printed spring carriage; snap lead out through the carriage’s side slot · single-use, pre-wetted foam tip cartridge that clicks onto each pod · no reservoir: 2–4 drops (0.1–0.2 ml) of 0.9% saline through a 2 mm lid hole only when the contact check asks</dd></div>
       <div><dt>Mastoids, eye</dt><dd>Adhesive gel Ag/AgCl pads (M1, M2) · small hydrogel pad 20 mm below the left eye</dd></div>
       <div><dt>Heart</dt><dd>MAX30102 earlobe clip · pulse-rate variability with medication class (D09, D12, D22)</dd></div>
       <div><dt>Motion</dt><dd>BMI270 IMU on the frame (X29)</dd></div>
@@ -678,7 +678,7 @@ const P = {
   pcb: part('pcb', { conf: 'carry', name: 'Main board', src: 'v1 outline with v4 channel map. Route all 8 ADS1299 inputs. Part positions: model estimate.', spec: '4-layer · 60 × 32 mm (v4.3, fits the brow module)', color: '#1c6b52', use: 'inside', body: 'Circuit board inside the brow module. The v4 version routes all 8 chip inputs: 7 head channels and ECG for the test kit.' }),
   ads: part('ads', { conf: 'high', name: 'EEG chip', src: 'D29 (gain 12, X22). Reference on SRB2 (X25). TI ADS1299 datasheet.', spec: 'ADS1299 (8-ch) · gain 12 · 250 samples/s · 24-bit', color: '#7cc6fe', use: 'inside', body: 'Measures the 7 head channels against the M1 reference, plus ECG on channel 8 in the test kit. Gain 12 leaves room for a ±300 mV electrode offset.' }),
   esp: part('esp', { conf: 'carry', name: 'Microcontroller', src: 'v4.3: ESP32-S3-MINI-1, 15.4 × 20.5 × 2.4 mm (Espressif datasheet, X03), so it fits the 32 mm board; antenna at the board edge with no copper under it. Prototype on an ESP32-S3 DevKit.', spec: 'ESP32-S3-MINI-1 · Bluetooth LE', color: '#d0d3d7', use: 'inside', body: 'ESP32-S3. Runs the firmware, collects EEG, heart and motion data, and sends it to the clinic tablet over Bluetooth.' }),
-  ppg: part('ppg', { conf: 'high', name: 'Earlobe heart sensor', src: 'Plan: D22 (earlobe PPG agreed best with ECG, X08, M09). Checked against ECG in the test kit (D09). Clip shape: model estimate.', spec: 'MAX30102 earlobe clip · pulse-rate variability', color: '#ff7b7b', use: 'wipe', body: 'MAX30102 in a soft clip on the left earlobe, on a short tether from the halo. Reports pulse-rate variability, always shown with the medication class (D09, D12). Wipe between patients.' }),
+  ppg: part('ppg', { conf: 'high', name: 'Earlobe heart sensor', src: 'Plan: D22 (earlobe PPG agreed best with ECG, X08, M09). Checked against ECG in the test kit (D09). Clip shape: model estimate.', spec: 'MAX30102 breakout in a printed clip · hinge below the lobe · black padded opposite jaw · 5-wire lead to J6 (3.3 V, GND, SDA, SCL, INT) · I²C bus 0', color: '#ff7b7b', use: 'wipe', body: 'A small MAX30102 board in a printed clip on the left earlobe. The hinge sits below the lobe and a light torsion spring closes the jaws upward over it; the opposite jaw is black with a black foam pad so room light cannot shine through the lobe. Too much squeeze collapses the vessels and weakens the signal, so the spring is light. The lead leaves the top through a strain-relief boot and runs in front of the ear into the halo. Reports pulse-rate variability, always shown with the medication class (D09, D12). Wipe between patients.' }),
   imu: part('imu', { conf: 'judge', name: 'Motion sensor', src: 'v4: Bosch BMI270, a current wearable IMU (X29), replaces the MPU-6050 module. Placement: judgement call.', spec: 'BMI270 · accelerometer + gyroscope · rigid on the frame', color: '#b0b8bf', use: 'inside', body: 'Fixed to the frame. Flags head movement so noisy segments can be dropped, and serves as a reference for movement artifact (P15).' }),
   power: part('power', { conf: 'judge', name: 'Power circuit', src: 'Copy the OpenBCI Cyton supply (battery only, ±2.5 V, X24). Exact regulators: from the Cyton schematic.', spec: 'Battery only · ±2.5 V analog + 3.3 V digital', color: '#c7a35a', use: 'inside', body: 'Charges the battery and makes quiet supplies for the EEG chip and the digital parts. Recording is blocked while USB is plugged in.' }),
   prot: part('prot', { conf: 'carry', name: 'Input protection', src: 'Design doc.', spec: '4.7 kΩ + TVS diode on every electrode line', color: '#8a7a63', use: 'inside', body: 'Protects the electronics on every electrode line.' }),
@@ -692,7 +692,7 @@ const P = {
   eog: part('eog', { conf: 'test', name: 'Eye pad', src: 'D26 (P14). v4: small single-use hydrogel pad instead of paste under a ring. Spot: about 20 mm below the left eye centre.', spec: 'Ch 6 · VEOG · single-use hydrogel pad', color: '#9ad17a', use: 'single', body: 'About 20 mm below the centre of the left eye. Records eye movement so it can be removed from Fp1 and Fp2.' }),
   fpz: part('fpz', { conf: 'judge', name: 'Bias pad', src: 'Bias at Fpz (judgement call, P183). Centre pad of the forehead strip.', spec: 'Bias / DRL · centre pad of the strip', color: '#6fd3a2', use: 'single', body: 'Fpz, centre of the forehead. Driven by the EEG chip to cancel mains hum.' }),
   ecg: part('ecg', { conf: 'test', test: true, name: 'ECG pads (test kit)', src: 'Validate the heart sensors against ECG on our own sensor and site (D09). Below the collarbones (modified lead I). Not worn in sessions.', spec: 'Ch 8 · differential, SRB2 off · 2 adhesive gel pads', color: '#e0524a', use: 'single', body: 'Test kit only. Two stick-on pads record ECG on channel 8 while you check the earlobe clip, the forehead window and the M2 head-ECG.' }),
-  ppgf: part('ppgf', { conf: 'test', test: true, name: 'Forehead heart window (test kit)', src: 'Forehead PPG matched ECG at rest in one small study (X26) but gave far less usable signal seated (X27). Tested beside the earlobe clip in Study 1 (D22).', spec: 'Second MAX30102 · reflectance window on the skin side', color: '#ff9b8a', use: 'wipe', body: 'Test kit only. A second heart sensor under the brow module, right of the strip, to compare forehead and earlobe against ECG in the same session.' }),
+  ppgf: part('ppgf', { conf: 'test', test: true, name: 'Forehead heart window (test kit)', src: 'Forehead PPG matched ECG at rest in one small study (X26) but gave far less usable signal seated (X27). Tested beside the earlobe clip in Study 1 (D22).', spec: 'Second MAX30102 · reflectance window on the skin side', color: '#ff9b8a', use: 'wipe', body: 'Test kit only. A second heart sensor under the brow module, right of the strip, to compare forehead and earlobe against ECG in the same session. It sits on the ESP32-S3’s second I²C bus (J8), because every MAX30102 has the same address.' }),
 };
 const CONF = { high: '#2fa772', test: '#e6a23c', judge: '#9b6fd6', carry: '#9aa3ab' };
 const CONF_LABEL = { high: 'Decided: strong evidence', test: 'Needs testing on our hardware', judge: 'Design choice or judgement call', carry: 'Carried over, not yet redesigned' };
@@ -702,7 +702,7 @@ const BUY = {
   cover: 'Not in the product (concept only)', dial: 'Comes with the ratchet suspension',
   batt: 'LiPo 3.7 V 1000 mAh · to quote', pcb: 'JLCPCB 4-layer + assembly · ~₹10,000 (get a quote first)',
   ads: 'ADS1299IPAGR · 2 for ₹11,879 (LCSC C476817, fitted by JLCPCB)', esp: 'ESP32-S3-DevKitC-1 N8R2 · 2 for ₹2,598 (Probots)',
-  ppg: 'MAX30102 module · 2 for ₹398 (Probots). Clip: 3D-printed', ppgf: 'The spare MAX30102 from the same pair (₹0)', imu: 'BMI270 breakout · to quote',
+  ppg: 'MAX30102 module · 2 for ₹398 (Probots). Check the I²C pull-ups go to 3.3 V, not 1.8 V. Clip: 3D-printed in black PETG or TPU, small torsion spring, black foam pad', ppgf: 'The spare MAX30102 from the same pair (₹0)', imu: 'BMI270 breakout · to quote',
   power: 'Passives in the JLCPCB order; regulators from the Cyton schematic', prot: 'Passives in the JLCPCB order',
   usb: 'On the board. ADuM3160 isolator only for wired streaming; skip with Bluetooth',
   fp: 'Prototype strip: 3 FRI TDE-211 snaps + hydrogel discs on a printed carrier · discs to quote', fpz: 'Centre pad of the strip',
@@ -859,14 +859,14 @@ const JW = (x, y) => pcbGroup.localToWorld(V3(x, y * KY, 2.2));
 function makePod(kind) {
   // Same cup for every pod (design doc): 14 mm wide, 20 mm tall. Hair pods: domed plug sticks out 5 mm.
   // Flat pods: shorter, flat sponge; the 2 mm it sticks out is a model estimate (the doc gives no number).
-  const hair = kind === 'hair', c0 = hair ? 5 : 2, c1 = c0 + (hair ? 8 : 20), r = 7;   // v4.3: 8 mm hair cup (no reservoir: contact plus a small gap for top-up drops); the build guide shows the 20 mm v3 cup
+  const hair = kind === 'hair', c0 = hair ? 5 : 2, c1 = c0 + (hair ? 9 : 20), r = 7;   // v4.3: 9 mm hair cup (no reservoir: contact plus a small gap for top-up drops); the build guide shows the 20 mm v3 cup
   const g = new THREE.Group();
   const sponge = new THREE.Mesh(new THREE.LatheGeometry(hair
     ? [V2(0.01, 0), V2(1.5, 0.12), V2(2.8, 0.5), V2(3.9, 1.2), V2(4.6, 2.2), V2(5, 3.4), V2(5, 10), V2(0.01, 10)]
     : [V2(0.01, 0), V2(4.7, 0), V2(5, 0.4), V2(5, 7), V2(0.01, 7)], 40), M.sponge);
   const cupG = new THREE.Group();
   const cup = new THREE.Mesh(new THREE.LatheGeometry([V2(0.01, c0), V2(r - 1.2, c0), V2(r, c0 + 1.2), V2(r, c1 - 0.5), V2(r - 0.3, c1), V2(0.01, c1)], 44), M.pod);
-  const lid = new THREE.Mesh(new THREE.LatheGeometry([V2(1.25, c1), V2(r + 0.4, c1), V2(r + 0.4, c1 + 1.8), V2(1.25, c1 + 1.8), V2(1.25, c1)], 44), M.podLid);
+  const lid = new THREE.Mesh(new THREE.LatheGeometry([V2(1.25, c1), V2(r + 0.4, c1), V2(r + 0.4, c1 + 1.8), V2(1.25, c1 + 1.8), V2(1.25, c1)], 44), M.pod);   // v4.3: lid epoxied to the cup, one sealed pod body
   const hole = new THREE.Mesh(new THREE.CircleGeometry(1.3, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = c1 + 1.0;
   const metal = new THREE.Mesh(new THREE.CylinderGeometry(5.4, 5.4, 1.6, 32), M.metal); metal.position.y = c0 + 5.8;
   cupG.add(cup, lid, hole, metal); g.add(sponge, cupG);
@@ -1005,8 +1005,9 @@ const jointKnob = new THREE.Group(); orient(jointKnob, JS, strapOff(JS) + BAND_T
   const lever = new THREE.Mesh(new RoundedBoxGeometry(12, 2.4, 16, 2, 0.8), M.dial); lever.position.set(0, 2.2, 7); jointKnob.add(lever); }
 headset.add(jointKnob); addTo('strap', jointKnob);
 // Locator notch on the brow module's lower edge: lined up with the strip's centre mark, it puts the band's 0 mm mark over Fpz.
-{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.led); orient(n, s, 1 + MOD.T * 0.32); headset.add(n); addTo('module', n); }
-const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13, 9.6 + 1.5), czPod = placePod('hair', SITE.Cz, 'cz', 34, 13, 9.6 + 1.5), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13, 9.6 + 1.5);
+{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.dial); orient(n, s, 1 + MOD.T * 0.32); headset.add(n); addTo('module', n); }
+// v4.3: no separate socket ring: the snap lead clips straight onto the pod body's stud
+const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13), czPod = placePod('hair', SITE.Cz, 'cz', 34, 13), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13);
 for (const pd of [fzPod, czPod, pzPod]) pd.sponge.userData.use = 'single';
 // Same collar socket takes three inserts: the semi-dry pod (plan), a paste disc and a dry spike (test arms).
 // Test inserts sit in a short printed adapter that reaches the collar. Adapter and spike count: model estimate (5 mm spikes: FRI TDE-212).
@@ -1027,28 +1028,34 @@ function hairInserts(pd, key) {
   return ins;
 }
 hairInserts(fzPod, 'fz'); hairInserts(czPod, 'cz'); hairInserts(pzPod, 'pz');
-// v4: wipe-clean pod cap over each cup, with the top-up port on top. v4.3: lower cap whose skirt stops above the tip collar, so the
-// single-use tip shows at a glance. Size: model estimate.
+// v4.3 carriage: ONE printed part (housing, two feet and the size-pin tab) that sits on the band. The pod body is a plunger inside it,
+// pushed down by a compression spring that bears on the pod's lid (about 6 mm of travel; aim 1-2 N, set in the frame test).
+// No separate pod cap: the housing already covers the pod. No status LED: the app shows contact status.
+// The pod's 4 mm stud takes a snap lead (FRI TDE-205) that leaves through a slot in the housing's side with a slack loop for the travel.
+// Because the band lies on the head, the spring only takes up hair and movement, not head shape. The ring on top is the top-up port.
 const CAPS = [];
-for (const [pd, key] of [[fzPod, 'fz'], [czPod, 'cz'], [pzPod, 'pz']]) {
-  const cap = new THREE.Group();
-  const shell = new THREE.Mesh(new THREE.LatheGeometry([V2(7.9, 7.0), V2(8.8, 7.6), V2(9.8, 9.2), V2(10.5, 11.5), V2(10.6, 13.2), V2(10.2, 15.0), V2(8.6, 16.6), V2(5.2, 17.6), V2(2.1, 17.8), V2(2.0, 15.4)], 64), M.cap);   // skirt stops above the tip collar
-  cap.add(shell); pd.g.add(cap); addTo(key, cap); CAPS.push(shell); explode(cap, UP, 48);
-  // v4.2 spring carriage: printed housing clamped on top of the band (M3 screw through the band slot, thumb nut on top); the pod is a
-  // plunger inside it that passes through the slot, pushed down by a compression spring (about 6 mm of travel; aim 1-2 N, set in the frame test).
-  // Because the band lies on the head, the spring only takes up hair and movement, not head shape. Thumb nut is also the refill port.
-  const top = POD_TOP, base = BAND_LIFT + BAND_T + 0.2, hb = 7.2, car = new THREE.Group();
-  // housing starts above the tip collar; two feet stand it on the band either side of the pod window, so the tip stays in view
-  const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, hb), V2(11.9, hb + 0.8), V2(12.2, hb + 2.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64), M.spine);
-  for (const sx of [-1, 1]) { const foot = new THREE.Mesh(new RoundedBoxGeometry(3.4, hb - base + 0.6, 9, 2, 0.6), M.spine); foot.position.set(sx * 10.6, (hb + base) / 2, 0); car.add(foot); CAPS.push(foot); }
-  const nut = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(6.4, top), V2(6.9, top + 1), V2(6.9, top + 2.4), V2(6.2, top + 3), V2(2.3, top + 3), V2(2.3, top)], 48), M.dial);
-  const port = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); port.rotation.x = -Math.PI / 2; port.position.y = top + 2.95;
-  const pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 4.4, 18.2 + t * (top - 1.4 - 18.2), Math.sin(a) * 4.4)); }
+headset.updateMatrixWorld(true);
+for (const [pd, key, iPod] of [[fzPod, 'fz', nearest(strapSamples, s => s.th - THF)], [czPod, 'cz', nearest(strapSamples, s => s.th - THC)], [pzPod, 'pz', nearest(strapSamples, s => s.th - THP)]]) {
+  const top = POD_TOP, base = BAND_LIFT + BAND_T + 0.2, hb = 7.2, car = new THREE.Group(), sb = strapSamples[iPod];
+  const sx = key === 'cz' ? -1 : 1;   // cable side: Fz and Pz leave on the left edge of the band, Cz on the right
+  // pod-local direction of the cable side, so the stud and the slot face the band edge the cable runs along
+  const o = pd.g.localToWorld(V3(0, 0, 0)), dl = pd.g.worldToLocal(o.clone().addScaledVector(sb.side, sx)); dl.y = 0; dl.normalize();
+  const slotA = Math.atan2(dl.x, dl.z);
+  const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, hb), V2(11.9, hb + 0.8), V2(12.2, hb + 2.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64, slotA + 0.32, Math.PI * 2 - 0.64), M.spine);   // side slot for the lead
+  housing.material = M.spine; const inner = new THREE.Mesh(new THREE.LatheGeometry([V2(10.4, hb + 0.6), V2(10.4, top - 1.6)], 64, slotA + 0.32, Math.PI * 2 - 0.64), M.spine);
+  for (const fx of [-1, 1]) { const foot = new THREE.Mesh(new RoundedBoxGeometry(3.4, hb - base + 0.6, 9, 2, 0.6), M.spine);
+    foot.position.copy(dl).multiplyScalar(fx * 10.6); foot.position.y = (hb + base) / 2; foot.rotation.y = slotA + Math.PI / 2; car.add(foot); CAPS.push(foot); }   // on the band edges, either side of the window
+  const port = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(5.4, top), V2(5.8, top + 0.8), V2(5.8, top + 1.6), V2(5.2, top + 2), V2(2.3, top + 2), V2(2.3, top)], 48), M.dial);
+  const hole = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = top + 1.95;
+  const lidTop = pd.c1 + 1.8, pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 3.0, lidTop + 0.4 + t * (top - 1.4 - lidTop - 0.4), Math.sin(a) * 3.0)); }   // around the top-up hole, clear of the stud
   const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 400, 0.42, 6, false), M.metal);
-  const led = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8), M.ledG); led.position.set(0, top - 5, 12.25);
-  car.add(housing, nut, port, spring, led); pd.g.add(car); addTo(key, car); CAPS.push(housing, nut, port, led); explode(car, UP, 66);
-  spring.userData.use = 'inside'; nut.userData.use = 'wipe';
-  pd.car = car; pd.spring = spring;
+  car.add(housing, inner, port, hole, spring); pd.g.add(car); addTo(key, car); CAPS.push(housing, inner, port, hole); explode(car, UP, 66);
+  spring.userData.use = 'inside'; port.userData.use = 'wipe';
+  // snap stud on the pod body (towards the cable side) and the snap lead's head clipped onto it
+  const studP = dl.clone().multiplyScalar(5.6); studP.y = lidTop + 1.2;
+  const stud = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.8, 2.4, 20), M.metal); stud.position.copy(studP); pd.cupG.add(stud);
+  const head = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 2.0, 24), M.conn); head.position.copy(studP).add(V3(0, 1.9, 0)); pd.cupG.add(head);
+  pd.car = car; pd.spring = spring; pd.sb = sb; pd.iPod = iPod; pd.sx = sx; pd.leadHead = () => pd.g.localToWorld(studP.clone().add(V3(0, 2.4, 0)));
 }
 // Band slots: nasion-inion (NI) scales with head size (300 to 348 mm for 500-580 mm heads; 324.2 mm here). The band's 0 mm mark sits
 // over Fpz (10% NI), so along the band Fz = 0.2 NI, Cz = 0.4 NI, Pz = 0.6 NI: Fz moves about ±5 mm, Cz ±10 mm, Pz ±14 mm.
@@ -1110,7 +1117,7 @@ const knob = new THREE.Group(); dialG.add(knob);
   const top = new THREE.Mesh(new THREE.CircleGeometry(12.6, 64), new THREE.MeshStandardMaterial({ map: face, roughness: 0.5 })); top.rotation.x = -Math.PI / 2; top.position.y = 5.52;
   knob.add(body, top);
   for (let i = 0; i < 36; i++) { const a = i / 36 * Math.PI * 2; const r = new THREE.Mesh(new THREE.BoxGeometry(1.1, 4.6, 1.2), M.dial); r.position.set(Math.sin(a) * 13.6, 2.75, Math.cos(a) * 13.6); r.rotation.y = a; knob.add(r); }
-  const ptr = new THREE.Mesh(new THREE.ConeGeometry(1.8, 3.6, 3), M.led); ptr.rotation.x = Math.PI / 2; ptr.position.set(0, 1.0, -16.6); dialG.add(ptr); }
+  const ptr = new THREE.Mesh(new THREE.ConeGeometry(1.8, 3.6, 3), M.slot); ptr.rotation.x = Math.PI / 2; ptr.position.set(0, 1.0, -16.6); dialG.add(ptr); }
 headset.add(dialG); addTo('dial', dialG); explode(dialG, FB.n, 44);
 function setDialFor(c) { knob.rotation.y = dialAng(c) * Math.PI / 180; }
 
@@ -1119,13 +1126,27 @@ const LOBE = V3(...HEAD.lobe.p), LN = V3(...HEAD.lobe.n).normalize();
 const clip = new THREE.Group(); clip.position.copy(LOBE);
 { const ly = UP.clone().addScaledVector(LN, -UP.dot(LN)).normalize(), lz = new THREE.Vector3().crossVectors(LN, ly);
   clip.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(LN, ly, lz)); }
-{ const shell = M.capShell;
-  const outer = new THREE.Mesh(new RoundedBoxGeometry(3.4, 12, 13, 3, 1.3), shell); outer.position.x = 4.6;
-  const inner = new THREE.Mesh(new RoundedBoxGeometry(3.4, 12, 13, 3, 1.3), shell); inner.position.x = -4.6;
-  const hinge = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 12.6, 20), M.base); hinge.rotation.z = Math.PI / 2; hinge.position.y = 6.8;
-  const win = new THREE.Mesh(new RoundedBoxGeometry(0.8, 5.5, 6.5, 2, 0.3), M.glass); win.position.x = 2.6;
-  const chip = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.3, 5.6), M.redChip); chip.position.x = 3.4;
-  clip.add(outer, inner, hinge, win, chip); }
+// v4.3 clip, to print: the earlobe's free edge is at the bottom, so the hinge sits BELOW the lobe and the jaws close upward over it.
+// Sensor jaw (outer side): pocket for a small MAX30102 breakout, window flush with the inner face, cable out of the top through a
+// strain-relief boot. Opposite jaw: black, with a black foam pad, so room light cannot shine through the thin lobe.
+// A small torsion spring on the hinge pin gives a light, repeatable squeeze (too much pressure collapses the vessels and weakens PPG).
+// Both jaws printed in black PETG (or TPU 95A). Gap at rest about 5 mm; jaw size and spring: model estimate, fit to the module you buy.
+const CLIP_TOP = V3(5.4, 12.6, 0);   // cable exit (top of the boot), in clip coordinates
+{ const dark = new THREE.MeshStandardMaterial({ color: 0x2a2d31, roughness: 0.7 }), padM = new THREE.MeshStandardMaterial({ color: 0x17191c, roughness: 1 });
+  const sensorJaw = new THREE.Mesh(new RoundedBoxGeometry(4.6, 16, 15, 3, 1.4), dark); sensorJaw.position.set(5.4, 0, 0);
+  const module = new THREE.Mesh(new THREE.BoxGeometry(1.0, 12.5, 12.5), M.pcbSide); module.position.set(4.6, 0, 0);
+  const win = new THREE.Mesh(new RoundedBoxGeometry(0.5, 5.5, 6.5, 2, 0.2), M.glass); win.position.x = 3.12;
+  const chip = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.3, 5.6), M.redChip); chip.position.x = 3.9;
+  const oppJaw = new THREE.Mesh(new RoundedBoxGeometry(3.6, 16, 15, 3, 1.3), dark); oppJaw.position.set(-4.9, 0, 0);
+  const pad = new THREE.Mesh(new RoundedBoxGeometry(0.9, 11, 11, 2, 0.3), padM); pad.position.x = -2.85;
+  // hinge below the lobe: a knuckle on each jaw, a pin, and the torsion spring around it
+  const k1 = new THREE.Mesh(new RoundedBoxGeometry(4.2, 4.6, 15, 2, 1.2), dark); k1.position.set(3.6, -9.6, 0);
+  const k2 = new THREE.Mesh(new RoundedBoxGeometry(4.2, 4.6, 15, 2, 1.2), dark); k2.position.set(-3.6, -9.6, 0);
+  const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 16.4, 16), M.metal); pin.rotation.x = Math.PI / 2; pin.position.set(0, -10.6, 0);
+  const sp = []; for (let i = 0; i <= 160; i++) { const t = i / 160, a = t * Math.PI * 2 * 5; sp.push(V3(Math.cos(a) * 2.0, -10.6 + Math.sin(a) * 2.0, -3 + 6 * t)); }
+  const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(sp), 240, 0.3, 6, false), M.metal);
+  const boot = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.8, 4.6, 16), dark); boot.position.set(5.4, 10.3, 0);
+  clip.add(sensorJaw, module, win, chip, oppJaw, pad, k1, k2, pin, spring, boot); }
 headset.add(clip); clip.updateMatrixWorld(true); addTo('ppg', clip); clip.userData.grabRoot = true; 
 function lead(pts, key, color = 0x2b2f33, r = 0.8) {
   const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, r, 8, false), new THREE.MeshStandardMaterial({ color, roughness: 0.6 }));
@@ -1134,7 +1155,7 @@ function lead(pts, key, color = 0x2b2f33, r = 0.8) {
 // v4.3: these outside leads show in the normal view; in see-through and electronics views they are replaced by the full cable to the board
 const OUT_LEADS = [];
 { const b = bandSamples[nearest(bandSamples, s => s.az - 84)];   // v3: route up in front of the ear so it never crosses the mastoid pad
-  OUT_LEADS.push(lead([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg')); }
+  OUT_LEADS.push(lead([clip.localToWorld(CLIP_TOP), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg')); }
 // short snap leads from the behind-ear pads up into the band
 for (const [S, key, a] of [[SITE.M1, 'ref', HS('M1').az], [SITE.M2, 'm2', HS('M2').az]]) {
   const b = bandSamples[nearest(bandSamples, s => s.az - a)];
@@ -1186,8 +1207,17 @@ const padUp = (S, b) => [off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5)];
 const bandL = nearest(bandSamples, s => s.az - 44), bandR = nearest(bandSamples, s => s.az - 316);
 const iTP9 = nearest(bandSamples, s => s.az - HS('M1').az), iTP10 = nearest(bandSamples, s => s.az - HS('M2').az), iBack = nearest(bandSamples, s => s.az - 180);
 const inMod = (s, P2) => [off(s, 9), P2];
-wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, EM + 12), J1)], '#7cc6fe');
-wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, EM + 11), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
+// v4.3: each pod's snap lead leaves its carriage through the side slot, makes a slack loop for the 6 mm spring travel, drops to the
+// band edge (outside the carriage feet, in printed cable clips) and runs forward into the brow module to J1. Fz and Pz on the left
+// edge, Cz on the right, so no cable passes under a pod window.
+const atBand = (sb, side, h) => sb.p.clone().addScaledVector(sb.nn, h).addScaledVector(sb.side, side);
+function podCable(pd, edge, intoMod) { const sb = pd.sb, sx = pd.sx, ahead = strapSamples[Math.max(0, pd.iPod - 5)];
+  return [pd.leadHead(), atBand(sb, sx * 9, POD_TOP - 8), atBand(sb, sx * 13.4, POD_TOP - 10.5), atBand(sb, sx * 16.5, 9), atBand(ahead, sx * edge, 6),
+          along(strapSamples[Math.max(0, pd.iPod - 9)], sx * edge), ...thin(strapSamples, Math.max(0, pd.iPod - 13), iStrap0, 4, sx * edge), ...intoMod]; }
+const FZ_CABLE = podCable(fzPod, 14.6, inMod(surf(0, EM + 12), J1)), PZ_CABLE = podCable(pzPod, 13.6, inMod(surf(0, EM + 11), J1.clone().add(V3(-2, 0, 0)))),
+  CZ_CABLE = podCable(czPod, 13.6, inMod(surf(0, EM + 12.5), J1.clone().add(V3(2, 0, 0))));
+wire(FZ_CABLE, '#7cc6fe');
+wire(PZ_CABLE, '#b69cff');
 wire([...padUp(SITE.M1, bandSamples[iTP9]), ...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#8a939b');
 wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, EM - 3), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
 wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, EM - 4), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
@@ -1197,10 +1227,12 @@ wire([off(SITE.Fp2, 4), off(surf(-24, HS('Fp2').el + 2), 6), J3.clone().add(V3(0
 wire([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
 wires.visible = false;
 ['fz', 'pz', 'ref', 'batt', 'batt', 'm2', 'fp', 'fp', 'eog'].forEach((k, i) => { if (wires.children[i]) wires.children[i].userData.wkey = k; });
-wire([...thin(strapSamples, iStrapCz, iStrap0, 4, 0), ...inMod(surf(0, EM + 12.5), J1.clone().add(V3(2, 0, 0)))], '#e3a35a').userData.wkey = 'cz';
+wire(CZ_CABLE, '#e3a35a').userData.wkey = 'cz';
+// the same three cables, outside the frame, for the normal view (hidden when the full wiring layer shows)
+for (const [pts, key, col] of [[FZ_CABLE, 'fz', 0x7cc6fe], [PZ_CABLE, 'pz', 0xb69cff], [CZ_CABLE, 'cz', 0xe3a35a]]) OUT_LEADS.push(lead(pts, key, col, 0.6));
 // earlobe clip: up in front of the ear into the halo (same path as its short lead), forward along the band, into J6
 { const iEar = nearest(bandSamples, s => s.az - 84);
-  wire([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), ...thin(bandSamples, iEar, bandL, 4, -4), ...inMod(surf(38, EM - 6), J6)], '#2b2f33', 0.7).userData.wkey = 'ppg'; }
+  wire([clip.localToWorld(CLIP_TOP), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), ...thin(bandSamples, iEar, bandL, 4, -4), ...inMod(surf(38, EM - 6), J6)], '#2b2f33', 0.7).userData.wkey = 'ppg'; }
 // test kit: the two ECG leads carry on from the halo along the band into J7 (shown only with the test kit)
 for (const sx of [1, -1]) { const i0 = nearest(bandSamples, s => s.az - (sx > 0 ? 140 : 220));
   const pts = [off(bandSamples[i0], 3), ...thin(bandSamples, i0, sx > 0 ? bandL : bandR, 4, sx > 0 ? 7 : -7), ...inMod(surf(sx * 36, EM - 7), J7.clone().add(V3(sx, 0, 0)))];
@@ -1378,7 +1410,8 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['PVA foam + 0.9% saline', '×1', '~500', 'Foam tips, cut and pressed into printed collars, stored wet in a sealed pack; saline for top-ups', 'cz'],
     ['Dropper bottle or blunt 1 ml syringe', '×2', '~100', 'Top-up drops through the lid hole; no needle near the scalp', 'cz'],
     ['Lead connector on the board', '1 set', '~500', 'Header pins or touch-proof sockets to match the leads', 'pcb'],
-    ['MAX30102 module', '×2', '398', 'Earlobe clip + forehead test window', 'ppg'],
+    ['MAX30102 module', '×2', '398', 'Earlobe clip + forehead test window (each on its own I²C bus: both answer at 0x57)', 'ppg'],
+    ['5-core thin cable + small torsion spring + black foam', '1 set', 'quote', 'Ear-clip lead (3.3 V, GND, SDA, SCL, INT) and the clip’s spring and pad', 'ppg'],
     ['Prep kit', '×1', '~300', 'Alcohol swabs, cotton, needle-free syringes, comb', null],
     ['Shipping + customs, FRI order', '', '~3,500', 'Check at checkout', null],
     ['LiPo 3.7 V 1000 mAh', '×2', 'quote', 'One per board (v3 listed 2000 mAh at 2 for ~₹970)', 'batt'],
@@ -1405,10 +1438,11 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['1. Take the harness out of a safety helmet', 'Buy a ratchet-type safety helmet (Karam PN521 with plastic cradle, about ₹306). Unclip the white X cradle from the shell, cut off the chin strap, keep the black headband and the ratchet knob.', 'band'],
     ['2. Print the brow module and battery pod', 'PETG on the VIT printer, or PA12 from an online SLS service. Battery pod clips over the ratchet housing; brow module screws to the front of the band.', 'module'],
     ['3. Print the band and cam lock', 'Print the band flat in PETG, 26 mm wide and 1.5–2 mm thick, with a window for each pod and five numbered pin holes beside it (size 1–5). Front end pins into the brow module; the back end runs through a cam lock on the battery pod. Print two thicknesses and keep the one that follows the head without sagging.', 'strap'],
-    ['4. Print the carriages', 'Three carriages that sit on the band and lock with a pin (or M3 screw and thumb nut) into the size hole; the pod passes down through the window. Start from the open-source Ultracortex spring holder and resize it for the pod.', 'cz'],
-    ['5. Fit springs and pods', 'Drop a spring into each carriage, then the pod, and click a wet tip onto it. Press each pod on a kitchen scale: pick springs so Fz, Cz and Pz push with about the same force.', 'fz'],
+    ['4. Print the carriages', 'One part each: housing, two feet that stand on the band edges, the size-pin tab and a side slot for the snap lead. The pod passes down through the band window. Start from the open-source Ultracortex spring holder and resize it for the pod. PETG, 0.2 mm layers.', 'cz'],
+    ['5. Fit springs and pods', 'Drop a spring into each carriage, then the pod body, clip the snap lead onto its stud and leave a small loop of slack inside the slot, then click a wet tip on. Clip the cables along the band edge (Fz and Pz on the left, Cz on the right). Press each pod on a kitchen scale: pick springs so Fz, Cz and Pz push with about the same force.', 'fz'],
     ['5b. Drill the size holes', 'Five 2.4 mm holes per pod just behind its window, numbered 1–5 (nasion–inion 304, 314, 324, 334, 344 mm). One step is 2 mm at Fz, 4 mm at Cz, 6 mm at Pz, so stagger them in two rows (1, 3, 5 and 2, 4) and print the numbers beside them. A pin on a short carriage tab drops into the hole.', 'strap'],
     ['6. Add the lining', '3 mm TPU or stick-on silicone strip inside the halo, 1 mm under the band, and a pad under the brow module. Check the halo now closes to 500 mm.', 'lining'],
+    ['6b. Print the ear clip', 'Two black jaws that hinge below the earlobe, a pocket in the outer jaw that holds the MAX30102 board with its window flush, a black foam pad on the inner jaw, a small torsion spring on the hinge pin and a strain-relief boot where the lead leaves. Size the pocket to the module you bought; pick the spring so it holds without pinching.', 'ppg'],
     ['7. Mechanical test before electronics', 'Wear it on thick, oiled and short hair. Nod and turn: pods must stay upright and on the scalp. Weigh the full headset.', 'strap'],
   ];
   for (const [n, sub, k] of FRAME) { const b = el('button', 'brow', `<span>${n}</span><span class="r"></span><small>${sub}</small>`); b.addEventListener('click', () => goPart(k)); host.appendChild(b); }
@@ -1425,11 +1459,12 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Ch 8', 'ECG + / −', '#e0524a', 'J7', 'IN8P / IN8N', 'ecg', null, 'Test kit only. SRB2 off on this channel'],
     ['Ref', 'M1', '#8a939b', 'J2', 'SRB2', 'ref', 'ref', 'Left mastoid pad. Feeds every channel: check it first'],
     ['Bias', 'Fpz', '#2fa772', 'stud', 'BIASOUT', 'fpz', null, 'Centre pad of the strip, through the strip’s 3-way tail'],
-    ['I²C', 'Heart sensors', '#e0524a', 'J6', 'ESP32 SDA/SCL', 'ppg', null, 'Earlobe clip; the test-kit forehead window shares the bus'],
+    ['I²C 0', 'Earlobe clip + IMU', '#e0524a', 'J6', 'ESP32 SDA/SCL (bus 0)', 'ppg', null, '5 wires: 3.3 V, GND, SDA, SCL, INT. 100 kHz over a twisted 4-core + INT lead'],
+    ['I²C 1', 'Forehead window (test kit)', '#ff9b8a', 'J8', 'ESP32 SDA/SCL (bus 1)', 'ppgf', null, 'Own bus: every MAX30102 answers at the same address (0x57), so two cannot share one bus'],
     ['Power', 'Battery', '#222428', 'J5', '+ / −', 'batt', 'batt', 'Battery only while worn'],
   ];
   for (const [ch, site, col, j, pin, k, wk, sub] of WIRING) {
-    const b = el('button', 'wrow' + (ch === 'Ch 8' ? ' test' : ''), `<b>${ch}</b><span><i style="background:${col}"></i>${site} → ${j}</span><span class="pin">${pin}</span><small>${sub}</small>`);
+    const b = el('button', 'wrow' + (ch === 'Ch 8' || ch === 'I²C 1' ? ' test' : ''), `<b>${ch}</b><span><i style="background:${col}"></i>${site} → ${j}</span><span class="pin">${pin}</span><small>${sub}</small>`);
     if (k) b.addEventListener('click', () => { if (parts[k].test && !state.test) setTest(true); select(k, false); state.wireHL = wk;
       if (wk) { if (!state.xray) setXray(true); flyTo(V3(330, 250, 360), V3(0, 25, -10), 800); document.querySelectorAll('#views .btn[data-view]').forEach(x => x.classList.remove('on')); state.view = null; } else flyToPart(k);
       document.querySelectorAll('.wrow').forEach(x => x.classList.toggle('on', x === b)); }); else b.disabled = true;
@@ -1463,7 +1498,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Cz on channel 7', 'Ch 7 ECG, ch 8 free', 'Ch 7 Cz · ch 8 ECG', 'Central cordance change predicted rTMS outcome (K102); P300 drop in depression largest at Cz (M10). Kept only if Study 1 says it adds.', 'Low–medium', { k: 'cz', view: 'top' }],
     ['Single-use forehead strip', 'Snap + Ten20 paste', '3-pad hydrogel strip', 'No paste and no cleanup; a cleared forehead EEG device uses a disposable patch (C69, D32). Paste stays as the fallback.', 'Medium', { k: 'fp', view: 'skin' }],
     ['Eye pad', 'Snap + paste, ring', 'Small hydrogel pad', 'Single-use and quicker to place (D32).', 'Engineering', { k: 'eog' }],
-    ['Pod caps', 'Bare cups on the arc', 'Wipe-clean caps, top-up hole on top', 'Product look, protects the cup, wipes clean between patients (R18).', 'Design', { k: 'cz', view: 'side' }],
+    ['Pod parts', 'Bare cups on the arc', 'Three printed parts: carriage, sealed pod body, tip cartridge', 'v4.3: the separate pod cap and socket ring are gone (the carriage housing covers the pod), the lid is epoxied to the cup so there is one fewer joint to leak, and the snap lead clips straight onto the pod’s stud. No LEDs on the pods: the app shows contact status. Wipe-clean between patients (R18).', 'Design', { k: 'cz', view: 'side' }],
     ['Midline band, spring pods', 'Soft midline strap', 'Semi-rigid band on the head + spring carriages', 'A strap cannot hold a pod upright or push it through hair (D34). The v4.1 rigid spine fixed that but stood at one height: the scalp under Cz moves about 7 mm with head size and up to 10 mm with shape, more than the 6 mm spring travel. A 26 mm band that lies on the head keeps the same gap on every head; spring per electrode as in Ultracortex (C71), semi-rigid PA12 frame as in Zeto (C72).', 'Medium', { k: 'strap', view: 'side' }],
     ['Pod positions from one tape', 'Carriage offsets from the 540 mm mannequin', 'Band reads 0 over Fpz; Fz, Cz, Pz at 0.2, 0.4, 0.6 × nasion–inion', '10-20 sites are percentages of nasion–inion, so one tape measurement places all three pods on any head shape. Saved per patient (D19).', 'High', { k: 'cz', view: 'top' }],
     ['Size holes 1–5', 'Slot + thumb nut, mm reading', 'Five numbered holes per pod; one size number per patient', 'Nasion–inion only spans 300–348 mm, so 10 mm steps keep pods within 1 mm (Fz), 2 mm (Cz) and 3 mm (Pz) of their sites, about a fitted cap’s 3 mm (P186). Nothing to read or misread.', 'High', { k: 'strap', view: 'top' }],
@@ -1669,7 +1704,7 @@ canvas.addEventListener('pointerleave', () => { tip.hidden = true; });
 // ---------- pod layer labels (shown when one hair pod is viewed on its own) ----------
 for (const [key, pd] of [['fz', fzPod], ['cz', czPod], ['pz', pzPod]]) {
   const cup = pd.cupG.children;
-  for (const [text, obj, y, side] of [['Lid with top-up hole', cup[1], 19, 1], ['3D-printed cup', cup[0], 13, -1], ['Ag/AgCl contact', cup[3], 10.8, 1], ['PVA sponge', pd.sponge, 3, -1]]) {
+  for (const [text, obj, y, side] of [['Lid, epoxied on (top-up hole)', cup[1], 14.5, 1], ['Pod body (9 mm cup)', cup[0], 10, -1], ['Ag/AgCl contact', cup[3], 10.8, 1], ['PVA sponge', pd.sponge, 3, -1]]) {
     label(text, '', '#fff', null, null, 'layer');
     const L = labels[labels.length - 1]; L.iso = key;
     const mover = obj === pd.sponge ? pd.sponge : pd.cupG; L.src = { get: () => pd.g.localToWorld(V3(side * 17, mover.position.y + y, 0)) };
@@ -1770,19 +1805,19 @@ function revolve(prof, mat, capMat, capShapes, seg = 96) {
 }
 const REV = [];
 const PG = new THREE.Group(); podScene.add(PG);
-// cup: 14 mm wide, 20 mm tall (y 5..25); 10 mm bore below the ledge, 11.2 mm chamber above
-const cupProf = [[5.0, 5], [7, 5], [7, 25], [5.6, 25], [5.6, 10], [5.0, 10], [5.0, 5]];
-const cupLow = [[5.0, 5], [7, 5], [7, 11.7], [5.6, 11.7], [5.6, 10], [5.0, 10], [5.0, 5]], cupHigh = [[5.6, 13.1], [7, 13.1], [7, 25], [5.6, 25], [5.6, 13.1]];
+// v4.3 cup: 14 mm wide, 9 mm tall (y 5..14); 10 mm bore below the ledge, a small gap above the contact for top-up drops
+const cupProf = [[5.0, 5], [7, 5], [7, 14], [5.6, 14], [5.6, 10], [5.0, 10], [5.0, 5]];
+const cupLow = [[5.0, 5], [7, 5], [7, 11.7], [5.6, 11.7], [5.6, 10], [5.0, 10], [5.0, 5]], cupHigh = [[5.6, 13.1], [7, 13.1], [7, 14], [5.6, 14], [5.6, 13.1]];
 const cupG = revolve(cupProf, PM.cup, PM.cupCut, [[cupLow, cupHigh], [cupProf]]); PG.add(cupG); REV.push(cupG);
 { const slot = new THREE.Mesh(new THREE.BoxGeometry(0.3, 1.5, 2.2), PM.slot); slot.position.set(7.02, 12.4, 0); cupG.userData.full.add(slot); }
 const lidG = new THREE.Group(); PG.add(lidG);
-const lidRev = revolve([[1.25, 25.0], [5.1, 25.0], [5.1, 23.4], [5.5, 23.4], [5.5, 25.0], [7.4, 25.0], [7.4, 26.8], [1.25, 26.8], [1.25, 25.0]], PM.lid, PM.lidCut); lidG.add(lidRev); REV.push(lidRev);
-// v3: 4 mm snap stud in the lid; it clicks into the strap socket. Stud size: model estimate.
-{ const st = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 3.4, 24), PM.agcl); st.position.set(4.3, 26.8 + 1.7, 0); lidG.add(st); }
+const lidRev = revolve([[1.25, 14.0], [5.1, 14.0], [5.1, 12.6], [5.5, 12.6], [5.5, 14.0], [7.4, 14.0], [7.4, 15.8], [1.25, 15.8], [1.25, 14.0]], PM.lid, PM.lidCut); lidG.add(lidRev); REV.push(lidRev);
+// 4 mm snap stud in the lid, off-centre (the top-up hole is in the middle); the snap lead clips onto it. Stud size: model estimate.
+{ const st = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 3.4, 24), PM.agcl); st.position.set(4.3, 15.8 + 1.7, 0); lidG.add(st); }
 // Ag/AgCl cup electrode, concave side down, 1.6 mm centre hole, lead out through the slot
 const elecG = new THREE.Group(); PG.add(elecG);
 const elecRev = revolve([[0.8, 11.1], [4.9, 11.1], [4.9, 10.0], [5.4, 10.0], [5.4, 11.6], [0.8, 11.6], [0.8, 11.1]], PM.agcl); elecG.add(elecRev); REV.push(elecRev);
-const leadPts = [V3(3, 11.6, 0), V3(3.6, 12.4, 0), V3(5.6, 12.4, 0), V3(7.2, 12.4, 0), V3(8.4, 13.4, 0), V3(8.5, 19, 0), V3(8.4, 24.2, 0), V3(7.6, 26.0, 0), V3(6.4, 26.6, 0)];
+const leadPts = [V3(3, 11.6, 0), V3(3.6, 12.4, 0), V3(5.6, 12.4, 0), V3(7.2, 12.4, 0), V3(8.3, 13.2, 0), V3(8.5, 14.6, 0), V3(7.8, 15.6, 0), V3(6.2, 16.0, 0), V3(4.6, 16.4, 0)];   // to the underside of the stud
 const leadCurve = new THREE.CatmullRomCurve3(leadPts);
 elecG.add(new THREE.Mesh(new THREE.TubeGeometry(leadCurve, 64, 0.55, 10, false), PM.wire));
 { const tab = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.5, 16), PM.copper); tab.position.set(3, 11.8, 0); elecG.add(tab);
@@ -1835,7 +1870,7 @@ const scalpG = new THREE.Group(); PG.add(scalpG); let scalpHair;
     q.setFromUnitVectors(UP, V3(-0.55 + away.x + (rnd() - 0.5) * 0.35, 1, 0.25 + away.z + (rnd() - 0.5) * 0.35).normalize());
     m4.compose(V3(x, -0.15 - r * r / (2 * R0), z), q, V3(0.8, L, 0.8)); hair.setMatrixAt(n++, m4); }
   scalpG.add(hair); scalpHair = hair;
-  const collar = new THREE.Mesh(new THREE.TorusGeometry(8, 1.3, 12, 48), PM.strap); collar.rotation.x = Math.PI / 2; collar.position.y = 15.5; scalpG.add(collar); }
+}   // v4.3: no socket ring on the pod; the snap lead clips onto the stud
 const sigDots = []; const sigCurve = new THREE.CatmullRomCurve3([V3(0, -0.6, 0), V3(0, 4, 0), V3(0, 9.6, 0), V3(1.6, 11.2, 0), ...leadPts.slice(0)]);
 for (let i = 0; i < 9; i++) { const d = new THREE.Mesh(new THREE.SphereGeometry(0.75, 14, 10), PM.signal); PG.add(d); sigDots.push(d); }
 // dimension lines (step 1)
@@ -1846,16 +1881,16 @@ function pline(pts) { podDims.add(new THREE.LineSegments(new THREE.BufferGeometr
 { const a = pdir.clone().multiplyScalar(-7), b = pdir.clone().multiplyScalar(7);
   pline([a.clone().setY(5), a.clone().setY(1.2), b.clone().setY(5), b.clone().setY(1.2), a.clone().setY(2), b.clone().setY(2)]);
   const s = ldir.clone().multiplyScalar(7.3), s2 = ldir.clone().multiplyScalar(11.5);
-  pline([s.clone().setY(5), s2.clone().setY(5), s.clone().setY(25), s2.clone().setY(25), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(5), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(25)]); }
+  pline([s.clone().setY(5), s2.clone().setY(5), s.clone().setY(14), s2.clone().setY(14), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(5), s2.clone().add(ldir.clone().multiplyScalar(-1)).setY(14)]); }
 
 // ---------- steps ----------
 const STEPS = [
-  { src: 'Design doc; v3 review: snap stud for the modular socket (model estimate)', title: 'Print the cup and lid', need: ['3D printer', 'PETG filament (TPU 95A later)', '4 mm snap stud'],
-    text: 'Print the cup and its snap-on lid. The cup is about 14 mm wide, with a side slot for the lead (drawn here 20 mm tall; the v4.3 hair cup is only 8 mm, because it holds just the contact and a small gap for top-up drops, which keeps the whole pod about 24 mm high). The lid has a 2 mm top-up hole and a 4 mm snap stud that clicks into the carriage socket. v4.3 has no reservoir, so the cup can be shortened once the tip cartridge is sized. Print watertight: 4 or more walls in PETG and seal it, or use a resin (SLA) print. Six pods print in 1–2 hours.',
-    cam: [V3(62, 46, 78), V3(0, 17, 0)], st: { lid: 14, elec: null, sponge: null, seal: 0 },
-    co: [['Top-up hole, 2 mm', () => V3(0, 26.8 + pod.cur.lid, 0), 110, -40], ['4 mm snap stud → carriage socket', () => V3(4.3, 30.2 + pod.cur.lid, 0), 120, -70], ['Snap-on lid', () => V3(-5.2, 26 + pod.cur.lid, 5.2), -130, -10],
-         ['Cup, PETG', () => V3(-5, 19, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
-    dims: [['14 mm', () => V3(0, 2, 0), 0, 26], ['20 mm', () => ldir.clone().multiplyScalar(11.5).setY(15), -50, 0]] },
+  { src: 'Design doc; v3 review: snap stud for the modular socket (model estimate)', title: 'Print the pod body', need: ['3D printer (resin, or PETG with 4+ walls)', '4 mm snap stud'],
+    text: 'Print the cup (14 mm wide, 9 mm tall, side slot for the internal lead) and its lid. Once the contact is in, the lid is epoxied on for good, so cup and lid become one sealed pod body. The lid has a 2 mm top-up hole in the middle and a 4 mm snap stud off to one side for the snap lead. No reservoir and no separate cap: the carriage housing covers the pod. Print watertight: resin (SLA), or PETG with 4 or more walls, then seal. Six pod bodies print in about an hour.',
+    cam: [V3(58, 40, 72), V3(0, 11, 0)], st: { lid: 14, elec: null, sponge: null, seal: 0 },
+    co: [['Top-up hole, 2 mm', () => V3(0, 15.8 + pod.cur.lid, 0), 110, -40], ['4 mm snap stud → snap lead', () => V3(4.3, 19.2 + pod.cur.lid, 0), 120, -70], ['Lid, epoxied on', () => V3(-5.2, 15 + pod.cur.lid, 5.2), -130, -10],
+         ['Cup', () => V3(-5, 11, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
+    dims: [['14 mm', () => V3(0, 2, 0), 0, 26], ['9 mm', () => ldir.clone().multiplyScalar(11.5).setY(9.5), -50, 0]] },
   { src: 'Design doc. Added: sealing the joint and choosing sintered Ag/AgCl (Alves et al. 2026); hole for saline (standard on EEG cups).', title: 'Fit the Ag/AgCl contact', need: ['Sintered Ag/AgCl cup electrode with lead', 'Epoxy'],
     text: 'Cover the solder joint on the back of the electrode with epoxy so saline never reaches it. Press the electrode into the cup, concave side down, so it rests on the inner ledge, and route the lead out through the side slot and up the outside of the cup. Pick one with a hole in the top so saline can pass.',
     cam: [V3(64, 36, 82), V3(0, 13, 0)], st: { lid: 14, elec: 0, sponge: null, seal: 0 },
@@ -1870,23 +1905,23 @@ const STEPS = [
     cam: [V3(60, 26, 78), V3(0, 9, 0)], st: { lid: 14, elec: 0, sponge: 0, seal: 0 },
     co: [['PVA sponge plug, 10 mm wide', () => V3(-3.5, 7 + pod.cur.sponge, 3.5), -170, -10], ['Sticks out 4–6 mm', () => V3(3.4, 1.4 + pod.cur.sponge, 3.4), 130, 30],
          ['Touches the underside of the metal', () => V3(0, 10 + pod.cur.sponge, 0), 130, -50]] },
-  { src: 'Design doc; v3: lead soldered to the lid stud', title: 'Seal and close', need: ['Silicone sealant or hot glue', 'Soldering iron'],
-    text: 'Seal the wire slot with epoxy or silicone (hot glue lets go in saline) so saline never reaches the lead or the snap. Solder the lead to the underside of the lid’s snap stud, then snap the lid on. About 10 minutes per pod once the parts exist.',
+  { src: 'Design doc; v3: lead soldered to the lid stud', title: 'Seal and close', need: ['Epoxy or silicone sealant', 'Soldering iron'],
+    text: 'Seal the wire slot with epoxy or silicone (hot glue lets go in saline) so saline never reaches the lead or the snap. Solder the internal lead to the underside of the lid’s snap stud, then epoxy the lid onto the cup: it stays on for good. About 10 minutes per pod once the parts exist.',
     cam: [V3(60, 34, 76), V3(0, 14, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1 },
-    co: [['Seal over the slot', () => V3(8.2, 12.5, 0), 120, 10], ['Lid snapped on', () => V3(-5.2, 26.6 + pod.cur.lid, 5.2), -140, -20]] },
+    co: [['Seal over the slot', () => V3(8.2, 12.5, 0), 120, 10], ['Lid epoxied on', () => V3(-5.2, 15.6 + pod.cur.lid, 5.2), -140, -20]] },
   { src: 'Design doc. Added: blotting excess saline (Greischar et al. 2004).', title: 'Top up only when asked', need: ['0.9% saline (pharmacy or contact-lens)', 'Needle-free 2 ml syringe'],
     text: 'v4.3: the tip arrives wet, so there is no filling step. Only when the contact check shows a pod amber or red, add 2–4 drops (0.1–0.2 ml) of 0.9% saline through the lid hole with a dropper or blunt syringe, between recording blocks, never during one. The drops pass the contact’s centre hole straight into the foam. More than that runs into the hair and can join two sites (Greischar et al. 2004), so blot any drips.',
-    cam: [V3(96, 58, 118), V3(0, 31, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, fill: true },
-    co: [['2–4 drops, only when flagged', () => V3(-4.6, 44 + syr.position.y, 0), -140, -10], ['Drops pass the contact into the foam', () => V3(-3.6, 15, 3.6), -170, 10],
+    cam: [V3(80, 46, 96), V3(0, 20, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, fill: true },
+    co: [['2–4 drops, only when flagged', () => V3(-4.6, 44 + syr.position.y, 0), -140, -10], ['Drops pass the contact into the foam', () => V3(-3.6, 12.4, 3.6), -170, 10],
          ['Sponge soaks from the top down', () => V3(3.5, 4, 3.5), 140, 30]] },
   { src: 'Design doc', title: 'How it picks up the signal', need: [],
     flat: { text: 'On the forehead and behind the ears there is no hair. The band presses the flat sponge onto bare skin; saline carries the signal to the metal, which never touches the skin. The lead runs to the board.',
       co: [['Flat sponge rests on bare skin', () => V3(3.4, 3.2, 3.4), 150, 60], ['Saline carries the signal up', () => V3(-3.5, 7, 3.5), -180, -10],
-           ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 20, 0), 60, -40]] },
-    text: 'The spring in the carriage pushes the pod down, so the sponge parts the hair and touches the scalp with the same force every time. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. The lid’s stud clicks into the carriage socket, which is wired to the board, so the same socket also takes the paste and dry-spike test inserts.',
+           ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 14.6, 0), 60, -40]] },
+    text: 'The spring in the carriage pushes the pod down, so the sponge parts the hair and touches the scalp with the same force every time. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. A snap lead clips onto the lid’s stud and leaves through a slot in the carriage’s side with a slack loop, so the pod can move on its spring. The paste and dry-spike test inserts carry the same stud, so the same lead clips onto them.',
     cam: [V3(82, 40, 104), V3(0, 10, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, wet: true, scalp: true },
     co: [['Sponge parts the hair, touches the scalp', () => V3(2.6, 0.8, 2.6), 150, 70], ['Saline carries the signal up', () => V3(-3.5, 6, 3.5), -180, -10],
-         ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 20, 0), 60, -40], ['Carriage socket', () => V3(-5.6, 15.5, 5.6), -150, -40]] },
+         ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 14.6, 0), 60, -40], ['Carriage socket', () => V3(-5.6, 15.5, 5.6), -150, -40]] },
 ];
 const HIDE = { lid: 24, elec: -24, sponge: -30 };
 pod.cur = { lid: 14, elec: HIDE.elec, sponge: HIDE.sponge, seal: 0 };
@@ -1918,7 +1953,7 @@ function renderSteps(fly = true) {
 }
 function setStep(i) { pod.step = (i + STEPS.length) % STEPS.length; renderSteps(); }
 function setTip(t) { pod.tip = t; if (pod.active && document.getElementById('podStepNo').textContent) renderSteps(false); document.querySelectorAll('#tipSeg button').forEach(b => b.classList.toggle('on', b.dataset.tip === t)); for (const k in SP) SP[k].visible = k === t;
-  document.getElementById('tipNote').textContent = { dome: 'Dome: the plan for Fz, Cz and Pz (in hair). On the headset the foam tip is a pre-wetted single-use cartridge that clicks onto this cup, inside a wipe-clean pod cap; rewet with a few drops through the lid hole if the app asks. The lid stud clicks into the same socket as the test inserts.', fingers: 'Fingers: tip to test against the dome on thick or oiled hair in the pod drying test (short soft fingers part the hair, as the cone probes do in Hua 2019). Holds less saline, so it may need top-ups sooner.', flat: '' }[t]; }
+  document.getElementById('tipNote').textContent = { dome: 'Dome: the plan for Fz, Cz and Pz (in hair). On the headset the foam tip is a pre-wetted single-use cartridge that clicks onto this pod body, which sits inside the spring carriage; rewet with a few drops through the lid hole if the app asks. The snap lead clips onto the lid stud, and onto the test inserts the same way.', fingers: 'Fingers: tip to test against the dome on thick or oiled hair in the pod drying test (short soft fingers part the hair, as the cone probes do in Hua 2019). Holds less saline, so it may need top-ups sooner.', flat: '' }[t]; }
 function setCut(on) { pod.cut = on; const b = document.getElementById('cutTg'); b.setAttribute('aria-pressed', on); for (const g of REV) { g.userData.full.visible = !on; g.userData.cut.visible = on; }
   liqFull.visible = !on; liqCut.visible = on; }
 function openPod(tip = 'dome') {
@@ -1962,15 +1997,15 @@ function podUpdate(now) {
     syrY = 20 * (1 - ease(T / 0.9)) + 20 * ease((T - 7.4) / 0.8);
     const push = ease((T - 1.0) / 3.6); plung = push;
     const drain = ease((T - 2.2) / 4.6);
-    level = 10.0 * push - 2.6 * drain; wet = 10.6 - 11.6 * drain;
+    level = 1.8 * push - 1.2 * drain; wet = 10.6 - 11.6 * drain;   // 2-4 drops, a thin layer above the contact
     showStream = T > 2.2 && T < 7.2; dropOn = T > 1.0 && T < 4.7; beadS = ease((T - 6.6) / 1.2);
-  } else if (s.wet) { level = 7.4; wet = -1; beadS = 0.6; }
+  } else if (s.wet) { level = 0.6; wet = -1; beadS = 0.6; }
   spongeU.uWet.value = wet;
   liqG.visible = level > 0.05; liqG.scale.y = Math.max(level, 0.001);
   stream.visible = showStream; if (showStream) stream.scale.set(0.8 + 0.2 * Math.sin(now / 90), 1, 0.8 + 0.2 * Math.sin(now / 90));
-  syr.visible = !!s.fill; syr.position.y = syrY;
+  syr.visible = !!s.fill; syr.position.y = syrY - 11;   // nozzle at the 9 mm pod's lid
   plunger.position.y = 36 + 15 * (1 - plung); syrLiq.scale.y = Math.max(0.001, 2 + 15 * (1 - plung));
-  drops.forEach((d, i) => { const ph = ((now / 1000) * 1.6 + i / 3) % 1; d.visible = dropOn; const top = 25.2, bot = 11.62 + Math.max(level, 0); d.position.set(0, top - (top - bot) * ph * ph, 0); });
+  drops.forEach((d, i) => { const ph = ((now / 1000) * 1.6 + i / 3) % 1; d.visible = dropOn; const top = 14.2, bot = 11.62 + Math.max(level, 0); d.position.set(0, top - (top - bot) * ph * ph, 0); });
   bead.visible = beadS > 0.02 && pod.tip !== 'fingers'; bead.position.set(0, pod.tip === 'flat' ? 2.8 : -0.25, 0); bead.scale.set(1.5 * beadS, 0.6 * beadS, 1.5 * beadS);
   sigDots.forEach((d, i) => { d.visible = !!s.scalp; if (d.visible) { const u = ((now / 1000) * 0.18 + i / sigDots.length) % 1; d.position.copy(sigCurve.getPointAt(u)); const sc = 0.7 + 0.5 * Math.sin(u * Math.PI); d.scale.setScalar(sc); } });
   // callouts
@@ -2007,8 +2042,8 @@ const toLocal = (wp) => pcbGroup.worldToLocal(wp.clone());
 const ppgL = L(-3, -20.6, 2.2), fpzTop = toLocal(off(SITE.Fpz, 4.0)), fpzBot = toLocal(off(SITE.Fpz, 0.9));
 const bExtra = [];
 { // J6 and J7 are part of the main board (cloned above)
-  for (let i = 0; i < 4; i++) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 10, 8), new THREE.MeshStandardMaterial({ color: ['#e0524a', '#222428', '#2f8fd8', '#f2c94c'][i] }));
-    w.position.set(ppgL.x - 2.25 + i * 1.5, ppgL.y - 7, 2.2); w.userData.part = 'ppg'; BG.add(w); bExtra.push(w); }
+  for (let i = 0; i < 5; i++) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 10, 8), new THREE.MeshStandardMaterial({ color: ['#e0524a', '#222428', '#2f8fd8', '#f2c94c', '#9aa3ab'][i] }));
+    w.position.set(ppgL.x - 2.4 + i * 1.2, ppgL.y - 7, 2.2); w.userData.part = 'ppg'; BG.add(w); bExtra.push(w); }
   const stud = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.8, Math.abs(fpzBot.z - (-0.8)), 24), M.metal.clone()); stud.rotation.x = Math.PI / 2;
   stud.position.set(fpzTop.x, fpzTop.y, (-0.8 + fpzBot.z) / 2); stud.userData.part = 'fpz'; BG.add(stud); bExtra.push(stud);
   // J7 (ECG pair, test kit) is on the main board too.
@@ -2083,9 +2118,9 @@ const BSTEPS = [
     focus: ['esp'], flows: ['spi', 'i2c'], rings: true, cam: [L(-14, -52, 92), L(-18, 4, 0)],
     co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['Bluetooth antenna', P_(-27, ESP.y, 2), -130, -40]] },
   { title: 'Heart and motion sensors', src: 'Plan: earlobe PPG (D22). v4: BMI270 IMU (X29). J6 position: model estimate.', parts: ['MAX30102 earlobe clip', 'BMI270'],
-    text: 'The MAX30102 heart sensor is no longer on the forehead: it sits in the earlobe clip, where pulse readings agreed best with ECG. Its 4-wire lead runs along the band and plugs into J6. The BMI270 motion sensor sits on the board, fixed to the frame, and flags head movement.',
+    text: 'The MAX30102 heart sensor sits in the earlobe clip, where pulse readings agreed best with ECG. Its 5-wire lead (3.3 V, ground, SDA, SCL and the interrupt line) runs along the band and plugs into J6 on I²C bus 0, at 100 kHz. Every MAX30102 answers at the same I²C address, so the test kit’s forehead sensor gets the ESP32-S3’s second I²C bus. The BMI270 motion sensor sits on the board, fixed to the frame, and flags head movement.',
     focus: ['ppg', 'imu'], flows: ['i2c'], cam: [L(-4, -58, 92), L(-4, -8, 0)],
-    co: [['J6 · earlobe heart-sensor lead', P_(ppgL.x, ppgL.y, 3.6), -120, 40], ['4 wires: power, ground, SDA, SCL', P_(ppgL.x, ppgL.y - 10, 2.2), 120, 40], ['BMI270 motion sensor', P_(-3, -15, 2), 110, 50]] },
+    co: [['J6 · earlobe heart-sensor lead', P_(ppgL.x, ppgL.y, 3.6), -120, 40], ['5 wires: 3.3 V, ground, SDA, SCL, INT', P_(ppgL.x, ppgL.y - 10, 2.2), 120, 40], ['BMI270 motion sensor', P_(-3, -15, 2), 110, 50]] },
   { title: 'Power', src: 'v3 review: battery only while worn; copy the OpenBCI Cyton ±2.5 V analog supply (X24) instead of v2’s MT3608 boost. Regulator choice: judgement call, take parts from the Cyton schematic. Part positions: model estimate.', parts: ['TP4056 charger', '±2.5 V regulators (Cyton-style)', '3.3 V LDO', 'Ferrite beads'],
     text: 'The battery (red) feeds the TP4056 charger, which USB-C (orange) refills. The analog side gets a quiet ±2.5 V supply for the EEG chip (yellow), copied from the Cyton design. A 3.3 V regulator feeds the digital parts (blue), and ferrite beads keep digital noise off the analog side. The charger joins the board to the laptop’s ground, so nothing records while USB is plugged in.',
     focus: ['power', 'usb'], flows: ['power'], cam: [L(-16, -54, 92), L(-22, -6, 0)],
