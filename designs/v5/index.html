@@ -1003,20 +1003,6 @@ armL.renderOrder = 5; armR.renderOrder = 5; headset.add(armL, armR); addTo('band
 const liningBrow = new THREE.Group();
 for (const sx of [1, -1]) liningBrow.add(skinSlab(surf(sx * 50, 25), 16, 22, 0.1, 3.0, M.lining, 8, 10));
 headset.add(liningBrow); addTo('lining', liningBrow);
-// arch: spring steel in a printed cover, from the top of the left pod over Cz to the top of the right pod (the T7-Cz-T8 line)
-const dirOf = (az, el) => V3(Math.sin(rad(az)) * Math.cos(rad(el)), Math.sin(rad(el)), Math.cos(rad(az)) * Math.cos(rad(el)));
-const A0 = dirOf(MOD.azC, 50), A2 = dirOf(360 - MOD.azC, 50), AC = V3(...HS('Cz').xyz).normalize();
-const AK = AC.clone().multiplyScalar(2).sub(A0.clone().add(A2).multiplyScalar(0.5));
-const archSamples = [];
-for (let i = 0; i <= 180; i++) { const t = i / 180, u = A0.clone().multiplyScalar((1 - t) * (1 - t)).add(AK.clone().multiplyScalar(2 * t * (1 - t))).add(A2.clone().multiplyScalar(t * t));
-  archSamples.push(Object.assign({ t }, surfU(u))); }
-const archOff = s => 15 + 23 * Math.pow(Math.sin(Math.PI * s.t), 6);   // 38 mm over Cz (8 Nov: spine raised 3 mm for 13 mm of spring travel), clear of the bar and pivot; into the pods at the ends
-const archMesh = sweep(archSamples, 14, 3.5, archOff, M.band);
-archMesh.renderOrder = 5; headset.add(archMesh); addTo('band', archMesh);
-// sliders: a collar on each side where the arch enters a pod
-const SLIDERS = [];
-for (const t of [0.12, 0.88]) { const sm = archSamples[Math.round(t * 180)], sl = new THREE.Mesh(new RoundedBoxGeometry(18, 6.5, 12, 2, 1.6), M.dial);
-  sl.position.copy(along(sm, 0, 0.5)); sl.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sm.side, sm.nn, sm.t)); headset.add(sl); addTo('band', sl); SLIDERS.push(sl); }
 const m1Pad = rectPad(SITE.M1, 'ref'); const m2Pad = rectPad(SITE.M2, 'm2');
 
 // ---------- v5 midline bar: pivots on the arch at Cz and carries the Fz and Pz carriages ----------
@@ -1055,18 +1041,156 @@ const iFzC = nearest(strapSamples, s => s.th - THF), iCzC = nearest(strapSamples
 const iBar0 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iFzC] + SLIDE.fz[0] - 10)), iBar1 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iPzC] + SLIDE.pz[1] + 10));
 M.bandP = new THREE.MeshStandardMaterial({ color: 0xdedfd9, roughness: 0.6, side: THREE.DoubleSide });
 M.tpu = new THREE.MeshStandardMaterial({ color: 0x5b646c, roughness: 0.8, side: THREE.DoubleSide });
-const strapMesh = sweep(strapSamples.slice(iBar0, iBar1 + 1), BAND_W, BAND_T, strapOff, M.bandP);
-strapMesh.renderOrder = 5; headset.add(strapMesh); addTo('strap', strapMesh);
-// v5.2 (8 Nov): rigid clip at Cz instead of the pivot. A printed saddle under the arch grips the spine with two M3 screws, so the
-// spine is a fixed part of the frame and each pod's force comes from its own soft spring (in-hair headsets pair a stiff frame with
-// a spring per electrode: Ultracortex, DSI-24, CGX, Zeto; Neuryo-Research C77 to C80). The arch sliders set the spine's height:
-// staff slide them until the Cz fill tube's black band lines up with its port (1.1 N), and save that setting per patient.
-const pivotG = new THREE.Group();
-{ const sC = strapSamples[iCzC], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sC.t, sC.nn, sC.side));
-  for (const sx of [-1, 1]) { const cheek = new THREE.Mesh(new RoundedBoxGeometry(3, 11, 30, 2, 1), M.dial); cheek.position.copy(along(sC, sx * (BAND_W / 2 + 2.6), 1.1)); cheek.quaternion.copy(q); pivotG.add(cheek);
-    for (const dz of [-9, 9]) { const scr = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 1.6, 20), M.metal); scr.position.copy(along(sC, sx * (BAND_W / 2 + 4.9), 0.5)).addScaledVector(sC.t, dz); scr.quaternion.setFromUnitVectors(UP, sC.side); pivotG.add(scr); } }
-  const stem = new THREE.Mesh(new RoundedBoxGeometry(BAND_W + 8, 3, 30, 2, 1), M.dial); stem.position.copy(along(sC, 0, 1.75)); stem.quaternion.copy(q); pivotG.add(stem); }
-headset.add(pivotG); addTo('strap', pivotG);
+// ---------- v5.2b spine (8 Nov): two straight printed halves with real seats, slots and pin holes ----------
+// Each half is 12 x 5 mm PETG, straight along the Cz-Fz (Cz-Pz) line, widening to 18 mm where a carriage hangs. A 5 mm slot along
+// each hole row lets the pod's fill tube rise through the spine; the 2 mm size-pin holes sit in the right-hand rail and the cables
+// run along the left. The halves meet in a shallow V over Cz. The swept band below only supplies frames for labels; it is not drawn.
+const strapMesh = new THREE.Group(); headset.add(strapMesh);
+sweep(strapSamples.slice(iBar0, iBar1 + 1), BAND_W, BAND_T, strapOff, M.bandP);
+const LEFT = strapSamples[iCzC].side.clone();
+const SPN = (() => {
+  const cz = strapSamples[iCzC];
+  const half = iS => { const st = strapSamples[iS]; return { st, base: cz.p.clone().addScaledVector(st.n, POD_TOP), t: st.p.clone().sub(cz.p).normalize() }; };
+  const F = half(iFzC), P = half(iPzC), d = P.base.clone().sub(F.base);
+  const det = F.t.y * -P.t.z + P.t.y * F.t.z, a = (d.y * -P.t.z + P.t.y * d.z) / det;
+  const apex = F.base.clone().addScaledVector(F.t, a);
+  for (const H of [F, P]) {
+    H.o = apex; H.side = V3(1, 0, 0); H.nn = new THREE.Vector3().crossVectors(H.t, H.side).normalize();
+    if (H.nn.dot(H.st.n) < 0) { H.side.negate(); H.nn.negate(); }
+    H.L = H.side.dot(LEFT) > 0 ? 1 : -1;                                   // v > 0 is the left (cable) side
+    H.at = (u, v, z) => apex.clone().addScaledVector(H.t, u).addScaledVector(H.side, v * H.L).addScaledVector(H.nn, z);
+    H.u = p => p.clone().sub(apex).dot(H.t);
+    H.v = p => p.clone().sub(apex).dot(H.side) * H.L;
+    H.q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(H.t, H.side, H.nn));
+    H.front = H === F ? H.t.clone() : H.t.clone().negate();
+  }
+  return { F, P, apex };
+})();
+// u of the point where a pod's axis meets the spine's underside
+const axisHit = (H, S) => { const y = SPN.apex.clone().sub(S.p).dot(H.nn) / S.n.dot(H.nn); return S.p.clone().addScaledVector(S.n, y); };
+// size holes: Fz and Pz move 0.2 x the change in nasion-inion from Cz, 2 mm per size, so 5 holes 4 mm apart serve two sizes each
+// (1-2, 3-4, 5-6, 7-8, 9), within 2 mm. Cz has one fixed hole.
+const CMIN = 500, CMAX = 580, NIMIN = 300, NIMAX = 390, RAIL_V = 5.75, WIN_W = 16;
+const sizeFor = ni => Math.max(1, Math.min(9, Math.floor((ni - 299) / 10) + 1));
+const FZ_HOLES = [[1, 2], [3, 4], [5, 6], [7, 8], [9]].map(g => ({ g, ni: g.reduce((a, k) => a + SIZE_NI[k - 1], 0) / g.length, label: g.join('·') }));
+const fzHoleFor = sz => FZ_HOLES.find(h => h.g.includes(sz));
+const numMat = (txt, wide) => new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, map: tex(wide ? 128 : 64, 64, (g, w, h) => {
+  g.fillStyle = '#1a3f3c'; g.font = `700 ${wide ? 40 : 48}px Geist, Arial, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(txt, w / 2, h / 2 + 2); }) });
+const ROWS = {};
+for (const [H, iC, sgn, key] of [[SPN.F, iFzC, -1, 'fz'], [SPN.P, iPzC, 1, 'pz']]) {
+  const c = STRAP_CUM[iC];
+  ROWS[key] = { H, holes: FZ_HOLES.map(hh => { const sh = strapSamples[nearest(STRAP_CUM, x => x - (c + sgn * 0.2 * (hh.ni - NI0)))];
+    return { hh, u: H.u(sh.p.clone().addScaledVector(sh.n, POD_TOP)) }; }) };
+}
+const SEAT = { cz: [-5, 7.5] };   // u range of the wide seat on each half (Cz: both halves near the apex)
+for (const k of ['fz', 'pz']) { const us = ROWS[k].holes.map(h => h.u); SEAT[k] = [Math.min(...us) - 6, Math.max(...us) + 6]; ROWS[k].slot = [Math.min(...us) - 4, Math.max(...us) + 4]; }
+const CLIP_U = 23;   // the arch crosses the spine 23 mm behind Cz, clear of the Cz fill tube; the clip holds the spine there
+const CZ_HIT = { F: SPN.F.u(axisHit(SPN.F, SITE.Cz)), P: SPN.P.u(axisHit(SPN.P, SITE.Cz)) };
+const CZ_PIN = SPN.P.at(CZ_HIT.P + 4.0, -RAIL_V, 0);   // Cz pin just behind the Cz tube, on the back half
+const halfLen = { F: Math.max(...ROWS.fz.holes.map(h => h.u)) + 16, P: Math.max(...ROWS.pz.holes.map(h => h.u)) + 16 };
+// The halves meet in a 144 degree V just over Cz (each about 18 degrees off the scalp's tangent there). The front half stops 1.2 mm
+// short of the apex; the back half runs 4.5 mm past it and that end is reshaped into the front half's section, so the joint is one
+// solid with the Cz fill-tube hole through it.
+function spineHalf(H, key, rowKey) {
+  const BV = 0.4, W0 = 6 - BV, W1 = 9 - BV, RAMP = 2.5, u0 = key === 'F' ? 1.2 : -4.5, u1 = halfLen[key];
+  const seats = [SEAT.cz, SEAT[rowKey]];
+  const wAt = u => { let w = W0; for (const [a, b] of seats) { const e = u < a ? a - u : u > b ? u - b : 0; w = Math.max(w, e >= RAMP ? W0 : W1 - (W1 - W0) * e / RAMP); } return w; };
+  const pts = [];
+  for (let u = u0; u <= u1 - W0; u += 0.5) pts.push([u, -wAt(u)]);
+  for (let a = -Math.PI / 2; a <= Math.PI / 2 + 1e-6; a += Math.PI / 16) pts.push([u1 - W0 + W0 * Math.cos(a), W0 * Math.sin(a)]);
+  for (let u = u1 - W0; u >= u0; u -= 0.5) pts.push([u, wAt(u)]);
+  const sh = new THREE.Shape(pts.map(([u, v]) => V2(u, v * H.L)));
+  const addHole = (cu, cv, r) => { const p = new THREE.Path(); p.absarc(cu, cv * H.L, r + BV, 0, Math.PI * 2, true); sh.holes.push(p); };
+  const addSlot = (a, b, r) => { const p = new THREE.Path(); r += BV; p.moveTo(a, -r); p.lineTo(b, -r); p.absarc(b, 0, r, -Math.PI / 2, Math.PI / 2, false); p.lineTo(a, r); p.absarc(a, 0, r, Math.PI / 2, Math.PI * 1.5, false); sh.holes.push(p); };
+  addSlot(...ROWS[rowKey].slot, 2.5);
+  ROWS[rowKey].holes.forEach(h => addHole(h.u, -RAIL_V, 1.0));
+  if (key === 'P') { addHole(CZ_HIT.P, 0, 2.5); addHole(H.u(CZ_PIN), -RAIL_V, 1.0); }   // Cz fill tube and Cz pin
+  const g = new THREE.ExtrudeGeometry(sh, { depth: 5 - 2 * BV, bevelEnabled: true, bevelThickness: BV, bevelSize: BV, bevelSegments: 2, curveSegments: 24 });
+  g.translate(0, 0, BV);
+  if (key === 'P') {   // past the apex: same u, v and depth, but in the front half's frame
+    const pa = g.attributes.position, F = SPN.F, w = new THREE.Vector3();
+    for (let i = 0; i < pa.count; i++) { const u = pa.getX(i); if (u >= 0) continue;
+      w.set(u, pa.getY(i), 0).applyQuaternion(H.q).add(SPN.apex);
+      const uf = w.clone().sub(SPN.apex).dot(F.t), lv = new THREE.Vector3(0, pa.getY(i), 0).applyQuaternion(H.q);
+      const p = SPN.apex.clone().addScaledVector(F.t, uf).add(lv).addScaledVector(F.nn, pa.getZ(i));
+      p.sub(SPN.apex).applyQuaternion(H.q.clone().invert()); pa.setXYZ(i, p.x, p.y, p.z); }
+    g.computeVertexNormals(); }
+  const m = new THREE.Mesh(g, M.spine); m.position.copy(SPN.apex); m.quaternion.copy(H.q); m.renderOrder = 5;
+  strapMesh.add(m);
+}
+spineHalf(SPN.F, 'F', 'fz'); spineHalf(SPN.P, 'P', 'pz');
+addTo('strap', strapMesh);
+// size numbers on the left rail, and the pin head in this head's hole (size 3-4 here); Cz has its own fixed pin
+const RAILS = [];
+const pinHead = (p, H) => { const g = new THREE.Group();
+  const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.85, 6.4, 16), M.dial); sh.position.y = 1.8;
+  const hd = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.8, 0.8, 24), M.dial); hd.position.y = 5.4;
+  g.add(sh, hd); g.position.copy(p); g.quaternion.setFromUnitVectors(UP, H.nn); headset.add(g); addTo('strap', g); RAILS.push(sh, hd); };
+const HEAD_SIZE = sizeFor(NI0);
+for (const k of ['fz', 'pz']) { const R = ROWS[k], H = R.H;
+  R.holes.forEach(h => { const wide = h.hh.label.length > 1, num = new THREE.Mesh(new THREE.PlaneGeometry(wide ? 3.6 : 2.6, wide ? 1.8 : 2.6), numMat(h.hh.label, wide));
+    const y = H.front, z = H.nn, x = new THREE.Vector3().crossVectors(y, z);
+    num.position.copy(H.at(h.u, RAIL_V, 5.03)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z));
+    num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num); });
+  R.pin = R.holes.find(h => h.hh.g.includes(HEAD_SIZE)); pinHead(H.at(R.pin.u, -RAIL_V, 0), H); }
+pinHead(CZ_PIN, SPN.F);
+
+// arch: spring steel in a printed cover, from the top of the left pod over the head to the top of the right pod. v5.2b: it crosses
+// the midline 23 mm behind Cz (was over Cz), so the Cz fill tube is open from above; the clip carries Cz 23 mm in front of it.
+const dirOf = (az, el) => V3(Math.sin(rad(az)) * Math.cos(rad(el)), Math.sin(rad(el)), Math.cos(rad(az)) * Math.cos(rad(el)));
+const XS = SPN.P.at(CLIP_U, 0, 0);
+const A0 = dirOf(MOD.azC, 50), A2 = dirOf(360 - MOD.azC, 50), AC = XS.clone().normalize();
+const AK = AC.clone().multiplyScalar(2).sub(A0.clone().add(A2).multiplyScalar(0.5));
+const archSamples = [];
+for (let i = 0; i <= 180; i++) { const t = i / 180, u = A0.clone().multiplyScalar((1 - t) * (1 - t)).add(AK.clone().multiplyScalar(2 * t * (1 - t))).add(A2.clone().multiplyScalar(t * t));
+  archSamples.push(Object.assign({ t }, surfU(u))); }
+const ARCH_TOP_GAP = 3.0;   // clip bridge between the spine's top and the arch
+const ARCH_H = (() => { const s = archSamples[90]; return XS.clone().addScaledVector(SPN.P.nn, 5).sub(s.p).dot(s.n) + ARCH_TOP_GAP; })();
+const archOff = s => 15 + (ARCH_H - 15) * Math.pow(Math.sin(Math.PI * s.t), 6);
+const archMesh = sweep(archSamples, 14, 3.5, archOff, M.band);
+archMesh.renderOrder = 5; headset.add(archMesh); addTo('band', archMesh);
+// sliders: a collar on each side where the arch enters a pod
+const SLIDERS = [];
+for (const t of [0.12, 0.88]) { const sm = archSamples[Math.round(t * 180)], sl = new THREE.Mesh(new RoundedBoxGeometry(18, 6.5, 12, 2, 1.6), M.dial);
+  sl.position.copy(along(sm, 0, 0.5)); sl.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sm.side, sm.nn, sm.t)); headset.add(sl); addTo('band', sl); SLIDERS.push(sl); }
+// arch underside as a plane at any point along the arch: nearest sample's bottom face
+const archPlaneNear = p => { const i = nearest(archSamples, s => s.p.distanceTo(p) * (s.p.clone().sub(p).dot(SPN.P.t) ** 2 > 400 ? 9 : 1)); const s = archSamples[i];
+  return { Q: s.p.clone().addScaledVector(s.nn, s.o), m: s.nn.clone() }; };
+// a six-sided block whose bottom and top faces lie on given planes (spine faces, arch faces), corners from the spine frame
+function hexa(H, us, vs, bot, top, mat) {
+  const pos = [], corner = (u, v, pl) => { const O = H.at(u, v, 0), n = H.nn, PL = typeof pl === 'function' ? pl(O) : pl;
+    return O.addScaledVector(n, PL.Q.clone().sub(O).dot(PL.m) / n.dot(PL.m)); };
+  const B = [[us[0], vs[0]], [us[1], vs[0]], [us[1], vs[1]], [us[0], vs[1]]].map(([u, v]) => corner(u, v, bot));
+  const T = [[us[0], vs[0]], [us[1], vs[0]], [us[1], vs[1]], [us[0], vs[1]]].map(([u, v]) => corner(u, v, top));
+  const quad = (a, b, c, d) => pos.push(...a.toArray(), ...b.toArray(), ...c.toArray(), ...a.toArray(), ...c.toArray(), ...d.toArray());
+  quad(B[0], B[3], B[2], B[1]); quad(T[0], T[1], T[2], T[3]);
+  for (let i = 0; i < 4; i++) { const j = (i + 1) % 4; quad(B[i], B[j], T[j], T[i]); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
+  return new THREE.Mesh(g, mat);
+}
+// v5.2b clip: a printed block round the spine and the arch where they cross. Bottom plate under the spine, cheeks on both sides,
+// a bridge between the spine's top and the arch with a 4 mm channel for the cables running along the arch, cheeks either side of
+// the arch and a top plate, all pulled together by 4 x M3 x 25 mm screws into nuts in the bottom plate. Rigid: no pivot.
+const pivotG = new THREE.Group(); headset.add(pivotG);
+{ const H = SPN.P, uc = H.u(archSamples[90].p.clone().addScaledVector(archSamples[90].nn, archSamples[90].o)), CU = 9.5, CV = 11, SV = 6.2, CH = 2.0;
+  const spineBot = { Q: H.at(0, 0, 0), m: H.nn.clone() }, spineTop = { Q: H.at(0, 0, 5), m: H.nn.clone() }, plateBot = { Q: H.at(0, 0, -2.2), m: H.nn.clone() };
+  const archBot = O => archPlaneNear(O), archTop = O => { const pl = archPlaneNear(O); pl.Q.addScaledVector(pl.m, 3.5); return pl; };
+  const capTop = O => { const pl = archPlaneNear(O); pl.Q.addScaledVector(pl.m, 5.1); return pl; };
+  const add = m => { m.renderOrder = 5; pivotG.add(m); };
+  add(hexa(H, [uc - CU, uc + CU], [-CV, CV], plateBot, spineBot, M.dial));                     // bottom plate
+  for (const [a, b] of [[uc - CU, uc - CH], [uc + CH, uc + CU]]) {
+    for (const s of [-1, 1]) add(hexa(H, [a, b], s < 0 ? [-CV, -SV] : [SV, CV], spineBot, archBot, M.dial));   // side cheeks
+    add(hexa(H, [a, b], [-SV, SV], spineTop, archBot, M.dial)); }                             // bridge
+  const AW = 7.3;
+  for (const [a, b] of [[uc - CU, uc - AW], [uc + AW, uc + CU]]) add(hexa(H, [a, b], [-CV, CV], archBot, archTop, M.dial));   // arch cheeks
+  add(hexa(H, [uc - CU, uc + CU], [-CV, CV], archTop, capTop, M.dial));                       // top plate
+  for (const du of [-8.4, 8.4]) for (const v of [-8.6, 8.6]) {                                // M3 socket heads
+    const O = H.at(uc + du, v, 0), pl = capTop(O), p = O.addScaledVector(H.nn, pl.Q.clone().sub(O).dot(pl.m) / H.nn.dot(pl.m));
+    const hd = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.75, 1.6, 24), M.metal); hd.position.copy(p).addScaledVector(pl.m, 0.8); hd.quaternion.setFromUnitVectors(UP, pl.m);
+    const hx = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 6), M.slot); hx.position.copy(p).addScaledVector(pl.m, 1.61); hx.quaternion.copy(hd.quaternion);
+    pivotG.add(hd, hx); }
+  pivotG.userData.uc = uc; }
+addTo('strap', pivotG);
 // v4.3: no separate socket ring: the snap lead clips straight onto the pod body's stud
 const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13), czPod = placePod('hair', SITE.Cz, 'cz', 34, 13), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13);
 for (const pd of [fzPod, czPod, pzPod]) pd.sponge.userData.use = 'single';
@@ -1089,58 +1213,77 @@ function hairInserts(pd, key) {
   return ins;
 }
 hairInserts(fzPod, 'fz'); hairInserts(czPod, 'cz'); hairInserts(pzPod, 'pz');
-// v5 carriage: ONE printed part (housing and the size-pin tab) that hangs under the bar. The pod body is a plunger inside it,
-// pushed down by a soft compression spring that bears on the pod's lid (8 Nov: about 0.13 N/mm, about 13 mm stroke, 1.1 N at about
-// 8.5 mm compression; e.g. about 6.5 mm OD, 0.4 mm wire, about 18 mm free length from an assortment, checked on a kitchen scale).
-// No separate pod cap: the housing already covers the pod. No status LED: the app shows contact status.
-// The pod's 4 mm stud takes a snap lead (FRI TDE-205) that leaves through a slot in the housing's side with a slack loop for the travel.
-// The spine sits about 29 mm above the scalp; the spring takes up hair and movement, the size holes take up head shape. The ring on top is the top-up port.
+// v5.2b carriage (8 Nov): ONE printed part per pod. A 24.4 mm tube (1.3 mm wall) on the pod's axis whose top is cut to the spine's
+// underside (about 20 degrees at Fz and Pz, a 144 degree V at Cz), a 2 mm cap with the spring seat and a 4.6 mm hole for the fill
+// tube, two snap lips that hook over the spine's 18 mm seat, and a notch at the bottom on the cable side for the snap lead.
+// A 1.75 mm filament pin through the size hole locates it. The pod body is a plunger inside it, pushed down by a soft spring
+// (about 0.13 N/mm, about 13 mm stroke, 1.1 N at about 8.5 mm; e.g. about 6.5 mm OD, 0.4 mm wire, about 18 mm free length,
+// checked on a kitchen scale). A printed fill tube (3.5 mm OD, 2.4 mm bore) rises from the lid through the spring, the cap and the
+// spine's slot; its black band sits level with the spine's top at 1.1 N.
 const CAPS = [];
-headset.updateMatrixWorld(true);
-for (const [pd, key, iPod] of [[fzPod, 'fz', nearest(strapSamples, s => s.th - THF)], [czPod, 'cz', nearest(strapSamples, s => s.th - THC)], [pzPod, 'pz', nearest(strapSamples, s => s.th - THP)]]) {
-  const top = POD_TOP, base = BAND_LIFT + BAND_T + 0.2, hb = 7.2, car = new THREE.Group(), sb = strapSamples[iPod];
-  const sx = key === 'cz' ? -1 : 1;   // cable side: Fz and Pz leave on the left edge of the bar, Cz on the right
-  // pod-local direction of the cable side, so the stud and the slot face the bar edge the cable runs along
-  const o = pd.g.localToWorld(V3(0, 0, 0)), dl = pd.g.worldToLocal(o.clone().addScaledVector(sb.side, sx)); dl.y = 0; dl.normalize();
-  const slotA = Math.atan2(dl.x, dl.z);
-  const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, hb), V2(11.9, hb + 0.8), V2(12.2, hb + 2.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64), M.spine);
-  // small window in the housing wall where the snap lead comes out (about 5 x 6 mm), on the cable's side; the rest of the wall stays solid
-  const inner = new THREE.Mesh(new RoundedBoxGeometry(5, 6, 1.4, 2, 0.6), M.hole); inner.position.copy(dl).multiplyScalar(11.9); inner.position.y = top - 9.2; inner.rotation.y = slotA;
-  // the housing wall carries on down from the bar on the two bar-edge sides (one print), leaving front and back open so the tip shows
-  const port = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(5.4, top), V2(5.8, top + 0.8), V2(5.8, top + 1.6), V2(5.2, top + 2), V2(2.3, top + 2), V2(2.3, top)], 48), M.dial);
-  const hole = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = top + 1.95;
-  const lidTop = pd.c1 + 1.8, pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 3.0, lidTop + 0.4 + t * (top - 1.4 - lidTop - 0.4), Math.sin(a) * 3.0)); }   // around the top-up hole, clear of the stud
-  const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 400, 0.42, 6, false), M.metal);
-  car.add(housing, inner, port, hole, spring); pd.g.add(car); addTo(key, car); CAPS.push(housing, inner, port, hole); explode(car, UP, 66);
-  spring.userData.use = 'inside'; port.userData.use = 'wipe';
-  // snap stud on the pod body (towards the cable side) and the snap lead's head clipped onto it
-  const studP = dl.clone().multiplyScalar(5.6); studP.y = lidTop + 1.2;
-  const stud = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.8, 2.4, 20), M.metal); stud.position.copy(studP); pd.cupG.add(stud);
-  const head = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 2.0, 24), M.conn); head.position.copy(studP).add(V3(0, 1.9, 0)); pd.cupG.add(head);
-  pd.car = car; pd.spring = spring; pd.sb = sb; pd.iPod = iPod; pd.sx = sx; pd.leadHead = () => pd.g.localToWorld(studP.clone().add(V3(0, 2.4, 0)));
+function ringSolid(ro, ri, yB, yT, a0, a1, n, mat) {
+  const full = a1 - a0 > Math.PI * 2 - 1e-6, pos = [], nor = [];
+  const P = (r, a, f) => { const x = r * Math.cos(a), z = r * Math.sin(a); return V3(x, f(x, z), z); };
+  const quad = (a, b, c, d, na, nb, nc, nd) => {
+    if (!na) { const f = new THREE.Vector3().crossVectors(b.clone().sub(a), c.clone().sub(a)).normalize(); na = nb = nc = nd = f; }
+    for (const [v, nv] of [[a, na], [b, nb], [c, nc], [a, na], [c, nc], [d, nd]]) { pos.push(v.x, v.y, v.z); nor.push(nv.x, nv.y, nv.z); } };
+  const rad = a => V3(Math.cos(a), 0, Math.sin(a));
+  for (let i = 0; i < n; i++) {
+    const u0 = a0 + (a1 - a0) * i / n, u1 = a0 + (a1 - a0) * (i + 1) / n, r0 = rad(u0), r1 = rad(u1), q0 = r0.clone().negate(), q1 = r1.clone().negate();
+    quad(P(ro, u0, yB), P(ro, u0, yT), P(ro, u1, yT), P(ro, u1, yB), r0, r0, r1, r1);
+    quad(P(ri, u1, yB), P(ri, u1, yT), P(ri, u0, yT), P(ri, u0, yB), q1, q1, q0, q0);
+    quad(P(ro, u1, yT), P(ro, u0, yT), P(ri, u0, yT), P(ri, u1, yT));
+    quad(P(ri, u1, yB), P(ri, u0, yB), P(ro, u0, yB), P(ro, u1, yB));
+  }
+  if (!full) { quad(P(ri, a0, yB), P(ri, a0, yT), P(ro, a0, yT), P(ro, a0, yB)); quad(P(ro, a1, yB), P(ro, a1, yT), P(ri, a1, yT), P(ri, a1, yB)); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
+  return new THREE.Mesh(g, mat);
 }
-// v5 size holes: one row on top of the bar beside each of Fz and Pz. Fz and Pz move 0.2 x the change in nasion-inion from Cz, 2 mm per
-// size, so 5 holes 4 mm apart serve two sizes each (1-2, 3-4, 5-6, 7-8, 9), within 2 mm. Cz has no holes: the arch fixes it.
-const CMIN = 500, CMAX = 580, NIMIN = 300, NIMAX = 390, HOLE_X = 3.4, NUM_X = 3.2, WIN_W = 16;
-const sizeFor = ni => Math.max(1, Math.min(9, Math.floor((ni - 299) / 10) + 1));
-const FZ_HOLES = [[1, 2], [3, 4], [5, 6], [7, 8], [9]].map(g => ({ g, ni: g.reduce((a, k) => a + SIZE_NI[k - 1], 0) / g.length, label: g.join('·') }));
-const fzHoleFor = sz => FZ_HOLES.find(h => h.g.includes(sz));
-const numMat = (txt, wide) => new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, map: tex(wide ? 128 : 64, 64, (g, w, h) => {
-  g.fillStyle = '#1a3f3c'; g.font = `700 ${wide ? 40 : 48}px Geist, Arial, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(txt, w / 2, h / 2 + 2); }) });
-const RAILS = [];
-for (const [iC, sgn, key] of [[iFzC, -1, 'fz'], [iPzC, 1, 'pz']]) {
-  const c = STRAP_CUM[iC];
-  FZ_HOLES.forEach(hh => {
-    const d = sgn * 0.2 * (hh.ni - NI0), sh = strapSamples[nearest(STRAP_CUM, x => x - (c + d))];
-    const m = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.4, 20), M.slot); m.position.copy(along(sh, HOLE_X, 1.02)); m.quaternion.setFromUnitVectors(UP, sh.nn);
-    m.renderOrder = 6; headset.add(m); addTo('strap', m); RAILS.push(m);
-    const wide = hh.label.length > 1, num = new THREE.Mesh(new THREE.PlaneGeometry(wide ? 3.4 : 2.6, wide ? 1.7 : 2.6), numMat(hh.label, wide));
-    num.position.copy(along(sh, -NUM_X, 1.04)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sh.side, sh.t, sh.nn));
-    num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num);
-  });
-  { const sp = strapSamples[nearest(STRAP_CUM, x => x - (c + sgn * 0.2 * (fzHoleFor(3).ni - NI0)))];
-    const head = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.0, 0.9, 20), M.dial); head.position.copy(along(sp, HOLE_X, 1.1)); head.quaternion.setFromUnitVectors(UP, sp.nn);
-    headset.add(head); addTo('strap', head); RAILS.push(head); }
+headset.updateMatrixWorld(true);
+const CAR = { RO: 12.2, RI: 10.9, HB: 7.2, CAP: 2.0, HOLE: 2.3, NOTCH_W: 7.0, TUBE_RO: 1.75, TUBE_RI: 1.2, SPR_R: 2.75, STUD_R: 6.0 };
+for (const [pd, key, S, halves, uRow] of [[fzPod, 'fz', SITE.Fz, [SPN.F], ROWS.fz.pin.u], [czPod, 'cz', SITE.Cz, [SPN.F, SPN.P], null], [pzPod, 'pz', SITE.Pz, [SPN.P], ROWS.pz.pin.u]]) {
+  const qi = pd.g.quaternion.clone().invert(), loc = p => p.clone().sub(pd.g.position).applyQuaternion(qi), locD = d => d.clone().applyQuaternion(qi);
+  // spine underside (z = 0) and top (z = 5) of each half, as planes in the pod's frame
+  const planes = halves.map(H => ({ P: loc(SPN.apex), N: locD(H.nn) }));
+  const yPl = (pl, x, z, dz = 0) => { const Q = pl.P.clone().addScaledVector(pl.N, dz); return Q.y - ((x - Q.x) * pl.N.x + (z - Q.z) * pl.N.z) / pl.N.y; };
+  const roof = (x, z) => Math.min(...planes.map(pl => yPl(pl, x, z)));
+  const topAxis = Math.min(...planes.map(pl => yPl(pl, 0, 0, 5)));
+  // cable side in the pod's frame (the left, where the leads run)
+  const dl = locD(LEFT); dl.y = 0; dl.normalize(); const aL = Math.atan2(dl.z, dl.x);
+  const car = new THREE.Group();
+  let minRoof = Infinity; for (let a = 0; a < Math.PI * 2; a += 0.05) minRoof = Math.min(minRoof, roof(CAR.RO * Math.cos(a), CAR.RO * Math.sin(a)));
+  const NT = Math.min(20.5, minRoof - CAR.CAP - 1.5), half = CAR.NOTCH_W / 2 / CAR.RO;
+  const capM = ringSolid(CAR.RO, CAR.HOLE, (x, z) => roof(x, z) - CAR.CAP, roof, 0, Math.PI * 2, 96, M.spine);
+  const upper = ringSolid(CAR.RO, CAR.RI, () => NT, (x, z) => roof(x, z) - CAR.CAP, 0, Math.PI * 2, 96, M.spine);
+  const lower = ringSolid(CAR.RO, CAR.RI, () => CAR.HB, () => NT, aL + half, aL + Math.PI * 2 - half, 90, M.spine);
+  car.add(capM, upper, lower); CAPS.push(capM, upper, lower);
+  // snap lips over the seat's edges, 8 mm long (Cz: one pair on each half, either side of the apex)
+  for (const H of halves) {
+    const uc = halves.length > 1 ? 3.0 : H.u(axisHit(H, S)), len = halves.length > 1 ? 4.0 : 8.0;
+    for (const s of [-1, 1]) {
+      const col = new THREE.Mesh(new RoundedBoxGeometry(len, 1.9, 6.8, 2, 0.4), M.spine), hook = new THREE.Mesh(new RoundedBoxGeometry(len, 2.95, 1.05, 2, 0.35), M.spine);
+      for (const [m, v, z] of [[col, 10.1, 2.8], [hook, 9.675, 5.7]]) { m.position.copy(loc(H.at(uc, s * v, z))); m.quaternion.copy(qi.clone().multiply(H.q)); car.add(m); CAPS.push(m); }
+    }
+  }
+  pd.g.add(car); addTo(key, car); explode(car, UP, 66);
+  // fill tube with its 1.1 N band, on the pod's lid (moves with the pod)
+  const lidTop = pd.c1 + 1.8, yT = topAxis + 3.0;
+  const tube = new THREE.Mesh(new THREE.LatheGeometry([V2(CAR.TUBE_RI, lidTop - 0.4), V2(CAR.TUBE_RO, lidTop - 0.4), V2(CAR.TUBE_RO, yT - 1.3), V2(2.3, yT - 0.3), V2(2.3, yT), V2(1.9, yT),
+    V2(CAR.TUBE_RI + 0.2, yT - 1.2), V2(CAR.TUBE_RI, yT - 1.4), V2(CAR.TUBE_RI, lidTop - 0.4)], 40), M.pod);
+  const band = new THREE.Mesh(new THREE.CylinderGeometry(CAR.TUBE_RO + 0.03, CAR.TUBE_RO + 0.03, 1.2, 32, 1, true), M.slot); band.position.y = topAxis;
+  pd.cupG.add(tube, band);
+  // spring between the lid and the cap's underside, round the tube
+  let sTop = Infinity; for (let a = 0; a < Math.PI * 2; a += 0.1) sTop = Math.min(sTop, roof(3.2 * Math.cos(a), 3.2 * Math.sin(a)) - CAR.CAP - 0.5);
+  const pts = []; for (let i = 0; i <= 300; i++) { const t = i / 300, a = t * Math.PI * 2 * 7; pts.push(V3(Math.cos(a) * CAR.SPR_R, lidTop + 0.45 + t * (sTop - lidTop - 0.45), Math.sin(a) * CAR.SPR_R)); }
+  const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 500, 0.42, 8, false), M.metal);
+  car.add(spring); spring.userData.use = 'inside';
+  // snap stud on the lid (cable side) and the snap lead's head clipped onto it
+  const studP = dl.clone().multiplyScalar(CAR.STUD_R); studP.y = lidTop + 1.2;
+  const stud = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.8, 2.4, 20), M.metal); stud.position.copy(studP); pd.cupG.add(stud);
+  const head = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 2.0, 24), M.conn); head.position.copy(studP).add(V3(0, 1.9, 0)); pd.cupG.add(head);
+  const hy = studP.y + 1.9, wl = (r, y) => pd.g.localToWorld(dl.clone().multiplyScalar(r).setY(y));
+  pd.halves = halves; pd.S = S;
+  pd.leadOut = () => [pd.g.localToWorld(studP.clone().add(V3(0, 1.9, 0))), wl(9.0, hy), wl(14.0, hy), wl(14.0, Math.min(hy + 4, NT + 2))];
 }
 
 // ---------- right pod (battery) and rear dial ----------
@@ -1257,14 +1400,25 @@ const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20
 // v5 routing: midline leads along the bar to Cz, inside the arch down into the left pod; right-side leads (M2, battery, right ECG)
 // up into the right pod and over the arch; strip tail and eye lead along the left temple arm; M1 and the ear clip straight up.
 const iArchMid = 90;
-const archLeft = () => { const out = []; for (let i = iArchMid; i >= 6; i -= 6) out.push(along(archSamples[i], 0, -0.2)); return out; };
 const archFromRight = () => { const out = []; for (let i = 174; i >= 6; i -= 6) out.push(along(archSamples[i], 0, -0.2)); return out; };
 const intoPod = P2 => [off(surf(MOD.azC, MC + 8), 9), P2];
 const intoPodLow = P2 => [off(surf(MOD.azC + 4, MC - 14), 7), P2];
 const atBand = (sb, side, h) => sb.p.clone().addScaledVector(sb.nn, h).addScaledVector(sb.side, side);
-function podCable(pd) { const sb = pd.sb, sx = pd.sx;
-  return [pd.leadHead(), atBand(sb, sx * 9, POD_TOP - 6), ...thin(strapSamples, pd.iPod, iCzC, 6, sx * 8), along(strapSamples[iCzC], sx * 4, 1.4), ...archLeft(), ...intoPod(J1)]; }
-const FZ_CABLE = podCable(fzPod), PZ_CABLE = podCable(pzPod), CZ_CABLE = [czPod.leadHead(), along(strapSamples[iCzC], -8, 0.5), along(strapSamples[iCzC], -4, 1.4), ...archLeft(), ...intoPod(J1)];
+// v5.2b midline leads: out of each carriage's notch, up its outside, along the spine's left edge (clear of the seat lips and the clip),
+// up beside the clip to the arch's underside and inside the arch down into the left pod.
+const CLIP_UC = pivotG.userData.uc;
+const vCable = (H, rowKey, u) => { const near = (a, b, m) => u > a - m && u < b + m;
+  if (near(...SEAT.cz, 3) || near(...SEAT[rowKey], 3) || (H === SPN.P && near(CLIP_UC - 9.5, CLIP_UC + 9.5, 3))) return 12.6; return 9.6; };
+const iArchL = (() => { let best = 90, bd = Infinity; archSamples.forEach((s, i) => { const lat = s.p.clone().sub(archSamples[90].p).dot(LEFT); const d = Math.abs(lat - 16); if (lat > 0 && d < bd) { bd = d; best = i; } }); return best; })();
+const archLeftFrom = () => { const out = []; const step = iArchL < 90 ? -6 : 6; for (let i = iArchL; iArchL < 90 ? i >= 6 : i <= 174; i += step) out.push(along(archSamples[i], 0, -0.2)); return out; };
+function spineRun(lift, legs) {   // legs: [H, rowKey, uFrom, uTo]
+  const out = [];
+  for (const [H, rk, a, b] of legs) { const st = a < b ? 3 : -3; for (let u = a; st > 0 ? u <= b : u >= b; u += st) out.push(H.at(u, vCable(H, rk, u), lift)); }
+  return out; }
+const podCable = (pd, lift, legs) => [...pd.leadOut(), ...spineRun(lift, legs), SPN.P.at(CLIP_UC, 12.6, lift + 3), along(archSamples[iArchL], 0, -0.2), ...archLeftFrom(), ...intoPod(J1)];
+const FZ_CABLE = podCable(fzPod, 1.3, [[SPN.F, 'fz', SPN.F.u(axisHit(SPN.F, SITE.Fz)), 1.5], [SPN.P, 'pz', 0, CLIP_UC]]);
+const CZ_CABLE = podCable(czPod, 2.5, [[SPN.P, 'pz', CZ_HIT.P, CLIP_UC]]);
+const PZ_CABLE = podCable(pzPod, 3.7, [[SPN.P, 'pz', SPN.P.u(axisHit(SPN.P, SITE.Pz)), CLIP_UC]]);
 const armIn = (arr) => { const out = []; for (let i = arr.length - 1; i >= 0; i -= 6) out.push(along(arr[i], 0, -0.2)); return out; };
 const W = (pts, color, key, r = 0.6) => { const m = wire(pts, color, r); m.userData.wkey = key; return m; };
 W(FZ_CABLE, '#7cc6fe', 'fz');
@@ -1310,7 +1464,7 @@ V2SITES.forEach((S, i) => { label(i ? 'v2 TP10' : 'v2 reference (TP9)', '', '#d8
 label('Bias', '', '#2fa772', off(SITE.Fpz, 30), SITE.Fpz.n);
 label('Heart sensor', '', '#e0524a', LOBE.clone().addScaledVector(LN, 14).add(V3(0, -8, 0)), LN);
 label('Rear dial', '', '#2b2f34', off(SD, 30), FD.n);
-label('Spine clip at Cz', '', '#2b2f34', along(strapSamples[iCzC], 0, 1).addScaledVector(strapSamples[iCzC].nn, 22), strapSamples[iCzC].nn);
+label('Spine clip on the arch', '', '#2b2f34', SPN.P.at(pivotG.userData.uc, 0, 22), SPN.P.nn);
 label('Forehead heart · test', '', '#e0524a', off(PPGF_S, 12).add(V3(0, -10, 0)), PPGF_S.n); labels[labels.length - 1].test2 = true;
 const CHMAP = { 'Fp1': 'Ch 1', 'Fp2': 'Ch 2', 'Fz': 'Ch 3', 'Pz': 'Ch 4', 'M2': 'Ch 5', 'Eye (VEOG)': 'Ch 6', 'Cz': 'Ch 7', 'ECG · test only': 'Ch 8', 'Reference (M1)': 'SRB2', 'Bias': 'DRL' };
 for (const L of labels) { const t = L.el.textContent; L.text = t; if (CHMAP[t]) L.ch = CHMAP[t]; }
@@ -1648,7 +1802,7 @@ function setFit(c, ni) {
   document.getElementById('niOut').textContent = ni + ' mm'; document.getElementById('ni').value = ni;
   document.getElementById('fitRead').innerHTML = `<dt>Arch</dt><dd>One size · sliders at <b>${slide >= 0 ? '+' : '−'}${Math.abs(slide).toFixed(0)} mm</b> each side (0 on this 540 mm head; estimate), then until the Cz tube’s black band meets its port (1.1 N); save it · rear dial snug</dd>`
     + `<dt>Strip centre</dt><dd>${mm(0.1 * ni)} above the nasion (template)</dd>`
-    + `<dt>Spine size</dt><dd><b>Size ${sz}</b> · Fz and Pz pins in hole ${fzh.label} · Cz fixed under the arch · Fz and Pz within ${err.toFixed(1)} mm of their sites</dd>`
+    + `<dt>Spine size</dt><dd><b>Size ${sz}</b> · Fz and Pz pins in hole ${fzh.label} · Cz pinned on the spine · Fz and Pz within ${err.toFixed(1)} mm of their sites</dd>`
     + `<dt>Forehead strip</dt><dd>One size · 27 mm pad spacing (this head needs ${sp.toFixed(1)} mm)</dd>`;
   setDialFor(c); syncHash();
 }
