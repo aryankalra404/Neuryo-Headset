@@ -1,5 +1,7 @@
 # Neuryo EEG board, rev A
 
+**Rev A is the v3 board and does not fit v4.** It is 100 × 80 mm with an ESP32-S3-DevKitC-1 on sockets, about 21 mm tall; v4's brow module holds a 60 × 32 mm board and is 15 mm thick. v4 needs **rev B**: 60 × 32 mm, 4-layer, the same Cyton analog circuit, a Seeed XIAO ESP32-S3 soldered flat instead of the DevKit, BMI270, earlobe PPG on I²C bus 0 and forehead window on bus 1, Cz on ch 7 and ECG on ch 8, power budget for 1000 mAh, analog side placed and routed by hand. Not laid out yet. Full list and reasons: [docs/v4.md](../docs/v4.md#main-board-v45).
+
 Open `kicad/neuryo.kicad_pro` in KiCad 8 or newer.
 
 | Folder | What is in it |

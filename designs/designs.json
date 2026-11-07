@@ -35,18 +35,8 @@
     "date": "2026-11-07",
     "path": "designs/v4/",
     "channels": "7 channels on the head, 8-channel chip",
-    "summary": "The launch design (v4.4): a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip placed by a nasion template, earlobe heart clip. Buildable frame for 500–580 mm circumference and 300–390 mm nasion–inion: bought ratchet harness with a 3 mm lining or 7 mm small-head insert, midline band 3D-printed in the head's curve with a TPU tail, spring-loaded semi-dry pods pinned at one size number (1–9); damp single-use foam tips with top-up drops when the app's wetting check asks. Session walkthrough, fit sliders, buy/print parts list.",
+    "summary": "The launch design (v4.4): a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip placed by a nasion template, earlobe heart clip. Buildable frame for 500–580 mm circumference and 300–390 mm nasion–inion: bought ratchet harness with a 3 mm lining or 7 mm small-head insert, midline band 3D-printed in the head's curve with a TPU tail, spring-loaded semi-dry pods pinned at one size number (1–9); damp single-use foam tips with top-up drops when the app's wetting check asks. Main board (v4.5) in the brow module with a Seeed XIAO ESP32-S3 soldered on. Session walkthrough, fit sliders, buy/print parts list.",
     "status": "Current plan",
     "docs": "docs/v4.md"
-  },
-  {
-    "id": "v5",
-    "name": "v5 · 7 Nov trial: side box",
-    "date": "2026-11-07",
-    "path": "designs/v5/",
-    "channels": "7 channels on the head, 8-channel chip",
-    "summary": "v4.4 with one change: the main board moves out of the brow module into a printed box above the left ear. The board is rev B (the rev A circuit in pcb/ with the v4 changes, about 90 × 60 mm with an ESP32-S3 DevKit on sockets), too big for the brow module, and the back of the head is taken by the ratchet knob and the band lock. Smaller brow module with a lead hub, one cable along the halo to the box, BMI270 on the board, board guide rewritten for rev B.",
-    "status": "Trial (v4 stays the current plan)",
-    "docs": "docs/v5.md"
   }
 ]
