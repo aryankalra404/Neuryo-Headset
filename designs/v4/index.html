@@ -1046,8 +1046,9 @@ for (const [pd, key, iPod] of [[fzPod, 'fz', nearest(strapSamples, s => s.th - T
   const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, hb), V2(11.9, hb + 0.8), V2(12.2, hb + 2.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64), M.spine);
   // small window in the housing wall where the snap lead comes out (about 5 x 6 mm), on the cable's side; the rest of the wall stays solid
   const inner = new THREE.Mesh(new RoundedBoxGeometry(5, 6, 1.4, 2, 0.6), M.hole); inner.position.copy(dl).multiplyScalar(11.9); inner.position.y = top - 9.2; inner.rotation.y = slotA;
-  for (const fx of [-1, 1]) { const foot = new THREE.Mesh(new RoundedBoxGeometry(3.4, hb - base + 0.6, 9, 2, 0.6), M.spine);
-    foot.position.copy(dl).multiplyScalar(fx * 10.6); foot.position.y = (hb + base) / 2; foot.rotation.y = slotA + Math.PI / 2; car.add(foot); CAPS.push(foot); }   // on the band edges, either side of the window
+  // the housing wall carries on down to the band on the two band-edge sides (one print), leaving front and back open so the tip shows
+  for (const fx of [0, 1]) { const foot = new THREE.Mesh(new THREE.LatheGeometry([V2(10.6, base), V2(12.2, base), V2(12.2, hb + 1.2), V2(10.6, hb + 1.2), V2(10.6, base)], 24, slotA + fx * Math.PI - 0.62, 1.24), M.spine);
+    car.add(foot); CAPS.push(foot); }
   const port = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(5.4, top), V2(5.8, top + 0.8), V2(5.8, top + 1.6), V2(5.2, top + 2), V2(2.3, top + 2), V2(2.3, top)], 48), M.dial);
   const hole = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = top + 1.95;
   const lidTop = pd.c1 + 1.8, pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 3.0, lidTop + 0.4 + t * (top - 1.4 - lidTop - 0.4), Math.sin(a) * 3.0)); }   // around the top-up hole, clear of the stud
@@ -1079,9 +1080,15 @@ for (const [th, f] of [[THF, 0.3], [THC, 0.5], [THP, 0.7]]) {
   // The carriage has a pin tab reaching back along the band, clear of its housing. Its pin drops into the patient's size hole.
   // Holes are at their true spacing (one size step moves Fz 2 mm, Cz 4 mm, Pz 6 mm), staggered in two rows so 2.4 mm holes
   // still print: sizes 1, 3, 5 in one row and 2, 4 in the other, each with its number beside it. Tab size: model estimate.
-  const half = (f - 0.1) * 20, TAB = 16 + half, st = strapSamples[nearest(STRAP_CUM, x => x - (c + (12 + TAB) / 2))];
-  const tab = new THREE.Mesh(new RoundedBoxGeometry(3, 1.4, TAB - 12, 2, 0.5), M.spine); tab.position.copy(along(st, 0, 1.0)).addScaledVector(st.nn, 0.9);
+  const half = (f - 0.1) * 20, TAB = 16 + half, st = strapSamples[nearest(STRAP_CUM, x => x - (c + (10 + TAB + 2) / 2))];
+  const tab = new THREE.Mesh(new RoundedBoxGeometry(4, 1.6, TAB + 2 - 10, 2, 0.6), M.spine); tab.position.copy(along(st, 0, 1.0)).addScaledVector(st.nn, 0.9);   // runs out from under the housing
   tab.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(st.side, st.nn, st.t)); tab.renderOrder = 6; headset.add(tab); addTo('strap', tab); RAILS.push(tab);
+  // cross-arm and pin over the patient's hole (size 3 on this mannequin): sizes 1, 3, 5 in the outer row are 4.5 mm off centre
+  { const sp = strapSamples[nearest(STRAP_CUM, x => x - (c + TAB))];
+    const arm = new THREE.Mesh(new RoundedBoxGeometry(6.5, 1.4, 3.2, 2, 0.5), M.spine); arm.position.copy(along(sp, 2.6, 1.0)).addScaledVector(sp.nn, 0.9);
+    arm.quaternion.copy(tab.quaternion); headset.add(arm); addTo('strap', arm); RAILS.push(arm);
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 3.2, 14), M.metal); pin.position.copy(along(sp, 4.5, 1.0)).addScaledVector(sp.nn, 0.6); pin.quaternion.setFromUnitVectors(UP, sp.nn);
+    headset.add(pin); addTo('strap', pin); RAILS.push(pin); }
   SIZE_NI.forEach((ni, k) => {
     const d = (f - 0.1) * (ni - HEAD.nasion_inion_mm), s = strapSamples[nearest(STRAP_CUM, x => x - (c + TAB + d))], row = k % 2;
     const m = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.4, 20), M.slot);
