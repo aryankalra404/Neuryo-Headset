@@ -35,7 +35,7 @@
     "date": "2026-11-07",
     "path": "designs/v4/",
     "channels": "7 channels on the head, 8-channel chip",
-    "summary": "The launch design: a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip, earlobe heart clip. Buildable frame: bought ratchet halo (52–64 cm), rigid 3D-printed spine with spring-loaded saline pods, wipe-clean silicone lining. Session walkthrough, fit slider, buy/print parts list.",
+    "summary": "The launch design: a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip placed by a nasion template, earlobe heart clip. Buildable frame for 500–580 mm heads: bought ratchet halo with a 3 mm lining, flexible midline band with spring-loaded saline pods set from one nasion-to-inion measurement. Session walkthrough, fit slider, buy/print parts list.",
     "status": "Current plan",
     "docs": "docs/v4.md"
   }
