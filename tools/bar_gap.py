@@ -2,7 +2,8 @@
 Gap from the bar to the scalp at the Fz and Pz carriages, minus the nominal, for heads of nasion-inion 300-390 mm and
 front-back vs height ratio x0.92-1.08, after the Cz pivot balances Fz and Pz. Compares a bar that follows this head's curve
 with one that runs straight along the Cz-Fz / Cz-Pz chords through the size holes. Sagittal-plane model of the shared head.
-Usage: python3 tools/bar_gap.py designs/shared/head/head.json   (numpy only)"""
+Usage: python3 tools/bar_gap.py designs/shared/head/head.json [--rigid]   (numpy only)
+--rigid (v5.2, 8 Nov): spine clipped rigidly at Cz, no pivot; prints the worse of Fz and Pz."""
 import json, base64, numpy as np, sys
 d = json.load(open(sys.argv[1])); f = d['field']
 r = np.frombuffer(base64.b64decode(f['u16_base64']), dtype='<u2').astype(float) * f['scale']
@@ -75,6 +76,8 @@ def run(OFF, straight):
             top, n = H[k]; a = base + phi; Rm = np.array([[np.cos(a), -np.sin(a)], [np.sin(a), np.cos(a)]])
             t = piv_new + Rm @ (top - piv_ref); dn = -(Rm @ n); v = Q - t; al = v @ dn; pe = np.abs(v[:, 0]*dn[1] - v[:, 1]*dn[0])
             return al[np.argmin(np.where(al > 0, pe, 1e9))]
+        if '--rigid' in sys.argv:
+            return max((gap(0, 0.0), gap(1, 0.0)), key=lambda g: abs(g - OFF))
         ph = min((abs(gap(0, p) - gap(1, p)), p) for p in np.radians(np.linspace(-8, 8, 161)))[1]
         return (gap(0, ph) + gap(1, ph)) / 2
     def nir(sz, sy):
