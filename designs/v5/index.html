@@ -267,6 +267,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
         <button class="mi" id="dimsTg" aria-pressed="false"><i></i>Sizes<kbd>S</kbd></button>
         <button class="mi" id="chTg" aria-pressed="false"><i></i>Channel numbers<kbd>N</kbd></button>
         <button class="mi" id="gridTg" aria-pressed="false"><i></i>All 77 10-10 sites</button>
+        <button class="mi" id="fixTg" aria-pressed="false"><i></i>Suggested strap fix</button>
         <div class="mh">Colour parts by</div>
         <button class="mi" id="confTg" aria-pressed="false"><i></i>How sure the plan is<kbd>C</kbd></button>
         <button class="mi" id="cleanTg" aria-pressed="false"><i></i>Single-use vs reusable<kbd>U</kbd></button>
@@ -1057,6 +1058,8 @@ const fzHoleFor = sz => FZ_HOLES.find(h => h.g.includes(sz));
 // barely changes with head size or shape: per newton, Fz 0.92-0.99, Cz 0.76-0.89, Pz 0.84-0.91 N across 300-390 mm nasion-inion and
 // +-8% shape (tools/strap_force.py), with the Cz and Pz caps 12 and 6 mm taller than Fz's. At about 1.5 N every pod gets 1.1-1.5 N.
 const STRAP_OBJS = [];   // everything on the midline strap, hidden with the frame in the electronics and skin-side views
+// Display > Suggested strap fix swaps strapOrig (webbing + elastic) for strapFix (printed TPU band + constant-force spring)
+const strapOrig = new THREE.Group(), strapFix = new THREE.Group(); headset.add(strapOrig, strapFix); STRAP_OBJS.push(strapOrig, strapFix);
 M.elastic = new THREE.MeshStandardMaterial({ color: 0x3b4249, roughness: 0.9 });
 const STRAP_H = { fz: 16, cz: 28, pz: 22 }, STRAP_W = 20, STRAP_T = 1.6, YJ = surf(0, 55);
 // back end: a back clip on the scalp behind Pz (150 deg from the front), with two elastic legs down to the rear band. A straight run from
@@ -1079,10 +1082,11 @@ const MS_CUM = [0]; for (let i = 1; i < MS_SAMPLES.length; i++) MS_CUM.push(MS_C
 const iFzS = msI('Fz'), iCzS = msI('Cz'), iPzS = msI('Pz');
 const L_FZ = MS_CUM[iCzS] - MS_CUM[iFzS], L_PZ = MS_CUM[iPzS] - MS_CUM[iCzS];
 const iW0 = nearest(MS_CUM, x => x - (MS_CUM[iCzS] - L_FZ * SIZE_NI.at(-1) / NI0 - 12)), iW1 = Math.min(MS_SAMPLES.length - 3, nearest(MS_CUM, x => x - (MS_CUM[iCzS] + L_PZ * SIZE_NI.at(-1) / NI0 + 12)));
+M.tpuBand = new THREE.MeshStandardMaterial({ color: 0x6f8796, roughness: 0.55 });
 const segs = [[0, iW0 + 1, M.elastic], [iW0, iW1 + 1, M.webbing], [iW1, MS_SAMPLES.length, M.elastic]];
 const midStrap = new THREE.Group();
 for (const [a, b, mat] of segs) { const m = sweep(MS_SAMPLES.slice(a, b), STRAP_W, mat === M.webbing ? 1.2 : STRAP_T, () => -STRAP_T / 2, mat); m.renderOrder = 5; midStrap.add(m); }
-headset.add(midStrap); addTo('strap', midStrap); STRAP_OBJS.push(midStrap);
+strapOrig.add(midStrap); addTo('strap', midStrap);
 // size holes: 5 per pod, 4 mm apart along the webbing, each serving two sizes (1-2, 3-4, 5-6, 7-8, 9); positions scale with the
 // head (a head one size up is this head scaled about Cz, so its Fz-to-Cz strap length scales with nasion-inion). Cz pins in a centre hole.
 const WEB_HOLES = [];
@@ -1094,16 +1098,32 @@ for (const [sgn, L] of [[-1, L_FZ], [1, L_PZ]]) for (const hh of FZ_HOLES) {
 const yLegs = [];
 for (const sx of [1, -1]) {
   const legS = []; for (let i = 0; i <= 60; i++) { const t = i / 60, az = sx * 72 * t, el = 55 - 10 * t + 3 * Math.sin(Math.PI * t);   /* back along the side, in the hair, to each pod's front edge */ const S = surf(az, el); legS.push({ p: off(S, 1.2), n: S.n }); }
-  const leg = sweep(legS, 9, 1.3, () => -0.65, M.elastic); leg.renderOrder = 5; headset.add(leg); addTo('strap', leg); yLegs.push(leg); STRAP_OBJS.push(leg); }
+  const leg = sweep(legS, 9, 1.3, () => -0.65, M.elastic); leg.renderOrder = 5; strapOrig.add(leg); addTo('strap', leg); yLegs.push(leg);
+  const legF = sweep(legS, 9, 1.2, () => -0.6, M.tpuBand); legF.renderOrder = 5; strapFix.add(legF); addTo('strap', legF); }
 { const f = frameAt(YJ), clip = new THREE.Mesh(new RoundedBoxGeometry(24, 3.2, 12, 2, 1.2), M.dial);   // front Y clip
   clip.position.copy(off(YJ, 2.6)); clip.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.n, f.y.clone().negate())); headset.add(clip); addTo('strap', clip); STRAP_OBJS.push(clip); }
 { const f = frameAt(YB), clipB = new THREE.Mesh(new RoundedBoxGeometry(24, 3.2, 12, 2, 1.2), M.dial);   // back clip behind Pz
   clipB.position.copy(off(YB, 2.6)); clipB.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.n, f.y.clone().negate())); headset.add(clipB); addTo('strap', clipB); STRAP_OBJS.push(clipB); }
 for (const sx of [1, -1]) {   // back legs: elastic from the back clip down to the rear band, each through a printed slider with a stretch mark
   const legS = []; for (let i = 0; i <= 50; i++) { const t = i / 50, az = 180 - sx * 37 * t, el = 30 - 11 * t + 2 * Math.sin(Math.PI * t); const S = surf(az, el); legS.push({ p: off(S, 1.2), n: S.n }); }
-  const leg = sweep(legS, 12, 1.4, () => -0.7, M.elastic); leg.renderOrder = 5; headset.add(leg); addTo('strap', leg); STRAP_OBJS.push(leg);
+  const leg = sweep(legS, 12, 1.4, () => -0.7, M.elastic); leg.renderOrder = 5; strapOrig.add(leg); addTo('strap', leg);
+  const legF = sweep(legS, 12, 1.2, () => -0.6, M.tpuBand); legF.renderOrder = 5; strapFix.add(legF); addTo('strap', legF);
   const S = surf(180 - sx * 37, 19), f = frameAt(S), sl = new THREE.Mesh(new RoundedBoxGeometry(16, 4.2, 9, 2, 1.2), M.dial); sl.position.copy(off(S, 5.6));
   sl.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.n, f.y.clone().negate())); headset.add(sl); addTo('strap', sl); STRAP_OBJS.push(sl); }
+// Suggested strap fix (7 Nov review, untested): the Y clip to behind-Pz section is one printed TPU 95A band, 20 x 1.2 mm, with the size
+// holes printed in. It is wipeable (no fabric, D32/D34) and stretches under 1 mm at 1.5 N (datasheet modulus 9-26 MPa), but bends
+// freely (bending length about 12 mm against about 62 mm for PETG), so strap_force.py still holds. A stock 1.4 N constant-force spring
+// (SCF 0.102 x 4.76 x 338 mm travel, 9.67 mm coil) in the back clip sets the tension on every head with no stretch marks, so each pod
+// gets about 1.06-1.39 N. The Y legs and back legs become fixed-length TPU.
+{ const band = sweep(MS_SAMPLES.slice(0, iW1 + 1), STRAP_W, 1.2, () => -STRAP_T / 2, M.tpuBand); band.renderOrder = 5; strapFix.add(band); addTo('strap', band);
+  const strip = sweep(MS_SAMPLES.slice(iW1, MS_SAMPLES.length), 4.76, 0.3, () => -STRAP_T / 2, M.metal); strip.renderOrder = 5; strapFix.add(strip); addTo('strap', strip);
+  const f = frameAt(YB), q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.n, f.x.clone().negate(), f.y.clone().negate()));
+  const cf = new THREE.Group(); cf.position.copy(off(YB, 4.2 + 7)); cf.quaternion.copy(q);   // drum axis across the head
+  const housing = new THREE.Mesh(new THREE.CylinderGeometry(7, 7, 12, 40, 1, true), M.dial);
+  const caps = [6, -6].map(y => { const c = new THREE.Mesh(new THREE.CircleGeometry(7, 40), M.dial); c.position.y = y; c.rotation.x = y > 0 ? -Math.PI / 2 : Math.PI / 2; return c; });
+  const coil = new THREE.Mesh(new THREE.CylinderGeometry(5.6, 5.6, 4.9, 32), M.metal);
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(4.9, 4.9, 5.2, 24), M.dial);
+  cf.add(housing, ...caps, coil, hub); strapFix.add(cf); addTo('strap', cf); }
 // pod caps: a printed cap on each pod body with a slot the strap runs through, and a side fill port. The port's channel runs into the
 // lid's centre hole, so the syringe puts saline straight into the cup and never onto the lid, the snap or the lead.
 headset.updateMatrixWorld(true);
@@ -1299,6 +1319,8 @@ V2SITES.forEach((S, i) => { label(i ? 'v2 TP10' : 'v2 reference (TP9)', '', '#d8
 label('Bias', '', '#2fa772', off(SITE.Fpz, 30), SITE.Fpz.n);
 label('Heart sensor', '', '#e0524a', LOBE.clone().addScaledVector(LN, 14).add(V3(0, -8, 0)), LN);
 label('Rear dial', '', '#2b2f34', off(SD, 30), FD.n);
+label('Constant-force spring · 1.4 N', '', '#2b2f34', off(YB, 34), YB.n); labels[labels.length - 1].fix = true;
+label('Printed TPU band', '', '#6f8796', off(YJ, 24), YJ.n); labels[labels.length - 1].fix = true;
 label('Forehead heart · test', '', '#e0524a', off(PPGF_S, 12).add(V3(0, -10, 0)), PPGF_S.n); labels[labels.length - 1].test2 = true;
 const CHMAP = { 'Fp1': 'Ch 1', 'Fp2': 'Ch 2', 'Fz': 'Ch 3', 'Pz': 'Ch 4', 'M2': 'Ch 5', 'Eye (VEOG)': 'Ch 6', 'Cz': 'Ch 7', 'ECG · test only': 'Ch 8', 'Reference (M1)': 'SRB2', 'Bias': 'DRL' };
 for (const L of labels) { const t = L.el.textContent; L.text = t; if (CHMAP[t]) L.ch = CHMAP[t]; }
@@ -1321,7 +1343,7 @@ const partLabels = [
 for (const [t, c, src] of partLabels) { label(t, '', c, null, t === 'Battery' ? FB.n : F0.n, 'part'); labels[labels.length - 1].src = src; }
 
 // ---------- state & UI ----------
-const state = { head: 'solid', xray: false, elec: false, dims: false, iso: null, view: 'front', labels: true, explode: 0, exT: 0, sel: null, test: false, conf: false, v2: false, measure: false, wireHL: null, grid: false, fab: 'off', fabc: 'sage', shell: 'porcelain', circ: 540, ch: false, clean: false };
+const state = { head: 'solid', xray: false, elec: false, dims: false, iso: null, view: 'front', labels: true, explode: 0, exT: 0, sel: null, test: false, conf: false, v2: false, fix: false, measure: false, wireHL: null, grid: false, fab: 'off', fabc: 'sage', shell: 'porcelain', circ: 540, ch: false, clean: false };
 const ELEC = new Set(['pcb', 'ads', 'esp', 'imu', 'power', 'prot', 'usb', 'ppg', 'batt']);
 
 function setHead(mode) {
@@ -1591,6 +1613,8 @@ function setConf(on) {
   syncHash();
 }
 document.getElementById('confTg').addEventListener('click', () => setConf(!state.conf));
+function setFix(on) { state.fix = on; document.getElementById('fixTg').setAttribute('aria-pressed', on); syncHash(); }
+document.getElementById('fixTg').addEventListener('click', () => setFix(!state.fix));
 function setV2(on) { state.v2 = on; v2G.visible = on; document.getElementById('v2Tg').setAttribute('aria-pressed', on); syncHash(); }
 document.getElementById('v2Tg').addEventListener('click', () => setV2(!state.v2));
 
@@ -2461,6 +2485,7 @@ function frame(now) {
   }
   state._wasIso = !!state.iso;
   if (!state.iso) for (const f of FABRIC) f.visible = state.fab !== 'off' && !state.elec && !skin;
+  strapOrig.visible = strapOrig.visible && !state.fix; strapFix.visible = strapFix.visible && state.fix;
   if (sess.active) sessApply();
   gridG.visible = !!state.grid && !state.iso && state.explode < 0.05;
   wires.visible = !!(state.xray || state.elec) && state.explode < 0.03 && !skin && !state.iso;
@@ -2481,6 +2506,7 @@ function frame(now) {
     if (skin && (L.normal === SITE.Fz.n || L.normal === SITE.Cz.n || L.normal === SITE.Pz.n || L.normal === SITE.M1.n || L.normal === SITE.M2.n || L.normal === FB.n || L.normal === FD.n)) show = false;
     if (L.test && !state.test) show = false;
     if (L.v2 && !state.v2) show = false;
+    if (L.fix && !state.fix) show = false;
     if (L.test2 && !(state.test && INS.heart === 'both')) show = false;
     if (L.strip && INS.fore !== 'strip') show = false;
     if (sess.active && (L.kind !== 'site' || !sess.labels)) show = false;
@@ -2661,7 +2687,7 @@ function stateString() {
   if (state.test) { q.set('mode', 'test'); if (INS.fore !== 'strip') q.set('fore', INS.fore); if (INS.hair !== 'semi') q.set('hair', INS.hair); if (INS.heart !== 'ear') q.set('heart', INS.heart); }
   if (state.circ !== 540) q.set('size', state.circ); if (state.ni !== 324) q.set('ni', state.ni); if (state.fab !== 'off') q.set('cover', state.fab); if (state.fabc !== 'sage') q.set('fabric', state.fabc); if (state.shell !== 'porcelain') q.set('shell', state.shell);
   if (state.head !== 'solid') q.set('head', state.head);
-  const ov = []; if (state.xray) ov.push('xray'); if (state.elec) ov.push('elec'); if (state.dims) ov.push('sizes'); if (state.conf) ov.push('conf'); if (state.v2) ov.push('v2'); if (state.grid) ov.push('grid'); if (state.ch) ov.push('ch'); if (state.clean) ov.push('clean'); if (!state.labels) ov.push('nolabels');
+  const ov = []; if (state.xray) ov.push('xray'); if (state.elec) ov.push('elec'); if (state.dims) ov.push('sizes'); if (state.conf) ov.push('conf'); if (state.v2) ov.push('v2'); if (state.fix) ov.push('fix'); if (state.grid) ov.push('grid'); if (state.ch) ov.push('ch'); if (state.clean) ov.push('clean'); if (!state.labels) ov.push('nolabels');
   if (ov.length) q.set('show', ov.join(','));
   return q.toString().replace(/%2C/g, ',');
 }
@@ -2692,7 +2718,7 @@ function applyState(str) {
   if (q.get('size')) setCirc(+q.get('size')); if (q.get('ni')) setNI(+q.get('ni')); if (q.get('cover')) setFab(q.get('cover')); if (q.get('fabric')) setFabColor(q.get('fabric')); if (q.get('shell')) setShell(q.get('shell'));
   if (show.includes('ch')) setCh(true); if (show.includes('clean')) setClean(true);
   if (show.includes('xray')) setXray(true); if (show.includes('elec')) setElec(true); if (show.includes('sizes')) setDims(true);
-  if (show.includes('conf')) setConf(true); if (show.includes('v2')) setV2(true); if (show.includes('grid')) setGrid(true); if (show.includes('nolabels')) setLabels(false);
+  if (show.includes('conf')) setConf(true); if (show.includes('v2')) setV2(true); if (show.includes('fix')) setFix(true); if (show.includes('grid')) setGrid(true); if (show.includes('nolabels')) setLabels(false);
   const k = q.get('part'), v = q.get('view');
   if (v && VIEWS[v]) setView(v);
   if (k && parts[k]) select(k, !v);
