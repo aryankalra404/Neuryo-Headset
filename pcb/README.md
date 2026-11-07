@@ -28,7 +28,7 @@ Placement, routing, ground pours and stitching kept as in the reference, left ha
 | USB / battery selector switch | Battery on/off slide switch; battery JST-PH to the XIAO's BAT pads (the XIAO charges it) and to the LM27762 and TPS7A20 inputs |
 | UART header | J6: earlobe MAX30102 (I²C bus 0) · J8: forehead test-window MAX30102 (I²C bus 1) · BMI270 on bus 0 |
 | | Battery divider (2 × 220 kΩ + 100 nF) to an ADC pin |
-| | Outline about 70 × 50 mm (could reach 75), 4 mounting holes, shaped for the brow module |
+| | Outline about 70 × 50 mm (could reach 75), 4 mounting holes, shaped for the brow module (v4) or the left pod (v5 concept) |
 
 ## Draft XIAO pin map (to confirm in the schematic)
 | XIAO pin | GPIO | Use |
@@ -53,7 +53,7 @@ Electrodes on the N inputs with M1 on SRB2, as on the Cyton: ch 1 Fp1, ch 2 Fp2,
 ## Steps
 1. Open the reference in KiCad 8+ (File → Import → Altium project) and check the import against `production/PCB Schematic and Layout.pdf`, sheet by sheet and layer by layer.
 2. Delete the digital half; add the XIAO, BMI270, J6, J8, battery switch and divider; keep every analog part, trace and pour.
-3. ERC and DRC at zero; every new net checked against its datasheet; 3D check in the v4 brow module.
+3. ERC and DRC at zero; every new net checked against its datasheet; 3D check in the v4 brow module and the v5 left pod.
 4. Professor review of the changed parts and the import.
 5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs.
 6. First board: power rails, ADS1299 ID register, shorted-input noise against the 6 µVpp target, then alpha with eyes closed.
