@@ -1131,14 +1131,16 @@ function lead(pts, key, color = 0x2b2f33, r = 0.8) {
   const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, r, 8, false), new THREE.MeshStandardMaterial({ color, roughness: 0.6 }));
   m.userData.use = 'wipe'; headset.add(m); addTo(key, m); return m;
 }
+// v4.3: these outside leads show in the normal view; in see-through and electronics views they are replaced by the full cable to the board
+const OUT_LEADS = [];
 { const b = bandSamples[nearest(bandSamples, s => s.az - 84)];   // v3: route up in front of the ear so it never crosses the mastoid pad
-  lead([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg'); }
+  OUT_LEADS.push(lead([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg')); }
 // short snap leads from the behind-ear pads up into the band
 for (const [S, key, a] of [[SITE.M1, 'ref', HS('M1').az], [SITE.M2, 'm2', HS('M2').az]]) {
   const b = bandSamples[nearest(bandSamples, s => s.az - a)];
-  lead([off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5), along(b, 4)], key, 0x8a939b, 0.6); }   // ends where the cable carries on along the halo
+  OUT_LEADS.push(lead([off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5), along(b, 4)], key, 0x8a939b, 0.6)); }   // ends where the cable carries on along the halo
 const EOGs = HS('EOG');
-lead([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5)], 'eog', 0x9ad17a, 0.6);
+OUT_LEADS.push(lead([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5)], 'eog', 0x9ad17a, 0.6));
 
 // ---------- test kit: ECG pads that check the earlobe sensor (ch 7, differential). Placement and leads: model estimate ----------
 const testG = new THREE.Group(); testG.visible = false; headset.add(testG);
@@ -1186,13 +1188,13 @@ const iTP9 = nearest(bandSamples, s => s.az - HS('M1').az), iTP10 = nearest(band
 const inMod = (s, P2) => [off(s, 9), P2];
 wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, EM + 12), J1)], '#7cc6fe');
 wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, EM + 11), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
-wire([...padUp(SITE.M1, bandSamples[iTP9]), ...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#d9dee2');
+wire([...padUp(SITE.M1, bandSamples[iTP9]), ...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#8a939b');
 wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, EM - 3), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
 wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, EM - 4), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
-wire([...padUp(SITE.M2, bandSamples[iTP10]), ...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, EM - 2), J3)], '#d9dee2');
+wire([...padUp(SITE.M2, bandSamples[iTP10]), ...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, EM - 2), J3)], '#a8977a');
 wire([off(SITE.Fp1, 4), off(surf(24, HS('Fp1').el + 2), 6), J2.clone().add(V3(0, 2, 0))], '#f2a65a');
 wire([off(SITE.Fp2, 4), off(surf(-24, HS('Fp2').el + 2), 6), J3.clone().add(V3(0, 2, 0))], '#f7d070');
-wire([off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
+wire([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
 wires.visible = false;
 ['fz', 'pz', 'ref', 'batt', 'batt', 'm2', 'fp', 'fp', 'eog'].forEach((k, i) => { if (wires.children[i]) wires.children[i].userData.wkey = k; });
 wire([...thin(strapSamples, iStrapCz, iStrap0, 4, 0), ...inMod(surf(0, EM + 12.5), J1.clone().add(V3(2, 0, 0)))], '#e3a35a').userData.wkey = 'cz';
@@ -2400,6 +2402,7 @@ function frame(now) {
   if (sess.active) sessApply();
   gridG.visible = !!state.grid && !state.iso && state.explode < 0.05;
   wires.visible = !!(state.xray || state.elec) && state.explode < 0.03 && !skin && !state.iso;
+  if (!state.iso && !sess.active) for (const l of OUT_LEADS) l.visible = !wires.visible;   // one continuous cable per sensor, never two overlapping
   dims.visible = !!state.dims && state.explode < 0.05 && !state.elec; dims.children[2].visible = state.xray;
   for (const m of wires.children) { const on = state.wireHL && m.userData.wkey === state.wireHL, dim = state.wireHL && !on;
     m.material.emissive.set(on ? 0x2f8fd8 : 0x000000); m.material.emissiveIntensity = on ? 0.5 + 0.3 * Math.sin(now / 200) : 1; m.material.transparent = !!dim; m.material.opacity = dim ? 0.25 : 1; }
