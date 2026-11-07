@@ -26,7 +26,17 @@
     "path": "designs/v3/",
     "channels": "6 channels on the head, 8-channel chip",
     "summary": "Fp1, Fp2, Fz, Pz, M2, eye (VEOG). M1 mastoid-bone reference on SRB2, Fpz bias, gain 12. One snap socket per site with swappable inserts: paste on the forehead, semi-dry pods in hair. Test kit toggle adds ECG on channel 7 and dry comparison inserts.",
-    "status": "Current plan",
+    "status": "Superseded by v4 (7 Nov product design)",
     "docs": "docs/v3.md"
+  },
+  {
+    "id": "v4",
+    "name": "v4 · 7 Nov product design",
+    "date": "2026-11-07",
+    "path": "designs/v4/",
+    "channels": "7 channels on the head, 8-channel chip",
+    "summary": "The launch design: a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip, semi-dry pods in wipe-clean caps, earlobe heart clip, S/M/L frames with a rear fit dial, removable washable knit cover. Session walkthrough, fit slider, cover and colour options.",
+    "status": "Current plan",
+    "docs": "docs/v4.md"
   }
 ]
