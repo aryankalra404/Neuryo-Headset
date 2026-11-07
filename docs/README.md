@@ -7,6 +7,7 @@
 | [v3.md](v3.md) | v3 · 29 Oct review: spec, channel map, every change from v2 with how sure each one is, budget corrections, what's still unproven |
 | [v4.md](v4.md) | v4 · 7 Nov product design: what the product is, spec, channel map, every change from v3 with how sure each one is, fit across 500 to 580 mm heads and 300 to 390 mm nasion–inion, the v4.4 review fixes (size range, printed band, halo lining, foam tip), the v4.5 main board (Low-Cost-EEG analog half + XIAO ESP32-S3, fit check, options compared), the buildable frame (buy or print), cleaning model, page controls, what's still open |
 | [v5.md](v5.md) | v5 · 7 Nov arch concept: why the forehead box goes, what changed from v4, the mechanics check (pod force, rear hook, pivot bar, sliders), wiring, the frame test, what is still open |
+| [buy-plan/](buy-plan/Neuryo-v5-buy-plan.pdf) | v5.1b prototype buy plan (7 Nov 2026): every item with price and seller link, grouped by shop, imports and gates, about ₹46,900 through VIT; `data.py` + `make_pdf.py` rebuild it |
 | [ideas-v4-review.md](ideas-v4-review.md) | Ideas only (not decisions) from the 7 Nov review of v4.1, some since covered by v4.2–v4.4: hair pods, threaded carriages, spine depth, weight estimate, frame-test additions |
 | [head.md](head.md) | The shared mannequin head: how it was made, how to use it, all 77 measured 10-10 positions and the mastoid points M1/M2 |
 
