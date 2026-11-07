@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ultracortex Pod Adapter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Same light product-stage look as the v5 page: wordmark top-left, toggles top-right, part list bottom-left. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff; --bg-2: #eef0f2; --fg: #111417; --muted: #6b737b; --line: #e3e6e9; --chip: #ffffff;
+  --f: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f); overflow: hidden; -webkit-font-smoothing: antialiased; }
+#stage { position: fixed; inset: 0; background: radial-gradient(90% 80% at 50% 42%, var(--bg) 0%, var(--bg) 45%, var(--bg-2) 100%); }
+#c { width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
+.top { position: fixed; top: calc(20px + env(safe-area-inset-top, 0px)); left: 16px; right: 16px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; pointer-events: none; }
+.brand { pointer-events: auto; }
+.brand b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.brand span { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); max-width: 42ch; }
+.toggles { display: flex; gap: 6px; pointer-events: auto; flex-wrap: wrap; justify-content: flex-end; }
+button, a { font: inherit; color: inherit; }
+.tg { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 500; color: var(--muted); cursor: pointer; }
+.tg[aria-pressed="true"] { color: var(--fg); border-color: var(--fg); }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.parts { position: fixed; left: 16px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); max-width: min(360px, calc(100% - 32px));
+  background: var(--chip); border-radius: 14px; box-shadow: 0 1px 2px rgba(17,20,23,.06), 0 0 0 1px var(--line); padding: 10px 12px; font-size: 12.5px; }
+.parts h2 { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.row { display: grid; grid-template-columns: 10px 1fr auto; gap: 8px; align-items: baseline; padding: 4px 0; border-top: 1px solid var(--line); }
+.row:first-of-type { border-top: 0; }
+.row i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; transform: translateY(1px); }
+.row b { font-weight: 500; }
+.row small { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.35; }
+.row a { color: var(--fg); font-size: 11.5px; text-underline-offset: 2px; }
+@media (max-width: 560px) { .brand span { display: none; } .parts { font-size: 12px; } }
+</style>
+
+<div id="stage"><canvas id="c" aria-label="3D model of the Ultracortex pod adapter"></canvas></div>
+
+<div class="top">
+  <div class="brand">
+    <b>Ultracortex Pod Adapter</b>
+    <span>Holds a Neuryo pod in a Mark IV frame node (Fz, Cz or Pz) to test rigid frame + spring per pod. Shown at 1 N, ring mid-thread.</span>
+  </div>
+  <div class="toggles" role="group" aria-label="Display">
+    <button class="tg" id="tExplode" aria-pressed="false">Exploded</button>
+    <button class="tg" id="tCut" aria-pressed="false">Section</button>
+    <button class="tg" id="tScalp" aria-pressed="true">Scalp</button>
+  </div>
+</div>
+
+<div class="parts" id="parts">
+  <h2>Print files</h2>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+
+// z offsets in mm, tube frame (z = 0 at the tube's bottom end). At 1 N the pod's bottom sits at -1.5.
+const PARTS = [
+  { id: 'node-ring', name: 'Node ring', note: 'Glue into the Mark IV node in place of the OpenBCI insert. 25.2 OD × 6.4, M20 × 2 inside. PETG.', color: '#3b6fd8', z: 12.0, ex: 0 },
+  { id: 'pod-tube', name: 'Pod tube', note: 'Screws into the ring to set depth. 14.8 bore, spring seat, knob, fill and lead holes, two pin slots. PETG.', color: '#2a2f35', z: 0, ex: 18 },
+  { id: 'pod-body', name: 'Pod body', note: '14.2 × 11 cup with lid and 26.5 mm fill tube: flush with the knob at 1 N, groove showing at 1.5 N. Resin or PETG, 4 walls.', color: '#d24d3c', z: -1.5, ex: -14 },
+  { id: 'tip-collar', name: 'Tip collar', note: 'Press-fits into the cup bottom; holds a 10 mm foam tip about 2.5 mm proud. PETG or TPU.', color: '#2e9e6b', z: -1.5, ex: -30 },
+];
+const BUY = 'Buy: compression spring 8 mm OD, about 29 mm free length, about 0.13 N/mm (1 N at 7.7 mm). Pins: two 4.4 mm pieces of 1.75 mm filament.';
+
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.localClippingEnabled = true;
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(30, 1, 1, 2000);
+camera.up.set(0, 0, 1);
+camera.position.set(95, -120, 70);
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 14);
+controls.enableDamping = true;
+scene.add(new THREE.HemisphereLight(0xffffff, 0xdfe3e7, 1.6));
+const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(60, -80, 120); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.6); rim.position.set(-80, 60, 40); scene.add(rim);
+
+const cut = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0);
+const meshes = {};
+const list = document.getElementById('parts');
+const loader = new STLLoader();
+
+for (const p of PARTS) {
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `<i style="background:${p.color}"></i><div><b>${p.name}</b><small>${p.note}</small></div><a href="stl/${p.id}.stl" download>STL</a>`;
+  list.appendChild(row);
+  loader.load(`stl/${p.id}.stl`, (geo) => {
+    geo.computeVertexNormals();
+    const mat = new THREE.MeshStandardMaterial({ color: p.color, roughness: 0.55, metalness: 0.05, side: THREE.DoubleSide, clippingPlanes: [] });
+    const m = new THREE.Mesh(geo, mat);
+    m.position.z = p.z;
+    meshes[p.id] = m;
+    scene.add(m);
+    setClip();
+  });
+}
+const buy = document.createElement('div');
+buy.className = 'row';
+buy.innerHTML = `<i style="background:#b9bfc5"></i><div><small>${BUY}</small></div><span></span>`;
+list.appendChild(buy);
+
+// Foam tip (bought part, shown for scale) and the spring at 1 N, between the pod lid (z 9.5) and the seat (z 31).
+const foam = new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 5.5, 48).rotateX(Math.PI / 2),
+  new THREE.MeshStandardMaterial({ color: '#e9dfc7', roughness: 0.95, clippingPlanes: [] }));
+foam.position.z = -1.5 - 2.5 + 2.75;
+scene.add(foam);
+const coil = [];
+for (let i = 0; i <= 900; i++) {
+  const t = i / 900, a = t * Math.PI * 2 * 11;
+  coil.push(new THREE.Vector3(3.75 * Math.cos(a), 3.75 * Math.sin(a), 9.5 + t * 21.5));
+}
+const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(coil), 900, 0.25, 8),
+  new THREE.MeshStandardMaterial({ color: '#9aa3ab', metalness: 0.6, roughness: 0.35, clippingPlanes: [] }));
+scene.add(spring);
+
+// Scalp reference: 15 mm below the ring's inner face (medium Mark IV frame on a medium head, approximate).
+const scalp = new THREE.Mesh(new THREE.CircleGeometry(26, 64),
+  new THREE.MeshBasicMaterial({ color: '#c9a98a', transparent: true, opacity: 0.25, side: THREE.DoubleSide, depthWrite: false }));
+scalp.position.z = -4.0;
+scene.add(scalp);
+
+let exploded = false, section = false;
+const target = {};
+function layout() {
+  for (const p of PARTS) target[p.id] = p.z + (exploded ? p.ex : 0);
+}
+layout();
+const extras = [foam, spring];
+function setClip() {
+  const planes = section ? [cut] : [];
+  for (const m of [...Object.values(meshes), ...extras]) m.material.clippingPlanes = planes;
+}
+function press(btn, on) { btn.setAttribute('aria-pressed', String(on)); }
+document.getElementById('tExplode').onclick = (e) => { exploded = !exploded; press(e.currentTarget, exploded); layout(); };
+document.getElementById('tCut').onclick = (e) => { section = !section; press(e.currentTarget, section); setClip(); };
+document.getElementById('tScalp').onclick = (e) => { scalp.visible = !scalp.visible; press(e.currentTarget, scalp.visible); };
+
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+renderer.setAnimationLoop(() => {
+  for (const p of PARTS) {
+    const m = meshes[p.id];
+    if (m) m.position.z += (target[p.id] - m.position.z) * 0.15;
+  }
+  const collar = meshes['tip-collar'], tube = meshes['pod-tube'];
+  foam.position.z = (collar ? collar.position.z : -1.5) + 0.25;   // foam 5.5 tall, 2.5 below the collar
+  spring.position.z = tube ? tube.position.z : 0;
+  controls.update();
+  renderer.render(scene, camera);
+});
+</script>
+</html>

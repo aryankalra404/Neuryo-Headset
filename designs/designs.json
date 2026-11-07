@@ -48,5 +48,15 @@
     "summary": "Same electronics and sites as v4.5, new frame: a spring arch over Cz, the main board in a pod above the left ear and the battery above the right, temple arms to soft pads, and a rear band with a hook under the occiput tightened by a dial. Fz and Pz on a bar pivoting at Cz so they share the force. Forehead bare apart from the strip.",
     "status": "Concept, to test against v4",
     "docs": "docs/v5.md"
+  },
+  {
+    "id": "uc-adapter",
+    "name": "Ultracortex pod adapter · 8 Nov",
+    "date": "2026-11-08",
+    "path": "designs/uc-adapter/",
+    "channels": "Test rig part (Fz, Cz, Pz)",
+    "summary": "Holds a Neuryo semi-dry pod in an OpenBCI Ultracortex Mark IV frame node to test a rigid frame with a spring per pod before designing the v5 spine. Four print files: node ring (glued in place of the OpenBCI insert, M20 × 2), pod tube with knob, spring seat and pin slots, pod body with fill tube force mark, tip collar. Bought: 8 mm OD spring about 0.13 N/mm.",
+    "status": "Mock-up test part",
+    "docs": "docs/v5.md"
   }
 ]
