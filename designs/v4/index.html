@@ -1072,7 +1072,7 @@ for (const [th, f] of [[THF, 0.3], [THC, 0.5], [THP, 0.7]]) {
     m.position.copy(along(s, row ? 8.5 : 4.5, 1.02)); m.quaternion.setFromUnitVectors(UP, s.nn);
     m.renderOrder = 6; headset.add(m); addTo('strap', m); RAILS.push(m);
     const num = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 3.6), SIZE_MAT.at(k));
-    num.position.copy(along(s, row ? -8.5 : -4.5, 1.04)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(s.side.clone().negate(), s.t.clone().negate(), s.nn));
+    num.position.copy(along(s, row ? -8.5 : -4.5, 1.04)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(s.side, s.t, s.nn));
     num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num);
   });
 }
