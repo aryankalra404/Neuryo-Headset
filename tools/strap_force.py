@@ -13,12 +13,12 @@ def prof(th):
     rr = R(0, th) if th <= 90 else R(180, 180 - th); a = np.radians(th); return np.array([rr*np.cos(a), rr*np.sin(a)])
 S = d['sites']; TH = np.linspace(-5, 200, 20501); P = np.array([prof(t) for t in TH])
 thF, thC, thP = S['Fz']['el'], 180 - S['Cz']['el'], 180 - S['Pz']['el']
-def run(sz, sy, thJ, thB, h, hC=None):
-    hC = h if hC is None else hC
+def run(sz, sy, thJ, thB, h, hC=None, hP=None):
+    hC = h if hC is None else hC; hP = h if hP is None else hP
     Q = P * [sz, sy]; T = np.gradient(Q, axis=0); T /= np.linalg.norm(T, axis=1)[:, None]; N = np.stack([T[:, 1], -T[:, 0]], 1)
     k = np.argmin(abs(TH - 90)); N = N if np.dot(N[k], Q[k]) > 0 else -N
     pt = lambda th, l: (Q[np.argmin(abs(TH - th))] + l * N[np.argmin(abs(TH - th))], N[np.argmin(abs(TH - th))])
-    pts = [pt(thJ, 1)[0], pt(thF, h)[0], pt(thC, hC)[0], pt(thP, h)[0], pt(thB, 1)[0]]
+    pts = [pt(thJ, 1)[0], pt(thF, h)[0], pt(thC, hC)[0], pt(thP, hP)[0], pt(thB, 1)[0]]
     out = []
     for i, th in zip((1, 2, 3), (thF, thC, thP)):
         a = pts[i] - pts[i-1]; b = pts[i+1] - pts[i]; a /= np.linalg.norm(a); b /= np.linalg.norm(b); out.append(np.dot(a - b, pt(th, 0)[1]))
@@ -28,11 +28,13 @@ def nir(sz, sy):
     s0 = np.r_[0, np.cumsum(np.linalg.norm(np.diff(P, axis=0), axis=1))]
     a, b = np.argmin(abs(TH - S['Nz']['el'])), np.argmin(abs(TH - 175)); return (s[b]-s[a]) / (s0[b]-s0[a])
 if __name__ == '__main__':
-    for thJ, thB, h, hC in [(55, 188, 16, 16), (55, 188, 16, 24), (55, 188, 16, 28)]:
-        print(f'front anchor {thJ} deg, rear anchor {thB} deg, strap {h} mm above the scalp ({hC} at Cz): N on Fz, Cz, Pz per N of tension')
+    print('Front clip at 55 deg, back clip at 150 deg (both on the scalp; a straight line from Pz to the rear band at 188 deg')
+    print('would pass about 12 mm inside the scalp, so the strap ends at a back clip whose legs run down to the rear band).')
+    for h, hC, hP in [(16, 28, 16), (16, 28, 22)]:
+        rows = []
         for shape in [0.92, 1.0, 1.08]:
-            row = []
             for target in [300, 345, 390]:
                 sz0, sy0 = np.sqrt(shape), 1/np.sqrt(shape); kk = target / (d['nasion_inion_mm'] * nir(sz0, sy0))
-                row.append(run(sz0*kk, sy0*kk, thJ, thB, h, hC))
-            print(f'  shape x{shape:.2f}: ' + '   '.join(' '.join(f'{x:.2f}' for x in v) for v in row) + '   (NI 300 | 345 | 390)')
+                rows.append(run(sz0*kk, sy0*kk, 55, 150, h, hC, hP))
+        a = np.array(rows)
+        print(f'  caps Fz {h} / Cz {hC} / Pz {hP} mm: N per N of tension  Fz {a[:,0].min():.2f}-{a[:,0].max():.2f}  Cz {a[:,1].min():.2f}-{a[:,1].max():.2f}  Pz {a[:,2].min():.2f}-{a[:,2].max():.2f}')
