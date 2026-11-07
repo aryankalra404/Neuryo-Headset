@@ -364,7 +364,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div><dt>EEG chip</dt><dd>ADS1299, 8 channels · ch 7 Cz · ch 8 ECG (test kit only)</dd></div>
       <div><dt>Reference / bias</dt><dd>M1 left mastoid on SRB2 (D25) · bias at Fpz (centre pad of the strip)</dd></div>
       <div><dt>Gain, sampling</dt><dd>12 (±375 mV range, D29) · 250 samples/s · 24-bit · noise target &lt; 6 µVpp</dd></div>
-      <div><dt>Forehead</dt><dd>Single-use 3-pad hydrogel strip, Ag/AgCl (Fp1, Fpz, Fp2), placed on the skin with a nasion template (centre pad at 10% of nasion–inion) and plugged into the brow module by a 3-way tail. One size: pads about 16 mm, centres 27 mm apart (25.0–29.0 mm needed on 500–580 mm heads)</dd></div>
+      <div><dt>Forehead</dt><dd>Single-use 3-pad hydrogel strip, Ag/AgCl (Fp1, Fpz, Fp2), placed on the skin with a nasion template (centre pad at 10% of nasion–inion) and plugged into the brow module by a 3-way tail. One size: pads about 16 mm, centres 27 mm apart (25.0–29.0 mm needed on 500–580 mm heads). MVP: three separate 22 × 22 mm Ag/AgCl snap pads stuck through the template card, with three snap leads to the board. The brow module never presses on them: its underside sits 6.5 mm off the skin over the pads and it rests on a soft pad above them</dd></div>
       <div><dt>In hair</dt><dd>Semi-dry pods at Fz, Cz, Pz: a 9 mm sealed pod body (cup + epoxied lid, 4 mm stud) inside a one-piece printed spring carriage; snap lead out through the carriage’s side slot · single-use, pre-wetted foam tip cartridge that clicks onto each pod · no reservoir: 2–4 drops (0.1–0.2 ml) of 0.9% saline through a 2 mm lid hole only when the contact check asks</dd></div>
       <div><dt>Mastoids, eye</dt><dd>Adhesive gel Ag/AgCl pads (M1, M2) · small hydrogel pad 20 mm below the left eye</dd></div>
       <div><dt>Heart</dt><dd>MAX30102 earlobe clip · pulse-rate variability with medication class (D09, D12, D22)</dd></div>
@@ -770,7 +770,9 @@ const SITE = {
 // Eyebrow line: the module's lower edge follows it, 1 degree above, so it never covers the eyes.
 function elAtY(az, y) { let lo = -30, hi = 70; for (let k = 0; k < 40; k++) { const m = (lo + hi) / 2; if (surf(az, m).p.y < y) lo = m; else hi = m; } return (lo + hi) / 2; }
 const BROW = (az) => elAtY(az, HEAD.browY) + 1;
-const MOD = { azC: 0, elC: BROW(0) + 15, azH: 52, elH: 16, T: 15, base: 1, wing: 0.76, low: BROW };   // v4: wider and thinner than v3 (45°, 19 mm)
+// v4.3: the module's underside sits 6.5 mm off the skin, so it clears the forehead pads and their snap leads (pocket) instead of pressing on them;
+// it rests on a soft pad on the upper forehead and is held by the halo.
+const MOD = { azC: 0, elC: BROW(0) + 15, azH: 52, elH: 16, T: 15, base: 6.5, wing: 0.76, low: BROW };   // v4: wider and thinner than v3 (45°, 19 mm)
 const EM = MOD.elC;  // module centre elevation; other module-relative spots are offsets from it
 const mod = shellPatch({ ...MOD, coverMat: M.cover, baseMat: M.base });
 mod.cover.renderOrder = 10; headset.add(mod.cover, mod.base);
@@ -786,7 +788,7 @@ mod.cover.userData.xrayGhost = true;
 // (part sizes are not scaled). Microcontroller: ESP32-S3-MINI-1 (15.4 x 20.5 x 2.4 mm, X03) lying sideways, antenna at the left edge.
 const BH = 32, KY = BH / 45;
 const pcbGroup = new THREE.Group();
-pcbGroup.position.copy(off(S0, 4.8));
+pcbGroup.position.copy(off(S0, 4.8 + 5.5));   // raised with the module underside
 pcbGroup.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(F0.x, F0.y, F0.n));
 headset.add(pcbGroup); explode(pcbGroup, F0.n, 27);
 const ESP = { x: -19, y: 7, w: 20.5, h: 15.4 };   // ESP.y on the v1 grid (x KY on the board)
@@ -969,14 +971,14 @@ const BB = 1;  // band height at the back of the head: just under the occipital 
 const bandKeys = [[40, EM], [70, EM - 2], [98, ET + 1], [124, ET - 2], [152, BB + 5], [180, BB], [208, BB + 5], [236, ET - 2], [262, ET + 1], [290, EM - 2], [320, EM]];
 const bandSamples = new THREE.SplineCurve(bandKeys.map(k => V2(k[0], k[1]))).getSpacedPoints(260).map(v => Object.assign({ az: v.x, el: v.y }, surf(v.x, v.y)));
 const bump = (x, c, s) => Math.exp(-Math.pow((x - c) / s, 2));
-const bandOff = s => 0.6 + 1.4 * (1 - smooth(40, 47, s.az)) + 1.4 * smooth(313, 320, s.az);
+const bandOff = s => 0.6 + 5.9 * (1 - smooth(40, 47, s.az)) + 5.9 * smooth(313, 320, s.az);   // rises into the module's raised underside
 const bandMesh = sweep(bandSamples, 20, 3.2, bandOff, M.band);
 const bandFab = fabricSleeve(bandSamples.filter(x => x.az > 41 && x.az < 319), 23.5, 4.6, s => bandOff(s) - 0.6);
 bandMesh.renderOrder = 5; headset.add(bandMesh); addTo('band', bandMesh);
 // v4.1 soft lining: replaces the hard-hat foam sweatband; one wipe-clean strip inside the halo and a pad where the brow module rests
 const liningBand = sweep(bandSamples.map(x => ({ p: x.p, n: x.n, az: x.az, el: x.el })), 21, 0.75, s => Math.max(0, bandOff(s) - 0.75), M.lining);
 headset.add(liningBand); addTo('lining', liningBand);
-const liningBrow = skinSlab(surf(0, MOD.elC + 9), 96, 12, 0.1, 0.95, M.lining, 30, 6); headset.add(liningBrow); addTo('lining', liningBrow);
+const liningBrow = skinSlab(surf(0, MOD.elC + 9), 96, 12, 0.1, MOD.base - 0.2, M.lining, 30, 6);   // soft brow rest above the pads: carries the module headset.add(liningBrow); addTo('lining', liningBrow);
 const m1Pad = rectPad(SITE.M1, 'ref'); const m2Pad = rectPad(SITE.M2, 'm2');
 
 // ---------- v4.2 midline band: thin semi-rigid band that lies on the head; the pods sit in spring carriages clamped to it ----------
@@ -1005,7 +1007,7 @@ const jointKnob = new THREE.Group(); orient(jointKnob, JS, strapOff(JS) + BAND_T
   const lever = new THREE.Mesh(new RoundedBoxGeometry(12, 2.4, 16, 2, 0.8), M.dial); lever.position.set(0, 2.2, 7); jointKnob.add(lever); }
 headset.add(jointKnob); addTo('strap', jointKnob);
 // Locator notch on the brow module's lower edge: lined up with the strip's centre mark, it puts the band's 0 mm mark over Fpz.
-{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.dial); orient(n, s, 1 + MOD.T * 0.32); headset.add(n); addTo('module', n); }
+{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.dial); orient(n, s, MOD.base + MOD.T * 0.32); headset.add(n); addTo('module', n); }
 // v4.3: no separate socket ring: the snap lead clips straight onto the pod body's stud
 const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13), czPod = placePod('hair', SITE.Cz, 'cz', 34, 13), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13);
 for (const pd of [fzPod, czPod, pzPod]) pd.sponge.userData.use = 'single';
@@ -1401,6 +1403,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['ADS1299IPAGR, 8-ch EEG chip', '×2', '11,879', 'LCSC C476817, fitted by JLCPCB · 2 boards', 'ads'],
     ['JLCPCB 4-layer PCB + assembly', '×1', '~10,000', 'Get the quote before ordering from abroad', 'pcb'],
     ['FRI TDE-205 snap leads, 10-pack', '×1', '4,745', 'Fz, Cz, Pz, M1, M2, eye + 2 ECG; the strip uses one 3-way connector', null],
+    ['Snap leads for the MVP forehead pads', '×3', 'quote', 'Fp1, Fpz, Fp2 on separate pads until the custom strip exists (the 10-pack above is full)', 'fp'],
     ['FRI TDE-211 flat Ag/AgCl snap', '×7', '~3,292', '3 strip snaps, 3 pod cores, 1 spare (v3 bought 6 for ₹2,822)', 'fp'],
     ['ESP32-S3-DevKitC-1 N8R2', '×2', '2,598', 'Probots', 'esp'],
     ['Ten20 EEG paste, 228 g', '×1', '1,512', 'Medikabazaar · comparison arm and fallback', 'fp'],
@@ -1504,6 +1507,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Size holes 1–5', 'Slot + thumb nut, mm reading', 'Five numbered holes per pod; one size number per patient', 'Nasion–inion only spans 300–348 mm, so 10 mm steps keep pods within 1 mm (Fz), 2 mm (Cz) and 3 mm (Pz) of their sites, about a fitted cap’s 3 mm (P186). Nothing to read or misread.', 'High', { k: 'strap', view: 'top' }],
     ['Wet tip, no reservoir', 'Cup with 1 ml saline above the contact', 'Pre-wetted tip cartridge + 2–4 drops when flagged', 'A standing pool drips into hair and can bridge sites (L06); the 13 mm cup could not hold 1 ml. Recording is 5 min and sponges held about 20 min without rewetting (L37), so drops on demand keep a rewetting method (D21). Decided by the pod drying test.', 'Medium', { k: 'cz', view: 'side' }],
     ['Wetting check', 'Green or red contact check', 'Green / amber / red per pod with “add drops” prompts', 'AC lead-off between blocks (D27) gives each pod’s impedance; channel noise flags drying during recording. Thresholds set in Study 1 (D11).', 'Medium', { k: 'cz' }],
+    ['Pocket over the forehead pads', 'Brow module resting on the forehead', 'Module underside 6.5 mm off the skin over the pads, resting on a soft brow pad above them', 'A rigid module pressing on gel pads is uncomfortable and moves them with every frown, which shows as noise. The board moves up with the module. MVP connects the pads with three snap leads; a click-on socket insert is a later option.', 'Design', { k: 'module', view: 'side' }],
     ['Strip placed by template', 'Strip clicks onto the brow module', 'Nasion template, then a 3-way tail into the module', 'The strip’s height followed wherever the halo landed. A template puts the centre pad at 10% of nasion–inion within about 2 mm; one size fits all adults because Fp1–Fpz is 25.0–29.0 mm on 500–580 mm heads.', 'High', { k: 'fp', view: 'skin' }],
     ['Silicone lining, no fabric', 'None', 'Soft wipe-clean lining', 'A knit cover was tried in v4 and dropped: laundry and spares for no gain. Lining grips hair and wipes clean (R18, D34).', 'Design', { k: 'lining', view: 'back' }],
     ['Bought ratchet halo', 'Fitted frame', 'Hard-hat ratchet, 52–64 cm, with a 3 mm lining', 'Buyable, not made. The bare ratchet stops at 520 mm but Indian women go down to 499 mm (P190); a 3 mm lining takes about 19 mm off, reaching about 500 mm. Repeatable fit: re-placement 3.0 mm with a fitted cap vs 9.8 mm with straps (P186, D19, C73).', 'High', { k: 'dial', view: 'back' }],
@@ -2488,13 +2492,13 @@ const SESS = [
     text: 'Wipe the forehead and both mastoids with an alcohol swab. Part and comb the hair at Fz, Cz and Pz, the three blue spots on top.',
     cam: () => [V3(330, 300, 330), V3(0, 40, 0)], show: { dots: true } },
   { t: 'Place the forehead strip', time: '45 s', need: ['Forehead strip (single-use)', 'Nasion template', 'Tape (first visit)'], src: 'Single-use strip (D32, C69). Fp1/Fp2 carry the week-1 theta signal (D13). Fpz is 10% of nasion–inion above the nasion (10-20 system).',
-    text: 'First visit only: measure nasion to inion over the top with a tape and enter it; the app saves it. Put the template on the bridge of the nose, peel a new strip and press it on with its centre pad on the template line and its centre mark on the nose. Plug its 3-way tail into the brow module once the frame is on. Fp1, Fp2 and the bias pad are all on it.',
+    text: 'First visit only: measure nasion to inion over the top with a tape and enter it; the app saves it. Put the template on the bridge of the nose, peel a new strip and press it on with its centre pad on the template line and its centre mark on the nose. MVP: stick three separate snap pads through the template card instead, and clip a snap lead onto each once the frame is on (product strip: plug in its tail). Fp1, Fp2 and the bias pad are all on it.',
     cam: () => VIEWS.skin(), show: { frame: true, strip: true, skin: true }, hl: ['fp', 'fpz'], labels: true, head: 'off' },
   { t: 'Click on the wet tips', time: '30 s', need: ['3 wet tip cartridges'], src: 'Semi-dry pod (P29). Sponges rose in impedance after about 20 min without rewetting (L37); recording is 5 min, top-up drops on demand (D21).',
     text: 'Peel three wet tip cartridges from their sealed pack and click one onto each pod before the frame goes on. The spring keeps each foam tip pressed on the scalp. No filling: the tips arrive wet.',
     cam: () => [V3(280, 330, 140), V3(0, 85, -10)], show: { frame: true, strip: true }, hl: ['fz', 'cz', 'pz'], labels: true },
   { t: 'Fit the frame', time: '1 min', need: ['Headset'], src: 'Fitted frame: re-placement 3.0 mm vs 9.8 mm with straps (P186, D19). Ratchet halo + midline band (D34).',
-    text: 'Before it goes on, pin the three carriages into the holes with the patient’s size number (1–5, from the nasion–inion saved at the first visit) and set the band lock to the same mark. Put the headset on with the notch under the brow module over the strip’s centre mark and turn the rear dial until the halo is snug. Check the band runs straight over the nose and the inion.',
+    text: 'The brow module rests on its soft pad above the forehead pads and never presses on them. Before it goes on, pin the three carriages into the holes with the patient’s size number (1–5, from the nasion–inion saved at the first visit) and set the band lock to the same mark. Put the headset on with the notch under the brow module over the strip’s centre mark and turn the rear dial until the halo is snug. Check the band runs straight over the nose and the inion.',
     cam: () => VIEWS.back(), show: { frame: true }, hl: ['dial', 'strap'], labels: true },
   { t: 'Pads and heart clip', time: '1 min', need: ['2 mastoid pads', 'Eye pad'], src: 'M1 reference on the mastoid bone (D25, P197); eye channel (D26); earlobe PPG (D22).',
     text: 'Stick a gel pad on each mastoid bone (M1 is the reference, M2 a channel) and the small eye pad about 2 cm below the left eye. Clip the heart sensor to the left earlobe.',
