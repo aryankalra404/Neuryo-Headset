@@ -38,5 +38,15 @@
     "summary": "The launch design (v4.4): a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip placed by a nasion template, earlobe heart clip. Buildable frame for 500–580 mm circumference and 300–390 mm nasion–inion: bought ratchet harness with a 3 mm lining or 7 mm small-head insert, midline band 3D-printed in the head's curve with a TPU tail, spring-loaded semi-dry pods pinned at one size number (1–9); damp single-use foam tips with top-up drops when the app's wetting check asks. Main board (v4.5) in the brow module: the analog half of the open Low-Cost-EEG board plus a Seeed XIAO ESP32-S3. Session walkthrough, fit sliders, buy/print parts list.",
     "status": "Current plan",
     "docs": "docs/v4.md"
+  },
+  {
+    "id": "v5",
+    "name": "v5 · 7 Nov arch concept",
+    "date": "2026-11-07",
+    "path": "designs/v5/",
+    "channels": "7 channels on the head, 8-channel chip",
+    "summary": "Same electronics and sites as v4.5, new frame: a spring arch over Cz, the main board in a pod above the left ear and the battery above the right, temple arms to soft pads, and a rear band with a hook under the occiput tightened by a dial. Fz and Pz on a bar pivoting at Cz so they share the force. Forehead bare apart from the strip.",
+    "status": "Concept, to test against v4",
+    "docs": "docs/v5.md"
   }
 ]

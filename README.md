@@ -10,17 +10,18 @@ Interactive 3D models of the Neuryo EEG + heart-rate headset. Each design is its
 | v2 · 29 Oct research plan | 6 channels: Fp1, Fp2, Fz, Pz, TP10, eye (VEOG). TP9 reference alone, Fpz bias, hydrogel on the forehead, semi-dry pods in hair, earlobe heart-sensor clip. Built from the Neuryo-Research library (decisions D01 to D28) on the shared realistic head. Superseded by v3. | https://aryankalra404.github.io/Neuryo-Headset/designs/v2/ |
 | v3 · 29 Oct review | Superseded by v4. 6 channels on the head (Fp1, Fp2, Fz, Pz, M2, eye) on an 8-channel ADS1299 at gain 12. M1 mastoid-bone reference on SRB2, Fpz bias. One 4 mm snap socket per site with swappable inserts: paste on the forehead, semi-dry pods in hair. **Test kit** toggle adds ECG on channel 7 and dry comparison inserts; **Confidence** colours each part by how sure the plan is. | https://aryankalra404.github.io/Neuryo-Headset/designs/v3/ |
 | v4 · 7 Nov product design | Current plan, the launch design (v4.4). A 5-minute in-clinic recording at baseline, day 7 and every visit of a depression treatment course. 7 channels on the head (Fp1, Fp2, Fz, Cz, Pz, M2, eye), M1 reference, Fpz bias. Single-use 3-pad hydrogel forehead strip placed by a nasion template, earlobe heart clip, BMI270, 1000 mAh at the back. Buildable frame for 500–580 mm circumference and 300–390 mm nasion–inion: bought hard-hat ratchet harness with a 3 mm lining or a 7 mm small-head insert; midline band 3D-printed already in the head's curve (PA12, PETG for fit tests) with a TPU tail through a cam lock; spring-loaded semi-dry pods pinned at one size number (1–9) read off a size tape; damp single-use foam tips (2–3 mm proud, set weight) topped up only when the app's wetting check asks; wipe-clean silicone lining. Main board (v4.5): about 70 × 50 mm in the brow module, the analog half copied from the open Low-Cost-EEG board plus a Seeed XIAO ESP32-S3. Page adds a 9-step **Session walkthrough**, head-size and nasion–inion sliders, a buy/print parts list and frame build steps, and a **Single-use vs reusable** overlay. | https://aryankalra404.github.io/Neuryo-Headset/designs/v4/ |
+| v5 · 7 Nov arch concept | Concept, to test against v4. Same electronics and sites as v4.5, new frame: spring arch over Cz, main board in a pod above the left ear and battery above the right, temple arms to soft pads, rear band with a hook under the occiput and a dial. Fz and Pz on a bar pivoting at Cz. Forehead bare apart from the strip. | https://aryankalra404.github.io/Neuryo-Headset/designs/v5/ |
 
-Add `#v1`, `#v2`, `#v3` or `#v4` to the start page link to open a design straight away.
+Add `#v1` to `#v5` to the start page link to open a design straight away.
 
-**Docs:** [docs/](docs/README.md): one file per design ([v1](docs/v1.md), [v2](docs/v2.md), [v3](docs/v3.md), [v4](docs/v4.md), each with why it changed from the one before) and the [shared head](docs/head.md) with all 77 measured 10-10 positions plus the mastoid points M1/M2.
+**Docs:** [docs/](docs/README.md): one file per design ([v1](docs/v1.md), [v2](docs/v2.md), [v3](docs/v3.md), [v4](docs/v4.md), [v5](docs/v5.md), each with why it changed from the one before) and the [shared head](docs/head.md) with all 77 measured 10-10 positions plus the mastoid points M1/M2.
 
 **PCB:** [pcb/](pcb/README.md): the rev B plan (about 70 × 50 mm: Low-Cost-EEG's analog half + a XIAO ESP32-S3, draft pin map, checks) and the Low-Cost-EEG reference design it copies (Altium project, Gerbers, schematic, report; GPL-3.0). Not laid out yet. Rev A (30 Oct, made for v3) is in the git history.
 
 ## Adding a new design
-1. Copy the latest design folder, for example `designs/v4/` to `designs/v5/`, and change the model in `designs/v5/index.html`. It already loads the shared head from `designs/shared/head/`; pick electrode sites by name (`HEAD.sites.F3`, `HEAD.extra.M1` and so on, see [docs/head.md](docs/head.md)).
+1. Copy the latest design folder, for example `designs/v5/` to `designs/v6/`, and change the model in `designs/v6/index.html`. It already loads the shared head from `designs/shared/head/`; pick electrode sites by name (`HEAD.sites.F3`, `HEAD.extra.M1` and so on, see [docs/head.md](docs/head.md)).
 2. Add an entry to `designs/designs.json` with its `id`, `name`, `date`, `path`, `channels`, `summary` and `status`.
-3. Add `docs/v5.md` with its spec and what changed from v4, and why.
+3. Add `docs/v6.md` with its spec and what changed from v5, and why.
 
 The new design then shows up on the start page and in the switcher.
 
@@ -45,4 +46,4 @@ v4 adds **Fit & finish** (head circumference 500–580 mm and nasion–inion 300
 v1 is built from the 26 Oct design doc. v2 is built from the 29 Oct research plan; its module, board layout and battery are carried over from v1. Shapes and sizes neither source gives are marked as model estimates in the page. In v2, **All sites** shows every measured 10-10 position on the head.
 
 ## Shared head
-`designs/shared/head/` holds the mannequin every design uses (v1 to v4): MakeHuman base mesh (CC0), 540 mm head circumference, sites measured with the 10-20 rules. The scripts in `tools/` rebuild it; see [docs/head.md](docs/head.md).
+`designs/shared/head/` holds the mannequin every design uses (v1 to v5): MakeHuman base mesh (CC0), 540 mm head circumference, sites measured with the 10-20 rules. The scripts in `tools/` rebuild it; see [docs/head.md](docs/head.md).
