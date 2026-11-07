@@ -5,8 +5,9 @@
 | [v1.md](v1.md) | v1 · 26 Oct design: spec and what's on the page |
 | [v2.md](v2.md) | v2 · 29 Oct research plan: spec, every change from v1 and why, what's still unproven |
 | [v3.md](v3.md) | v3 · 29 Oct review: spec, channel map, every change from v2 with how sure each one is, budget corrections, what's still unproven |
-| [v4.md](v4.md) | v4 · 7 Nov product design: what the product is, spec, channel map, every change from v3 with how sure each one is, the buildable frame (buy or print), cleaning model, page controls, what's still open |
-| [ideas-v4-review.md](ideas-v4-review.md) | Ideas only (not decisions) from the 7 Nov v4 review: hair pods, threaded carriages, spine depth, weight estimate, frame-test additions |
+| [v4.md](v4.md) | v4 · 7 Nov product design: what the product is, spec, channel map, every change from v3 with how sure each one is, fit across 500 to 580 mm heads and 300 to 390 mm nasion–inion, the v4.4 review fixes (size range, printed band, halo lining, foam tip), the buildable frame (buy or print), cleaning model, page controls, what's still open |
+| [ideas-v4-review.md](ideas-v4-review.md) | Ideas only (not decisions) from the 7 Nov review of v4.1, some since covered by v4.2–v4.4: hair pods, threaded carriages, spine depth, weight estimate, frame-test additions |
+| [v5.md](v5.md) | v5 · 7 Nov trial: v4.4 with the board in a side box above the left ear: why (real board size, crowded back), every change from v4, rev B changes from rev A, where competitors put their electronics, weight and balance, what's still open |
 | [head.md](head.md) | The shared mannequin head: how it was made, how to use it, all 77 measured 10-10 positions and the mastoid points M1/M2 |
 
 ## Keeping these up to date
