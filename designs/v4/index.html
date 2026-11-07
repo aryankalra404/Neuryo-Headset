@@ -847,6 +847,8 @@ comp('power', 4, 4, 2, -17.5, -12, M.ferrite); comp('power', 2, 2, 0.6, -11, -18
 comp('power', 2, 1.25, 0.9, -6, -9, M.ferrite); comp('power', 2, 1.25, 0.9, -6, -12, M.ferrite);
 for (const p of PROT) { comp('prot', p.v ? 0.8 : 1.6, p.v ? 1.6 : 0.8, 0.45, p.r[0], p.r[1], M.res); comp('prot', p.v ? 0.8 : 1.2, p.v ? 1.2 : 0.8, 0.6, p.d[0], p.d[1], M.chip); }
 for (const [x, y] of [[1.5, 5.4], [12, 4.5], [1.5, -9.4], [12, -8.5], [13, -2], [-1, -2], [-8, 0], [-8, 3], [-21, -21.6], [-14, -21], [-7, -16]]) comp('pcb', 1.6, 0.8, 0.8, x, y, M.passive);
+comp('ppg', 6, 4.2, 2.9, -3, -20.6, M.conn).userData.sub = 'conn';   // J6: earlobe clip lead (v4.3: on the main board, so its lead ends on it)
+comp('ecg', 5, 4.2, 2.9, 16.6, -20.6, M.conn).userData.sub = 'conn';  // J7: ECG pair, ch 8, test kit
 for (const c of [comp('pcb', 7, 4.2, 2.9, 6, 20.6, M.conn), comp('pcb', 4.2, 9, 2.9, 27.6, -6, M.conn), comp('pcb', 7, 4.2, 2.9, 6, -20.6, M.conn), comp('pcb', 5, 4, 2.9, -25.5, -20.5, M.conn)]) c.userData.sub = 'conn';
 comp('usb', 9, 7.4, 3.2, -5.5, 18.5, M.metal); comp('pcb', 6.6, 2.6, 1.4, 14, 21, M.chip);
 comp('pcb', 1.6, 0.8, 0.6, 19.5, 20.6, M.ledG); comp('pcb', 1.6, 0.8, 0.6, 21.8, 20.6, M.ledB);
@@ -1176,22 +1178,32 @@ function wire(pts, color, r = 0.6) {
 }
 const thin = (arr, a, b, step, side) => { const out = []; const d = a < b ? 1 : -1; for (let i = a; d > 0 ? i <= b : i >= b; i += d * step) out.push(along(arr[i], side)); return out; };
 const iStrapFz = nearest(strapSamples, s => s.th - THF), iStrapCz = nearest(strapSamples, s => s.th - THC), iStrapPz = nearest(strapSamples, s => s.th - THP), iStrap0 = nearest(strapSamples, s => s.th - (TH0 + 1));
-const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20.5);
+const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20.5), J6 = JW(-3, -20.6), J7 = JW(16.6, -20.6);
+// v4.3: each sensor lead is drawn as one cable from its snap or clip, up into the halo, along it inside the lining, into the brow module and onto its connector.
+const padUp = (S, b) => [off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5)];
 const bandL = nearest(bandSamples, s => s.az - 44), bandR = nearest(bandSamples, s => s.az - 316);
 const iTP9 = nearest(bandSamples, s => s.az - HS('M1').az), iTP10 = nearest(bandSamples, s => s.az - HS('M2').az), iBack = nearest(bandSamples, s => s.az - 180);
 const inMod = (s, P2) => [off(s, 9), P2];
 wire([...thin(strapSamples, iStrapFz, iStrap0, 4, 3), ...inMod(surf(0, EM + 12), J1)], '#7cc6fe');
 wire([...thin(strapSamples, iStrapPz, iStrap0, 4, -3), ...inMod(surf(0, EM + 11), J1.clone().add(V3(-2, 0, 0)))], '#b69cff');
-wire([...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#d9dee2');
+wire([...padUp(SITE.M1, bandSamples[iTP9]), ...thin(bandSamples, iTP9, bandL, 4, 4), ...inMod(surf(42, EM - 2), J2)], '#d9dee2');
 wire([...thin(bandSamples, iBack, bandR, 4, -3), ...inMod(surf(-42, EM - 3), J5.clone().add(V3(1, 0, 0)))], '#e0524a', 0.75);
 wire([...thin(bandSamples, iBack, bandR, 4, -6), ...inMod(surf(-42, EM - 4), J5.clone().add(V3(-1, 0, 0)))], '#222428', 0.75);
-wire([...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, EM - 2), J3)], '#d9dee2');
+wire([...padUp(SITE.M2, bandSamples[iTP10]), ...thin(bandSamples, iTP10, bandR, 4, 4), ...inMod(surf(-42, EM - 2), J3)], '#d9dee2');
 wire([off(SITE.Fp1, 4), off(surf(24, HS('Fp1').el + 2), 6), J2.clone().add(V3(0, 2, 0))], '#f2a65a');
 wire([off(SITE.Fp2, 4), off(surf(-24, HS('Fp2').el + 2), 6), J3.clone().add(V3(0, 2, 0))], '#f7d070');
 wire([off(surf(44, EM - 12), 5), off(surf(40, EM - 7), 7), J2.clone().add(V3(0, 4, 0))], '#9ad17a');
 wires.visible = false;
 ['fz', 'pz', 'ref', 'batt', 'batt', 'm2', 'fp', 'fp', 'eog'].forEach((k, i) => { if (wires.children[i]) wires.children[i].userData.wkey = k; });
 wire([...thin(strapSamples, iStrapCz, iStrap0, 4, 0), ...inMod(surf(0, EM + 12.5), J1.clone().add(V3(2, 0, 0)))], '#e3a35a').userData.wkey = 'cz';
+// earlobe clip: up in front of the ear into the halo (same path as its short lead), forward along the band, into J6
+{ const iEar = nearest(bandSamples, s => s.az - 84);
+  wire([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), ...thin(bandSamples, iEar, bandL, 4, -4), ...inMod(surf(38, EM - 6), J6)], '#2b2f33', 0.7).userData.wkey = 'ppg'; }
+// test kit: the two ECG leads carry on from the halo along the band into J7 (shown only with the test kit)
+for (const sx of [1, -1]) { const i0 = nearest(bandSamples, s => s.az - (sx > 0 ? 140 : 220));
+  const pts = [off(bandSamples[i0], 3), ...thin(bandSamples, i0, sx > 0 ? bandL : bandR, 4, sx > 0 ? 7 : -7), ...inMod(surf(sx * 36, EM - 7), J7.clone().add(V3(sx, 0, 0)))];
+  const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 96, 0.6, 8, false), new THREE.MeshStandardMaterial({ color: sx > 0 ? 0xe0524a : 0x7a2b27, roughness: 0.6 }));
+  testG.add(m); addTo('ecg', m); }
 
 // ---------- labels ----------
 const labelsEl = document.getElementById('labels');
@@ -1992,14 +2004,13 @@ const toLocal = (wp) => pcbGroup.worldToLocal(wp.clone());
 // v2: the MAX30102 lives in the earlobe clip; its 4-wire lead plugs into J6 on the bottom edge (clear of the antenna keep-out). Fpz snap stud underneath.
 const ppgL = L(-3, -20.6, 2.2), fpzTop = toLocal(off(SITE.Fpz, 4.0)), fpzBot = toLocal(off(SITE.Fpz, 0.9));
 const bExtra = [];
-{ const jst = new THREE.Mesh(new THREE.BoxGeometry(6, 4.2, 2.9), M.conn.clone()); jst.position.set(ppgL.x, ppgL.y, 0.8 + 1.45);
-  jst.userData.part = 'ppg'; BG.add(jst); bExtra.push(jst);
+{ // J6 and J7 are part of the main board (cloned above)
   for (let i = 0; i < 4; i++) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 10, 8), new THREE.MeshStandardMaterial({ color: ['#e0524a', '#222428', '#2f8fd8', '#f2c94c'][i] }));
     w.position.set(ppgL.x - 2.25 + i * 1.5, ppgL.y - 7, 2.2); w.userData.part = 'ppg'; BG.add(w); bExtra.push(w); }
   const stud = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.8, Math.abs(fpzBot.z - (-0.8)), 24), M.metal.clone()); stud.rotation.x = Math.PI / 2;
   stud.position.set(fpzTop.x, fpzTop.y, (-0.8 + fpzBot.z) / 2); stud.userData.part = 'fpz'; BG.add(stud); bExtra.push(stud);
-  // v3 test kit: J7, a 2-pin header for the ECG pair on channel 7. Position: model estimate.
-  const j7 = new THREE.Mesh(new THREE.BoxGeometry(5, 4.2, 2.9), M.conn.clone()); j7.position.set(16.6, -20.6 * KY, 0.8 + 1.45); j7.userData.part = 'ecg'; BG.add(j7); bExtra.push(j7); }
+  // J7 (ECG pair, test kit) is on the main board too.
+}
 // incoming leads (stubs) so students see what plugs in where
 const LEADS = [
   ['Fz', '#2f8fd8', [[4.8, 32, 2.2], [4.8, 22.6, 2.2]]], ['Pz', '#8b6cf0', [[7.2, 32, 2.2], [7.2, 22.6, 2.2]]], ['Cz', '#d9822b', [[9.6, 32, 2.2], [9.6, 22.6, 2.2]]],
