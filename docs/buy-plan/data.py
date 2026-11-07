@@ -9,7 +9,7 @@ orders = [
  ]),
  dict(store='Robu', note='Free shipping above ₹499 (per GrabOn; confirm at checkout).', items=[
   ('Seeed Studio XIAO ESP32S3', 'One for bench firmware now, one soldered onto the board (replaces the ESP32-S3 DevKitC)', 2, 1139, 'https://robu.in/product/seeed-studio-xiao-esp32s3-2-4ghz-wifi-ble-5-0/', False, ''),
-  ('Numakers PETG-HS 1.75 mm, 1 kg', 'Pods, bar, carriages, temple arms, rear band, ear clip', 1, 780, 'https://robu.in/product/numaker-petg-hs-1-75mm-blue-translucent-filament/', False, 'skip'),
+  ('Numakers PETG-HS 1.75 mm, 1 kg', 'Pods, spine, carriages, temple arms, rear band, ear clip', 1, 780, 'https://robu.in/product/numaker-petg-hs-1-75mm-blue-translucent-filament/', False, 'skip'),
  ]),
  dict(store='Robocraze', note='Free delivery on orders of ₹999 and above (shipping policy page); this order is ₹1,317.', items=[
   ('MAX30102 pulse sensor module', 'Earlobe clip + test-kit forehead window', 2, 249, 'https://robocraze.com/products/max30102-pulse-oximeter-heart-rate-sensor-module', False, ''),
@@ -18,8 +18,7 @@ orders = [
  ]),
  dict(store='Amazon.in', note='Delivery charges depend on seller; check at checkout.', items=[
   ('Koss KPH7 on-ear headphones', 'Spring arch + sliders for the mock-up (listing: metal and plastic)', 1, 1000, AZ+'B006T9ZKAQ', False, ''),
-  ('20 mm woven elastic, dark grey, 15 m', 'Elastic ends and Y legs of the midline strap', 1, 314, AZ+'B0FRS4LY29', False, ''),
-  ('20 mm PP webbing, black, 10 m', 'Non-stretch Fz–Cz–Pz section with heat-punched size holes', 1, 304, AZ+'B0DXVF6C41', False, ''),
+  ('Stainless compression spring assortment', 'v5.2 pod springs: pick three near 0.13 N/mm (1 N at about 7.5 mm) on the scale; price not read on a seller page', 1, 300, '', True, ''),
   ('OLEIO M3 × 12 mm screws with nuts', 'Arch sliders, pod shells, ear clip hinge', 1, 289, AZ+'B0HKJ7692J', False, ''),
   ('Silicone rubber sheet 2 mm, 1 × 1 ft', 'Temple pads, rear hook pad, pod linings (replaces TPU filament)', 1, 459, AZ+'B0D243VWDB', False, ''),
   ('Worison black foam sheets, A4 × 10', 'Light-blocking pad on the ear clip', 1, 175, AZ+'B09G3BDXYL', False, ''),

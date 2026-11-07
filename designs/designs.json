@@ -41,11 +41,11 @@
   },
   {
     "id": "v5",
-    "name": "v5 · 7 Nov arch concept",
+    "name": "v5 · arch concept (v5.2, 8 Nov)",
     "date": "2026-11-07",
     "path": "designs/v5/",
     "channels": "7 channels on the head, 8-channel chip",
-    "summary": "Same electronics and sites as v4.5, new frame: a spring arch over Cz, the main board in a pod above the left ear and the battery above the right, temple arms to soft pads, and a rear band with a hook under the occiput tightened by a dial. Fz and Pz on a bar pivoting at Cz so they share the force. Forehead bare apart from the strip.",
+    "summary": "Same electronics and sites as v4.5, new frame: a spring arch over Cz, the main board in a pod above the left ear and the battery above the right, temple arms to soft pads, and a rear band with a hook under the occiput tightened by a dial. v5.2: Fz, Cz and Pz in spring carriages on a rigid spine clipped to the arch at Cz, one soft spring per pod. Forehead bare apart from the strip.",
     "status": "Concept, to test against v4",
     "docs": "docs/v5.md"
   },

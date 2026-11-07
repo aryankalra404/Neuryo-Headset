@@ -59,7 +59,7 @@ TOT_V = DOM + FRI_V + JLC_V; TOT_P = DOM + FRI_P + JLC_P
 GOLD = 2999
 
 story = []
-story.append(Paragraph('Neuryo v5.1 prototype buy plan', H1))
+story.append(Paragraph('Neuryo v5.2 prototype buy plan', H1))
 story.append(Paragraph('7 Nov 2026 · one order, ₹50,000 grant · prices read on the seller pages on 7 Nov unless marked est. (yellow rows) · '
                        f'USD at ₹{RATE_MID} mid-market (x-rates, 7 Nov 16:25 UTC), ₹{CARD} on the card (about 3.5% markup)', SUB))
 
@@ -116,7 +116,7 @@ alts = [[Paragraph('<b>Option</b>', CELL), Paragraph('<b>Effect</b>', CELL), Par
      Paragraph(f'Saves about {rs(FRI_V - GOLD)} through VIT ({rs(FRI_P - GOLD)} vs a personal import), ships free in the UDL order. Trade-off: gold-plated, not Ag/AgCl, so more slow drift with saline; '
                'your semi-dry evidence is for Ag/AgCl. Use only if the board comes in over budget.', CELL),
      link('https://store.upsidedownlabs.tech/product/gold-cup-electrodes-pack-of-10/')],
-    [Paragraph('Pivot bar, steel strip and pod springs: not needed', CELL), Paragraph('v5.1 replaces the bar, size-hole rows and spring carriages with a midline strap: non-stretch webbing with size holes over Fz–Cz–Pz, elastic at the ends. Its tension presses all three pods. The front Y clip, pod caps, slider and hole jig are PETG prints.', CELL), Paragraph('', CELL)],
+    [Paragraph('Midline strap, webbing, elastic and steel strip: not needed', CELL), Paragraph('v5.2 holds Fz, Cz and Pz in spring carriages on a rigid PETG spine clipped to the arch at Cz, one soft spring per pod (from the assortment). Spine, saddle clip and carriages are PETG prints.', CELL), Paragraph('', CELL)],
     [Paragraph('TPU filament (₹2,149 in the old plan): drop it', CELL), Paragraph('The 2 mm silicone sheet (₹459) covers temple pads, hook pad and linings.', CELL), Paragraph('', CELL)],
     [Paragraph('ESP32-S3 DevKitC (₹1,299): drop it', CELL), Paragraph('The second XIAO does the bench firmware on the same chip and pins as the board.', CELL), Paragraph('', CELL)],
     [Paragraph('Also not needed', CELL), Paragraph('PA12 midline band (v4 only), brass heat-set insert kits (₹1,129+; use M3 nuts in printed pockets), torsion-spring kit (₹1,734; reuse a binder-clip or clothes-peg spring for the ear clip), '
@@ -129,7 +129,7 @@ for c in [
     'Re-open each link on the day you pay; pay if the price is within 15% of this plan. Prices and stock change daily.',
     'Koss KPH7: the listing gives "Metal, Plastic". Before cutting, confirm the band is spring steel with sliders; if it is plastic, return it and use another headphone with a visible steel band.',
     'Witty Fox 1000 mAh: the page gives no size or connector. Check it fits the right pod and add a JST-PH 2.0 lead if it has bare wires.',
-    'Midline strap: hang 150 g (1.5 N) on a piece of the elastic and mark the stretch; copy the mark onto the two back legs, which set the tension on every fitting. Punch the webbing size holes through the printed jig, not by eye.',
+    'Pod springs: squeeze each on the pocket scale; keep three that give about 1 N (102 g) at 7.5 mm. Fitting: slide the arch sliders until the Cz fill tube band meets its port, and save the setting per patient.',
     'Ask VIT purchase whether the JLCPCB and FRI orders can go through the institute import route; the ~10% duty here is the 7 Nov plan\'s assumption, not a quote.',
     'Recheck ADS1299 stock and price at JLCPCB on the day you order ($70.817, 419 in stock on 7 Nov). The extended-part count (12) and PCB price are estimates until the BOM exists.',
     'Robu: the 1000–1500 mAh LiPo cells (WLY803040, WLY102050, WLY103048) were all out of stock on 7 Nov, which is why the battery is from Robocraze.']:
@@ -144,10 +144,10 @@ story.append(Paragraph('Seller pages linked in each row. JLCPCB fees: <link href
 
 def footer(c, d):
     c.saveState(); c.setFont('Sans', 7); c.setFillColor(MUTED)
-    c.drawString(12 * mm, 7 * mm, 'Neuryo v5.1 prototype buy plan · 7 Nov 2026')
+    c.drawString(12 * mm, 7 * mm, 'Neuryo v5.2 prototype buy plan · 8 Nov 2026')
     c.drawRightString(landscape(A4)[0] - 12 * mm, 7 * mm, f'Page {d.page}'); c.restoreState()
 
 doc = SimpleDocTemplate(sys.argv[1], pagesize=landscape(A4), leftMargin=12 * mm, rightMargin=12 * mm, topMargin=11 * mm, bottomMargin=12 * mm,
-                        title='Neuryo v5.1 prototype buy plan', author='Aryan Kalra')
+                        title='Neuryo v5.2 prototype buy plan', author='Aryan Kalra')
 doc.build(story, onFirstPage=footer, onLaterPages=footer)
 print(DOM, FRI_V, JLC_V, TOT_V, TOT_P)
