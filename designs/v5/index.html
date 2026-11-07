@@ -294,7 +294,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div class="sw" id="fabSw" role="group" aria-label="Soft layer colour"></div>
       <div class="prow"><span class="k2">Shell</span><span class="k2" id="shellName">Porcelain</span></div>
       <div class="sw" id="shellSw" role="group" aria-label="Shell colour"></div>
-      <p class="pnote">Everything wipes clean between patients in one step: hard pods, arch, arms and bar, soft silicone pads where the frame touches the head (D34). The knit sleeve is a dropped idea, kept here only to compare looks.</p>
+      <p class="pnote">Everything wipes clean between patients in one step: hard pods, arch, arms and spine, soft silicone pads where the frame touches the head (D34). The knit sleeve is a dropped idea, kept here only to compare looks.</p>
     </div>
   </div>
   <div class="panel" id="insertsUI" hidden>
@@ -380,7 +380,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div><dt>Output</dt><dd>One-page trend report with personal baseline, change bands, medication class and PHQ-9 on the same timeline (D05)</dd></div>
       <div><dt>Regulatory</dt><dd>India: medical device (D23), plan for CDSCO Class B, budget for C · IEC 60601-1, 60601-1-2, 80601-2-26, 62304, ISO 10993</dd></div>
     </dl>
-    <p class="note">v5 concept from the Neuryo headset concept study (7 Nov 2026), on the v4 product specification and Neuryo-Research 00-product-v4.md. D, K, R and X codes point to decisions and evidence rows in the library. Pod, arch, arm and bar shapes, part weights and the board layout are model estimates.</p>
+    <p class="note">v5 concept from the Neuryo headset concept study (7 Nov 2026), on the v4 product specification and Neuryo-Research 00-product-v4.md. D, K, R and X codes point to decisions and evidence rows in the library. Pod, arch, arm and spine shapes, part weights and the board layout are model estimates.</p>
   </div>
   <div id="tab-sources" hidden>
     <p class="note" style="margin-top:4px">Every part card says where it comes from. <b>Plan</b>: decisions (D) and evidence IDs from the Neuryo-Research library. <b>Review</b>: the 29 Oct review of v2. <b>From v1</b>: kept from the 26 Oct design doc. <b>Model estimate</b>: a shape or size worked out to make parts fit; measure before building.</p>
@@ -2546,7 +2546,7 @@ const SESS = [
     text: 'Eyes closed 2 min, eyes open 1 min, eyes closed 2 min, sitting upright and still, with no headrest touching the back of the head (it would press on the rear hook and dial and lift the Pz pod) and feet flat. Between blocks the app rechecks the pods and asks for drops only where one is drying; during recording it watches each channel for rising mains hum, drift or a flat line and flags that pod for the next pause. A last contact check confirms nothing came loose. The report is ready before the patient sees the psychiatrist.',
     cam: () => [V3(380, 160, 430), V3(0, 0, 0)], show: { all: true } },
   { t: 'Remove and clean', time: '1 min', need: ['Disinfectant wipe'], src: 'Noncritical item: low-level disinfection between patients (R18); single-use skin contacts (D32).',
-    text: 'Bin the strip, the three pads and the three foam tips (orange). Wipe everything else (blue): pods, arch, arms, rear band, bar, carriages, pads, clip and dial. One step, nothing to wash.',
+    text: 'Bin the strip, the three pads and the three foam tips (orange). Wipe everything else (blue): pods, arch, arms, rear band, spine, carriages, pads, clip and dial. One step, nothing to wash.',
     cam: () => [V3(-320, 170, 340), V3(0, 10, 0)], show: { all: true }, clean: true },
 ];
 const sessUI = document.getElementById('sessUI');
