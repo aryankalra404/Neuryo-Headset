@@ -1132,11 +1132,11 @@ function lead(pts, key, color = 0x2b2f33, r = 0.8) {
   m.userData.use = 'wipe'; headset.add(m); addTo(key, m); return m;
 }
 { const b = bandSamples[nearest(bandSamples, s => s.az - 84)];   // v3: route up in front of the ear so it never crosses the mastoid pad
-  lead([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), off(b, 4.2)], 'ppg'); }
+  lead([clip.localToWorld(V3(0, 8.5, 0)), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg'); }
 // short snap leads from the behind-ear pads up into the band
 for (const [S, key, a] of [[SITE.M1, 'ref', HS('M1').az], [SITE.M2, 'm2', HS('M2').az]]) {
   const b = bandSamples[nearest(bandSamples, s => s.az - a)];
-  lead([off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5), off(b, 2)], key, 0x8a939b, 0.6); }
+  lead([off(S, 3.6), off(S, 6).lerp(off(b, 2), 0.5), along(b, 4)], key, 0x8a939b, 0.6); }   // ends where the cable carries on along the halo
 const EOGs = HS('EOG');
 lead([off(SITE.EOG, 3.5), off(surf(EOGs.az + 7, EOGs.el + 2), 4), off(surf(42, EM - 22), 4.5), off(surf(44, EM - 12), 5)], 'eog', 0x9ad17a, 0.6);
 
