@@ -668,16 +668,16 @@ function addTo(key, ...objs) { for (const o of objs) o.traverse(m => { if (m.isM
 function explode(obj, dir, dist) { explodables.push({ obj, base: obj.position.clone(), dir: dir.clone().normalize(), dist }); }
 
 const P = {
-  module: part('module', { conf: 'judge', name: 'Brow module', src: 'v4 design: wider, thinner front shell (15 mm vs 19 mm in v3) that holds the board and the three forehead snaps. Shape: model estimate, for the product designer to refine. Wipe-clean shell (D32, R18).', spec: '≈ 150 × 47 × 15 mm (model estimate) · PC/ABS, wipe clean', color: '#ebe8e2', use: 'wipe', body: 'Holds the main board. The forehead strip clicks onto three snaps in its underside. A light strip on the front shows recording and contact status.' }),
+  module: part('module', { conf: 'judge', name: 'Brow module', src: 'v4 design: wider, thinner front shell (15 mm vs 19 mm in v3) that holds the board and the three forehead snaps. Shape: model estimate, for the product designer to refine. Wipe-clean shell (D32, R18).', spec: '≈ 150 × 47 × 15 mm (model estimate) · PC/ABS, wipe clean', color: '#ebe8e2', use: 'wipe', body: 'Holds the main board. The forehead strip clicks onto three snaps in its underside. Recording and contact status show in the app (no front light on the MVP).' }),
   strap: part('strap', { conf: 'judge', name: 'Midline band', src: 'v4.2: a semi-rigid band that lies on the head replaces the v4.1 rigid spine. A rigid shape stands at a fixed height, but across 500–580 mm heads the scalp under Cz sits about 7 mm closer or farther than on this mannequin from size alone and up to 10 mm with head shape, more than the 6 mm spring travel, so pods would lift off or bottom out (hardware review, 7 Nov 2026, modelled on this head). A soft strap still cannot hold a pod upright (D34); a band 26 mm wide is stiff sideways and bends only along the head. Semi-rigid PA12 precedent: Zeto (C72); spring per electrode: Ultracortex (C71). Material and thickness: judgement, set in the frame test.', spec: '26 × 2 mm band on a 1 mm lining · PETG print (prototype), spring steel or PA12 (product) · a window per pod with 5 numbered pin holes beside it · cam lock · 3 spring carriages', color: '#d6d3cc', use: 'wipe', body: 'Runs over the midline from the brow module to the battery pod, lying on the head on a thin lining, so every pod sits the same small distance off the scalp on every head. Each pod passes through a window in the band; its carriage pins into one of five numbered holes beside it, the patient’s size number from one nasion–inion measurement (Fz 0.2, Cz 0.4, Pz 0.6 × nasion–inion from Fpz). The back end runs through a cam lock on the battery pod to set its length.' }),
   band: part('band', { conf: 'high', name: 'Ratchet halo (bought)', src: 'v4.1: an off-the-shelf hard-hat ratchet suspension (for example Klein KHHSPN, 52–64 cm, nylon, 119 g; 3M G2N, 54–63 cm; C73). Crown straps and foam sweatband removed. The fitted, repeatable frame is D19 (P186).', spec: 'Bought ratchet headband · 52–64 cm · 3 mm lining inside takes it to about 500 mm', color: '#353b41', use: 'wipe', body: 'Goes around the head above the ears and carries everything else. It is a standard hard-hat ratchet band, so the parts can be bought, not made. Its smallest setting is 52 cm; the 3 mm lining inside takes about 19 mm off the circumference, which covers Indian adult heads down to about 500 mm (P190). Measure the real harness first.' }),
   lining: part('lining', { conf: 'judge', name: 'Soft lining', src: 'v4.1: replaces the knit cover (D34). Wipe-clean, so cleaning stays one step between patients (R18). TPU print or stick-on silicone strip for the prototype; moulded silicone in the product.', spec: '3 mm TPU 95A print or silicone strip inside the halo · 1 mm under the band · pad under the brow module', color: '#a5b5a0', use: 'wipe', body: 'The only soft layer that touches the head: inside the halo, under the midline band and where the brow module rests. It grips hair, spreads the load, lets the halo fit heads down to about 500 mm, and wipes clean with the rest of the frame.' }),
   cover: part('cover', { conf: 'judge', name: 'Knit sleeve (concept only)', src: 'v4 idea, dropped in v4.1 (D34): a washable sleeve needs laundry and spares and does nothing a wipe-clean lining cannot. Kept on the page only to compare looks.', spec: 'Not in the product · concept for a possible home version', color: '#cfc8bd', use: 'wash', body: 'A removable knit sleeve over the halo. Not part of the clinic product: it would need washing and spare covers. Shown only so the two looks can be compared.' }),
   dial: part('dial', { conf: 'high', name: 'Fit dial', src: 'v4.1: the ratchet knob of the bought hard-hat suspension (C73), with the battery pod mounted over the ratchet housing. Turn to tighten; the reading is saved per patient (D19).', spec: 'Ratchet knob · 52–64 cm · reading saved per patient', color: '#2b2f34', use: 'wipe', body: 'Turn it to tighten the halo until snug. The reading is saved with the patient so the next session starts at the same setting.' }),
   batt: part('batt', { conf: 'judge', name: 'Battery', src: 'v4: 1000 mAh instead of 2000 mAh to save weight; at about 0.25 W total that is roughly 14 h (estimate). Pod shape: model estimate.', spec: 'LiPo 3.7 V 1000 mAh · about 14 h (estimate)', color: '#c4c8cd', use: 'wipe', body: 'Rechargeable battery at the back, balancing the brow module, behind the fit dial. The board runs on battery whenever it is worn.' }),
-  pcb: part('pcb', { conf: 'carry', name: 'Main board', src: 'v1 outline with v4 channel map. Route all 8 ADS1299 inputs. Part positions: model estimate.', spec: '4-layer · 60 × 45 mm (v1 outline)', color: '#1c6b52', use: 'inside', body: 'Circuit board inside the brow module. The v4 version routes all 8 chip inputs: 7 head channels and ECG for the test kit.' }),
+  pcb: part('pcb', { conf: 'carry', name: 'Main board', src: 'v1 outline with v4 channel map. Route all 8 ADS1299 inputs. Part positions: model estimate.', spec: '4-layer · 60 × 32 mm (v4.3, fits the brow module)', color: '#1c6b52', use: 'inside', body: 'Circuit board inside the brow module. The v4 version routes all 8 chip inputs: 7 head channels and ECG for the test kit.' }),
   ads: part('ads', { conf: 'high', name: 'EEG chip', src: 'D29 (gain 12, X22). Reference on SRB2 (X25). TI ADS1299 datasheet.', spec: 'ADS1299 (8-ch) · gain 12 · 250 samples/s · 24-bit', color: '#7cc6fe', use: 'inside', body: 'Measures the 7 head channels against the M1 reference, plus ECG on channel 8 in the test kit. Gain 12 leaves room for a ±300 mV electrode offset.' }),
-  esp: part('esp', { conf: 'carry', name: 'Microcontroller', src: 'Design doc. Module size 18 × 25.5 × 3.1 mm (Espressif).', spec: 'ESP32-S3-WROOM-1 · Bluetooth LE', color: '#d0d3d7', use: 'inside', body: 'ESP32-S3. Runs the firmware, collects EEG, heart and motion data, and sends it to the clinic tablet over Bluetooth.' }),
+  esp: part('esp', { conf: 'carry', name: 'Microcontroller', src: 'v4.3: ESP32-S3-MINI-1, 15.4 × 20.5 × 2.4 mm (Espressif datasheet, X03), so it fits the 32 mm board; antenna at the board edge with no copper under it. Prototype on an ESP32-S3 DevKit.', spec: 'ESP32-S3-MINI-1 · Bluetooth LE', color: '#d0d3d7', use: 'inside', body: 'ESP32-S3. Runs the firmware, collects EEG, heart and motion data, and sends it to the clinic tablet over Bluetooth.' }),
   ppg: part('ppg', { conf: 'high', name: 'Earlobe heart sensor', src: 'Plan: D22 (earlobe PPG agreed best with ECG, X08, M09). Checked against ECG in the test kit (D09). Clip shape: model estimate.', spec: 'MAX30102 earlobe clip · pulse-rate variability', color: '#ff7b7b', use: 'wipe', body: 'MAX30102 in a soft clip on the left earlobe, on a short tether from the halo. Reports pulse-rate variability, always shown with the medication class (D09, D12). Wipe between patients.' }),
   imu: part('imu', { conf: 'judge', name: 'Motion sensor', src: 'v4: Bosch BMI270, a current wearable IMU (X29), replaces the MPU-6050 module. Placement: judgement call.', spec: 'BMI270 · accelerometer + gyroscope · rigid on the frame', color: '#b0b8bf', use: 'inside', body: 'Fixed to the frame. Flags head movement so noisy segments can be dropped, and serves as a reference for movement artifact (P15).' }),
   power: part('power', { conf: 'judge', name: 'Power circuit', src: 'Copy the OpenBCI Cyton supply (battery only, ±2.5 V, X24). Exact regulators: from the Cyton schematic.', spec: 'Battery only · ±2.5 V analog + 3.3 V digital', color: '#c7a35a', use: 'inside', body: 'Charges the battery and makes quiet supplies for the EEG chip and the digital parts. Recording is blocked while USB is plugged in.' }),
@@ -778,29 +778,33 @@ addTo('module', mod.cover, mod.base);
 const S0 = surf(0, EM), F0 = frameAt(S0);
 explode(mod.cover, F0.n, 48);
 mod.cover.userData.xrayGhost = true;
-let statusLed; { const s = surf(0, BROW(0) + 6), f = frameAt(s); const led = statusLed = new THREE.Mesh(new RoundedBoxGeometry(24, 1.4, 1.4, 2, 0.6), M.led);
-  led.position.copy(off(s, 1 + MOD.T * Math.pow(1 - Math.pow(0.65, 6), 0.3) - 0.35));
-  led.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.y, f.n)); headset.add(led); addTo('module', led); explode(led, F0.n, 48); }
+// v4.3: no front status light bar for the MVP (the app shows recording and contact status).
 
 // ---------- PCB ----------
+// v4.3: board 60 x 32 mm so it fits inside the 15 mm curved brow module (the 45 mm v1 board reached the shell's thin edges and
+// poked through). Layout coordinates below are still written on the v1 60 x 45 grid; KY maps every y position onto the 32 mm board
+// (part sizes are not scaled). Microcontroller: ESP32-S3-MINI-1 (15.4 x 20.5 x 2.4 mm, X03) lying sideways, antenna at the left edge.
+const BH = 32, KY = BH / 45;
 const pcbGroup = new THREE.Group();
 pcbGroup.position.copy(off(S0, 4.8));
 pcbGroup.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(F0.x, F0.y, F0.n));
 headset.add(pcbGroup); explode(pcbGroup, F0.n, 27);
-const ESP = { x: -19, y: 9.25, w: 18, h: 25.5 };
+const ESP = { x: -19, y: 7, w: 20.5, h: 15.4 };   // ESP.y on the v1 grid (x KY on the board)
 // Series resistor (R) then TVS diode (D) next to each connector. 10 pairs, as in the BOM. Positions are a model estimate.
 const PROT = [
   ...[-9, -6, -3, 0].map(y => ({ c: 'J2', r: [24.3, y], d: [21.3, y], v: false })),
   ...[3.5, 6, 8.5].map(x => ({ c: 'J1', r: [x, 17], d: [x, 14.5], v: true })),
   ...[3.5, 6, 8.5].map(x => ({ c: 'J3', r: [x, -17], d: [x, -14.5], v: true })),
 ];
-const pcbTex = tex(960, 720, (g, W, H) => {
-  const S = 16, X = x => (x + 30) * S, Y = y => (22.5 - y) * S;
+const pcbTex = tex(960, 512, (g, W, H) => {
+  const S = 16, X = x => (x + 30) * S, Y = y => (BH / 2 - y * KY) * S;
   g.fillStyle = '#0e4535'; g.fillRect(0, 0, W, H);
   g.fillStyle = 'rgba(40,120,88,0.28)'; g.fillRect(X(-0.5), 0, W - X(-0.5), H);
-  g.fillStyle = '#0a3127'; g.fillRect(X(ESP.x - 9.5), 0, 19 * S, 7.5 * S);
+  const KO = { x0: -30, x1: -24, y0: Y(ESP.y) - 8.5 * S, h: 17 * S };   // antenna keep-out at the board's left edge
+  g.fillStyle = '#0a3127'; g.fillRect(X(KO.x0), KO.y0, (KO.x1 - KO.x0) * S, KO.h);
+  g.save(); g.beginPath(); g.rect(X(KO.x0), KO.y0, (KO.x1 - KO.x0) * S, KO.h); g.clip();
   g.strokeStyle = 'rgba(233,239,233,0.25)'; g.lineWidth = 2;
-  for (let k = -10; k < 40; k++) { g.beginPath(); g.moveTo(X(ESP.x - 9.5) + k * 14, 0); g.lineTo(X(ESP.x - 9.5) + k * 14 - 120, 7.5 * S); g.stroke(); }
+  for (let k = -10; k < 30; k++) { g.beginPath(); g.moveTo(X(KO.x0) + k * 14, KO.y0); g.lineTo(X(KO.x0) + k * 14 - 120, KO.y0 + KO.h); g.stroke(); } g.restore();
   const tr = (pts, w = 0.28) => { g.lineWidth = w * S; g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y))); g.stroke(); };
   g.strokeStyle = 'rgba(206,170,92,0.55)'; g.lineJoin = 'round'; g.lineCap = 'round';
   PROT.forEach((p, k) => { if (p.c === 'J2') { const y = p.r[1]; tr([[27.6, y], [24.3, y], [21.3, y], [16, -2 + (y + 4.5) * 0.4], [11.2, -2 + (y + 4.5) * 0.4]]); }
@@ -810,33 +814,33 @@ const pcbTex = tex(960, 720, (g, W, H) => {
   g.strokeStyle = 'rgba(206,170,92,0.75)';
   tr([[-24, -16], [-20, -16], [-17.5, -17]], 0.9); tr([[-17.5, -12], [-11, -12], [-6, -9]], 0.9); tr([[-11, -18], [-6, -12]], 0.9); tr([[-5.5, 17.5], [-8, -4.5], [-24, -4.5], [-24, -14]], 0.7); tr([[-25.5, -18.5], [-25.5, -17]], 0.9); tr([[-11, -18], [-1.5, -18], [-1.5, -6], [1, -5]], 0.7);
   g.fillStyle = '#d4b56a';
-  for (let i = 0; i < 46; i++) { const x = -27 + ((i * 37) % 54), y = -20 + ((i * 23) % 40); if (x > ESP.x - 9.5 && x < ESP.x + 9.5 && y > 15) continue; g.beginPath(); g.arc(X(x), Y(y), 0.35 * S, 0, 7); g.fill(); }
-  for (const [x, y] of [[27.5, -19.5], [27.5, 19.5], [-27.5, 19.5]]) { g.beginPath(); g.arc(X(x), Y(y), 1.4 * S, 0, 7); g.fill(); g.fillStyle = '#05140f'; g.beginPath(); g.arc(X(x), Y(y), 0.8 * S, 0, 7); g.fill(); g.fillStyle = '#d4b56a'; }
-  g.setLineDash([10, 8]); g.strokeStyle = 'rgba(233,239,233,0.55)'; g.lineWidth = 2; g.strokeRect(X(-0.5), Y(22.2), 30.2 * S, 44.4 * S); g.setLineDash([]);
+  for (let i = 0; i < 46; i++) { const x = -27 + ((i * 37) % 54), y = -20 + ((i * 23) % 40); if (x < -23 && Math.abs(y * KY - ESP.y * KY) < 9) continue; g.beginPath(); g.arc(X(x), Y(y), 0.35 * S, 0, 7); g.fill(); }
+  for (const [x, y] of [[27.5, -19.5], [27.5, 19.5], [-27.5, -19.5]]) { g.beginPath(); g.arc(X(x), Y(y), 1.4 * S, 0, 7); g.fill(); g.fillStyle = '#05140f'; g.beginPath(); g.arc(X(x), Y(y), 0.8 * S, 0, 7); g.fill(); g.fillStyle = '#d4b56a'; }
+  g.setLineDash([10, 8]); g.strokeStyle = 'rgba(233,239,233,0.55)'; g.lineWidth = 2; g.strokeRect(X(-0.5), Y(22.2), 30.2 * S, 44.4 * KY * S); g.setLineDash([]);
   g.fillStyle = '#e9efe9'; g.font = '500 20px "IBM Plex Mono", monospace';
-  g.fillText('ANALOG', X(13.5), Y(-18.6)); g.fillText('KEEP OUT', X(ESP.x - 8.5), Y(21.2) + 12);
+  g.fillText('ANALOG', X(13.5), Y(-18.6)); g.font = '500 14px "IBM Plex Mono", monospace'; g.fillText('KEEP', X(-29.4), Y(ESP.y) - 4); g.fillText('OUT', X(-29.4), Y(ESP.y) + 14);
   g.font = '500 16px "IBM Plex Mono", monospace'; g.fillText('NEURYO EEG MAIN REV B', X(-16), Y(-21.4));
   const ref = [['U1', 1, 4.6], ['U2', -12.5, -5], ['U3', -3, -12], ['U4', -27, -12.6], ['J1', 10.5, 21], ['J2', 26, -12.2], ['J3', 10.5, -21.5], ['J6', -7.4, -21.6], ['J4', -9.8, 16.2], ['J5', -29.5, -17.6], ['SW1', 11, 18.6], ['R1-4 D1-4', 19.6, 2.4], ['R5-7 D5-7', 10, 16.6], ['R8-10 D8-10', 10, -12.8]];
   g.font = '500 15px "IBM Plex Mono", monospace'; for (const [t, x, y] of ref) g.fillText(t, X(x), Y(y));
 });
-const pcbMesh = new THREE.Mesh(new THREE.BoxGeometry(60, 45, 1.6), [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: pcbTex, roughness: 0.55 }), M.pcbSide]);
+const pcbMesh = new THREE.Mesh(new THREE.BoxGeometry(60, BH, 1.6), [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: pcbTex, roughness: 0.55 }), M.pcbSide]);
 pcbGroup.add(pcbMesh); addTo('pcb', pcbMesh);
 function comp(key, w, h, d, x, y, mat, z = 0.8) {
   const m = new THREE.Mesh(Array.isArray(mat) ? new THREE.BoxGeometry(w, h, d) : new RoundedBoxGeometry(w, h, d, 1, Math.min(w, h, d) * 0.12), mat);
-  m.position.set(x, y, z + d / 2); pcbGroup.add(m); addTo(key, m); return m;
+  m.position.set(x, y * KY, z + d / 2); pcbGroup.add(m); addTo(key, m); return m;
 }
 const chipTex = (lines, w = 256, h = 256) => tex(w, h, (g) => { g.fillStyle = '#17181a'; g.fillRect(0, 0, w, h); g.fillStyle = '#9a9a96'; g.font = `500 ${Math.round(w / 9)}px "IBM Plex Mono", monospace`;
   lines.forEach((l, i) => g.fillText(l, w * 0.12, h * 0.36 + i * h * 0.17)); g.beginPath(); g.arc(w * 0.16, h * 0.82, w * 0.05, 0, 7); g.fill(); });
 const adsTop = new THREE.MeshStandardMaterial({ map: chipTex(['TI', 'ADS1299', 'IPAG']), roughness: 0.5 });
 comp('ads', 12, 12, 0.25, 6, -2, M.pins);
 comp('ads', 10, 10, 1.0, 6, -2, [M.chip, M.chip, M.chip, M.chip, adsTop, M.chip], 1.05);
-{ const espBoard = tex(360, 510, (g, w, h) => { g.fillStyle = '#1b2531'; g.fillRect(0, 0, w, h); g.strokeStyle = '#c9a75c'; g.lineWidth = 7;
-    g.beginPath(); let x = 30; g.moveTo(x, 100); for (let k = 0; k < 6; k++) { g.lineTo(x, 22); x += 25; g.lineTo(x, 22); g.lineTo(x, 100); x += 25; g.lineTo(x, 100); } g.stroke(); });
+{ const espBoard = tex(512, 384, (g, w, h) => { g.fillStyle = '#1b2531'; g.fillRect(0, 0, w, h); g.strokeStyle = '#c9a75c'; g.lineWidth = 7;
+    g.beginPath(); let y = 30; g.moveTo(100, y); for (let k = 0; k < 6; k++) { g.lineTo(22, y); y += 27; g.lineTo(22, y); g.lineTo(100, y); y += 27; g.lineTo(100, y); } g.stroke(); });
   comp('esp', ESP.w, ESP.h, 0.8, ESP.x, ESP.y, [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: espBoard, roughness: 0.5 }), M.pcbSide]);
   const shTex = tex(332, 372, (g, w, h) => { g.fillStyle = '#cfd2d6'; g.fillRect(0, 0, w, h); g.fillStyle = '#5c6066'; g.font = '500 24px "IBM Plex Mono", monospace';
-    ['ESP32-S3-WROOM-1', 'N8R8', '', 'FCC ID 2AC7Z', '-ESPS3WROOM1'].forEach((l, i) => g.fillText(l, 22, 80 + i * 40)); });
+    ['ESP32-S3-MINI-1', 'N8', '', 'Espressif'].forEach((l, i) => g.fillText(l, 22, 80 + i * 40)); });
   const shTop = new THREE.MeshStandardMaterial({ map: shTex, metalness: 0.85, roughness: 0.32 });
-  comp('esp', 16.6, 18.6, 2.3, ESP.x, ESP.y - 2.85, [M.shield, M.shield, M.shield, M.shield, shTop, M.shield], 1.6); }
+  comp('esp', 14.4, 13.6, 1.6, ESP.x + 2.6, ESP.y, [M.shield, M.shield, M.shield, M.shield, shTop, M.shield], 1.6); }
 comp('imu', 4, 4, 0.9, -3, -15, M.chip);
 comp('power', 4.9, 3.9, 1.5, -24, -16, M.chip); comp('power', 2.9, 1.6, 1.1, -17.5, -18, M.chip);
 comp('power', 4, 4, 2, -17.5, -12, M.ferrite); comp('power', 2, 2, 0.6, -11, -18, M.chip); comp('power', 2, 2, 0.6, -11, -12, M.chip);
@@ -844,10 +848,10 @@ comp('power', 2, 1.25, 0.9, -6, -9, M.ferrite); comp('power', 2, 1.25, 0.9, -6, 
 for (const p of PROT) { comp('prot', p.v ? 0.8 : 1.6, p.v ? 1.6 : 0.8, 0.45, p.r[0], p.r[1], M.res); comp('prot', p.v ? 0.8 : 1.2, p.v ? 1.2 : 0.8, 0.6, p.d[0], p.d[1], M.chip); }
 for (const [x, y] of [[1.5, 5.4], [12, 4.5], [1.5, -9.4], [12, -8.5], [13, -2], [-1, -2], [-8, 0], [-8, 3], [-21, -21.6], [-14, -21], [-7, -16]]) comp('pcb', 1.6, 0.8, 0.8, x, y, M.passive);
 for (const c of [comp('pcb', 7, 4.2, 2.9, 6, 20.6, M.conn), comp('pcb', 4.2, 9, 2.9, 27.6, -6, M.conn), comp('pcb', 7, 4.2, 2.9, 6, -20.6, M.conn), comp('pcb', 5, 4, 2.9, -25.5, -20.5, M.conn)]) c.userData.sub = 'conn';
-comp('usb', 9, 7.4, 3.2, -5.5, 21.2, M.metal); comp('pcb', 6.6, 2.6, 1.4, 14, 21, M.chip);
+comp('usb', 9, 7.4, 3.2, -5.5, 18.5, M.metal); comp('pcb', 6.6, 2.6, 1.4, 14, 21, M.chip);
 comp('pcb', 1.6, 0.8, 0.6, 19.5, 20.6, M.ledG); comp('pcb', 1.6, 0.8, 0.6, 21.8, 20.6, M.ledB);
 pcbGroup.updateMatrixWorld(true);
-const JW = (x, y) => pcbGroup.localToWorld(V3(x, y, 2.2));
+const JW = (x, y) => pcbGroup.localToWorld(V3(x, y * KY, 2.2));
 
 // ---------- skin-side contacts on the module ----------
 function makePod(kind) {
@@ -1224,7 +1228,7 @@ const gridG = new THREE.Group(); gridG.visible = false; headGroup.add(gridG);
     if (!used) label(k, '', '#a3abb2', off(S, 7), S.n, 'grid'); } }   // used sites already have the design's own label
 function setGrid(on) { state.grid = on; document.getElementById('gridTg').setAttribute('aria-pressed', on); syncHash(); }
 document.getElementById('gridTg').addEventListener('click', () => setGrid(!state.grid));
-const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y, z)) });
+const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y * KY, z)) });
 labels.push(...[]);
 const partLabels = [
   ['EEG chip', '#111417', PL(6, -2, 3)], ['Microcontroller', '#111417', PL(ESP.x, ESP.y, 5)], ['Motion sensor', '#111417', PL(-3, -15, 2.5)],
@@ -1600,8 +1604,8 @@ function dimLine(a, b, push, text) {
   dimLine(Rt, Lt, F0.y.clone().multiplyScalar(30).addScaledVector(F0.n, 12), Math.round(L.distanceTo(Rr)) + ' mm wide');
   const T = off(surf(-46, EM + 16), 1), B = off(surf(-46, BROW(-46)), 1);
   dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, EM + 16), 1).distanceTo(off(surf(0, BROW(0)), 1))) + ' mm tall');
-  const pa = pcbGroup.localToWorld(V3(-30, 22.5, 0.8)), pb = pcbGroup.localToWorld(V3(30, 22.5, 0.8));
-  dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 45 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
+  const pa = pcbGroup.localToWorld(V3(-30, BH / 2, 0.8)), pb = pcbGroup.localToWorld(V3(30, BH / 2, 0.8));
+  dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 32 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
 { const a = off(SITE.Fp1, 1), b = off(SITE.Fpz, 1), c = off(SITE.Fp2, 1), push = F0.y.clone().multiplyScalar(-6).addScaledVector(F0.n, 44);
   dimLine(b, a, push, 'Fp1–Fpz ' + Math.round(a.distanceTo(b)) + ' mm'); dimLine(c, b, push, Math.round(c.distanceTo(b)) + ' mm');
   for (const [th, half, name] of [[THF, SLIDE.fz, 'Fz'], [THC, SLIDE.cz, 'Cz'], [THP, SLIDE.pz, 'Pz']]) { const iC = nearest(strapSamples, s => s.th - th), c0 = STRAP_CUM[iC];
@@ -1659,7 +1663,7 @@ for (const [key, pd] of [['fz', fzPod], ['cz', czPod], ['pz', pzPod]]) {
 }
 
 // ---------- visibility modes ----------
-const SHELL = new Set([mod.cover, mod.base, statusLed, bandMesh, strapMesh, spineJoint, jointKnob, liningBand, liningSpine, liningBrow, bp.cover, bp.base, dialG, ...COLLARS, ...RAILS]);
+const SHELL = new Set([mod.cover, mod.base, bandMesh, strapMesh, spineJoint, jointKnob, liningBand, liningSpine, liningBrow, bp.cover, bp.base, dialG, ...COLLARS, ...RAILS]);
 const REAR = new Set([strapMesh, spineJoint, jointKnob, liningBand, liningSpine, bandMesh, bp.cover, bp.base, battG, dialG, fzPod.g, czPod.g, pzPod.g, m1Pad.g, m2Pad.g, clip, ...RAILS]);
 const MANAGED = [...new Set([...SHELL, ...REAR])];
 function setElec(on) {
@@ -1983,7 +1987,7 @@ for (const ch of pcbGroup.children) {
   c.material = Array.isArray(c.material) ? c.material.map(mk) : mk(c.material);
   BG.add(c); BOARD_MESHES.push(c);
 }
-const L = (x, y, z = 0) => V3(x, y, z);
+const L = (x, y, z = 0) => V3(x, y * KY, z);   // board-guide points on the v1 grid, mapped like the parts
 const toLocal = (wp) => pcbGroup.worldToLocal(wp.clone());
 // v2: the MAX30102 lives in the earlobe clip; its 4-wire lead plugs into J6 on the bottom edge (clear of the antenna keep-out). Fpz snap stud underneath.
 const ppgL = L(-3, -20.6, 2.2), fpzTop = toLocal(off(SITE.Fpz, 4.0)), fpzBot = toLocal(off(SITE.Fpz, 0.9));
@@ -1995,7 +1999,7 @@ const bExtra = [];
   const stud = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.8, Math.abs(fpzBot.z - (-0.8)), 24), M.metal.clone()); stud.rotation.x = Math.PI / 2;
   stud.position.set(fpzTop.x, fpzTop.y, (-0.8 + fpzBot.z) / 2); stud.userData.part = 'fpz'; BG.add(stud); bExtra.push(stud);
   // v3 test kit: J7, a 2-pin header for the ECG pair on channel 7. Position: model estimate.
-  const j7 = new THREE.Mesh(new THREE.BoxGeometry(5, 4.2, 2.9), M.conn.clone()); j7.position.set(16.6, -20.6, 0.8 + 1.45); j7.userData.part = 'ecg'; BG.add(j7); bExtra.push(j7); }
+  const j7 = new THREE.Mesh(new THREE.BoxGeometry(5, 4.2, 2.9), M.conn.clone()); j7.position.set(16.6, -20.6 * KY, 0.8 + 1.45); j7.userData.part = 'ecg'; BG.add(j7); bExtra.push(j7); }
 // incoming leads (stubs) so students see what plugs in where
 const LEADS = [
   ['Fz', '#2f8fd8', [[4.8, 32, 2.2], [4.8, 22.6, 2.2]]], ['Pz', '#8b6cf0', [[7.2, 32, 2.2], [7.2, 22.6, 2.2]]], ['Cz', '#d9822b', [[9.6, 32, 2.2], [9.6, 22.6, 2.2]]],
@@ -2008,9 +2012,9 @@ for (const [, col, pts] of LEADS) { const m = new THREE.Mesh(new THREE.TubeGeome
 // zone overlays (layout step)
 const zones = new THREE.Group(); BG.add(zones);
 const zmat = (c, o) => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: o, depthWrite: false, side: THREE.DoubleSide });
-{ const a = new THREE.Mesh(new THREE.PlaneGeometry(30.2, 45), zmat(0x2fb36f, 0.16)); a.position.set(14.6, 0, 4.2);
-  const d = new THREE.Mesh(new THREE.PlaneGeometry(29.5, 45), zmat(0x2f8fd8, 0.10)); d.position.set(-15.25, 0, 4.2);
-  const k = new THREE.Mesh(new THREE.PlaneGeometry(19, 7.5), zmat(0xe0524a, 0.30)); k.position.set(ESP.x, 18.75, 4.4);
+{ const a = new THREE.Mesh(new THREE.PlaneGeometry(30.2, BH), zmat(0x2fb36f, 0.16)); a.position.set(14.6, 0, 4.2);
+  const d = new THREE.Mesh(new THREE.PlaneGeometry(29.5, BH), zmat(0x2f8fd8, 0.10)); d.position.set(-15.25, 0, 4.2);
+  const k = new THREE.Mesh(new THREE.PlaneGeometry(6, 17), zmat(0xe0524a, 0.30)); k.position.set(-27, ESP.y * KY, 4.4);
   zones.add(a, d, k); }
 // animated flows
 const FLOW_MAT = (c) => new THREE.MeshBasicMaterial({ color: c, depthTest: false, transparent: true });
@@ -2031,7 +2035,7 @@ const FLOWS = {
     makeFlow([[7.2, -30], [7.2, -22.6], [6, -19.5], [6, -17], [6, -14.5], [6, -7.2]], C.sig),
   ],
   spike: [makeFlow([[40, -4.5], [27.6, -4.5], [26, -3], [24.3, -3], [21.3, -3], [21.3, -3, -0.2]], C.spike, 3, 22)],
-  bias: [makeFlow([[6, -7.2], [fpzTop.x + 2, fpzTop.y + 2], [fpzTop.x, fpzTop.y], [fpzTop.x, fpzTop.y, fpzBot.z]], C.bias, 5, 10)],
+  bias: [makeFlow([[6, -7.2], [fpzTop.x + 2, (fpzTop.y + 2) / KY], [fpzTop.x, fpzTop.y / KY], [fpzTop.x, fpzTop.y / KY, fpzBot.z]], C.bias, 5, 10)],
   spi: [0, 1, 2, 3].map(k => makeFlow([[0.8, 1.5 - k * 1.4], [-3, 1.5 - k * 1.4], [-6, 4.5 - k * 1.4], [-10, 4.5 - k * 1.4]], C.spi, 4, 12)),
   i2c: [makeFlow([[-3, -15], [-9, -6], [-12, -3.5]], C.i2c, 4, 10), makeFlow([[ppgL.x, ppgL.y - 10, 2.2], [ppgL.x, ppgL.y, 2.2], [-3, -10], [-10, -3]], C.i2c, 5, 12)],
   power: [
@@ -2041,14 +2045,14 @@ const FLOWS = {
     makeFlow([[-5.5, 26], [-5.5, 17.5], [-8, -4.5], [-24, -4.5], [-24, -14]], C.v56, 6, 12),
   ],
 };
-const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.18, 8, 48), new THREE.MeshBasicMaterial({ color: 0x2f8fd8, transparent: true, depthWrite: false })); r.position.set(ESP.x, 19, 5); BG.add(r); rings.push(r); }
+const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.18, 8, 48), new THREE.MeshBasicMaterial({ color: 0x2f8fd8, transparent: true, depthWrite: false })); r.position.set(-27, ESP.y * KY, 5); BG.add(r); rings.push(r); }
 
 const P_ = (x, y, z) => () => BG.localToWorld(L(x, y, z));
 const BSTEPS = [
-  { title: 'Meet the main board', src: 'v1 board outline (4-layer, 60 × 45 mm, analog/digital split). Not yet redesigned for v4’s 8 inputs: part positions are model estimates.', parts: ['4-layer PCB'],
+  { title: 'Meet the main board', src: 'v4.3 board outline: 4-layer, 60 × 32 mm so it fits inside the curved brow module, analog/digital split. Part positions: model estimates for the PCB designer.', parts: ['4-layer PCB'],
     text: 'This board sits inside the front module, a few millimetres above the forehead. The right half (green) is the quiet analog side: the EEG chip and its input protection. The left half holds the microcontroller and the power circuit, which are noisier.',
     focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],
-    co: [['Analog side', P_(22, 12, 4.2), -30, -120], ['Digital + power side', P_(-20, 8, 4.2), -30, -150], ['60 × 45 mm', P_(29, -22, 0.8), -40, 70]] },
+    co: [['Analog side', P_(22, 12, 4.2), -30, -120], ['Digital + power side', P_(-20, 8, 4.2), -30, -150], ['60 × 32 mm', P_(29, -22, 0.8), -40, 70]] },
   { title: 'Where the wires plug in', src: 'v4 montage; connectors from v1. Which lead goes to which connector: model estimate.', parts: ['JST connectors', 'Snap socket'],
     text: 'J1 takes Fz, Cz and Pz from the midline band. J2 takes Fp1 (left pad of the strip), the M1 reference and the eye pad. J3 takes Fp2 and M2. J7 takes the two ECG leads (channel 8), only while testing. J6 takes the earlobe heart-sensor clip, J5 the battery. The Fpz bias socket sits under the board.',
     focus: ['conn', 'fpz', 'ecg'], cam: [L(6, -74, 120), L(6, 0, 0)],
@@ -2060,11 +2064,11 @@ const BSTEPS = [
   { title: 'Measure the brain signal', src: 'v3 review: 8-channel ADS1299, M1 reference on SRB2 per channel (X25), gain 12 (D29, X22), ch 8 differential for ECG (v4), no hardware-linked mastoids (D06), lead-off between blocks only (D27). TI ADS1299 datasheet.', parts: ['ADS1299 (8-ch)'],
     text: 'The channels (green) enter the 8-channel ADS1299. Channels 1 to 7 are measured against the M1 reference, routed to each one through SRB2. Channel 8 has SRB2 switched off so the two ECG leads form their own pair in the test kit. Gain 12 leaves room for a ±300 mV electrode offset; 24-bit, 250 times a second. It drives the Fpz bias (yellow) to cancel mains hum. Contacts are checked between recording blocks.',
     focus: ['ads', 'fpz'], flows: ['sig', 'bias'], cam: [L(6, -50, 88), L(2, -2, 0)],
-    co: [['ADS1299 (8-ch) EEG chip', P_(6, -2, 2.3), -170, -50], ['EEG channels in', P_(3.5, 10, 1.9), -130, -30], ['Bias out → Fpz socket', P_(fpzTop.x, fpzTop.y, 0.5), -150, 40], ['M1 reference → SRB2', P_(18, -3.5, 1.9), 110, 50]] },
-  { title: 'Collect and send', src: 'Design doc (ESP32-S3, BLE, PSRAM buffer, antenna at the edge with no copper under it). SPI and I²C are the standard interfaces of these chips.', parts: ['ESP32-S3-WROOM-1-N8R8'],
+    co: [['ADS1299 (8-ch) EEG chip', P_(6, -2, 2.3), -170, -50], ['EEG channels in', P_(3.5, 10, 1.9), -130, -30], ['Bias out → Fpz socket', P_(fpzTop.x, fpzTop.y / KY, 0.5), -150, 40], ['M1 reference → SRB2', P_(18, -3.5, 1.9), 110, 50]] },
+  { title: 'Collect and send', src: 'Design doc (ESP32-S3, BLE, PSRAM buffer, antenna at the edge with no copper under it). SPI and I²C are the standard interfaces of these chips.', parts: ['ESP32-S3-MINI-1-N8'],
     text: 'The microcontroller reads the EEG chip over SPI (purple) and the heart and motion sensors over I²C (blue). It packs the readings into numbered frames, buffers them in memory in case Bluetooth drops, and sends them to the app. Its antenna sits at the board edge with no copper underneath.',
     focus: ['esp'], flows: ['spi', 'i2c'], rings: true, cam: [L(-14, -52, 92), L(-18, 4, 0)],
-    co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['Bluetooth antenna', P_(-19, 19.5, 2), -130, -40]] },
+    co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['Bluetooth antenna', P_(-27, ESP.y, 2), -130, -40]] },
   { title: 'Heart and motion sensors', src: 'Plan: earlobe PPG (D22). v4: BMI270 IMU (X29). J6 position: model estimate.', parts: ['MAX30102 earlobe clip', 'BMI270'],
     text: 'The MAX30102 heart sensor is no longer on the forehead: it sits in the earlobe clip, where pulse readings agreed best with ECG. Its 4-wire lead runs along the band and plugs into J6. The BMI270 motion sensor sits on the board, fixed to the frame, and flags head movement.',
     focus: ['ppg', 'imu'], flows: ['i2c'], cam: [L(-4, -58, 92), L(-4, -8, 0)],
@@ -2076,7 +2080,7 @@ const BSTEPS = [
   { title: 'Layout rules', src: 'From v1 design doc (unbroken ground under the analog side, protection at the connectors, antenna with no copper under it, battery only, not IEC 60601-1). v3: all 8 inputs routed.', parts: [],
     text: 'Keep the analog side quiet with an unbroken ground layer underneath. Put protection right at each connector. Keep copper away from under the antenna. Route all 8 ADS1299 inputs: 7 on the head, ECG on channel 8 for the test kit. While worn, the board runs on battery only; USB-C is for charging and firmware.',
     focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],
-    co: [['Quiet analog zone', P_(22, 12, 4.2), -30, -120], ['Antenna keep-out', P_(-19, 18.75, 4.4), -140, -40], ['All 8 inputs routed', P_(6, -2, 2.3), 140, 60]] },
+    co: [['Quiet analog zone', P_(22, 12, 4.2), -30, -120], ['Antenna keep-out', P_(-27, ESP.y + 5, 4.4), -140, -40], ['All 8 inputs routed', P_(6, -2, 2.3), 140, 60]] },
 ];
 function bFocusMatch(m, focus) { return focus.includes(m.userData.part) || focus.includes(m.userData.sub); }
 function bRender(fly = true) {
