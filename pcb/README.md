@@ -55,7 +55,7 @@ Electrodes on the N inputs with M1 on SRB2, as on the Cyton: ch 1 Fp1, ch 2 Fp2,
 2. Delete the digital half; add the XIAO, BMI270, J6, J8, battery switch and divider; keep every analog part, trace and pour.
 3. ERC and DRC at zero; every new net checked against its datasheet; 3D check in the v4 brow module and the v5 left pod.
 4. Professor review of the changed parts and the import.
-5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs.
+5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs. For the v5 left pod, leave the electrode input headers off and solder each lead into its two holes (the headers stand about 8.4 mm: Samtec TSW-xxx-26 is a 5.84 mm post on a 2.54 mm body). Footprints and layout stay as in the reference.
 6. First board: power rails, ADS1299 ID register, shorted-input noise against the 6 µVpp target, then alpha with eyes closed.
 
 ## Licence
