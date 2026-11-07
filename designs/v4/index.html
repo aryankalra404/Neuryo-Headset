@@ -1311,7 +1311,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
   host.appendChild(el('p', 'note', 'Everything needed to build the prototype: what to buy, what plugs in where, and what to test first. Tap a row to see the part on the model.'));
   host.lastChild.style.margin = '4px 10px 2px';
   // v4 parts list: the 29 Oct budget with the v4 changes (prices as listed then; ~ = estimate; "to quote" = not priced yet)
-  host.appendChild(el('div', 'grp', 'Prototype parts · ₹41,943 priced + 7 to quote'));
+  host.appendChild(el('div', 'grp', 'Prototype parts · ₹42,555 priced + 6 to quote'));
   const BOM = [
     ['ADS1299IPAGR, 8-ch EEG chip', '×2', '11,879', 'LCSC C476817, fitted by JLCPCB · 2 boards', 'ads'],
     ['JLCPCB 4-layer PCB + assembly', '×1', '~10,000', 'Get the quote before ordering from abroad', 'pcb'],
@@ -1330,7 +1330,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['LiPo 3.7 V 1000 mAh', '×2', 'quote', 'One per board (v3 listed 2000 mAh at 2 for ~₹970)', 'batt'],
     ['BMI270 breakout', '×1', 'quote', 'Replaces the ₹199 MPU-6050 module', 'imu'],
     ['Hydrogel discs + small eye pads', '1 pack', 'quote', 'Hand-made forehead strips and eye pads until a custom strip is tooled', 'fp'],
-    ['Hard-hat ratchet suspension', '×2', 'quote', 'Buy: replacement suspension, 52–64 cm (Amazon.in / IndiaMART). Remove crown straps and sweatband', 'band'],
+    ['Ratchet safety helmet (for its harness)', '×2', '~612', 'Karam PN521 with plastic cradle, ₹306 each on ToolBuy. Keep the headband and knob only', 'band'],
     ['Compression spring assortment', '1 box', 'quote', 'Buy: Amazon / Robu. Pick the spring that gives the target pod force on a kitchen scale', 'cz'],
     ['M3 thumb screws, nuts, heat-set inserts', '1 set', 'quote', 'Buy: Robu / Amazon. Spine joint and carriage locks', 'strap'],
     ['TPU 95A filament or silicone strip', '1', 'quote', 'Soft lining inside the halo and under the brow module', 'lining'],
@@ -1338,7 +1338,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
   const money = p => p === 'quote' ? 'to quote' : p.startsWith('~') ? '~₹' + p.slice(1) : '₹' + p;
   for (const [n, q, p, sub, k, opt] of BOM) { const b = el('button', 'brow' + (opt ? ' opt' : ''), `<span>${n} <span style="color:var(--muted)">${q}</span></span><span class="r">${money(p)}</span><small>${sub}</small>`);
     if (k) b.addEventListener('click', () => goPart(k)); else b.disabled = true; host.appendChild(b); }
-  host.appendChild(el('div', 'brow tot', '<span>Priced · reserve ₹8,057 for the 7 items to quote</span><span class="r">₹41,943</span><small style="font-weight:400">The 29 Oct total (₹42,642) minus the 2000 mAh cells and the MPU-6050, plus one more TDE-211 for Cz. Free at VIT: 3D printer, the wet EEG cap, an ECE professor’s schematic review.</small>'));
+  host.appendChild(el('div', 'brow tot', '<span>Priced · reserve ₹7,445 for the 6 items to quote</span><span class="r">₹42,555</span><small style="font-weight:400">The 29 Oct total (₹42,642) minus the 2000 mAh cells and the MPU-6050, plus one more TDE-211 for Cz. Free at VIT: 3D printer, the wet EEG cap, an ECE professor’s schematic review.</small>'));
   host.appendChild(el('div', 'grp', 'Single-use kit, per session'));
   for (const [n, sub, k] of [['Forehead strip', 'Fp1, Fpz, Fp2 pads on one carrier', 'fp'], ['2 mastoid gel pads', 'M1 reference and M2', 'ref'], ['1 eye pad', 'Below the left eye', 'eog'], ['3 foam tips', 'Fz, Cz, Pz pods', 'cz'], ['3 ml 0.9% saline', '1 ml per pod', 'fz'], ['1 alcohol swab', 'Forehead and mastoids', null]]) {
     const b = el('button', 'brow', `<span>${n}</span><span class="r"></span><small>${sub}</small>`); if (k) b.addEventListener('click', () => goPart(k)); else b.disabled = true; host.appendChild(b); }
@@ -1346,7 +1346,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
   // v4.1 frame build: buy or print, in order
   host.appendChild(el('div', 'grp', 'Frame build · buy or 3D-print'));
   const FRAME = [
-    ['1. Strip the ratchet', 'Buy a hard-hat replacement ratchet suspension. Cut off the crown straps and remove the foam sweatband; keep the band and the dial.', 'band'],
+    ['1. Take the harness out of a safety helmet', 'Buy a ratchet-type safety helmet (Karam PN521 with plastic cradle, about ₹306). Unclip the white X cradle from the shell, cut off the chin strap, keep the black headband and the ratchet knob.', 'band'],
     ['2. Print the brow module and battery pod', 'PETG on the VIT printer, or PA12 from an online SLS service. Battery pod clips over the ratchet housing; brow module screws to the front of the band.', 'module'],
     ['3. Print the spine', 'Two halves plus the joint sleeve. The rear half slides in the sleeve and locks with an M3 thumb screw. Front end pins into the brow module, rear end into the battery pod.', 'strap'],
     ['4. Print the carriages', 'Three carriages that slide on the spine slot and lock with the top nut. Start from the open-source Ultracortex spring holder and resize it for the pod.', 'cz'],
