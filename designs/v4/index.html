@@ -1155,7 +1155,7 @@ function lead(pts, key, color = 0x2b2f33, r = 0.8) {
 // v4.3: these outside leads show in the normal view; in see-through and electronics views they are replaced by the full cable to the board
 const OUT_LEADS = [];
 { const b = bandSamples[nearest(bandSamples, s => s.az - 84)];   // v3: route up in front of the ear so it never crosses the mastoid pad
-  OUT_LEADS.push(lead([clip.localToWorld(CLIP_TOP), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg')); }
+  OUT_LEADS.push(lead([clip.localToWorld(CLIP_TOP.clone()), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), along(b, -4)], 'ppg')); }
 // short snap leads from the behind-ear pads up into the band
 for (const [S, key, a] of [[SITE.M1, 'ref', HS('M1').az], [SITE.M2, 'm2', HS('M2').az]]) {
   const b = bandSamples[nearest(bandSamples, s => s.az - a)];
@@ -1232,7 +1232,7 @@ wire(CZ_CABLE, '#e3a35a').userData.wkey = 'cz';
 for (const [pts, key, col] of [[FZ_CABLE, 'fz', 0x7cc6fe], [PZ_CABLE, 'pz', 0xb69cff], [CZ_CABLE, 'cz', 0xe3a35a]]) OUT_LEADS.push(lead(pts, key, col, 0.6));
 // earlobe clip: up in front of the ear into the halo (same path as its short lead), forward along the band, into J6
 { const iEar = nearest(bandSamples, s => s.az - 84);
-  wire([clip.localToWorld(CLIP_TOP), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), ...thin(bandSamples, iEar, bandL, 4, -4), ...inMod(surf(38, EM - 6), J6)], '#2b2f33', 0.7).userData.wkey = 'ppg'; }
+  wire([clip.localToWorld(CLIP_TOP.clone()), off(surf(93, -27), 5.5), off(surf(86, -12), 4.5), off(surf(84, 2), 3.5), ...thin(bandSamples, iEar, bandL, 4, -4), ...inMod(surf(38, EM - 6), J6)], '#2b2f33', 0.7).userData.wkey = 'ppg'; }
 // test kit: the two ECG leads carry on from the halo along the band into J7 (shown only with the test kit)
 for (const sx of [1, -1]) { const i0 = nearest(bandSamples, s => s.az - (sx > 0 ? 140 : 220));
   const pts = [off(bandSamples[i0], 3), ...thin(bandSamples, i0, sx > 0 ? bandL : bandR, 4, sx > 0 ? 7 : -7), ...inMod(surf(sx * 36, EM - 7), J7.clone().add(V3(sx, 0, 0)))];
