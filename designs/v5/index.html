@@ -1363,9 +1363,9 @@ function flyTo(pos, target, dur = 900) {
   Object.assign(tween, { on: true, t0: performance.now(), dur, p0: camera.position.clone(), q0: controls.target.clone(), p1: pos.clone(), q1: target.clone() });
 }
 const VIEWS = {
-  front: () => [V3(300, 150, 520), V3(0, 18, 0)],
-  side: () => [V3(600, 110, 10), V3(0, 22, 0)],
-  back: () => [V3(-250, 170, -520), V3(0, 18, 0)],
+  front: () => [V3(300, 175, 520), V3(0, 34, 0)],   // v5: framed higher for the arch
+  side: () => [V3(600, 135, 10), V3(0, 36, 0)],
+  back: () => [V3(-250, 190, -520), V3(0, 30, 0)],
   top: () => [V3(0, 660, 80), V3(0, 0, 0)],
   inside: () => { const c = off(S0, 8); return [c.clone().addScaledVector(F0.n, 200).add(V3(70, 40, 0)), c]; },
   skin: () => [V3(0, 14, -95), V3(0, 18, 90)],
@@ -1537,6 +1537,7 @@ function applyInserts() {
   for (const ins of VARIANTS.fore) for (const c of ins.children) c.visible = c.userData.v === INS.fore;
   for (const ins of VARIANTS.hair) for (const c of ins.children) c.visible = c.userData.v === INS.hair;
   STRIP.visible = INS.fore === 'strip';
+  for (const k of [fp1S, fp2S, fpzS]) k.g.visible = INS.fore !== 'strip';   // v5: sockets only for the test-kit comparison inserts (no brow module to hide them)
   ppgfG.visible = state.test && INS.heart === 'both';
   document.querySelectorAll('#foreSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === INS.fore));
   document.querySelectorAll('#hairSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === INS.hair));
