@@ -129,7 +129,7 @@ for c in [
     'Re-open each link on the day you pay; pay if the price is within 15% of this plan. Prices and stock change daily.',
     'Koss KPH7: the listing gives "Metal, Plastic". Before cutting, confirm the band is spring steel with sliders; if it is plastic, return it and use another headphone with a visible steel band.',
     'Witty Fox 1000 mAh: the page gives no size or connector. Check it fits the right pod and add a JST-PH 2.0 lead if it has bare wires.',
-    'Midline strap: hang 140 g (1.4 N) on a length of the elastic and mark the stretch; that mark sets the tension on every fitting. Punch the webbing size holes through the printed jig, not by eye.',
+    'Midline strap: hang 150 g (1.5 N) on a piece of the elastic and mark the stretch; copy the mark onto the two back legs, which set the tension on every fitting. Punch the webbing size holes through the printed jig, not by eye.',
     'Ask VIT purchase whether the JLCPCB and FRI orders can go through the institute import route; the ~10% duty here is the 7 Nov plan\'s assumption, not a quote.',
     'Recheck ADS1299 stock and price at JLCPCB on the day you order ($70.817, 419 in stock on 7 Nov). The extended-part count (12) and PCB price are estimates until the BOM exists.',
     'Robu: the 1000–1500 mAh LiPo cells (WLY803040, WLY102050, WLY103048) were all out of stock on 7 Nov, which is why the battery is from Robocraze.']:
