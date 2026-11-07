@@ -1885,15 +1885,15 @@ function pline(pts) { podDims.add(new THREE.LineSegments(new THREE.BufferGeometr
 
 // ---------- steps ----------
 const STEPS = [
-  { src: 'Design doc; v3 review: snap stud for the modular socket (model estimate)', title: 'Print the pod body', need: ['3D printer (resin, or PETG with 4+ walls)', '4 mm snap stud'],
+  { src: 'v4.3 pod body: 9 mm cup with an epoxied lid, 2 mm top-up hole, 4 mm stud for the snap lead (sizes: model estimate)', title: 'Print the pod body', need: ['3D printer (resin, or PETG with 4+ walls)', '4 mm snap stud'],
     text: 'Print the cup (14 mm wide, 9 mm tall, side slot for the internal lead) and its lid. Once the contact is in, the lid is epoxied on for good, so cup and lid become one sealed pod body. The lid has a 2 mm top-up hole in the middle and a 4 mm snap stud off to one side for the snap lead. No reservoir and no separate cap: the carriage housing covers the pod. Print watertight: resin (SLA), or PETG with 4 or more walls, then seal. Six pod bodies print in about an hour.',
-    cam: [V3(58, 40, 72), V3(0, 11, 0)], st: { lid: 14, elec: null, sponge: null, seal: 0 },
+    cam: [V3(58, 40, 72), V3(0, 11, 0)], st: { lid: 8, elec: null, sponge: null, seal: 0 },
     co: [['Top-up hole, 2 mm', () => V3(0, 15.8 + pod.cur.lid, 0), 110, -40], ['4 mm snap stud → snap lead', () => V3(4.3, 19.2 + pod.cur.lid, 0), 120, -70], ['Lid, epoxied on', () => V3(-5.2, 15 + pod.cur.lid, 5.2), -130, -10],
          ['Cup', () => V3(-5, 11, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
     dims: [['14 mm', () => V3(0, 2, 0), 0, 26], ['9 mm', () => ldir.clone().multiplyScalar(11.5).setY(9.5), -50, 0]] },
   { src: 'Design doc. Added: sealing the joint and choosing sintered Ag/AgCl (Alves et al. 2026); hole for saline (standard on EEG cups).', title: 'Fit the Ag/AgCl contact', need: ['Sintered Ag/AgCl cup electrode with lead', 'Epoxy'],
     text: 'Cover the solder joint on the back of the electrode with epoxy so saline never reaches it. Press the electrode into the cup, concave side down, so it rests on the inner ledge, and route the lead out through the side slot and up the outside of the cup. Pick one with a hole in the top so saline can pass.',
-    cam: [V3(64, 36, 82), V3(0, 13, 0)], st: { lid: 14, elec: 0, sponge: null, seal: 0 },
+    cam: [V3(64, 36, 82), V3(0, 13, 0)], st: { lid: 8, elec: 0, sponge: null, seal: 0 },
     co: [['Ag/AgCl contact, concave side down', () => V3(-4.4, 10.6 + pod.cur.elec, 4.4), -170, -20], ['Centre hole lets saline through', () => V3(0, 11.6 + pod.cur.elec, 0), 120, -60],
          ['Lead exits the slot and runs up the cup', () => V3(8.5, 17 + pod.cur.elec, 0), 110, 30], ['Solder joint sealed in epoxy', () => V3(-1, 12.4 + pod.cur.elec, -2), -150, -70]] },
   { src: 'Design doc. Plug length (10 mm) is a model estimate.', title: 'Make the wet tip', need: ['PVA sponge block', 'Cork borer or sharpened tube', 'Printed tip collars', 'Resealable pack + 0.9% saline'],
@@ -1902,7 +1902,7 @@ const STEPS = [
       co: [['Flat PVA sponge, 10 mm wide', () => V3(-3.5, 8 + pod.cur.sponge, 3.5), -170, -10], ['Sticks out about 2 mm', () => V3(3.4, 3.4 + pod.cur.sponge, 3.4), 130, 30],
            ['Touches the underside of the metal', () => V3(0, 10 + pod.cur.sponge, 0), 130, -50]] },
     text: 'Cut a 10 mm plug from the PVA block and round one end (or cut short fingers into it to test on thick hair). Press it into a thin printed collar so 4–6 mm sticks out: that is the single-use tip cartridge. Store tips soaked in 0.9% saline in a sealed pack. In a session the collar clicks onto the cup from below, with the foam touching the underside of the metal.',
-    cam: [V3(60, 26, 78), V3(0, 9, 0)], st: { lid: 14, elec: 0, sponge: 0, seal: 0 },
+    cam: [V3(60, 26, 78), V3(0, 9, 0)], st: { lid: 8, elec: 0, sponge: 0, seal: 0 },
     co: [['PVA sponge plug, 10 mm wide', () => V3(-3.5, 7 + pod.cur.sponge, 3.5), -170, -10], ['Sticks out 4–6 mm', () => V3(3.4, 1.4 + pod.cur.sponge, 3.4), 130, 30],
          ['Touches the underside of the metal', () => V3(0, 10 + pod.cur.sponge, 0), 130, -50]] },
   { src: 'Design doc; v3: lead soldered to the lid stud', title: 'Seal and close', need: ['Epoxy or silicone sealant', 'Soldering iron'],
@@ -1921,10 +1921,10 @@ const STEPS = [
     text: 'The spring in the carriage pushes the pod down, so the sponge parts the hair and touches the scalp with the same force every time. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. A snap lead clips onto the lid’s stud and leaves through a slot in the carriage’s side with a slack loop, so the pod can move on its spring. The paste and dry-spike test inserts carry the same stud, so the same lead clips onto them.',
     cam: [V3(82, 40, 104), V3(0, 10, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, wet: true, scalp: true },
     co: [['Sponge parts the hair, touches the scalp', () => V3(2.6, 0.8, 2.6), 150, 70], ['Saline carries the signal up', () => V3(-3.5, 6, 3.5), -180, -10],
-         ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 14.6, 0), 60, -40], ['Carriage socket', () => V3(-5.6, 15.5, 5.6), -150, -40]] },
+         ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Snap lead clips onto this stud', () => V3(4.3, 18.6, 0), 120, -110], ['Lid, epoxied on', () => V3(-5.6, 15.2, 5.6), -150, -40]] },
 ];
 const HIDE = { lid: 24, elec: -24, sponge: -30 };
-pod.cur = { lid: 14, elec: HIDE.elec, sponge: HIDE.sponge, seal: 0 };
+pod.cur = { lid: 8, elec: HIDE.elec, sponge: HIDE.sponge, seal: 0 };
 
 // ---------- pod UI ----------
 const podUI = document.getElementById('podUI'), podCo = document.getElementById('podCallouts');
