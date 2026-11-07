@@ -371,7 +371,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div><dt>Mastoids, eye</dt><dd>Adhesive gel Ag/AgCl pads (M1, M2) · small hydrogel pad 20 mm below the left eye</dd></div>
       <div><dt>Heart</dt><dd>MAX30102 earlobe clip · pulse-rate variability with medication class (D09, D12, D22)</dd></div>
       <div><dt>Motion</dt><dd>BMI270 IMU on the frame (X29)</dd></div>
-      <div><dt>Main board</dt><dd>v4.5: 4-layer, 60 × 32 mm in the brow module (rev B, not yet laid out) · ADS1299 circuit from the Cyton (as in rev A) · Seeed XIAO ESP32-S3 (21 × 17.8 mm) soldered flat on its castellated pads: ready-made ESP32-S3 with Bluetooth LE 5.0, USB-C, charger and reset/boot buttons · small flex antenna on the XIAO’s U.FL socket, stuck inside the shell</dd></div>
+      <div><dt>Main board</dt><dd>v4.5: rev B, 4-layer, about 70 × 50 mm in the brow module (not yet laid out) · analog half copied from Low-Cost-EEG, a built and tested open ADS1299 + ESP32-S3 board (GPL-3.0) · Seeed XIAO ESP32-S3 (21 × 17.8 mm) soldered flat on its castellated pads: ready-made ESP32-S3 with Bluetooth LE 5.0, USB-C, charger and reset/boot buttons · small flex antenna on the XIAO’s U.FL socket, stuck inside the shell</dd></div>
       <div><dt>Fit</dt><dd>One size for 500–580 mm circumference and 300–390 mm nasion–inion (D19): bought hard-hat ratchet halo (range assumed 54–63 cm until the PN521 is measured) with a 3 mm lining, or a 7 mm small-head insert below about 521 mm · midline band printed in the head’s curve, lying on the head, length set by a cam lock at the back · spring pod carriages pinned to the band at Fz, Cz, Pz = 0.2, 0.4, 0.6 × nasion–inion from the band’s 0 mark over Fpz, by one size number (1–9) from the size tape</dd></div>
       <div><dt>Pods in hair</dt><dd>Each pod is a plunger in a printed carriage on the band, pushed through a window in the band onto the scalp by a compression spring (about 6 mm travel). Start at about 1 N; printed shims under the spring set 0.5–3 N, chosen in the frame and drying tests (the only force data, for dry multipin electrodes, found 2–3 N best: L26). Because the band follows the head, the spring only takes up hair and movement. Spring per electrode as in Ultracortex and DSI-24 (C71)</dd></div>
       <div><dt>Materials</dt><dd>Wipe-clean shell and band (PETG prints for the prototype; band printed already curved, PA12 for Study 1, so it is not bent all day and does not creep; TPU tail; PC/ABS shell in the product) · soft TPU / silicone lining where the frame touches the head · single-use skin contacts (D32, D34)</dd></div>
@@ -430,6 +430,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <li><b>Fitted frame (D19).</b> Re-placement 3.0 mm with a fitted cap vs 9.8 mm with straps. <a href="https://link.springer.com/10.1186/s12938-020-00792-1" target="_blank" rel="noopener">Hunold 2020</a> · Indian adult head circumference 499–578 mm. <a href="https://proc.3dbody.tech/papers/2018/18114shah.pdf" target="_blank" rel="noopener">Shah 2018</a></li>
       <li><b>Size range (v4.4).</b> Adult nasion–inion typically 32–38 cm. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2824445/" target="_blank" rel="noopener">Campbell 2009</a> · 80 adult dry skulls 305–356 mm. <a href="https://www.ovid.com/jnls/chri/fulltext/10.4103/cjhr.cjhr_11_25~morphometric-localization-of-bregma-in-dry-skull-and-its" target="_blank" rel="noopener">Rashid 2025</a></li>
       <li><b>Band and halo (v4.4).</b> 0.6 mm boards max 100 × 100 mm, 0.8–1.0 mm max 300 × 300 mm. <a href="https://jlcpcb.com/resources/pcb-thickness" target="_blank" rel="noopener">JLCPCB</a> · PN521: no size range published. <a href="https://karamonline.com/pn521" target="_blank" rel="noopener">Karam</a> · Ratchet suspension 54–63 cm. <a href="https://3m.co.uk/3M/en_GB/p/d/v000177719" target="_blank" rel="noopener">3M G2N</a></li>
+      <li><b>Main board (v4.5).</b> ADS1299 + ESP32-S3 board built and tested (ECG, EMG, alpha, SSVEP, P300), GPL-3.0. <a href="https://github.com/XavierAsghar/Low-Cost-EEG" target="_blank" rel="noopener">Low-Cost-EEG</a> · rebuilt, alpha test. <a href="https://github.com/agteo/diy-eeg-mac" target="_blank" rel="noopener">diy-eeg-mac</a></li>
       <li><b>Microcontroller (v4.5).</b> XIAO ESP32-S3: 21 × 17.8 mm, LiPo charger, reset and boot buttons, U.FL antenna, about 85 mA with Bluetooth active. <a href="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/" target="_blank" rel="noopener">Seeed</a> · ESP32-S3 has two I²C controllers. <a href="https://docs.espressif.com/projects/esp-idf/en/v4.4.8/esp32s3/api-reference/peripherals/i2c.html" target="_blank" rel="noopener">Espressif</a></li>
     </ul>
     <div class="grp">Mannequin</div>
@@ -674,20 +675,20 @@ function addTo(key, ...objs) { for (const o of objs) o.traverse(m => { if (m.isM
 function explode(obj, dir, dist) { explodables.push({ obj, base: obj.position.clone(), dir: dir.clone().normalize(), dist }); }
 
 const P = {
-  module: part('module', { conf: 'judge', name: 'Brow module', src: 'v4 design: wider, thinner front shell (15 mm vs 19 mm in v3) that holds the board and the three forehead snaps. Shape: model estimate, for the product designer to refine. Wipe-clean shell (D32, R18).', spec: '≈ 150 × 47 × 15 mm (model estimate) · PC/ABS, wipe clean', color: '#ebe8e2', use: 'wipe', body: 'Holds the main board. The forehead strip clicks onto three snaps in its underside. Recording and contact status show in the app (no front light on the MVP).' }),
+  module: part('module', { conf: 'judge', name: 'Brow module', src: 'v4.5: taller and thicker than v4.3 (about 47 mm tall, 21.5 mm off the skin) to hold the 70 × 50 mm rev B board. Fit check on this head (7 Nov 2026): the forehead curves with a radius of about 67 mm, so a flat 70 mm board lifts about 10 mm at its ends; with the 6.5 mm pocket over the pads, 3 mm parts and a 1.5 mm wall the shell stands about 29.5 mm off the skin at its centre. Even v4.3’s 60 × 32 mm board needed about 24 mm with real part heights. The top stays about 20 mm below the Fz pod on this head. Shape: model estimate, for the product designer to refine; a smaller custom board can slim it later. Wipe-clean shell (D32, R18).', spec: '≈ 140 × 65 mm, about 29.5 mm off the forehead at its centre (model estimate) · PC/ABS, wipe clean', color: '#ebe8e2', use: 'wipe', body: 'Holds the main board. The forehead strip clicks onto three snaps in its underside. Recording and contact status show in the app (no front light on the MVP).' }),
   strap: part('strap', { conf: 'judge', name: 'Midline band', src: 'v4.2: a band that lies on the head replaces the v4.1 rigid spine, which stood at one height while the scalp under Cz moves about 7 mm with head size and up to 10 mm with shape (hardware review, 7 Nov 2026, modelled on this head). v4.4: printed already in the head’s midline curve instead of a flat FR4 strip. A flat strip is bent into the head curve all day and springs back off the head near its ends, and JLCPCB makes 0.8–1.0 mm boards only up to 300 × 300 mm (0.6 mm only to 100 × 100 mm), shorter than the band. A pre-curved print only flexes by the difference between heads (about 0.1% strain at 1.8 mm, judgement), so it does not creep. Semi-rigid PA12 precedent: Zeto (C72); spring per electrode: Ultracortex (C71). Size range 300–390 mm nasion–inion: living adults typically 320–380 mm (Campbell 2009, P200); bare skulls 305–356 mm (Rashid 2025, P201).', spec: '30 mm wide, 1.8 mm thick, printed in the mean midline curve (PETG for fit tests, PA12 SLS/MJF for Study 1) · a window per pod with one row of size holes beside it (Cz, Pz: sizes 1–9; Fz: 5 holes, two sizes each) · spliced behind Pz to a TPU tail through the cam lock · 3 spring carriages', color: '#d6d3cc', use: 'wipe', body: 'Runs over the midline from the brow module to the battery pod, lying on the head on a thin lining, so every pod sits the same small distance off the scalp on every head. Each pod passes through a window in the band. The size holes are one row in the band’s side rail, right beside the window: a pin under the carriage foot drops into the hole with the patient’s size number (Fz 0.2, Cz 0.4, Pz 0.6 × nasion–inion from Fpz). Nine sizes cover 300–390 mm, each pod within 2–3 mm of its site. Behind Pz a TPU tail runs through the cam lock on the battery pod to set the length. It prints on the VIT printer: on its edge, so the lines run along the band.' }),
   band: part('band', { conf: 'test', name: 'Ratchet halo (bought)', src: 'v4.1: the harness from a ratchet safety helmet (Karam PN521, about ₹306). Karam does not publish its size range (C75); suspensions that do close to 52 cm (Klein KHHSPN, C73) or 54 cm (3M G2N, 54–63 cm, C76). v4.4 plans for 54 cm until the PN521 is measured. The fitted, repeatable frame is D19 (P186).', spec: 'Bought ratchet headband · assumed 54–63 cm until measured · 3 mm lining (−19 mm) or 7 mm small-head insert (−44 mm)', color: '#353b41', use: 'wipe', body: 'Goes around the head above the ears and carries everything else. It is a standard hard-hat ratchet band, so it is bought, not made. Its smallest size is not published, so the plan assumes 54 cm: the standard 3 mm lining takes about 19 mm off (heads down to about 521 mm) and a 7 mm small-head insert about 44 mm (down to about 496 mm), covering Indian women down to 499 mm (P190). Measure the real harness, closed and open, before printing the linings.' }),
   lining: part('lining', { conf: 'judge', name: 'Soft lining', src: 'v4.1: replaces the knit cover (D34). Wipe-clean, so cleaning stays one step between patients (R18). v4.4: two thicknesses, because the harness probably closes only to about 54 cm. TPU print or stick-on silicone strip for the prototype; moulded silicone in the product.', spec: '3 mm TPU 95A inside the halo (standard) or 7 mm small-head insert · 1 mm under the band · pad under the brow module', color: '#a5b5a0', use: 'wipe', body: 'The only soft layer that touches the head: inside the halo, under the midline band and where the brow module rests. It grips hair and spreads the load. A lining t mm thick takes about 2π·t off the halo’s size, so the 3 mm lining fits most heads and a 7 mm insert takes the halo down to about 496 mm. Both wipe clean with the rest of the frame.' }),
   cover: part('cover', { conf: 'judge', name: 'Knit sleeve (concept only)', src: 'v4 idea, dropped in v4.1 (D34): a washable sleeve needs laundry and spares and does nothing a wipe-clean lining cannot. Kept on the page only to compare looks.', spec: 'Not in the product · concept for a possible home version', color: '#cfc8bd', use: 'wash', body: 'A removable knit sleeve over the halo. Not part of the clinic product: it would need washing and spare covers. Shown only so the two looks can be compared.' }),
   dial: part('dial', { conf: 'high', name: 'Fit dial', src: 'v4.1: the ratchet knob of the bought hard-hat suspension (C73), with the battery pod mounted over the ratchet housing. Turn to tighten; the reading is saved per patient (D19).', spec: 'Ratchet knob · 52–64 cm · reading saved per patient', color: '#2b2f34', use: 'wipe', body: 'Turn it to tighten the halo until snug. The reading is saved with the patient so the next session starts at the same setting.' }),
   batt: part('batt', { conf: 'judge', name: 'Battery', src: 'v4: 1000 mAh instead of 2000 mAh to save weight. v4.5: the XIAO ESP32-S3 draws about 85 mA with Bluetooth active (Seeed) and the ADS1299 about 5 mW per channel (TI), so about 100 mA in all: roughly 8–10 h (estimate; v4.3 said 14 h at 0.25 W). Firmware power saving (modem sleep, about 27 mA) can stretch it; switch off between patients. Pod shape: model estimate.', spec: 'LiPo 3.7 V 1000 mAh · about 8–10 h (estimate) · wired to the XIAO’s BAT pads', color: '#c4c8cd', use: 'wipe', body: 'Rechargeable battery at the back, balancing the brow module, behind the fit dial. The board runs on battery whenever it is worn.' }),
-  pcb: part('pcb', { conf: 'carry', name: 'Main board', src: 'v1 outline with v4 channel map. Route all 8 ADS1299 inputs. Part positions: model estimate.', spec: '4-layer · 60 × 32 mm (v4.3, fits the brow module)', color: '#1c6b52', use: 'inside', body: 'Circuit board inside the brow module. The v4 version routes all 8 chip inputs: 7 head channels and ECG for the test kit.' }),
+  pcb: part('pcb', { conf: 'carry', name: 'Main board', src: 'v4.5 rev B: the analog half of Low-Cost-EEG (X. Asghar, GPL-3.0) copied as is (electrode inputs, ESD and 2.2 kΩ/1 nF filters, ADS1299, LM27762 ±2.5 V, its own 3.3 V LDO; 4-layer signal/ground/power/signal). That board was built and recorded ECG, EMG, alpha, SSVEP and P300, and was rebuilt by a second person. Its ESP32 module side is replaced by a XIAO ESP32-S3, BMI270 and the heart-sensor connectors. Not yet laid out; part positions here: model estimate.', spec: '4-layer · about 70 × 50 mm · proven analog half + XIAO', color: '#1c6b52', use: 'inside', body: 'Circuit board inside the brow module. Routes all 8 chip inputs: 7 head channels and ECG for the test kit.' }),
   ads: part('ads', { conf: 'high', name: 'EEG chip', src: 'D29 (gain 12, X22). Reference on SRB2 (X25). TI ADS1299 datasheet.', spec: 'ADS1299 (8-ch) · gain 12 · 250 samples/s · 24-bit', color: '#7cc6fe', use: 'inside', body: 'Measures the 7 head channels against the M1 reference, plus ECG on channel 8 in the test kit. Gain 12 leaves room for a ±300 mV electrode offset.' }),
   esp: part('esp', { conf: 'carry', name: 'Microcontroller', src: 'v4.5: Seeed XIAO ESP32-S3, 21 × 17.8 mm, soldered flat on its castellated pads, instead of a bare ESP32-S3-MINI-1 module. The XIAO already has the 3.3 V regulator, LiPo charger, USB-C and reset/boot buttons, so rev B has no ESP32 power, boot or USB circuit of its own; a failed one is desoldered and replaced. Same ESP32-S3 chip as the DevKit, so firmware carries over. Uses 10 of its 11 edge pins: ADS1299 SPI (5), two I²C buses (4), battery voltage (1); ADS1299 start/reset by SPI command. Bluetooth through a small flex antenna on its U.FL socket. A XIAO nRF52840 fits the same footprint if battery life needs it later.', spec: 'Seeed XIAO ESP32-S3 · Bluetooth LE 5.0 · 21 × 17.8 mm', color: '#d0d3d7', use: 'inside', body: 'A ready-made ESP32-S3 board soldered onto the main board. Runs the firmware, collects EEG, heart and motion data, and sends it to the clinic tablet over Bluetooth. It also charges the battery through its USB-C port.' }),
   ppg: part('ppg', { conf: 'high', name: 'Earlobe heart sensor', src: 'Plan: D22 (earlobe PPG agreed best with ECG, X08, M09). Checked against ECG in the test kit (D09). Clip shape: model estimate.', spec: 'MAX30102 breakout in a printed clip · hinge below the lobe · black padded opposite jaw · 5-wire lead to J6 (3.3 V, GND, SDA, SCL, INT) · I²C bus 0', color: '#ff7b7b', use: 'wipe', body: 'A small MAX30102 board in a printed clip on the left earlobe. The hinge sits below the lobe and a light torsion spring closes the jaws upward over it; the opposite jaw is black with a black foam pad so room light cannot shine through the lobe. Too much squeeze collapses the vessels and weakens the signal, so the spring is light. The lead leaves the top through a strain-relief boot and runs in front of the ear into the halo. Reports pulse-rate variability, always shown with the medication class (D09, D12). Wipe between patients.' }),
   imu: part('imu', { conf: 'judge', name: 'Motion sensor', src: 'v4: Bosch BMI270, a current wearable IMU (X29), replaces the MPU-6050 module. Placement: judgement call.', spec: 'BMI270 · accelerometer + gyroscope · rigid on the frame', color: '#b0b8bf', use: 'inside', body: 'Fixed to the frame. Flags head movement so noisy segments can be dropped, and serves as a reference for movement artifact (P15).' }),
-  power: part('power', { conf: 'judge', name: 'Power circuit', src: 'Copy the OpenBCI Cyton analog supply (battery only, ±2.5 V, X24). Exact regulators: from the Cyton schematic. v4.5: charging and the 3.3 V digital supply come from the XIAO ESP32-S3 (its 3V3 pin gives up to 700 mA, Seeed), so the board has no charger or digital regulator of its own.', spec: 'Battery only · ±2.5 V analog (Cyton-style) · 3.3 V digital from the XIAO', color: '#c7a35a', use: 'inside', body: 'Makes the quiet ±2.5 V supply for the EEG chip from the battery. The XIAO charges the battery and supplies 3.3 V to the digital parts. Recording is blocked while USB is plugged in.' }),
-  prot: part('prot', { conf: 'carry', name: 'Input protection', src: 'Design doc.', spec: '4.7 kΩ + TVS diode on every electrode line', color: '#8a7a63', use: 'inside', body: 'Protects the electronics on every electrode line.' }),
+  power: part('power', { conf: 'carry', name: 'Power circuit', src: 'v4.5, copied from Low-Cost-EEG (X. Asghar, GPL-3.0): LM27762 charge-pump LDO for ±2.5 V (battery only, X24) and a TPS7A20 low-noise LDO for the ADS1299’s 3.3 V. Charging and the 3.3 V for the other digital parts come from the XIAO ESP32-S3 (up to 700 mA, Seeed).', spec: 'Battery only · ±2.5 V analog (LM27762) · ADS1299 3.3 V (TPS7A20) · digital 3.3 V from the XIAO', color: '#c7a35a', use: 'inside', body: 'Makes the quiet supplies for the EEG chip from the battery. The XIAO charges the battery and supplies 3.3 V to the other digital parts. Recording is blocked while USB is plugged in.' }),
+  prot: part('prot', { conf: 'carry', name: 'Input protection', src: 'v4.5: as in Low-Cost-EEG (X. Asghar, GPL-3.0), which follows the Cyton.', spec: 'ESD diode + 2.2 kΩ / 1 nF C0G filter on every electrode line', color: '#8a7a63', use: 'inside', body: 'Protects the electronics on every electrode line.' }),
   usb: part('usb', { conf: 'high', name: 'USB-C port', src: 'Battery only while worn (X23). v4.5: the USB-C port is the XIAO’s own, at the board’s left edge, behind an opening in the brow module’s side. Exact spot: model estimate.', spec: 'On the XIAO · charging and firmware only · no recording while plugged in', color: '#c9cbc6', use: 'inside', body: 'For charging and firmware updates. The charger ties the board to the computer’s ground, so nothing records while it is plugged in.' }),
   fp: part('fp', { conf: 'test', name: 'Forehead strip', src: 'v4 plan: single-use 3-pad hydrogel strip (D32; a cleared home forehead EEG device uses a disposable adhesive patch at Fp1/Fp2, C69). Sites: D13 (week-1 prefrontal theta). Fp1 to Fpz is 5% of head circumference, 25.0–29.0 mm on 500–580 mm heads, so one strip with 27 mm centres is off by 2 mm at most, under the 3 mm re-placement error of a fitted cap (P186). v4.2: placed on the skin with a nasion template rather than by the frame, so the halo position does not move it. Pad size: judgement, set with the supplier; prototype with 22 × 22 mm Ag/AgCl snap pads. Compare with paste in Study 1.', spec: 'Ch 1, 2 + bias · single-use hydrogel Ag/AgCl strip · one size, 27 mm centres · 3-way tail', color: '#f2a65a', use: 'single', body: 'Fp1 and Fp2 on bare forehead skin: the main signal Neuryo tracks. Put the nasion template on the bridge of the nose, peel the strip and press it on with its centre pad on the template line (10% of nasion–inion) and its centre mark on the nose, then plug its 3-way tail into the brow module. Binned after every session, so nothing to clean.' }),
   fz: part('fz', { conf: 'test', name: 'Fz pod', src: 'Prague region (K80, P22). Semi-dry pod (P29, L36). v4.3: single-use pre-wetted foam tip on a snap-on cartridge, no reservoir; rewet with 2–4 drops through the lid hole when the contact check flags the pod (D21, L37). Dome vs fingered tip, and drying time, decided in the pod test. Cap: v4 design.', spec: 'Ch 3 · semi-dry pod on a spring carriage · 30% nasion to inion · size hole 1–5', color: '#7cc6fe', use: 'wipe', body: 'Front-top of the head, in hair. The saline pod sits in a spring carriage clamped on the band in the patient’s size hole (0.2 × nasion–inion from Fpz): the spring pushes its pre-wetted single-use foam tip through the band and the hair onto the scalp. A few drops of saline go in through the top nut only if the app asks.' }),
@@ -709,7 +710,7 @@ const BUY = {
   batt: 'LiPo 3.7 V 1000 mAh · to quote', pcb: 'JLCPCB 4-layer + assembly · ~₹10,000 (get a quote first)',
   ads: 'ADS1299IPAGR · 2 for ₹11,879 (LCSC C476817, fitted by JLCPCB)', esp: 'Seeed XIAO ESP32-S3 · 3 for ₹3,417 (Robu, ₹1,139 each incl. GST: 1 for bench firmware, 2 for the boards; the XIAO ESP32-S3 Plus was out of stock in India on 7 Nov) · flex antenna comes with each',
   ppg: 'GY-MAX30102 module · 3 for ₹597 (Probots: earlobe, forehead test window, spare). Check the I²C pull-ups go to 3.3 V, not 1.8 V. Clip: 3D-printed in black PETG or TPU, small torsion spring, black foam pad', ppgf: 'The second of the three MAX30102 modules (see the earlobe sensor)', imu: 'BMI270 breakout · to quote',
-  power: 'Passives in the JLCPCB order; analog regulators from the Cyton schematic; charger is on the XIAO', prot: 'Passives in the JLCPCB order',
+  power: 'LM27762 and TPS7A20 in the JLCPCB order (check stock); charger is on the XIAO', prot: 'Passives in the JLCPCB order',
   usb: 'On the XIAO. ADuM3160 isolator only for wired streaming; skip with Bluetooth',
   fp: 'Prototype strip: 3 FRI TDE-211 snaps + hydrogel discs on a printed carrier · discs to quote', fpz: 'Centre pad of the strip',
   fz: 'Pod: TDE-211 core, printed cup and epoxied lid; wet foam tip cartridges (PVA foam in a printed collar, kept in a sealed saline pack); carriage printed; spring from a compression-spring assortment', cz: 'Same as Fz: one more TDE-211 (~₹470)', pz: 'Same as Fz',
@@ -718,11 +719,11 @@ const BUY = {
 };
 
 // ---------- shell patch (front module, battery pod) ----------
-function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, coverMat, baseMat, low = null }) {
+function shellPatch({ azC, elC, azH, elH, T, base, wing = 1, wingW = 0.6, nr = 30, na = 112, pw = 5, rp = 6, coverMat, baseMat, low = null }) {
   const cov = [], bas = [], uv = [], idx = [];
   const push = (u, v, r) => {
     const az = azC + u * azH, S = surf(az, v < 0 && low ? elC + v * (elC - low(az)) : elC + v * elH);   // low(az): optional lower edge that follows a line
-    const prof = Math.pow(Math.max(0, 1 - Math.pow(r, 6)), 0.3) * (wing + (1 - wing) * Math.exp(-Math.pow(Math.abs(u) / wingW, 3)));
+    const prof = Math.pow(Math.max(0, 1 - Math.pow(r, rp)), 0.3) * (wing + (1 - wing) * Math.exp(-Math.pow(Math.abs(u) / wingW, 3)));
     bas.push(...off(S, base).toArray()); cov.push(...off(S, base + T * prof).toArray()); uv.push((u + 1) / 2, (v + 1) / 2);
   };
   push(0, 0, 0);
@@ -778,35 +779,39 @@ function elAtY(az, y) { let lo = -30, hi = 70; for (let k = 0; k < 40; k++) { co
 const BROW = (az) => elAtY(az, HEAD.browY) + 1;
 // v4.3: the module's underside sits 6.5 mm off the skin, so it clears the forehead pads and their snap leads (pocket) instead of pressing on them;
 // it rests on a soft pad on the upper forehead and is held by the halo.
-const MOD = { azC: 0, elC: BROW(0) + 15, azH: 52, elH: 16, T: 15, base: 6.5, wing: 0.76, low: BROW };   // v4: wider and thinner than v3 (45°, 19 mm)
-const EM = MOD.elC;  // module centre elevation; other module-relative spots are offsets from it
+// v4.5: taller and thicker, with a flatter top, to hold the 70 x 50 mm rev B board. A flat board on the forehead (radius about 67 mm on this head)
+// lifts about 10 mm off the skin at its ends; with the 6.5 mm pad pocket, 3 mm parts and a 1.5 mm wall the shell is 29.5 mm off the skin at its
+// centre (fit check, 7 Nov 2026). Its top stays about 20 mm below the Fz pod on this head.
+const MOD = { azC: 0, elC: BROW(0) + 19, azH: 52, elH: 20, T: 23, base: 6.5, wing: 0.9, rp: 20, low: BROW };   // v4.3: elC +15, elH 16, T 15, wing 0.76
+const EM = BROW(0) + 15;  // frame reference: the v4.3 module centre. The halo, band, cables and labels stay placed from it; v4.5 only grows the module and board
+const MC = MOD.elC;     // v4.5 module centre
 const mod = shellPatch({ ...MOD, coverMat: M.cover, baseMat: M.base });
 mod.cover.renderOrder = 10; headset.add(mod.cover, mod.base);
 addTo('module', mod.cover, mod.base);
-const S0 = surf(0, EM), F0 = frameAt(S0);
+const S0 = surf(0, MC), F0 = frameAt(S0);
 explode(mod.cover, F0.n, 48);
 mod.cover.userData.xrayGhost = true;
 // v4.3: no front status light bar for the MVP (the app shows recording and contact status).
 
 // ---------- PCB ----------
-// v4.3: board 60 x 32 mm so it fits inside the 15 mm curved brow module (the 45 mm v1 board reached the shell's thin edges and
-// poked through). Layout coordinates below are still written on the v1 60 x 45 grid; KY maps every y position onto the 32 mm board
+// v4.5: rev B board about 70 x 50 mm: the analog half of Low-Cost-EEG (electrode inputs, protection, ADS1299, its +-2.5 V supply) copied as is,
+// plus a XIAO ESP32-S3 in place of its ESP32 module. Layout coordinates below are still written on the v1 60 x 45 grid; KX and KY map every position onto the board
 // (part sizes are not scaled). Microcontroller (v4.5): Seeed XIAO ESP32-S3 (21 x 17.8 mm) soldered flat, USB-C at the board's left edge;
 // its Bluetooth antenna is a flex patch on the U.FL socket, stuck inside the shell, so the board needs no antenna keep-out. XIAO height: model estimate.
-const BH = 32, KY = BH / 45;
+const BW = 70, BH = 50, KX = BW / 60, KY = BH / 45;
 const pcbGroup = new THREE.Group();
-pcbGroup.position.copy(off(S0, 4.8 + 5.5));   // raised with the module underside
+pcbGroup.position.copy(off(S0, 9.8));   // v4.5: underside 9 mm off the skin, above the 6.5 mm pad pocket and its floor
 pcbGroup.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(F0.x, F0.y, F0.n));
 headset.add(pcbGroup); explode(pcbGroup, F0.n, 27);
-const ESP = { x: -19.5, y: 7, w: 21, h: 17.8 };   // XIAO ESP32-S3; ESP.y on the v1 grid (x KY on the board)
+const ESP = { x: -20.5, y: 7, w: 21, h: 17.8 };   // XIAO ESP32-S3; position on the v1 grid (x KX, y KY on the board), size in mm
 // Series resistor (R) then TVS diode (D) next to each connector. 10 pairs, as in the BOM. Positions are a model estimate.
 const PROT = [
   ...[-9, -6, -3, 0].map(y => ({ c: 'J2', r: [24.3, y], d: [21.3, y], v: false })),
   ...[3.5, 6, 8.5].map(x => ({ c: 'J1', r: [x, 17], d: [x, 14.5], v: true })),
   ...[3.5, 6, 8.5].map(x => ({ c: 'J3', r: [x, -17], d: [x, -14.5], v: true })),
 ];
-const pcbTex = tex(960, 512, (g, W, H) => {
-  const S = 16, X = x => (x + 30) * S, Y = y => (BH / 2 - y * KY) * S;
+const pcbTex = tex(980, 700, (g, W, H) => {
+  const S = 14, X = x => (x * KX + BW / 2) * S, Y = y => (BH / 2 - y * KY) * S;
   g.fillStyle = '#0e4535'; g.fillRect(0, 0, W, H);
   g.fillStyle = 'rgba(40,120,88,0.28)'; g.fillRect(X(-0.5), 0, W - X(-0.5), H);
   const tr = (pts, w = 0.28) => { g.lineWidth = w * S; g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y))); g.stroke(); };
@@ -820,18 +825,18 @@ const pcbTex = tex(960, 512, (g, W, H) => {
   g.fillStyle = '#d4b56a';
   for (let i = 0; i < 46; i++) { const x = -27 + ((i * 37) % 54), y = -20 + ((i * 23) % 40); if (x < -23 && Math.abs(y * KY - ESP.y * KY) < 9) continue; g.beginPath(); g.arc(X(x), Y(y), 0.35 * S, 0, 7); g.fill(); }
   for (const [x, y] of [[27.5, -19.5], [27.5, 19.5], [-27.5, -19.5]]) { g.beginPath(); g.arc(X(x), Y(y), 1.4 * S, 0, 7); g.fill(); g.fillStyle = '#05140f'; g.beginPath(); g.arc(X(x), Y(y), 0.8 * S, 0, 7); g.fill(); g.fillStyle = '#d4b56a'; }
-  g.setLineDash([10, 8]); g.strokeStyle = 'rgba(233,239,233,0.55)'; g.lineWidth = 2; g.strokeRect(X(-0.5), Y(22.2), 30.2 * S, 44.4 * KY * S); g.setLineDash([]);
+  g.setLineDash([10, 8]); g.strokeStyle = 'rgba(233,239,233,0.55)'; g.lineWidth = 2; g.strokeRect(X(-0.5), Y(22.2), 30.2 * KX * S, 44.4 * KY * S); g.setLineDash([]);
   g.fillStyle = '#e9efe9'; g.font = '500 20px "IBM Plex Mono", monospace';
   g.fillText('ANALOG', X(13.5), Y(-18.6));
   g.font = '500 16px "IBM Plex Mono", monospace'; g.fillText('NEURYO EEG MAIN REV B', X(-16), Y(-21.4));
   const ref = [['U1', 1, 4.6], ['U2', -12.5, -5], ['U3', -3, -12], ['U4', -27, -12.6], ['J1', 10.5, 21], ['J2', 26, -12.2], ['J3', 10.5, -21.5], ['J6', -7.4, -21.6], ['J4', -9.8, 16.2], ['J5', -29.5, -17.6], ['SW1', 11, 18.6], ['R1-4 D1-4', 19.6, 2.4], ['R5-7 D5-7', 10, 16.6], ['R8-10 D8-10', 10, -12.8]];
   g.font = '500 15px "IBM Plex Mono", monospace'; for (const [t, x, y] of ref) g.fillText(t, X(x), Y(y));
 });
-const pcbMesh = new THREE.Mesh(new THREE.BoxGeometry(60, BH, 1.6), [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: pcbTex, roughness: 0.55 }), M.pcbSide]);
+const pcbMesh = new THREE.Mesh(new THREE.BoxGeometry(BW, BH, 1.6), [M.pcbSide, M.pcbSide, M.pcbSide, M.pcbSide, new THREE.MeshStandardMaterial({ map: pcbTex, roughness: 0.55 }), M.pcbSide]);
 pcbGroup.add(pcbMesh); addTo('pcb', pcbMesh);
 function comp(key, w, h, d, x, y, mat, z = 0.8) {
   const m = new THREE.Mesh(Array.isArray(mat) ? new THREE.BoxGeometry(w, h, d) : new RoundedBoxGeometry(w, h, d, 1, Math.min(w, h, d) * 0.12), mat);
-  m.position.set(x, y * KY, z + d / 2); pcbGroup.add(m); addTo(key, m); return m;
+  m.position.set(x * KX, y * KY, z + d / 2); pcbGroup.add(m); addTo(key, m); return m;
 }
 const chipTex = (lines, w = 256, h = 256) => tex(w, h, (g) => { g.fillStyle = '#17181a'; g.fillRect(0, 0, w, h); g.fillStyle = '#9a9a96'; g.font = `500 ${Math.round(w / 9)}px "IBM Plex Mono", monospace`;
   lines.forEach((l, i) => g.fillText(l, w * 0.12, h * 0.36 + i * h * 0.17)); g.beginPath(); g.arc(w * 0.16, h * 0.82, w * 0.05, 0, 7); g.fill(); });
@@ -845,9 +850,9 @@ comp('ads', 10, 10, 1.0, 6, -2, [M.chip, M.chip, M.chip, M.chip, adsTop, M.chip]
   const shTex = tex(332, 372, (g, w, h) => { g.fillStyle = '#cfd2d6'; g.fillRect(0, 0, w, h); g.fillStyle = '#5c6066'; g.font = '500 24px "IBM Plex Mono", monospace';
     ['XIAO', 'ESP32-S3', '', 'Seeed'].forEach((l, i) => g.fillText(l, 22, 80 + i * 40)); });
   const shTop = new THREE.MeshStandardMaterial({ map: shTex, metalness: 0.85, roughness: 0.32 });
-  comp('esp', 11.5, 12, 1.6, ESP.x + 1.5, ESP.y, [M.shield, M.shield, M.shield, M.shield, shTop, M.shield], 1.8);
-  comp('esp', 1.6, 1.6, 1.2, ESP.x + ESP.w / 2 - 1.6, ESP.y + 4 / KY, M.metal, 1.8);   // U.FL antenna socket
-  comp('usb', 7.4, 9, 3.2, ESP.x - ESP.w / 2 + 3.5, ESP.y, M.metal, 1.8); }   // the XIAO's USB-C, at the board edge
+  comp('esp', 11.5, 12, 1.6, ESP.x + 1.5 / KX, ESP.y, [M.shield, M.shield, M.shield, M.shield, shTop, M.shield], 1.8);
+  comp('esp', 1.6, 1.6, 1.2, ESP.x + (ESP.w / 2 - 1.6) / KX, ESP.y + 4 / KY, M.metal, 1.8);   // U.FL antenna socket
+  comp('usb', 7.4, 9, 3.2, ESP.x + (-ESP.w / 2 + 3.5) / KX, ESP.y, M.metal, 1.8); }   // the XIAO's USB-C, at the board edge
 comp('imu', 4, 4, 0.9, -3, -15, M.chip);
 comp('power', 2.9, 1.6, 1.1, -17.5, -18, M.chip);   // v4.5: no charger chip; the XIAO charges the battery
 comp('power', 4, 4, 2, -17.5, -12, M.ferrite); comp('power', 2, 2, 0.6, -11, -18, M.chip); comp('power', 2, 2, 0.6, -11, -12, M.chip);
@@ -860,7 +865,7 @@ for (const c of [comp('pcb', 7, 4.2, 2.9, 6, 20.6, M.conn), comp('pcb', 4.2, 9, 
 comp('pcb', 6.6, 2.6, 1.4, 14, 21, M.chip);
 comp('pcb', 1.6, 0.8, 0.6, 19.5, 20.6, M.ledG); comp('pcb', 1.6, 0.8, 0.6, 21.8, 20.6, M.ledB);
 pcbGroup.updateMatrixWorld(true);
-const JW = (x, y) => pcbGroup.localToWorld(V3(x, y * KY, 2.2));
+const JW = (x, y) => pcbGroup.localToWorld(V3(x * KX, y * KY, 2.2));
 
 // ---------- skin-side contacts on the module ----------
 function makePod(kind) {
@@ -1031,7 +1036,7 @@ const jointKnob = new THREE.Group(); orient(jointKnob, JS, strapOff(JS) + 2 + 3)
   const lever = new THREE.Mesh(new RoundedBoxGeometry(12, 2.4, 16, 2, 0.8), M.dial); lever.position.set(0, 2.2, 7); jointKnob.add(lever); }
 headset.add(jointKnob); addTo('strap', jointKnob);
 // Locator notch on the brow module's lower edge: lined up with the strip's centre mark, it puts the band's 0 mm mark over Fpz.
-{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.dial); orient(n, s, MOD.base + MOD.T * 0.32); headset.add(n); addTo('module', n); }
+{ const s = surf(0, BROW(0) + 2.5); const n = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 1.2, 3), M.dial); orient(n, s, MOD.base + 4.8); headset.add(n); addTo('module', n); }
 // v4.3: no separate socket ring: the snap lead clips straight onto the pod body's stud
 const fzPod = placePod('hair', SITE.Fz, 'fz', 34, 13), czPod = placePod('hair', SITE.Cz, 'cz', 34, 13), pzPod = placePod('hair', SITE.Pz, 'pz', 34, 13);
 for (const pd of [fzPod, czPod, pzPod]) pd.sponge.userData.use = 'single';
@@ -1306,11 +1311,11 @@ const gridG = new THREE.Group(); gridG.visible = false; headGroup.add(gridG);
     if (!used) label(k, '', '#a3abb2', off(S, 7), S.n, 'grid'); } }   // used sites already have the design's own label
 function setGrid(on) { state.grid = on; document.getElementById('gridTg').setAttribute('aria-pressed', on); syncHash(); }
 document.getElementById('gridTg').addEventListener('click', () => setGrid(!state.grid));
-const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x, y * KY, z)) });
+const PL = (x, y, z) => ({ get: () => pcbGroup.localToWorld(V3(x * KX, y * KY, z)) });
 labels.push(...[]);
 const partLabels = [
   ['EEG chip', '#111417', PL(6, -2, 3)], ['Microcontroller', '#111417', PL(ESP.x, ESP.y, 5)], ['Motion sensor', '#111417', PL(-3, -15, 2.5)],
-  ['USB-C', '#111417', PL(ESP.x - ESP.w / 2 + 3.5, ESP.y, 6)], ['Battery', '#111417', { get: () => battG.localToWorld(V3(0, 0, 6)) }],
+  ['USB-C', '#111417', PL(ESP.x + (-ESP.w / 2 + 3.5) / KX, ESP.y, 6)], ['Battery', '#111417', { get: () => battG.localToWorld(V3(0, 0, 6)) }],
 ];
 for (const [t, c, src] of partLabels) { label(t, '', c, null, t === 'Battery' ? FB.n : F0.n, 'part'); labels[labels.length - 1].src = src; }
 
@@ -1544,8 +1549,9 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Strip placed by template', 'Strip clicks onto the brow module', 'Nasion template, then a 3-way tail into the module', 'The strip’s height followed wherever the halo landed. A template puts the centre pad at 10% of nasion–inion within about 2 mm; one size fits all adults because Fp1–Fpz is 25.0–29.0 mm on 500–580 mm heads.', 'High', { k: 'fp', view: 'skin' }],
     ['Silicone lining, no fabric', 'None', 'Soft wipe-clean lining', 'A knit cover was tried in v4 and dropped: laundry and spares for no gain. Lining grips hair and wipes clean (R18, D34).', 'Design', { k: 'lining', view: 'back' }],
     ['Bought ratchet halo', 'Fitted frame', 'Hard-hat ratchet harness with a 3 mm lining or a 7 mm small-head insert', 'Buyable, not made. Karam does not publish the PN521’s range (C75); harnesses that do close to 52 cm (C73) or 54 cm (3M, C76). Indian women go down to 499 mm (P190), so v4.4 assumes 54 cm and adds a 7 mm insert (about 44 mm off) next to the 3 mm lining (about 19 mm). Repeatable fit: re-placement 3.0 mm with a fitted cap vs 9.8 mm with straps (P186, D19).', 'Medium', { k: 'dial', view: 'back' }],
-    ['Brow module', '45° wide, 19 mm thick', '52° wide, 15 mm thick', 'Lower profile, load spread across the brow. Shape is still a model estimate for the product designer.', 'Design', { k: 'module', dims: true, view: 'front' }],
-    ['Microcontroller', 'ESP32-S3-MINI-1 module on the board', 'Seeed XIAO ESP32-S3 soldered flat', 'v4.5. Rev A (100 × 80 mm with a DevKit on sockets, about 21 mm tall) cannot fit the 15 mm brow module. A bare MINI-1 needs our own 3.3 V, reset, boot, USB and charger circuit; any mistake there means a board that will not start, with one order. The XIAO is the same ESP32-S3, tested, 21 × 17.8 mm, with all of that on it, and it is replaceable by hand. Costs: a flex antenna to mount, slow 50 mA charging.', 'Engineering', { k: 'esp' }],
+    ['Main board', 'New 60 × 32 mm layout (v4.3)', 'Proven analog half + XIAO, about 70 × 50 mm', 'v4.5. The noise-critical half (inputs, filters, ADS1299, its supply) is copied unchanged from Low-Cost-EEG, which was built and recorded EEG; only the digital side is new. Safer than a fresh layout with one order.', 'Engineering', { k: 'pcb' }],
+    ['Brow module', '45° wide, 19 mm thick', 'v4.5: about 140 × 65 mm, 29.5 mm off the skin at its centre', 'Holds the 70 × 50 mm board: a flat board on the curved forehead lifts about 10 mm at its ends (fit check). v4.3’s 15 mm shell was too thin even for its own board with real parts. Shape is still a model estimate for the product designer.', 'Design', { k: 'module', dims: true, view: 'front' }],
+    ['Microcontroller', 'ESP32-S3-MINI-1 module on the board', 'Seeed XIAO ESP32-S3 soldered flat', 'v4.5. Rev A (100 × 80 mm with a DevKit on sockets, about 21 mm tall) cannot fit the brow module. A bare MINI-1 needs our own 3.3 V, reset, boot, USB and charger circuit; any mistake there means a board that will not start, with one order. The XIAO is the same ESP32-S3, tested, 21 × 17.8 mm, with all of that on it, and it is replaceable by hand. Costs: a flex antenna to mount, slow 50 mA charging.', 'Engineering', { k: 'esp' }],
     ['Battery', '2000 mAh', '1000 mAh, kept at the back', 'About 8–10 h (estimate; v4.3 said 14 h at 0.25 W, but the ESP32-S3 alone draws about 85 mA with Bluetooth active) covers a clinic day of 5-minute sessions if it is switched off between patients. At the back it balances the brow module and shares one rear part with the dial and cam lock (review, 7 Nov). Lay the cell flat so the pod stays thin.', 'Judgement', { k: 'batt', view: 'back' }],
     ['Motion sensor', 'MPU-6050', 'BMI270', 'A current wearable IMU; the MPU-6050 lifecycle could not be confirmed (X29).', 'Engineering', { k: 'imu' }],
     ['Forehead heart window', 'None', 'Test kit only', 'Compare forehead and earlobe PPG against ECG before choosing (X26, X27, D22).', 'High', { k: 'ppgf', test: true, heart: 'both', view: 'skin' }],
@@ -1692,13 +1698,13 @@ function dimLine(a, b, push, text) {
   const g = new THREE.BufferGeometry().setFromPoints(pts); const l = new THREE.LineSegments(g, dimMat); l.renderOrder = 20; dims.add(l);
   label(text || Math.round(a.distanceTo(b)) + ' mm', '', '#fff', a2.clone().lerp(b2, 0.5), null, 'dim');
 }
-{ const L = off(surf(45, EM), 1), Rr = off(surf(-45, EM), 1);
-  const Lt = off(surf(45, EM + 14), 1), Rt = off(surf(-45, EM + 14), 1);
+{ const L = off(surf(45, MC), 1), Rr = off(surf(-45, MC), 1);
+  const Lt = off(surf(45, MC + 14), 1), Rt = off(surf(-45, MC + 14), 1);
   dimLine(Rt, Lt, F0.y.clone().multiplyScalar(30).addScaledVector(F0.n, 12), Math.round(L.distanceTo(Rr)) + ' mm wide');
-  const T = off(surf(-46, EM + 16), 1), B = off(surf(-46, BROW(-46)), 1);
-  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, EM + 16), 1).distanceTo(off(surf(0, BROW(0)), 1))) + ' mm tall');
-  const pa = pcbGroup.localToWorld(V3(-30, BH / 2, 0.8)), pb = pcbGroup.localToWorld(V3(30, BH / 2, 0.8));
-  dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board 60 × 32 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
+  const T = off(surf(-46, MC + MOD.elH), 1), B = off(surf(-46, BROW(-46)), 1);
+  dimLine(B, T, V3(-26, 0, 6), Math.round(off(surf(0, MC + MOD.elH), 1).distanceTo(off(surf(0, BROW(0)), 1))) + ' mm tall');
+  const pa = pcbGroup.localToWorld(V3(-BW / 2, BH / 2, 0.8)), pb = pcbGroup.localToWorld(V3(BW / 2, BH / 2, 0.8));
+  dimLine(pa, pb, F0.y.clone().multiplyScalar(10).addScaledVector(F0.n, 14), 'Board about 70 × 50 mm'); dims.userData.boardLabel = labels[labels.length - 1]; }
 { const a = off(SITE.Fp1, 1), b = off(SITE.Fpz, 1), c = off(SITE.Fp2, 1), push = F0.y.clone().multiplyScalar(-6).addScaledVector(F0.n, 44);
   dimLine(b, a, push, 'Fp1–Fpz ' + Math.round(a.distanceTo(b)) + ' mm'); dimLine(c, b, push, Math.round(c.distanceTo(b)) + ' mm');
   for (const [th, half, name] of [[THF, SLIDE.fz, 'Fz'], [THC, SLIDE.cz, 'Cz'], [THP, SLIDE.pz, 'Pz']]) { const iC = nearest(strapSamples, s => s.th - th), c0 = STRAP_CUM[iC];
@@ -2080,7 +2086,7 @@ for (const ch of pcbGroup.children) {
   c.material = Array.isArray(c.material) ? c.material.map(mk) : mk(c.material);
   BG.add(c); BOARD_MESHES.push(c);
 }
-const L = (x, y, z = 0) => V3(x, y * KY, z);   // board-guide points on the v1 grid, mapped like the parts
+const L = (x, y, z = 0) => V3(x * KX, y * KY, z);   // board-guide points on the v1 grid, mapped like the parts
 const toLocal = (wp) => pcbGroup.worldToLocal(wp.clone());
 // v2: the MAX30102 lives in the earlobe clip; its 4-wire lead plugs into J6 on the bottom edge (clear of the antenna keep-out). Fpz snap stud underneath.
 const ppgL = L(-3, -20.6, 2.2), fpzTop = toLocal(off(SITE.Fpz, 4.0)), fpzBot = toLocal(off(SITE.Fpz, 0.9));
@@ -2104,8 +2110,8 @@ for (const [, col, pts] of LEADS) { const m = new THREE.Mesh(new THREE.TubeGeome
 // zone overlays (layout step)
 const zones = new THREE.Group(); BG.add(zones);
 const zmat = (c, o) => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: o, depthWrite: false, side: THREE.DoubleSide });
-{ const a = new THREE.Mesh(new THREE.PlaneGeometry(30.2, BH), zmat(0x2fb36f, 0.16)); a.position.set(14.6, 0, 4.2);
-  const d = new THREE.Mesh(new THREE.PlaneGeometry(29.5, BH), zmat(0x2f8fd8, 0.10)); d.position.set(-15.25, 0, 4.2);
+{ const a = new THREE.Mesh(new THREE.PlaneGeometry(30.2 * KX, BH), zmat(0x2fb36f, 0.16)); a.position.set(14.6 * KX, 0, 4.2);
+  const d = new THREE.Mesh(new THREE.PlaneGeometry(29.5 * KX, BH), zmat(0x2f8fd8, 0.10)); d.position.set(-15.25 * KX, 0, 4.2);
   zones.add(a, d); }
 // animated flows
 const FLOW_MAT = (c) => new THREE.MeshBasicMaterial({ color: c, depthTest: false, transparent: true });
@@ -2126,7 +2132,7 @@ const FLOWS = {
     makeFlow([[7.2, -30], [7.2, -22.6], [6, -19.5], [6, -17], [6, -14.5], [6, -7.2]], C.sig),
   ],
   spike: [makeFlow([[40, -4.5], [27.6, -4.5], [26, -3], [24.3, -3], [21.3, -3], [21.3, -3, -0.2]], C.spike, 3, 22)],
-  bias: [makeFlow([[6, -7.2], [fpzTop.x + 2, (fpzTop.y + 2) / KY], [fpzTop.x, fpzTop.y / KY], [fpzTop.x, fpzTop.y / KY, fpzBot.z]], C.bias, 5, 10)],
+  bias: [makeFlow([[6, -7.2], [(fpzTop.x + 2) / KX, (fpzTop.y + 2) / KY], [fpzTop.x / KX, fpzTop.y / KY], [fpzTop.x / KX, fpzTop.y / KY, fpzBot.z]], C.bias, 5, 10)],
   spi: [0, 1, 2, 3].map(k => makeFlow([[0.8, 1.5 - k * 1.4], [-3, 1.5 - k * 1.4], [-6, 4.5 - k * 1.4], [-10, 4.5 - k * 1.4]], C.spi, 4, 12)),
   i2c: [makeFlow([[-3, -15], [-9, -6], [-12, -3.5]], C.i2c, 4, 10), makeFlow([[ppgL.x, ppgL.y - 10, 2.2], [ppgL.x, ppgL.y, 2.2], [-3, -10], [-10, -3]], C.i2c, 5, 12)],
   power: [
@@ -2136,38 +2142,38 @@ const FLOWS = {
     makeFlow([[-38, ESP.y], [-26, ESP.y], [-24, -4.5], [-24, -14], [-25.5, -18.5]], C.v56, 6, 12),   // USB-C on the XIAO charges the battery
   ],
 };
-const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.18, 8, 48), new THREE.MeshBasicMaterial({ color: 0x2f8fd8, transparent: true, depthWrite: false })); r.position.set(ESP.x + ESP.w / 2 - 1.6, ESP.y * KY + 4, 5); BG.add(r); rings.push(r); }
+const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(1, 0.18, 8, 48), new THREE.MeshBasicMaterial({ color: 0x2f8fd8, transparent: true, depthWrite: false })); r.position.copy(L(ESP.x + (ESP.w / 2 - 1.6) / KX, ESP.y + 4 / KY, 5)); BG.add(r); rings.push(r); }
 
 const P_ = (x, y, z) => () => BG.localToWorld(L(x, y, z));
 const BSTEPS = [
-  { title: 'Meet the main board', src: 'v4.3 board outline: 4-layer, 60 × 32 mm so it fits inside the curved brow module, analog/digital split. Part positions: model estimates for the PCB designer.', parts: ['4-layer PCB'],
-    text: 'This board sits inside the front module, a few millimetres above the forehead. The right half (green) is the quiet analog side: the EEG chip and its input protection. The left half holds the microcontroller and the power circuit, which are noisier.',
+  { title: 'Meet the main board', src: 'v4.5 rev B: 4-layer, about 70 × 50 mm. The analog half is copied from Low-Cost-EEG (X. Asghar, GPL-3.0), a built and tested ADS1299 + ESP32-S3 board; its ESP32 module side is replaced by a XIAO ESP32-S3. Part positions here: model estimates.', parts: ['4-layer PCB'],
+    text: 'This board sits inside the front module, 9 mm above the forehead, clear of the pocket over the forehead pads. The green half is the quiet analog side, copied from a proven open board: electrode inputs, protection, the EEG chip and its ±2.5 V supply. The other half holds the XIAO microcontroller board and the sensor connectors, which are noisier.',
     focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],
-    co: [['Analog side', P_(22, 12, 4.2), -30, -120], ['Digital + power side', P_(-20, 8, 4.2), -30, -150], ['60 × 32 mm', P_(29, -22, 0.8), -40, 70]] },
+    co: [['Analog side', P_(22, 12, 4.2), -30, -120], ['Digital + power side', P_(-20, 8, 4.2), -30, -150], ['about 70 × 50 mm', P_(29, -22, 0.8), -40, 70]] },
   { title: 'Where the wires plug in', src: 'v4 montage; connectors from v1. Which lead goes to which connector: model estimate.', parts: ['JST connectors', 'Snap socket'],
     text: 'J1 takes Fz, Cz and Pz from the midline band. J2 takes Fp1 (left pad of the strip), the M1 reference and the eye pad. J3 takes Fp2 and M2. J7 takes the two ECG leads (channel 8), only while testing. J6 takes the earlobe heart-sensor clip, J5 the battery. The Fpz bias socket sits under the board.',
     focus: ['conn', 'fpz', 'ecg'], cam: [L(6, -74, 120), L(6, 0, 0)],
     co: [['J1 · Fz, Cz, Pz', P_(6, 22.6, 3.5), 90, -40], ['J2 · Fp1, M1 ref, eye', P_(29.6, -6, 3.5), -20, -140], ['J3 · Fp2, M2', P_(6, -22.6, 3.5), -60, 50], ['J7 · ECG ch 8 (test kit)', P_(16.6, -22.6, 3.5), 70, 50], ['J6 · earlobe clip', P_(ppgL.x, ppgL.y, 3.5), -60, 60], ['J5 · battery', P_(-25.5, -22.4, 3.5), -110, 40]] },
-  { title: 'Protect every input', src: 'From v1 design doc: 4.7 kΩ 1% resistor + low-capacitance bidirectional TVS on every head contact, at the connector.', parts: ['4.7 kΩ resistors', 'TVS diodes'],
-    text: 'Right after each connector, the signal passes a 4.7 kΩ resistor, then a TVS diode to ground. Normal EEG passes straight through. A spike, like a static shock (red), is clamped by the diode and dumped to ground before it reaches the EEG chip. The resistor limits the current.',
+  { title: 'Protect every input', src: 'v4.5, as in Low-Cost-EEG (X. Asghar, GPL-3.0): bidirectional ESD diodes at the inputs, then a 2.2 kΩ + 1 nF C0G low-pass on every line (about −23 dB at the ADS1299’s 1.024 MHz modulator frequency).', parts: ['ESD diodes', '2.2 kΩ resistors', '1 nF C0G capacitors'],
+    text: 'Right after each connector, an ESD diode clamps spikes, like a static shock (red), to ground before they reach the EEG chip. Then a 2.2 kΩ resistor and a 1 nF capacitor filter out radio-frequency noise that the chip would otherwise fold into the EEG. Normal EEG passes straight through.',
     focus: ['prot'], flows: ['spike'], flash: true, cam: [L(14, -48, 84), L(10, 0, 0)],
-    co: [['Resistor 4.7 kΩ', P_(24.3, -3, 1.4), 90, -60], ['TVS diode → ground', P_(21.3, -3, 1.4), 70, 70], ['Same pair on J1 and J3', P_(6, 15.7, 1.4), -150, -40]] },
+    co: [['2.2 kΩ + 1 nF filter', P_(24.3, -3, 1.4), 90, -60], ['ESD diode → ground', P_(21.3, -3, 1.4), 70, 70], ['Same on J1 and J3', P_(6, 15.7, 1.4), -150, -40]] },
   { title: 'Measure the brain signal', src: 'v3 review: 8-channel ADS1299, M1 reference on SRB2 per channel (X25), gain 12 (D29, X22), ch 8 differential for ECG (v4), no hardware-linked mastoids (D06), lead-off between blocks only (D27). TI ADS1299 datasheet.', parts: ['ADS1299 (8-ch)'],
     text: 'The channels (green) enter the 8-channel ADS1299. Channels 1 to 7 are measured against the M1 reference, routed to each one through SRB2. Channel 8 has SRB2 switched off so the two ECG leads form their own pair in the test kit. Gain 12 leaves room for a ±300 mV electrode offset; 24-bit, 250 times a second. It drives the Fpz bias (yellow) to cancel mains hum. Contacts are checked between recording blocks.',
     focus: ['ads', 'fpz'], flows: ['sig', 'bias'], cam: [L(6, -50, 88), L(2, -2, 0)],
-    co: [['ADS1299 (8-ch) EEG chip', P_(6, -2, 2.3), -170, -50], ['EEG channels in', P_(3.5, 10, 1.9), -130, -30], ['Bias out → Fpz socket', P_(fpzTop.x, fpzTop.y / KY, 0.5), -150, 40], ['M1 reference → SRB2', P_(18, -3.5, 1.9), 110, 50]] },
+    co: [['ADS1299 (8-ch) EEG chip', P_(6, -2, 2.3), -170, -50], ['EEG channels in', P_(3.5, 10, 1.9), -130, -30], ['Bias out → Fpz socket', P_(fpzTop.x / KX, fpzTop.y / KY, 0.5), -150, 40], ['M1 reference → SRB2', P_(18, -3.5, 1.9), 110, 50]] },
   { title: 'Collect and send', src: 'Design doc (ESP32-S3, BLE, PSRAM buffer). v4.5: a Seeed XIAO ESP32-S3 soldered flat instead of a bare MINI-1 module; Bluetooth through a flex antenna on its U.FL socket (Seeed). SPI and I²C are the standard interfaces of these chips.', parts: ['Seeed XIAO ESP32-S3', 'Flex antenna (comes with it)'],
     text: 'The microcontroller is a ready-made XIAO ESP32-S3 board, soldered flat by its edge pads. It reads the EEG chip over SPI (purple) and the heart and motion sensors over its two I²C buses (blue). It packs the readings into numbered frames, buffers them in memory in case Bluetooth drops, and sends them to the app. Its antenna is a small flex patch on a short cable, stuck inside the shell away from the board.',
     focus: ['esp'], flows: ['spi', 'i2c'], rings: true, cam: [L(-14, -52, 92), L(-18, 4, 0)],
-    co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['U.FL socket → flex antenna', P_(ESP.x + ESP.w / 2 - 1.6, ESP.y + 4 / KY, 3.4), -130, -40]] },
+    co: [['ESP32-S3 microcontroller', P_(-19, 4, 4), -160, 20], ['SPI · EEG data', P_(-4.5, 0, 1.9), 100, -60], ['I²C · heart + motion', P_(-8, -7, 1.9), 110, 50], ['U.FL socket → flex antenna', P_(ESP.x + (ESP.w / 2 - 1.6) / KX, ESP.y + 4 / KY, 3.4), -130, -40]] },
   { title: 'Heart and motion sensors', src: 'Plan: earlobe PPG (D22). v4: BMI270 IMU (X29). J6 position: model estimate.', parts: ['MAX30102 earlobe clip', 'BMI270'],
     text: 'The MAX30102 heart sensor sits in the earlobe clip, where pulse readings agreed best with ECG. Its 5-wire lead (3.3 V, ground, SDA, SCL and the interrupt line) runs along the band and plugs into J6 on I²C bus 0, at 100 kHz. Every MAX30102 answers at the same I²C address, so the test kit’s forehead sensor gets the ESP32-S3’s second I²C bus. The BMI270 motion sensor sits on the board, fixed to the frame, and flags head movement.',
     focus: ['ppg', 'imu'], flows: ['i2c'], cam: [L(-4, -58, 92), L(-4, -8, 0)],
     co: [['J6 · earlobe heart-sensor lead', P_(ppgL.x, ppgL.y, 3.6), -120, 40], ['5 wires: 3.3 V, ground, SDA, SCL, INT', P_(ppgL.x, ppgL.y - 10, 2.2), 120, 40], ['BMI270 motion sensor', P_(-3, -15, 2), 110, 50]] },
-  { title: 'Power', src: 'v3 review: battery only while worn; copy the OpenBCI Cyton ±2.5 V analog supply (X24) instead of v2’s MT3608 boost. Regulator choice: judgement call, take parts from the Cyton schematic. v4.5: the XIAO ESP32-S3 charges the battery and gives 3.3 V (up to 700 mA, Seeed). Part positions: model estimate.', parts: ['XIAO charger and 3.3 V (built in)', '±2.5 V regulators (Cyton-style)', 'Ferrite beads'],
-    text: 'The battery (red) is wired to the XIAO’s battery pads, and the XIAO’s USB-C (orange) charges it. The analog side gets a quiet ±2.5 V supply for the EEG chip (yellow), copied from the Cyton design. The XIAO’s own 3.3 V output feeds the digital parts (blue), and ferrite beads keep digital noise off the analog side. Charging joins the board to the laptop’s ground, so nothing records while USB is plugged in.',
+  { title: 'Power', src: 'v3 review: battery only while worn (X24). v4.5, as in Low-Cost-EEG (X. Asghar, GPL-3.0): an LM27762 charge-pump LDO makes the ±2.5 V analog supply and a separate low-noise LDO (TPS7A20) gives the ADS1299 its own 3.3 V, so ESP32 load ripple stays off it. The XIAO ESP32-S3 charges the battery and powers the digital parts. Part positions: model estimate.', parts: ['XIAO charger and 3.3 V (built in)', 'LM27762 ±2.5 V', 'TPS7A20 3.3 V for the ADS1299', 'Ferrite beads'],
+    text: 'The battery (red) is wired to the XIAO’s battery pads, and the XIAO’s USB-C (orange) charges it. The analog side gets a quiet ±2.5 V supply for the EEG chip (yellow) from one low-noise charge-pump regulator, copied from the proven board. The XIAO’s own 3.3 V output feeds the digital parts (blue), and ferrite beads keep digital noise off the analog side. Charging joins the board to the laptop’s ground, so nothing records while USB is plugged in.',
     focus: ['power', 'usb'], flows: ['power'], cam: [L(-16, -54, 92), L(-22, -6, 0)],
-    co: [['Battery in', P_(-25.5, -26, 2.2), -120, 30], ['±2.5 V supply (Cyton-style)', P_(-17.5, -18, 2.2), -60, 70], ['Analog rails for the EEG chip', P_(-11, -18, 1.6), 80, 60], ['3.3 V from the XIAO', P_(-12, 1, 2.6), 90, -30], ['Ferrite beads', P_(-6, -10.5, 1.8), 110, 10], ['XIAO USB-C, charging only', P_(ESP.x - ESP.w / 2 + 3.5, ESP.y, 5), -160, -20]] },
+    co: [['Battery in', P_(-25.5, -26, 2.2), -120, 30], ['±2.5 V supply (LM27762)', P_(-17.5, -18, 2.2), -60, 70], ['Analog rails for the EEG chip', P_(-11, -18, 1.6), 80, 60], ['3.3 V from the XIAO', P_(-12, 1, 2.6), 90, -30], ['Ferrite beads', P_(-6, -10.5, 1.8), 110, 10], ['XIAO USB-C, charging only', P_(ESP.x + (-ESP.w / 2 + 3.5) / KX, ESP.y, 5), -160, -20]] },
   { title: 'Layout rules', src: 'From v1 design doc (unbroken ground under the analog side, protection at the connectors, battery only, not IEC 60601-1). v3: all 8 inputs routed. v4.5: XIAO with an off-board flex antenna, so no antenna keep-out on our board.', parts: [],
     text: 'Keep the analog side quiet with an unbroken ground layer underneath. Put protection right at each connector. Keep the XIAO on the digital side with its USB-C at the board edge, and its flex antenna away from the board’s ground. Route all 8 ADS1299 inputs: 7 on the head, ECG on channel 8 for the test kit. While worn, the board runs on battery only; USB-C is for charging and firmware.',
     focus: [], zones: true, cam: [L(6, -72, 118), L(6, 0, 0)],

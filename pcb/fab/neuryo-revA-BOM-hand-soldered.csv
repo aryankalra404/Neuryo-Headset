@@ -1,7 +1,0 @@
-Designator,Part,Footprint,Note
-J4,"Electrodes (odd = N, even = P)",PinHeader_2x11_P2.54mm_Vertical,2x11 male header 2.54 mm (electrodes)
-J5,DevKitC-1 J1 (3V3 side),PinSocket_1x22_P2.54mm_Vertical,1x22 female socket 2.54 mm (DevKitC-1)
-J6,DevKitC-1 J3 (GND side),PinSocket_1x22_P2.54mm_Vertical,1x22 female socket 2.54 mm (DevKitC-1)
-J7,"PPG 1 (MAX30102, forehead)",PinHeader_1x05_P2.54mm_Vertical,1x5 male header 2.54 mm
-J8,"PPG 2 (MAX30102, earlobe)",PinHeader_1x05_P2.54mm_Vertical,1x5 male header 2.54 mm
-J9,IMU (MPU6050),PinHeader_1x05_P2.54mm_Vertical,1x5 male header 2.54 mm

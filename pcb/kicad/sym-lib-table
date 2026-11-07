@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "neuryo")(type "KiCad")(uri "${KIPRJMOD}/neuryo.kicad_sym")(options "")(descr "Neuryo project symbols"))
-)
