@@ -6,6 +6,7 @@
 | [v2.md](v2.md) | v2 · 29 Oct research plan: spec, every change from v1 and why, what's still unproven |
 | [v3.md](v3.md) | v3 · 29 Oct review: spec, channel map, every change from v2 with how sure each one is, budget corrections, what's still unproven |
 | [v4.md](v4.md) | v4 · 7 Nov product design: what the product is, spec, channel map, every change from v3 with how sure each one is, the buildable frame (buy or print), cleaning model, page controls, what's still open |
+| [ideas-v4-review.md](ideas-v4-review.md) | Ideas only (not decisions) from the 7 Nov v4 review: hair pods, threaded carriages, spine depth, weight estimate, frame-test additions |
 | [head.md](head.md) | The shared mannequin head: how it was made, how to use it, all 77 measured 10-10 positions and the mastoid points M1/M2 |
 
 ## Keeping these up to date
