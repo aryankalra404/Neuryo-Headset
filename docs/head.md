@@ -114,9 +114,9 @@ To change the head (another size, a female or male head), edit and re-run the sc
 | M2 | 230.2 | -21.6 | -55.6, -28.6, -46.3 | Mirror of M1. |
 
 ## Eyebrow line
-`HEAD.browY` is the height of the eyebrow line (about 16 mm above the eye centres, `HEAD.eyes`). Both designs keep the front module's lower edge 1 degree above it, so it never covers the eyes. On this head Fp1 sits about 30 mm and AF7 about 22 mm above the eye centre, i.e. just above the eyebrow, as on a real head.
+`HEAD.browY` is the height of the eyebrow line (about 16 mm above the eye centres, `HEAD.eyes`). Every design keeps the front module's lower edge 1 degree above it, so it never covers the eyes. On this head Fp1 sits about 30 mm and AF7 about 22 mm above the eye centre, i.e. just above the eyebrow, as on a real head.
 
 ## Limits
-- One average head. Real heads vary; the plan calls for a fitted frame covering about 500 to 580 mm (D19).
+- One average head. Real heads vary; the plan covers about 500 to 580 mm (D19). v4 fits that range with a ratchet halo plus a 3 mm lining and a flexible midline band whose pod positions are set from each patient's nasion to inion (see [v4.md](v4.md#fit-across-heads-v42)). Designs scale 10-20 distances from this head in proportion to circumference; real heads also differ in shape, so measure before trusting a fixed offset.
 - The inion is estimated (see method). TP9/TP10 in the standard table sit under this mannequin's ear overhang; v2 uses `TP9_clear` / `TP10_clear`; v3 uses the mastoid-bone points `M1` / `M2`.
 - No hair is modelled.

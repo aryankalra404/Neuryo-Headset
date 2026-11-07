@@ -1,6 +1,10 @@
 # Ideas from the 7 Nov v4 review
 
-**Status:** ideas only, not decisions. Nothing here changes v4 until it is tested or turned into a decision in `00-decisions.md`. Numbers marked *estimate* are rough calculations, not measurements.
+**Status:** ideas only, not decisions.
+
+**Read with v4.4 in mind.** This review looked at v4.1. Since then: the rigid spine became a band printed in the head's curve that lies on the head, with size holes 1–9 (v4.2–v4.4), which answers section 2's height and bending problems a different way than threaded carriages; the 1 ml reservoir and refill port were dropped for a damp foam tip plus 2–4 drops when the app asks (v4.3–v4.4); the frame test now covers 10+ heads from 500 to 580 mm with oiled, thick and short hair; and in v5 the board moves from the brow module to a side box, so the weight split in section 4 changes. Section 6's budget line is out of date: see the 7 Nov buy plan. The rest (hair parting, sealed prints, stainless parts near saline, weighing the frame) still applies.
+
+Nothing here changes v4 until it is tested or turned into a decision in `00-decisions.md`. Numbers marked *estimate* are rough calculations, not measurements.
 
 Source: a review of v4.1 (`docs/v4.md`, `designs/v4/`) against the Neuryo-Research library on 7 Nov 2026. Codes like D21 or C71 point to that library.
 
