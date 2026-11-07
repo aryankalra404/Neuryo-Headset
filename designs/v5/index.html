@@ -367,14 +367,14 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
       <div><dt>Reference / bias</dt><dd>M1 left mastoid on SRB2 (D25) · bias at Fpz (centre pad of the strip)</dd></div>
       <div><dt>Gain, sampling</dt><dd>12 (±375 mV range, D29) · 250 samples/s · 24-bit · noise target &lt; 6 µVpp</dd></div>
       <div><dt>Forehead</dt><dd>Single-use 3-pad hydrogel strip, Ag/AgCl (Fp1, Fpz, Fp2), placed on the skin with a nasion template (centre pad at 10% of nasion–inion); it runs on to both temple pads (thin arms with an S-bend), its left end plugging into a socket under the left temple pad and its right end tucked under the right pad, so it reads as one line joining the arms. One size: pads about 16 mm, centres 27 mm apart (25.0–29.0 mm needed on 500–580 mm heads). MVP: three separate 22 × 22 mm Ag/AgCl snap pads stuck through the template card, with three snap leads to the board. Nothing presses on them: the frame touches the forehead nowhere, and the temple pads sit beside and above the strip</dd></div>
-      <div><dt>In hair</dt><dd>Semi-dry pods at Fz, Cz, Pz: a 9 mm sealed pod body (cup + epoxied lid, 4 mm stud) inside a one-piece printed spring carriage; snap lead out through a small window in the carriage’s side · single-use foam tip cartridge that clicks onto each pod, sticking out 2–3 mm, wetted to a set weight (damp, not soaked) · no reservoir: 2–4 drops (0.1–0.2 ml) of 0.9% saline through a 2 mm lid hole only when the contact check asks</dd></div>
+      <div><dt>In hair</dt><dd>Semi-dry pods at Fz, Cz, Pz: a 9 mm sealed pod body (cup + epoxied lid, 4 mm stud) with a printed cap the midline strap runs through; snap lead out of the cap’s side · single-use foam tip cartridge that clicks onto each pod, sticking out 2–3 mm, wetted to a set weight (damp, not soaked) · no reservoir: 2–4 drops (0.1–0.2 ml) of 0.9% saline through the cap’s side fill port, whose channel runs into the lid’s centre hole, only when the contact check asks, so saline goes straight into the cup and never onto the lid, snap or lead</dd></div>
       <div><dt>Mastoids, eye</dt><dd>Adhesive gel Ag/AgCl pads (M1, M2) · small hydrogel pad 20 mm below the left eye</dd></div>
       <div><dt>Heart</dt><dd>MAX30102 earlobe clip · pulse-rate variability with medication class (D09, D12, D22)</dd></div>
       <div><dt>Motion</dt><dd>BMI270 IMU on the frame (X29)</dd></div>
       <div><dt>Main board</dt><dd>Rev B, 4-layer, about 70 × 50 mm, in the left pod above the ear, about 20.5 mm off the skin (fit check on this head) · analog half copied from Low-Cost-EEG, a built and tested open ADS1299 + ESP32-S3 board (GPL-3.0) · Seeed XIAO ESP32-S3 with USB-C, charger and Bluetooth · flex antenna on the pod’s outer face, away from the steel arch</dd></div>
-      <div><dt>Fit</dt><dd>One size for 500–580 mm circumference and 300–390 mm nasion–inion (D19): a spring-steel arch over Cz with a slider each side (about ±15 mm per side, estimate), short arms to soft temple pads, and a rear band with a hook under the occiput tightened by a dial · the arch lies on the T7–Cz–T8 line, so the ears place Cz; check against the size tape’s 50% mark · Fz and Pz carriages on a bar pivoting at Cz, pinned by one size number (1–9) from the size tape (0.2 × nasion–inion either side of Cz)</dd></div>
-      <div><dt>Pods in hair</dt><dd>Each pod is a plunger in a printed carriage hanging under the bar, pushed onto the scalp by a soft compression spring (about 0.13 N/mm, about 10 mm stroke, 1 N at about 7.5 mm compression), so a 3 mm difference in head shape changes the force by only about 0.25 N. Set at 1–1.5 N: the rear hook holds the headset down with about 0.45 N per newton on the dial, so 3 N per pod would need too much hook pressure (mechanics check). The bar pivots at Cz, so Fz and Pz always share the force, and it runs straight along the Cz–Fz and Cz–Pz lines through the size holes, so every size hole sits the same height above its own Fz or Pz</dd></div>
-      <div><dt>Materials</dt><dd>Wipe-clean pods, bar and arm covers (PETG prints for the prototype; PC/ABS in the product) · spring-steel arch (from over-ear headphones for the mock-up) · 1.2 mm steel strip in the bar · soft TPU / silicone pads at the temples, the rear hook and inside the pods · single-use skin contacts (D32, D34)</dd></div>
+      <div><dt>Fit</dt><dd>One size for 500–580 mm circumference and 300–390 mm nasion–inion (D19): a spring-steel arch over Cz with a slider each side (about ±15 mm per side, estimate), short arms to soft temple pads, and a rear band with a hook under the occiput tightened by a dial · the arch lies on the T7–Cz–T8 line, so the ears place Cz; check against the size tape’s 50% mark · one elastic midline strap from a front Y clip (legs back along the hair to each pod) over Fz, Cz and Pz to the rear band; Fz and Pz clip on at the patient’s size mark (1–9, 0.2 × nasion–inion either side of Cz), saved per patient</dd></div>
+      <div><dt>Pods in hair</dt><dd>v5.1: no springs or carriages. The elastic midline strap runs over a printed cap on each pod and, being under tension, pushes each pod straight into the scalp with tension × the angle it turns over that pod. Per newton of tension that is about 0.82–0.99 N on each pod across 300–390 mm nasion–inion and ±8% head shape (tools/strap_force.py), so at about 1.4 N of tension every pod gets about 1.1–1.4 N on any head. The Cz cap has a 12 mm riser so Cz gets the same share. The strap’s cam buckle has a stretch mark for the tension</dd></div>
+      <div><dt>Materials</dt><dd>Wipe-clean pods, pod caps and arm covers (PETG prints for the prototype; PC/ABS in the product) · spring-steel arch (from over-ear headphones for the mock-up) · 20 mm elastic midline strap with printed size marks · soft TPU / silicone pads at the temples, the rear hook and inside the pods · single-use skin contacts (D32, D34)</dd></div>
       <div><dt>Power</dt><dd>1000 mAh LiPo, battery only while worn · about 8–10 h estimated (v4.5: the XIAO ESP32-S3 alone draws about 85 mA with Bluetooth active) · charged through the XIAO’s USB-C, which blocks recording</dd></div>
       <div><dt>Session</dt><dd>About 12 min chair time: under 5 min setup, 5 min recording (EC 2 · EO 1 · EC 2), sitting upright with no headrest behind the head (the rear hook and dial are there), contact checks between blocks (D27, D28)</dd></div>
       <div><dt>Output</dt><dd>One-page trend report with personal baseline, change bands, medication class and PHQ-9 on the same timeline (D05)</dd></div>
@@ -457,7 +457,7 @@ input[type=range].fit { width: 100%; accent-color: var(--ink); margin: 6px 0 0; 
   <ul>
     <li><b>Turn and zoom</b>: drag and scroll. Click any part to see what it is, what to buy, how sure the plan is and where its numbers come from.</li>
     <li><b>Mode</b> (top left): <i>Product</i> is what a patient wears; <i>Test kit</i> adds the ECG pads, the forehead heart window and the comparison electrodes.</li>
-    <li><b>Fit &amp; finish</b>: slide the head circumference (500–580 mm) and the nasion–inion (300–390 mm) to see the arch slider setting, the rear dial, the strip height and the bar size number (1–9) that sets Fz and Pz; compare the silicone pads with the dropped knit idea; pick colours.</li>
+    <li><b>Fit &amp; finish</b>: slide the head circumference (500–580 mm) and the nasion–inion (300–390 mm) to see the arch slider setting, the rear dial, the strip height and the size mark (1–9) where Fz and Pz clip onto the strap; compare the silicone pads with the dropped knit idea; pick colours.</li>
     <li><b>Display</b>: see-through shell, sizes, channel numbers, colour by confidence or by single-use vs reusable.</li>
     <li><b>Details</b>: Parts, <i>Session</i> (the 12-minute visit), <i>Build</i> (parts, wiring, tests), <i>Changes</i> from v4, Specs, Sources.</li>
     <li><b>Guides</b>: the session walkthrough, the electrode pod and the board. <b>Measure</b> gives the distance between two points.</li>
@@ -676,7 +676,7 @@ function explode(obj, dir, dist) { explodables.push({ obj, base: obj.position.cl
 
 const P = {
   module: part('module', { conf: 'judge', name: 'Left pod (electronics)', src: 'v5: the main board moves from the brow module to a pod above the left ear. The side of the head is flatter than the forehead (radius about 67 mm there), so the 70 × 50 mm board fits a pod about 20.5 mm off the skin instead of 29.5 mm (fit check on this head, 3 mm parts, 1.5 mm wall). Left, because M1, the eye pad and the earlobe clip are all on the left. Same shell on the right holds the battery. Shape: model estimate. Wipe-clean shell (D32, R18).', spec: 'About 83 × 72 mm along the skin, 20.5 mm off the skin at its centre (model estimate) · PETG print, PC/ABS later · USB-C underneath', color: '#ebe8e2', use: 'wipe', body: 'Holds the main board, above the left ear. The arch comes down into its top, the temple arm leaves its front and the rear band its back. Electrode leads are soldered straight into the board’s input holes (no headers fitted, so the pod stays thin) and leave through grommets underneath; they unclip at the electrode end. Recording and contact status show in the app (no lights).' }),
-  strap: part('strap', { conf: 'judge', name: 'Midline bar', src: 'v5: a short bar pinned to the arch on a pivot at Cz carries the Fz and Pz carriages, like a seesaw, so the two always share the force and the arch takes no tilting push (mechanics check). The seesaw, not the bar’s stiffness, keeps Fz and Pz equal. Stiffness only sets the force lost to bending: a 78 mm cantilever at 1 N bends about 0.6 mm in plain 12 × 5 mm PETG (about 2 GPa assumed) or about 0.3 mm with a 12 × 1.2 mm steel strip inside, under 0.1 N at the 0.13 N/mm spring. Fz and Pz sit 0.2 × nasion–inion either side of Cz: one size number (1–9) from the size tape, 5 holes 4 mm apart per pod serving two sizes each, so each pod is within 2 mm of its site. 7 Nov fix: through each hole row the bar runs straight along the Cz–Fz (Cz–Pz) line, not along this head’s curve. A larger head is close to this head scaled about Cz, which moves Fz straight out along that line, so each hole stays the same height above its own site. With the bar following this head, a head-profile check across 300–390 mm nasion–inion put the scalp 4–8 mm closer on large heads and 1–2 mm further on small ones, more than the spring could take: Cz would lift off on large heads and Fz and Pz drop to about 0.6 N on small ones. Straight rows leave about ±3 mm from head shape, which the soft spring takes up.', spec: '12 × 5 mm PETG + 1.2 mm steel strip · straight through the hole rows · pivot at Cz · Fz and Pz carriages pinned in size holes (5 each) · Cz fixed under the arch', color: '#d6d3cc', use: 'wipe', body: 'Runs front to back over the top of the head, about 26 mm above the scalp, straight through the two rows of size holes, with the three carriages hanging under it. It pivots on the arch at Cz, so if Fz and Pz push differently it tips until they push equally.' }),
+  strap: part('strap', { conf: 'test', name: 'Midline strap', src: 'v5.1 (7 Nov): replaces the pivot bar, size-hole rows and spring carriages, which only fit this head well and needed a wedge seat, a bar slot and a soft spring to work on others. An elastic strap under tension pushes each pod in by tension × the angle it turns over that pod; those angles hardly change with head size or shape, so every pod sits on the scalp and pushes straight in. Per newton of tension: Fz 0.92–0.99, Cz 0.82–0.96, Pz 0.90–0.92 N across 300–390 mm nasion–inion and ±8% front-back vs height (tools/strap_force.py, shared head). Same idea as elastic EEG head straps with a midline strap and position marks (US 5,363,858; US 10,130,278). Front: a Y clip on the midline just in front of Fz, with two thin legs back along the hair to each pod’s front edge, so nothing crosses the forehead skin. Back: a cam buckle on the rear band with a stretch mark (about 1.4 N). Fz and Pz clip on at the patient’s size mark; the Cz cap sits under the arch.', spec: '20 mm elastic, printed size marks 1–9 · front Y clip, legs to the pods · cam buckle on the rear band · about 1.4 N tension (stretch mark)', color: '#3b4249', use: 'wipe', body: 'Runs front to back over the top of the head, over the Fz, Cz and Pz pods. Its tension presses each pod straight into the scalp with about the same force on any head size. Fz and Pz clip on at the patient’s size mark.' }),
   band: part('band', { conf: 'test', name: 'Arch, temple arms and rear band', src: 'v5 concept: a spring-steel arch over Cz (like a headphone band) with a slider each side; short arms forward to soft temple pads; a rear band from pod to pod under the occiput. The plain arch cannot hold the pods: their springs push the headset up about 3 N at 1 N each, against about 1.3 N of weight and 0.8 N from the pods clamping on skin that faces only about 20% downward. The rear band sits on skin that faces 42–49% downward below the inion, so 3 N on the dial adds about 1.4 N of hold-down; the temple pads stop it pulling the headset backward. Sliders need about ±15 mm per side for 500–580 mm heads (scaling this head’s 355 mm ear-to-ear arc). DSI-7 fits 52–62 cm with springy arms on one frame.', spec: 'Spring-steel arch in a printed cover · sliders about ±15 mm per side · temple arms to soft pads · rear band with a hook pad and dial', color: '#353b41', use: 'wipe', body: 'The arch goes over the top of the head from ear to ear and sets Cz. The temple arms and the rear band make an open ring below the widest part of the head, so the headset can be tightened onto the head with the dial while the forehead stays bare.' }),
   lining: part('lining', { conf: 'judge', name: 'Soft pads', src: 'v5: silicone or TPU pads where the frame touches the head: the temple pads, the rear hook pad and a thin lining inside each pod. Wipe-clean (R18, D34). At 1.5 N per pod the rear hook carries about 5 N, about 7 kPa on a 40 × 20 mm pad (estimate).', spec: 'Temple pads about 16 × 22 mm · rear hook pad 40 × 20 mm · 3 mm TPU 95A or silicone', color: '#a5b5a0', use: 'wipe', body: 'The only soft parts that touch the head. They grip, spread the load and wipe clean with the rest of the frame.' }),
   cover: part('cover', { conf: 'judge', name: 'Knit sleeve (concept only)', src: 'v4 idea, dropped in v4.1 (D34): a washable sleeve needs laundry and spares and does nothing a wipe-clean lining cannot. Kept on the page only to compare looks.', spec: 'Not in the product · concept for a possible home version', color: '#cfc8bd', use: 'wash', body: 'A removable knit sleeve over the rear band. Not part of the clinic product: it would need washing and spare covers. Shown only so the two looks can be compared.' }),
@@ -691,9 +691,9 @@ const P = {
   prot: part('prot', { conf: 'carry', name: 'Input protection', src: 'v4.5: as in Low-Cost-EEG (X. Asghar, GPL-3.0), which follows the Cyton.', spec: 'ESD diode + 2.2 kΩ / 1 nF C0G filter on every electrode line', color: '#8a7a63', use: 'inside', body: 'Protects the electronics on every electrode line.' }),
   usb: part('usb', { conf: 'high', name: 'USB-C port', src: 'Battery only while worn (X23). v4.5: the USB-C port is the XIAO’s own. v5: at the front edge of the left pod, behind an opening in its underside. Exact spot: model estimate.', spec: 'On the XIAO · charging and firmware only · no recording while plugged in', color: '#c9cbc6', use: 'inside', body: 'For charging and firmware updates. The charger ties the board to the computer’s ground, so nothing records while it is plugged in.' }),
   fp: part('fp', { conf: 'test', name: 'Forehead strip', src: 'v4 plan: single-use 3-pad hydrogel strip (D32; a cleared home forehead EEG device uses a disposable adhesive patch at Fp1/Fp2, C69). Sites: D13 (week-1 prefrontal theta). Fp1 to Fpz is 5% of head circumference, 25.0–29.0 mm on 500–580 mm heads, so one strip with 27 mm centres is off by 2 mm at most, under the 3 mm re-placement error of a fitted cap (P186). v4.2: placed on the skin with a nasion template rather than by the frame, so the frame position does not move it. Pad size: judgement, set with the supplier; prototype with 22 × 22 mm Ag/AgCl snap pads. Compare with paste in Study 1.', spec: 'Ch 1, 2 + bias · single-use hydrogel Ag/AgCl strip · one size, 27 mm centres · arms to both temple pads, left end plugs in', color: '#f2a65a', use: 'single', body: 'Fp1 and Fp2 on bare forehead skin: the main signal Neuryo tracks. Put the nasion template on the bridge of the nose, peel the strip and press it on with its centre pad on the template line (10% of nasion–inion) and its centre mark on the nose, then lay its two arms out to the temples; once the headset is on, tuck each end under its temple pad (the left end plugs into the socket). Binned after every session, so nothing to clean.' }),
-  fz: part('fz', { conf: 'test', name: 'Fz pod', src: 'Prague region (K80, P22). Semi-dry pod (P29, L36). v4.3: single-use pre-wetted foam tip on a snap-on cartridge, no reservoir; rewet with 2–4 drops through the lid hole when the contact check flags the pod (D21, L37). Dome vs fingered tip, and drying time, decided in the pod test. Cap: v4 design.', spec: 'Ch 3 · semi-dry pod on a spring carriage under the bar · 0.2 × nasion to inion in front of Cz · 5 size holes', color: '#7cc6fe', use: 'wipe', body: 'Front-top of the head, in hair. The saline pod sits in a spring carriage under the bar, pinned in the patient’s size hole (0.2 × nasion–inion in front of Cz): the spring pushes its pre-wetted single-use foam tip through the hair onto the scalp. A few drops of saline go in through the top port only if the app asks.' }),
-  cz: part('cz', { conf: 'test', name: 'Cz pod (new)', src: 'v4: ch 7, under test. Central cordance change predicted rTMS outcome (K102, n=18); P300 drop in depression largest at Cz (M10); UB ERP scores P300 at Cz (C03). Kept only if the full-cap subset test says it adds.', spec: 'Ch 7 · semi-dry pod on a spring carriage · fixed under the arch’s pivot · check against 50% nasion to inion', color: '#e3a35a', use: 'wipe', body: 'Top of the head, in hair. Same pod as Fz and Pz. New in v4 on the spare chip channel; Study 1 decides whether the product keeps it.' }),
-  pz: part('pz', { conf: 'test', name: 'Pz pod', src: 'D08 (P300 needs Pz or Cz); posterior alpha (P36). Same pod as Fz.', spec: 'Ch 4 · semi-dry pod on a spring carriage under the bar · 0.2 × nasion to inion behind Cz · 5 size holes', color: '#b69cff', use: 'wipe', body: 'Back-top of the head, in hair. Posterior alpha and P300.' }),
+  fz: part('fz', { conf: 'test', name: 'Fz pod', src: 'Prague region (K80, P22). Semi-dry pod (P29, L36). v4.3: single-use pre-wetted foam tip on a snap-on cartridge, no reservoir; rewet with 2–4 drops through the lid hole when the contact check flags the pod (D21, L37). Dome vs fingered tip, and drying time, decided in the pod test. Cap: v4 design.', spec: 'Ch 3 · semi-dry pod with a strap cap · clipped at the size mark, 0.2 × nasion to inion in front of Cz', color: '#7cc6fe', use: 'wipe', body: 'Front-top of the head, in hair. The pod clips onto the midline strap at the patient’s size mark (0.2 × nasion–inion in front of Cz); the strap’s tension pushes its pre-wetted single-use foam tip through the hair onto the scalp. A few drops of saline go in through the cap’s side port only if the app asks.' }),
+  cz: part('cz', { conf: 'test', name: 'Cz pod (new)', src: 'v4: ch 7, under test. Central cordance change predicted rTMS outcome (K102, n=18); P300 drop in depression largest at Cz (M10); UB ERP scores P300 at Cz (C03). Kept only if the full-cap subset test says it adds.', spec: 'Ch 7 · semi-dry pod with a 12 mm riser cap · under the arch · check against 50% nasion to inion', color: '#e3a35a', use: 'wipe', body: 'Top of the head, in hair. Same pod as Fz and Pz. New in v4 on the spare chip channel; Study 1 decides whether the product keeps it.' }),
+  pz: part('pz', { conf: 'test', name: 'Pz pod', src: 'D08 (P300 needs Pz or Cz); posterior alpha (P36). Same pod as Fz.', spec: 'Ch 4 · semi-dry pod with a strap cap · clipped at the size mark, 0.2 × nasion to inion behind Cz', color: '#b69cff', use: 'wipe', body: 'Back-top of the head, in hair. Posterior alpha and P300.' }),
   ref: part('ref', { conf: 'test', name: 'Reference pad (M1)', src: 'D25, D06. Mastoid bone, hair free (P197). Adhesive gel Ag/AgCl. Position measured on this head (tools/mastoid.py).', spec: 'M1, left mastoid bone · on SRB2 · single-use gel pad', color: '#d9dee2', use: 'single', body: 'Behind the left ear on the bone. The single reference for every channel, so the app checks it first. Not joined to M2 in hardware.' }),
   m2: part('m2', { conf: 'judge', name: 'M2 pad', src: 'Offline linked mastoid and heart-artifact reference (D16). v4: also tested as a head-ECG channel against chest ECG (X28).', spec: 'Ch 5 · right mastoid bone · single-use gel pad', color: '#c3b49a', use: 'single', body: 'Behind the right ear. Lets software build a linked-mastoid reference, gives a heartbeat reference, and may replace the earlobe clip if head-ECG passes.' }),
   eog: part('eog', { conf: 'test', name: 'Eye pad', src: 'D26 (P14). v4: small single-use hydrogel pad instead of paste under a ring. Spot: about 20 mm below the left eye centre.', spec: 'Ch 6 · VEOG · single-use hydrogel pad', color: '#9ad17a', use: 'single', body: 'About 20 mm below the centre of the left eye. Records eye movement so it can be removed from Fp1 and Fp2.' }),
@@ -705,7 +705,7 @@ const CONF = { high: '#2fa772', test: '#e6a23c', judge: '#9b6fd6', carry: '#9aa3
 const CONF_LABEL = { high: 'Decided: strong evidence', test: 'Needs testing on our hardware', judge: 'Design choice or judgement call', carry: 'Carried over, not yet redesigned' };
 // Where each part comes from in the revised budget (29 Oct spend plan, prices as listed that day; ~ = estimate).
 const BUY = {
-  module: 'Print: PETG on the VIT printer (prototype), the same shell for both pods; PC/ABS moulding later', strap: 'Print: bar 12 × 5 mm in PETG with a 12 × 1.2 mm steel strip inside (or PA12), straight through the hole rows, M3 pivot pin, 3 carriages in PETG; 3 soft springs (about 0.13 N/mm) from an assortment', band: 'Mock-up: the spring band from a cheap pair of over-ear headphones, cut down, with printed sliders; product: spring-steel band in a moulded cover. Temple arms and rear band: printed PETG', lining: 'Print: TPU 95A temple pads, rear hook pad and pod linings; or self-adhesive silicone',
+  module: 'Print: PETG on the VIT printer (prototype), the same shell for both pods; PC/ABS moulding later', strap: 'Buy: 20 mm elastic webbing (about 1 m) and a cam buckle; print the front Y clip, the 3 pod caps and a size scale to stick on', band: 'Mock-up: the spring band from a cheap pair of over-ear headphones, cut down, with printed sliders; product: spring-steel band in a moulded cover. Temple arms and rear band: printed PETG', lining: 'Print: TPU 95A temple pads, rear hook pad and pod linings; or self-adhesive silicone',
   cover: 'Not in the product (concept only)', dial: 'Karam PN521 hard-hat harness (about ₹306 in the v4 plan): cut out the rear knob with both toothed straps',
   batt: 'LiPo 3.7 V 1000 mAh · to quote', pcb: 'JLCPCB 4-layer + assembly · ~₹10,000 (get a quote first)',
   ads: 'ADS1299IPAGR · 2 for ₹11,879 (LCSC C476817, fitted by JLCPCB)', esp: 'Seeed XIAO ESP32-S3 · 3 for ₹3,417 (Robu, ₹1,139 each incl. GST: 1 for bench firmware, 2 for the boards; the XIAO ESP32-S3 Plus was out of stock in India on 7 Nov) · flex antenna comes with each',
@@ -713,7 +713,7 @@ const BUY = {
   power: 'LM27762 and TPS7A20 in the JLCPCB order (check stock); charger is on the XIAO', prot: 'Passives in the JLCPCB order',
   usb: 'On the XIAO. ADuM3160 isolator only for wired streaming; skip with Bluetooth',
   fp: 'Prototype strip: 3 FRI TDE-211 snaps + hydrogel discs on a printed carrier · discs to quote', fpz: 'Centre pad of the strip',
-  fz: 'Pod: TDE-211 core, printed cup and epoxied lid; wet foam tip cartridges (PVA foam in a printed collar, kept in a sealed saline pack); carriage printed; spring from a compression-spring assortment', cz: 'Same as Fz: one more TDE-211 (~₹470)', pz: 'Same as Fz',
+  fz: 'Pod: TDE-211 core, printed cup and epoxied lid; wet foam tip cartridges (PVA foam in a printed collar, kept in a sealed saline pack); strap cap printed (side fill port)', cz: 'Same as Fz: one more TDE-211 (~₹470)', pz: 'Same as Fz',
   ref: 'Neo Gel pad, 100 for ₹761 (Upside Down Labs India)', m2: 'Neo Gel pad (same pack)', eog: 'Small hydrogel ECG/EEG pad · to quote',
   ecg: 'Neo Gel pads (same pack) · J7 header in the JLCPCB order',
 };
@@ -1010,7 +1010,7 @@ const AK = AC.clone().multiplyScalar(2).sub(A0.clone().add(A2).multiplyScalar(0.
 const archSamples = [];
 for (let i = 0; i <= 180; i++) { const t = i / 180, u = A0.clone().multiplyScalar((1 - t) * (1 - t)).add(AK.clone().multiplyScalar(2 * t * (1 - t))).add(A2.clone().multiplyScalar(t * t));
   archSamples.push(Object.assign({ t }, surfU(u))); }
-const archOff = s => 15 + 20 * Math.pow(Math.sin(Math.PI * s.t), 6);   // 35 mm over Cz (7 Nov: bar raised 4 mm for the longer spring), clear of the bar and pivot; into the pods at the ends
+const archOff = s => 15 + 21 * Math.pow(Math.sin(Math.PI * s.t), 6);   // v5.1: 36 mm over Cz, clear of the Cz pod cap and strap (no bar under it now)   // 35 mm over Cz (7 Nov: bar raised 4 mm for the longer spring), clear of the bar and pivot; into the pods at the ends
 const archMesh = sweep(archSamples, 14, 3.5, archOff, M.band);
 archMesh.renderOrder = 5; headset.add(archMesh); addTo('band', archMesh);
 // sliders: a collar on each side where the arch enters a pod
@@ -1027,7 +1027,7 @@ const TH0 = EM + 3, TH1 = 180 - 1 + 3, THF = HS('Fz').el, THC = 180 - HS('Cz').e
 for (let i = 0; i <= 240; i++) { const th = TH0 + i * (TH1 - TH0) / 240; strapSamples.push(Object.assign({ th }, surf(0, th))); }
 const STRAP_CUM = [0]; for (let i = 1; i < strapSamples.length; i++) STRAP_CUM.push(STRAP_CUM[i - 1] + strapSamples[i].p.distanceTo(strapSamples[i - 1].p));
 const NI0 = HEAD.nasion_inion_mm, SIZE_NI = [304, 314, 324, 334, 344, 354, 364, 374, 384];
-const BAND_W = 12, BAND_T = 5, BAND_LIFT = 26;
+const BAND_W = 16, BAND_T = 5, BAND_LIFT = 26;   // 7 Nov: 16 mm wide (was 12) to fit a 5 mm fill-tube slot down each hole row
 const SPINE_T = BAND_T, POD_TOP = 26;   // 7 Nov fix: 26 mm (was 22) for the longer, softer spring (about 10 mm stroke)
 // 7 Nov fix: the bar runs STRAIGHT through each row of size holes, along the Cz-Fz (and Cz-Pz) chord, instead of following this
 // head's curve. A head one size up is (to first order) this head scaled about Cz, which moves Fz straight out along that chord,
@@ -1052,7 +1052,7 @@ const DSPAN = f => [(f - 0.1) * (SIZE_NI[0] - NI0), (f - 0.1) * (SIZE_NI.at(-1) 
 // v5: positions relative to Cz, which the arch fixes: Fz moves forward and Pz back by 0.2 x the change in nasion-inion
 const SLIDE = { fz: [-0.2 * (SIZE_NI.at(-1) - NI0), -0.2 * (SIZE_NI[0] - NI0)], pz: [0.2 * (SIZE_NI[0] - NI0), 0.2 * (SIZE_NI.at(-1) - NI0)] };
 const iFzC = nearest(strapSamples, s => s.th - THF), iCzC = nearest(strapSamples, s => s.th - THC), iPzC = nearest(strapSamples, s => s.th - THP);
-const iBar0 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iFzC] + SLIDE.fz[0] - 10)), iBar1 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iPzC] + SLIDE.pz[1] + 10));
+const iBar0 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iFzC] + SLIDE.fz[0] - 8)), iBar1 = nearest(STRAP_CUM, x => x - (STRAP_CUM[iPzC] + SLIDE.pz[1] + 8));
 M.bandP = new THREE.MeshStandardMaterial({ color: 0xdedfd9, roughness: 0.6, side: THREE.DoubleSide });
 M.tpu = new THREE.MeshStandardMaterial({ color: 0x5b646c, roughness: 0.8, side: THREE.DoubleSide });
 const strapMesh = sweep(strapSamples.slice(iBar0, iBar1 + 1), BAND_W, BAND_T, strapOff, M.bandP);
@@ -1105,10 +1105,29 @@ for (const [pd, key, iPod] of [[fzPod, 'fz', nearest(strapSamples, s => s.th - T
   const inner = new THREE.Mesh(new RoundedBoxGeometry(5, 6, 1.4, 2, 0.6), M.hole); inner.position.copy(dl).multiplyScalar(11.9); inner.position.y = top - 9.2; inner.rotation.y = slotA;
   // the housing wall carries on down from the bar on the two bar-edge sides (one print), leaving front and back open so the tip shows
   const port = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(5.4, top), V2(5.8, top + 0.8), V2(5.8, top + 1.6), V2(5.2, top + 2), V2(2.3, top + 2), V2(2.3, top)], 48), M.dial);
-  const hole = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = top + 1.95;
+  // 7 Nov: fill tube. A printed tube rises from the lid hole, through the spring and out of the port, and moves with the pod,
+  // so the syringe puts saline straight into the cup and nothing can spill onto the lid or the snap stud. 4 mm OD, 2.5 mm bore
+  // (the lid hole), standing 4 mm above the port at the working force; a black band on it lines up with the port at 1 N, so how far
+  // it sticks out also shows the spring force (more showing = more force).
+  const tubeTop = top + BAND_T + 4;   // 4 mm above the bar's top at 1 N; passes up through the bar's 5 mm slot
+  const tube = new THREE.Mesh(new THREE.LatheGeometry([V2(1.25, pd.c1 + 1.8), V2(2.0, pd.c1 + 1.8), V2(2.0, tubeTop - 0.4), V2(1.7, tubeTop), V2(1.25, tubeTop), V2(1.25, pd.c1 + 1.8)], 32), M.pod);
+  const band = new THREE.Mesh(new THREE.CylinderGeometry(2.05, 2.05, 0.8, 32, 1, true), M.chip); band.position.y = top + BAND_T + 0.4;
+  const hole = new THREE.Mesh(new THREE.CircleGeometry(1.25, 20), M.hole); hole.rotation.x = -Math.PI / 2; hole.position.y = tubeTop + 0.02;
+  pd.cupG.add(tube, band, hole); tube.userData.use = 'wipe'; pd.fill = [tube, band, hole];
   const lidTop = pd.c1 + 1.8, pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 3.0, lidTop + 0.4 + t * (top - 1.4 - lidTop - 0.4), Math.sin(a) * 3.0)); }   // around the top-up hole, clear of the stud
   const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 400, 0.42, 6, false), M.metal);
-  car.add(housing, inner, port, hole, spring); pd.g.add(car); addTo(key, car); CAPS.push(housing, inner, port, hole); explode(car, UP, 66);
+  // 7 Nov: angled seat. Through the hole rows the bar is straight along the Cz-Fz (Cz-Pz) line, about 20 degrees off the scalp's
+  // tangent at Fz and Pz, while the pod must push straight into the scalp. So the carriage's top is printed at the bar's angle
+  // (a wedge, up to about 4.4 mm higher on one side) and sits flat under the bar, with the pod still on the scalp normal.
+  { const k = strapSamples.indexOf(sb), a = along(strapSamples[k - 2], 0, 0), b2 = along(strapSamples[k + 2], 0, 0);
+    const dir = b2.sub(a).normalize(); let nb = new THREE.Vector3().crossVectors(sb.side, dir).normalize(); if (nb.dot(sb.nn) < 0) nb.negate();
+    const o0 = pd.g.localToWorld(V3(0, 0, 0)), nl = pd.g.worldToLocal(o0.clone().add(nb)).sub(pd.g.worldToLocal(o0.clone())).normalize();
+    const shear = (x, z) => -(nl.x * x + nl.z * z) / nl.y;
+    for (const m of [housing, port]) { const pa = m.geometry.attributes.position;
+      for (let v = 0; v < pa.count; v++) if (pa.getY(v) >= top - 1.3) pa.setY(v, pa.getY(v) + shear(pa.getX(v), pa.getZ(v)));
+      pa.needsUpdate = true; m.geometry.computeVertexNormals(); }
+    pd.seatAngle = Math.round(THREE.MathUtils.radToDeg(Math.acos(Math.min(1, Math.abs(nl.y))))); }
+  car.add(housing, inner, port, spring); pd.g.add(car); addTo(key, car); addTo(key, tube, band, hole); CAPS.push(housing, inner, port); explode(car, UP, 66);
   spring.userData.use = 'inside'; port.userData.use = 'wipe';
   // snap stud on the pod body (towards the cable side) and the snap lead's head clipped onto it
   const studP = dl.clone().multiplyScalar(5.6); studP.y = lidTop + 1.2;
@@ -1118,7 +1137,7 @@ for (const [pd, key, iPod] of [[fzPod, 'fz', nearest(strapSamples, s => s.th - T
 }
 // v5 size holes: one row on top of the bar beside each of Fz and Pz. Fz and Pz move 0.2 x the change in nasion-inion from Cz, 2 mm per
 // size, so 5 holes 4 mm apart serve two sizes each (1-2, 3-4, 5-6, 7-8, 9), within 2 mm. Cz has no holes: the arch fixes it.
-const CMIN = 500, CMAX = 580, NIMIN = 300, NIMAX = 390, HOLE_X = 3.4, NUM_X = 3.2, WIN_W = 16;
+const CMIN = 500, CMAX = 580, NIMIN = 300, NIMAX = 390, HOLE_X = 5.4, NUM_X = 5.2, WIN_W = 16;
 const sizeFor = ni => Math.max(1, Math.min(9, Math.floor((ni - 299) / 10) + 1));
 const FZ_HOLES = [[1, 2], [3, 4], [5, 6], [7, 8], [9]].map(g => ({ g, ni: g.reduce((a, k) => a + SIZE_NI[k - 1], 0) / g.length, label: g.join('·') }));
 const fzHoleFor = sz => FZ_HOLES.find(h => h.g.includes(sz));
@@ -1135,11 +1154,62 @@ for (const [iC, sgn, key] of [[iFzC, -1, 'fz'], [iPzC, 1, 'pz']]) {
     num.position.copy(along(sh, -NUM_X, 1.04)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sh.side, sh.t, sh.nn));
     num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num);
   });
+  // 7 Nov: 5 mm slot down the middle of the hole row, so the pod's fill tube comes up through the bar whichever hole is used
+  for (let d = -0.2 * (NI0 - SIZE_NI[0]) - 2; d <= 0.2 * (SIZE_NI.at(-1) - NI0) + 2; d += 1) {
+    const sh = strapSamples[nearest(STRAP_CUM, x => x - (c + sgn * d))];
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.5, 0.3, 20), M.slot); m.position.copy(along(sh, 0, 1.02)); m.quaternion.setFromUnitVectors(UP, sh.nn);
+    m.renderOrder = 6; headset.add(m); addTo('strap', m); RAILS.push(m); }
   { const sp = strapSamples[nearest(STRAP_CUM, x => x - (c + sgn * 0.2 * (fzHoleFor(3).ni - NI0)))];
     const head = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.0, 0.9, 20), M.dial); head.position.copy(along(sp, HOLE_X, 1.1)); head.quaternion.setFromUnitVectors(UP, sp.nn);
     headset.add(head); addTo('strap', head); RAILS.push(head); }
 }
 
+// ---------- v5.1 midline strap (7 Nov 2026) ----------
+// Replaces the pivot bar, size-hole rows and spring carriages. An elastic strap runs from a front Y clip on the midline (50 degrees up
+// from the front, just in front of Fz) over the Fz, Cz and Pz pods to the rear band, and two thin Y legs run from that clip to the
+// temple pads. A strap under tension pushes each pod in by tension x the angle it turns over that pod, and those angles barely change
+// when a head is bigger, smaller, longer or rounder: per newton of tension, about 0.83-0.91 N on Fz, 0.75-0.87 N on Cz, 0.95-0.96 N
+// on Pz across 300-390 mm nasion-inion and +-8% shape (tools/strap_force.py). So there is no reach problem: every pod sits on the
+// scalp and pushes straight in. The Cz pod has an 8 mm riser so it gets a similar share. At about 1.4 N of tension every pod gets
+// about 1.0-1.35 N. The pods clip onto the strap at the size marks (Fz and Pz at 0.2 x nasion-inion from Cz); the elastic is the spring.
+const dropObj = o => o && o.parent && o.parent.remove(o);   // the v5 bar parts are taken out of the scene (code kept above for reference)
+for (const pd of [fzPod, czPod, pzPod]) { dropObj(pd.car); pd.fill.forEach(dropObj); }   // old carriage + fill tube
+dropObj(strapMesh); dropObj(pivotG); RAILS.forEach(dropObj);
+M.elastic = new THREE.MeshStandardMaterial({ color: 0x3b4249, roughness: 0.9 });
+const STRAP_H = { fz: 16, cz: 28, pz: 16 }, STRAP_W = 20, STRAP_T = 1.6, YJ = surf(0, 55);
+const MS_J = off(YJ, 1.4), MS_B = off(surf(180, BB), 4.6);
+const MS_PTS = [MS_J, off(SITE.Fz, STRAP_H.fz), off(SITE.Cz, STRAP_H.cz), off(SITE.Pz, STRAP_H.pz), MS_B];
+const msPath = []; MS_PTS.forEach((q, i) => {   // straight between pods, a short wrap over each pod's cap
+  if (i === 0 || i === MS_PTS.length - 1) { msPath.push(q); return; }
+  const a = MS_PTS[i - 1].clone().sub(q).normalize(), b = MS_PTS[i + 1].clone().sub(q).normalize();
+  msPath.push(q.clone().addScaledVector(a, 7), q.clone().addScaledVector(a, 2.5).addScaledVector(b, 2.5).lerp(q, 0.6), q.clone().addScaledVector(b, 7)); });
+const msCurve = new THREE.CatmullRomCurve3(msPath, false, 'centripetal');
+const radial = v => v.clone().sub(V3(0, HEAD.field ? 0 : 0, 0)).normalize();
+const MS_SAMPLES = msCurve.getSpacedPoints(260).map(q => ({ p: q, n: radial(q) }));
+const midStrap = sweep(MS_SAMPLES, STRAP_W, STRAP_T, () => -STRAP_T / 2, M.elastic); midStrap.renderOrder = 5; headset.add(midStrap); addTo('strap', midStrap);
+// Y legs from the front clip back along the side of the head (in the hair, above the temples) to each pod's front edge
+const yLegs = [];
+for (const sx of [1, -1]) {
+  const legS = []; for (let i = 0; i <= 60; i++) { const t = i / 60, az = sx * 72 * t, el = 55 - 10 * t + 3 * Math.sin(Math.PI * t);   /* back along the side, in the hair, to each pod's front edge */ const S = surf(az, el); legS.push({ p: off(S, 1.2), n: S.n }); }
+  const leg = sweep(legS, 9, 1.3, () => -0.65, M.elastic); leg.renderOrder = 5; headset.add(leg); addTo('strap', leg); yLegs.push(leg); }
+{ const f = frameAt(YJ), clip = new THREE.Mesh(new RoundedBoxGeometry(24, 3.2, 12, 2, 1.2), M.dial);   // front Y clip
+  clip.position.copy(off(YJ, 2.6)); clip.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.n, f.y.clone().negate())); headset.add(clip); addTo('strap', clip); }
+{ const S = surf(180, BB), f = frameAt(S), buckle = new THREE.Mesh(new RoundedBoxGeometry(24, 5, 16, 2, 1.6), M.dial);   // cam buckle on the rear band
+  buckle.position.copy(off(S, 7.2)); buckle.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.x, f.n, f.y.clone().negate())); headset.add(buckle); addTo('strap', buckle); }
+// pod caps: a printed cap on each pod body with a slot the strap runs through, and a side fill port. The port's channel runs into the
+// lid's centre hole, so the syringe puts saline straight into the cup and never onto the lid, the snap or the lead.
+for (const [pd, key] of [[fzPod, 'fz'], [czPod, 'cz'], [pzPod, 'pz']]) {
+  const h = STRAP_H[key], lid = pd.c1 + 1.8, o0 = pd.g.localToWorld(V3(0, 0, 0));
+  const k = nearest(MS_SAMPLES, q => q.p.distanceTo(off(SITE[key[0].toUpperCase() + key[1]], h)));
+  const tw = MS_SAMPLES[Math.min(k + 2, MS_SAMPLES.length - 1)].p.clone().sub(MS_SAMPLES[Math.max(k - 2, 0)].p).normalize();
+  const tl = pd.g.worldToLocal(o0.clone().add(tw)).sub(pd.g.worldToLocal(o0.clone())); const yaw = Math.atan2(tl.x, tl.z);
+  const cap = new THREE.Group(); cap.rotation.y = yaw;
+  const baseH = h - STRAP_T / 2 - lid - 0.3, base = new THREE.Mesh(new RoundedBoxGeometry(17, baseH, 14, 2, 1.2), M.pod); base.position.y = lid + baseH / 2;
+  const bridge = new THREE.Mesh(new RoundedBoxGeometry(STRAP_W + 4.4, 1.6, 8, 2, 0.6), M.pod); bridge.position.y = h + STRAP_T / 2 + 1.1; bridge.rotation.y = Math.PI / 2;
+  const cheeks = [1, -1].map(sx => { const c = new THREE.Mesh(new RoundedBoxGeometry(2.2, STRAP_T + 3.6, 8, 2, 0.6), M.pod); c.position.set(sx * (STRAP_W / 2 + 1.1), h, 0); return c; });
+  const port = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 6, 20), M.podLid); port.rotation.z = Math.PI / 2; port.position.set(8.5 + 3, lid + Math.min(3, baseH / 2), 0);
+  const portHole = new THREE.Mesh(new THREE.CircleGeometry(1.25, 16), M.hole); portHole.rotation.y = Math.PI / 2; portHole.position.set(14.55, port.position.y, 0);
+  cap.add(base, bridge, ...cheeks, port, portHole); pd.g.add(cap); addTo(key, cap); pd.cap = cap; }
 // ---------- right pod (battery) and rear dial ----------
 const SB = surf(360 - MOD.azC, MC), FB = frameAt(SB);
 const bp = shellPatch({ ...MOD, azC: 360 - MOD.azC, coverMat: podCover, baseMat: M.base });   // v5: right pod, same shell as the left, holds the battery
@@ -1259,9 +1329,13 @@ const archFromRight = () => { const out = []; for (let i = 174; i >= 6; i -= 6) 
 const intoPod = P2 => [off(surf(MOD.azC, MC + 8), 9), P2];
 const intoPodLow = P2 => [off(surf(MOD.azC + 4, MC - 14), 7), P2];
 const atBand = (sb, side, h) => sb.p.clone().addScaledVector(sb.nn, h).addScaledVector(sb.side, side);
-function podCable(pd) { const sb = pd.sb, sx = pd.sx;
-  return [pd.leadHead(), atBand(sb, sx * 9, POD_TOP - 6), ...thin(strapSamples, pd.iPod, iCzC, 6, sx * 8), along(strapSamples[iCzC], sx * 4, 1.4), ...archLeft(), ...intoPod(J1)]; }
-const FZ_CABLE = podCable(fzPod), PZ_CABLE = podCable(pzPod), CZ_CABLE = [czPod.leadHead(), along(strapSamples[iCzC], -8, 0.5), along(strapSamples[iCzC], -4, 1.4), ...archLeft(), ...intoPod(J1)];
+// v5.1: pod leads run along the top of the midline strap to Cz, then inside the arch down into the left pod (J1)
+const msIdx = key => nearest(MS_SAMPLES, q => q.p.distanceTo(off(SITE[key], STRAP_H[key.toLowerCase()])));
+const msAlong = (i, side = 6, up = 1.6) => MS_SAMPLES[i].p.clone().addScaledVector(MS_SAMPLES[i].nn, up).addScaledVector(MS_SAMPLES[i].side, side);
+function podCable(pd, key) { const a = msIdx(key), b = msIdx('Cz'), out = [pd.leadHead()], d = a < b ? 1 : -1;
+  for (let i = a; d > 0 ? i <= b : i >= b; i += d * 8) out.push(msAlong(i));
+  return [...out, ...archLeft(), ...intoPod(J1)]; }
+const FZ_CABLE = podCable(fzPod, 'Fz'), PZ_CABLE = podCable(pzPod, 'Pz'), CZ_CABLE = [czPod.leadHead(), msAlong(msIdx('Cz'), 6, 3), ...archLeft(), ...intoPod(J1)];
 const armIn = (arr) => { const out = []; for (let i = arr.length - 1; i >= 0; i -= 6) out.push(along(arr[i], 0, -0.2)); return out; };
 const W = (pts, color, key, r = 0.6) => { const m = wire(pts, color, r); m.userData.wkey = key; return m; };
 W(FZ_CABLE, '#7cc6fe', 'fz');
@@ -1450,7 +1524,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['ADS1299IPAGR, 8-ch EEG chip', '×2', '11,879', 'LCSC C476817, fitted by JLCPCB · 2 boards', 'ads'],
     ['JLCPCB 4-layer PCB + assembly', '×1', '~10,000', 'Get the quote before ordering from abroad', 'pcb'],
     ['FRI TDE-205 snap leads, 10-pack', '×1', '4,745', 'Fz, Cz, Pz, M1, M2, eye + 2 ECG; the strip uses one 3-way connector', null],
-    ['Bar 12 × 5 mm print + 12 × 1.2 mm steel strip', '×2', 'quote', 'PETG on the VIT printer with the strip pressed in; pivot pin M3', 'strap'],
+    ['20 mm elastic webbing + cam buckle', '1 m + 1', 'quote', 'Midline strap and Y legs; front Y clip and pod caps are PETG prints', 'strap'],
     ['Snap leads for the MVP forehead pads', '×3', 'quote', 'Fp1, Fpz, Fp2 on separate pads until the custom strip exists (the 10-pack above is full)', 'fp'],
     ['FRI TDE-211 flat Ag/AgCl snap', '×7', '~3,292', '3 strip snaps, 3 pod cores, 1 spare (v3 bought 6 for ₹2,822)', 'fp'],
     ['Seeed XIAO ESP32-S3', '×3', '3,417', 'Robu · 1 for bench firmware, 2 soldered on the boards (v4.5)', 'esp'],
@@ -1459,7 +1533,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['FRI TDE-212 Ag/AgCl 5 mm spike', '×2', '940', 'Dry comparison arm in the hair pods', 'fz'],
     ['Neo Gel Ag/AgCl pads, 100', '×1', '761', 'Upside Down Labs India · M1, M2, ECG', 'ref'],
     ['PVA foam + 0.9% saline', '×1', '~500', 'Foam tips, cut and pressed into printed collars, stored wet in a sealed pack; saline for top-ups', 'cz'],
-    ['Dropper bottle or blunt 1 ml syringe', '×2', '~100', 'Top-up drops through the lid hole; no needle near the scalp', 'cz'],
+    ['Dropper bottle or blunt 1 ml syringe', '×2', '~100', 'Top-up drops into the fill tube; no needle near the scalp', 'cz'],
     ['Lead connector on the board', '—', '0', 'None: electrode leads are soldered into the input header holes (headers left off), which keeps the left pod about 20.5 mm proud', 'pcb'],
     ['GY-MAX30102 module', '×3', '597', 'Earlobe clip, forehead test window and a spare (the two in use each on their own I²C bus: both answer at 0x57)', 'ppg'],
     ['5-core thin cable + small torsion spring + black foam', '1 set', 'quote', 'Ear-clip lead (3.3 V, GND, SDA, SCL, INT) and the clip’s spring and pad', 'ppg'],
@@ -1470,7 +1544,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Hydrogel discs + small eye pads', '1 pack', 'quote', 'Hand-made forehead strips and eye pads until a custom strip is tooled', 'fp'],
     ['Over-ear headphones (for the spring band, mock-up)', '×2', 'quote', 'Cut the headband down to the arch; keep the sliders if they fit', 'band'],
     ['Compression spring assortment', '1 box', 'quote', 'Buy: Amazon / Robu. Cover about 0.5–3 N at 6 mm; printed shims fine-tune it. Set on a kitchen scale', 'cz'],
-    ['M3 screws, thumb nuts, heat-set inserts', '1 set', 'quote', 'Buy: Robu / Amazon. Carriage pins, pivot, sliders, pod screws', 'strap'],
+    ['M3 screws, thumb nuts, heat-set inserts', '1 set', 'quote', 'Buy: Robu / Amazon. Sliders, pod and shell screws', 'strap'],
     ['Nasion template + size tape', '1', '~0', 'Print: card with a nose-bridge notch and a 30–39 mm scale for the strip centre; paper tape with size bands 1–9 from nasion to inion', 'fp'],
     ['TPU 95A filament or silicone strip', '1', 'quote', 'Temple pads, rear hook pad, pod linings', 'lining'],
     ['22 × 22 mm Ag/AgCl snap pads', '1 pack', 'quote', 'Prototype forehead contacts at 27 mm centres until the custom strip is made (e.g. Philips HC13955C)', 'fp'],
@@ -1489,10 +1563,10 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['1. Mock up the arch', 'Take the spring band out of a cheap pair of over-ear headphones and cut it to reach from above one ear, over the top, to above the other. Keep its sliders if they fit, or print two. Check it sits on the T7–Cz–T8 line on 10 heads before printing anything else.', 'band'],
     ['2. Print the two pods', 'Same shell both sides, about 83 × 72 mm along the skin and 20.5 mm deep (model estimate), PETG. Left: board mount, USB-C opening and lead sockets underneath, antenna patch on the outer face. Right: battery bay. The arch clips into each pod’s top.', 'module'],
     ['3. Print the temple arms and rear band', 'Temple arms from each pod’s front to a pad above the brow line, beside the strip. Rear band from pod to pod under the occiput, with a hook pad and a dial. Don’t print the ratchet: cut the rear section (knob and both toothed straps) out of a Karam PN521 hard-hat harness and bolt the strap ends to the printed band arms, so the teeth already match the knob. PETG; TPU or silicone pads.', 'band'],
-    ['4. Print the bar and carriages', 'Bar 12 × 5 mm with a 12 × 1.2 mm steel strip pressed in, a pivot fork at Cz, and two rows of 5 size holes (Fz in front, Pz behind). Through each hole row the bar is straight (along the Cz–Fz and Cz–Pz lines), not curved to the head. Carriages hang under the bar: housing, spring, pod body, side window for the snap lead. Start from the open-source Ultracortex spring holder.', 'strap'],
-    ['5. Fit springs and pods', 'Drop a spring into each carriage, then the pod body; clip the snap lead onto its stud and run it along the bar to Cz and down inside the arch. Pick soft springs (about 0.13 N/mm: roughly 6.5 mm across, 0.4 mm wire, 18 mm long) and check each gives about 1 N when squeezed 7.5 mm on a kitchen scale.', 'fz'],
+    ['4. Make the midline strap', 'Cut about 1 m of 20 mm elastic: one length from the front Y clip over the top to the cam buckle on the rear band, two short legs from the clip back to the pods. Print the Y clip and three pod caps (a slot the strap slides through, a side fill port; the Cz cap with a 12 mm riser). Stick a printed size scale (marks 1–9, measured from the Cz cap) along the strap.', 'strap'],
+    ['5. Fit the pods and set the tension', 'Push each pod body into its cap and clip the snap lead onto its stud; run the leads along the strap to Cz and down inside the arch. Hang a 140 g weight (1.4 N) on the elastic and mark the stretch: that is the cam-buckle mark.', 'fz'],
     ['6. Print the ear clip', 'Two black jaws that hinge below the earlobe, a pocket for the MAX30102 board, a black foam pad, a light torsion spring and a strain-relief boot. The lead goes straight up to the left pod.', 'ppg'],
-    ['7. Mechanical test before electronics', 'Wear it on 10 heads from 500 to 580 mm, with thick, oiled and short hair, braids, glasses and a hearing aid if possible. Include the smallest and largest nasion–inion you can find (size 1–2 and 9). Nod and turn for 12 minutes: Fz, Cz and Pz each stay between about 0.7 and 1.5 N on a kitchen scale, the bar does not bend, the arch top stays within 5 mm of the tape’s Cz mark, nobody reports a sore spot.', 'strap'],
+    ['7. Mechanical test before electronics', 'Wear it on 10 heads from 500 to 580 mm, with thick, oiled and short hair, braids, glasses and a hearing aid if possible. Include the smallest and largest nasion–inion you can find (size 1–2 and 9). Nod and turn for 12 minutes: Fz, Cz and Pz each stay between about 0.7 and 1.5 N on a kitchen scale, the pods stay on their size marks, the arch top stays within 5 mm of the tape’s Cz mark, nobody reports a sore spot.', 'strap'],
   ];
   for (const [n, sub, k] of FRAME) { const b = el('button', 'brow', `<span>${n}</span><span class="r"></span><small>${sub}</small>`); b.addEventListener('click', () => goPart(k)); host.appendChild(b); }
   // wiring
@@ -1500,11 +1574,11 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
   const WIRING = [
     ['Ch 1', 'Fp1', '#e8913a', 'J2', 'IN1N', 'fp', 'fp', 'Forehead strip, left pad'],
     ['Ch 2', 'Fp2', '#e8913a', 'J3', 'IN2N', 'fp', 'fp', 'Forehead strip, right pad'],
-    ['Ch 3', 'Fz', '#2f8fd8', 'J1', 'IN3N', 'fz', 'fz', 'Bar, front pod; lead along the bar and down the arch'],
-    ['Ch 4', 'Pz', '#8b6cf0', 'J1', 'IN4N', 'pz', 'pz', 'Bar, back pod; lead along the bar and down the arch'],
+    ['Ch 3', 'Fz', '#2f8fd8', 'J1', 'IN3N', 'fz', 'fz', 'Front pod on the strap; lead along the strap and down the arch'],
+    ['Ch 4', 'Pz', '#8b6cf0', 'J1', 'IN4N', 'pz', 'pz', 'Back pod on the strap; lead along the strap and down the arch'],
     ['Ch 5', 'M2', '#a8977a', 'J3', 'IN5N', 'm2', 'm2', 'Right mastoid pad, lead up to the right pod and over the arch'],
     ['Ch 6', 'Eye', '#5fa83f', 'J2', 'IN6N', 'eog', 'eog', 'Below the left eye, lead along the left temple arm'],
-    ['Ch 7', 'Cz', '#d9822b', 'J1', 'IN7N', 'cz', 'cz', 'Under the pivot (new in v4)'],
+    ['Ch 7', 'Cz', '#d9822b', 'J1', 'IN7N', 'cz', 'cz', 'Under the arch, on the strap (new in v4)'],
     ['Ch 8', 'ECG + / −', '#e0524a', 'J7', 'IN8P / IN8N', 'ecg', null, 'Test kit only. SRB2 off on this channel'],
     ['Ref', 'M1', '#8a939b', 'J2', 'SRB2', 'ref', 'ref', 'Left mastoid pad. Feeds every channel: check it first'],
     ['Bias', 'Fpz', '#2fa772', 'stud', 'BIASOUT', 'fpz', null, 'Centre pad of the strip, through the strip’s left end at the temple socket'],
@@ -1547,7 +1621,7 @@ function goPart(k) { if (!k) return; if (parts[k].test && !state.test) setTest(t
     ['Main board', 'Brow module, about 29.5 mm off the forehead', 'Left pod above the ear, about 20.5 mm off the skin', 'The forehead is the most curved part of the head (radius about 67 mm), so a flat 70 mm board lifts about 10 mm at its ends there. The side is flatter. M1, the eye pad and the ear clip are on the left, next to the board.', 'Design', { k: 'module', view: 'side' }],
     ['Battery', 'Back pod over the ratchet', 'Right pod above the ear', 'Balances the left pod: about 32 g vs 30 g with shells (estimates). Two wires over the arch.', 'Judgement', { k: 'batt', view: 'back' }],
     ['Hold-down', 'Ratchet tension all round the head', 'Rear hook under the occiput, tightened by a dial', 'Three pods at 1 N push the headset up about 3 N; weight (1.3 N) and the pods clamping (0.8 N) are not enough without friction. Below the inion the skin faces 42–49% downward, so 3 N on the dial adds about 1.4 N. Pods set at 1–1.5 N.', 'Engineering', { k: 'dial', view: 'back' }],
-    ['Fz and Pz carriages', 'On the band, each pinned from Fpz', 'On a bar pivoting at Cz; Cz fixed under the arch', 'Fz and Pz share the force, so the arch takes no tilting push. Each moves 2 mm per size, so 5 holes serve two sizes each, within 2 mm (Pz was 3 mm in v4). Bar 12 × 5 mm PETG with a 1.2 mm steel strip.', 'Engineering', { k: 'strap', view: 'side' }],
+    ['Fz, Cz and Pz pods', 'Spring carriages on the band, each pinned from Fpz', 'v5.1: clipped onto an elastic midline strap at the size marks; no springs', 'Strap tension presses each pod straight in with about the same force on any head size or shape (0.82–0.99 N per N of tension, tools/strap_force.py), so there is no reach problem. Fewer parts than the v5 pivot bar.', 'Engineering', { k: 'strap', view: 'side' }],
     ['Forehead', 'Brow module over the strip, 6.5 mm pocket', 'Strip only, running on to both temple pads; its left end plugs in under the left pad', 'No box on the forehead; the strip reads as one line joining the arms. Leads to the board are about 12–20 cm, clipped along the temple arm.', 'Design', { k: 'fp', view: 'front' }],
     ['Bought harness', 'Karam PN521 ratchet helmet', 'Not needed', 'The dial and rear band replace it; a hard-hat knob can still be reused for the dial.', 'High', { k: 'dial', view: 'back' }],
   ];
@@ -1645,7 +1719,7 @@ function setFit(c, ni) {
   document.getElementById('niOut').textContent = ni + ' mm'; document.getElementById('ni').value = ni;
   document.getElementById('fitRead').innerHTML = `<dt>Arch</dt><dd>One size · sliders at <b>${slide >= 0 ? '+' : '−'}${Math.abs(slide).toFixed(0)} mm</b> each side (0 on this 540 mm head; estimate) · rear dial snug</dd>`
     + `<dt>Strip centre</dt><dd>${mm(0.1 * ni)} above the nasion (template)</dd>`
-    + `<dt>Bar size</dt><dd><b>Size ${sz}</b> · Fz and Pz pins in hole ${fzh.label} · Cz fixed under the arch · Fz and Pz within ${err.toFixed(1)} mm of their sites</dd>`
+    + `<dt>Strap marks</dt><dd><b>Size ${sz}</b> · Fz and Pz clip on at mark ${sz} · Cz cap under the arch · Fz and Pz within 1 mm of their sites</dd>`
     + `<dt>Forehead strip</dt><dd>One size · 27 mm pad spacing (this head needs ${sp.toFixed(1)} mm)</dd>`;
   setDialFor(c); syncHash();
 }
@@ -1926,7 +2000,7 @@ function pline(pts) { podDims.add(new THREE.LineSegments(new THREE.BufferGeometr
 // ---------- steps ----------
 const STEPS = [
   { src: 'v4.3 pod body: 9 mm cup with an epoxied lid, 2 mm top-up hole, 4 mm stud for the snap lead (sizes: model estimate)', title: 'Print the pod body', need: ['3D printer (resin, or PETG with 4+ walls)', '4 mm snap stud'],
-    text: 'Print the cup (14 mm wide, 9 mm tall, side slot for the internal lead) and its lid. Once the contact is in, the lid is epoxied on for good, so cup and lid become one sealed pod body. The lid has a 2 mm top-up hole in the middle and a 4 mm snap stud off to one side for the snap lead. No reservoir and no separate cap: the carriage housing covers the pod. Print watertight: resin (SLA), or PETG with 4 or more walls, then seal. Six pod bodies print in about an hour.',
+    text: 'Print the cup (14 mm wide, 9 mm tall, side slot for the internal lead) and its lid. Once the contact is in, the lid is epoxied on for good, so cup and lid become one sealed pod body. The lid has a 2 mm top-up hole in the middle with a fill tube printed on it (4 mm OD, rising about 18 mm, through the spring and out of the carriage top, with a black band where it meets the port at 1 N), and a 4 mm snap stud off to one side for the snap lead. No reservoir and no separate cap: the carriage housing covers the pod. Print watertight: resin (SLA), or PETG with 4 or more walls, then seal. Six pod bodies print in about an hour.',
     cam: [V3(58, 40, 72), V3(0, 11, 0)], st: { lid: 8, elec: null, sponge: null, seal: 0 },
     co: [['Top-up hole, 2 mm', () => V3(0, 15.8 + pod.cur.lid, 0), 110, -40], ['4 mm snap stud → snap lead', () => V3(4.3, 19.2 + pod.cur.lid, 0), 120, -70], ['Lid, epoxied on', () => V3(-5.2, 15 + pod.cur.lid, 5.2), -130, -10],
          ['Cup', () => V3(-5, 11, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
@@ -1950,7 +2024,7 @@ const STEPS = [
     cam: [V3(60, 34, 76), V3(0, 14, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1 },
     co: [['Seal over the slot', () => V3(8.2, 12.5, 0), 120, 10], ['Lid epoxied on', () => V3(-5.2, 15.6 + pod.cur.lid, 5.2), -140, -20]] },
   { src: 'Design doc. Added: blotting excess saline (Greischar et al. 2004).', title: 'Top up only when asked', need: ['0.9% saline (pharmacy or contact-lens)', 'Needle-free 2 ml syringe'],
-    text: 'v4.3: the tip arrives wet, so there is no filling step. Only when the contact check shows a pod amber or red, add 2–4 drops (0.1–0.2 ml) of 0.9% saline through the lid hole with a dropper or blunt syringe, between recording blocks, never during one. The drops pass the contact’s centre hole straight into the foam. More than that runs into the hair and can join two sites (Greischar et al. 2004), so blot any drips.',
+    text: 'v4.3: the tip arrives wet, so there is no filling step. Only when the contact check shows a pod amber or red, add 2–4 drops (0.1–0.2 ml) of 0.9% saline into the fill tube on top of the carriage with a blunt syringe, between recording blocks, never during one. The drops pass the contact’s centre hole straight into the foam. More than that runs into the hair and can join two sites (Greischar et al. 2004), so blot any drips.',
     cam: [V3(80, 46, 96), V3(0, 20, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, fill: true },
     co: [['2–4 drops, only when flagged', () => V3(-4.6, 44 + syr.position.y, 0), -140, -10], ['Drops pass the contact into the foam', () => V3(-3.6, 12.4, 3.6), -170, 10],
          ['Sponge soaks from the top down', () => V3(3.5, 4, 3.5), 140, 30]] },
@@ -1958,7 +2032,7 @@ const STEPS = [
     flat: { text: 'On the forehead and behind the ears there is no hair. The frame presses the flat sponge onto bare skin; saline carries the signal to the metal, which never touches the skin. The lead runs to the board.',
       co: [['Flat sponge rests on bare skin', () => V3(3.4, 3.2, 3.4), 150, 60], ['Saline carries the signal up', () => V3(-3.5, 7, 3.5), -180, -10],
            ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Lead up to the lid stud', () => V3(8.5, 14.6, 0), 60, -40]] },
-    text: 'The spring in the carriage pushes the pod down, so the sponge parts the hair and touches the scalp with the same force every time. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. A snap lead clips onto the lid’s stud and leaves through a small window in the carriage’s side with a slack loop, so the pod can move on its spring. The paste and dry-spike test inserts carry the same stud, so the same lead clips onto them.',
+    text: 'The midline strap’s tension presses the pod down, so the sponge parts the hair and touches the scalp with about the same force every time. Saline carries the signal from the scalp to the metal, so the metal never touches the skin. A snap lead clips onto the lid’s stud and leaves through the side of the pod’s cap. The paste and dry-spike test inserts carry the same stud, so the same lead clips onto them.',
     cam: [V3(82, 40, 104), V3(0, 10, 0)], st: { lid: 0, elec: 0, sponge: 0, seal: 1, wet: true, scalp: true },
     co: [['Sponge parts the hair, touches the scalp', () => V3(2.6, 0.8, 2.6), 150, 70], ['Saline carries the signal up', () => V3(-3.5, 6, 3.5), -180, -10],
          ['Metal never touches the skin', () => V3(0, 11.4, 0), 130, -60], ['Snap lead clips onto this stud', () => V3(4.3, 18.6, 0), 120, -110], ['Lid, epoxied on', () => V3(-5.6, 15.2, 5.6), -150, -40]] },
@@ -2530,8 +2604,8 @@ const SESS = [
   { t: 'Click on the wet tips', time: '30 s', need: ['3 wet tip cartridges'], src: 'Semi-dry pod (P29). Sponges rose in impedance after about 20 min without rewetting (L37); recording is 5 min, top-up drops on demand (D21).',
     text: 'Peel three tip cartridges from their sealed pack and click one onto each pod before the frame goes on. They arrive damp, wetted to a set weight, not dripping: if one drips, blot it on gauze. The spring keeps each foam tip on the scalp. No filling.',
     cam: () => [V3(280, 330, 140), V3(0, 85, -10)], show: { frame: true, strip: true }, hl: ['fz', 'cz', 'pz'], labels: true },
-  { t: 'Fit the frame', time: '1 min', need: ['Headset'], src: 'v5 concept: arch over Cz, temple pads, rear hook and dial; Fz and Pz on a bar pivoting at Cz (concept study, 7 Nov 2026). Fitted frame (D19, P186).',
-    text: 'Before it goes on, pin the Fz and Pz carriages into the holes for the patient’s size number (1–9, from the size tape at the first visit) and open the rear dial. Put the headset on like headphones: the arch over the top with the Cz pod on the tape’s 50% mark, the pods above the ears and the temple pads on the temples, above the brow line. Turn the rear dial until the hook is snug under the back of the skull. That is what holds the pods on the scalp; the bar pivots by itself so Fz and Pz push equally. Tuck the strip’s ends under the temple pads (the left end plugs into the socket) and plug the eye lead in beside it.',
+  { t: 'Fit the frame', time: '1 min', need: ['Headset'], src: 'v5 concept: arch over Cz, temple pads, rear hook and dial; Fz, Cz and Pz on an elastic midline strap (v5.1, 7 Nov 2026). Fitted frame (D19, P186).',
+    text: 'Before it goes on, slide the Fz and Pz pods to the patient’s size mark on the strap (1–9, from the size tape at the first visit, saved in the app) and open the rear dial. Put the headset on like headphones: the arch over the top with the Cz pod on the tape’s 50% mark, the pods above the ears and the temple pads on the temples, above the brow line. Turn the rear dial until the hook is snug under the back of the skull. Close the strap’s cam buckle to its stretch mark: that presses all three pods onto the scalp. Tuck the strip’s ends under the temple pads (the left end plugs into the socket) and plug the eye lead in beside it.',
     cam: () => VIEWS.side(), show: { frame: true, strip: true }, hl: ['band', 'dial', 'strap'], labels: true },
   { t: 'Pads and heart clip', time: '1 min', need: ['2 mastoid pads', 'Eye pad'], src: 'M1 reference on the mastoid bone (D25, P197); eye channel (D26); earlobe PPG (D22).',
     text: 'Stick a gel pad on each mastoid bone (M1 is the reference, M2 a channel), just below the pods, and the small eye pad about 2 cm below the left eye. Plug their leads in under the pods. Clip the heart sensor to the left earlobe.',
@@ -2543,7 +2617,7 @@ const SESS = [
     text: 'Eyes closed 2 min, eyes open 1 min, eyes closed 2 min, sitting upright and still, with no headrest touching the back of the head (it would press on the rear hook and dial and lift the Pz pod) and feet flat. Between blocks the app rechecks the pods and asks for drops only where one is drying; during recording it watches each channel for rising mains hum, drift or a flat line and flags that pod for the next pause. A last contact check confirms nothing came loose. The report is ready before the patient sees the psychiatrist.',
     cam: () => [V3(380, 160, 430), V3(0, 0, 0)], show: { all: true } },
   { t: 'Remove and clean', time: '1 min', need: ['Disinfectant wipe'], src: 'Noncritical item: low-level disinfection between patients (R18); single-use skin contacts (D32).',
-    text: 'Bin the strip, the three pads and the three foam tips (orange). Wipe everything else (blue): pods, arch, arms, rear band, bar, carriages, pads, clip and dial. One step, nothing to wash.',
+    text: 'Bin the strip, the three pads and the three foam tips (orange). Wipe everything else (blue): pods, pod caps, arch, arms, rear band, strap, pads, clip and dial. One step, nothing to wash.',
     cam: () => [V3(-320, 170, 340), V3(0, 10, 0)], show: { all: true }, clean: true },
 ];
 const sessUI = document.getElementById('sessUI');
