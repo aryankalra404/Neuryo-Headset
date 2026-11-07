@@ -2722,6 +2722,8 @@ document.getElementById('helpOk').addEventListener('click', () => setHelp(false)
 renderer.setAnimationLoop(frame);
 document.getElementById('loading').remove();
 window.__ready = true;
+// read-only handle for the model checks (collision check in tools/, 8 Nov)
+window.__neuryo = { THREE, scene, headset, parts };
 </script>
 <script>
 window.addEventListener('error', e => { const d = document.getElementById('loading'); if (d) d.textContent = 'The 3D view could not start: ' + (e.message || 'WebGL error'); });
