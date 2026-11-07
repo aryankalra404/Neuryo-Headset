@@ -853,7 +853,7 @@ const JW = (x, y) => pcbGroup.localToWorld(V3(x, y, 2.2));
 function makePod(kind) {
   // Same cup for every pod (design doc): 14 mm wide, 20 mm tall. Hair pods: domed plug sticks out 5 mm.
   // Flat pods: shorter, flat sponge; the 2 mm it sticks out is a model estimate (the doc gives no number).
-  const hair = kind === 'hair', c0 = hair ? 5 : 2, c1 = c0 + (hair ? 13 : 20), r = 7;   // v4: 13 mm hair cup inside the pod cap (the build guide shows the 20 mm v3 cup)
+  const hair = kind === 'hair', c0 = hair ? 5 : 2, c1 = c0 + (hair ? 8 : 20), r = 7;   // v4.3: 8 mm hair cup (no reservoir: contact plus a small gap for top-up drops); the build guide shows the 20 mm v3 cup
   const g = new THREE.Group();
   const sponge = new THREE.Mesh(new THREE.LatheGeometry(hair
     ? [V2(0.01, 0), V2(1.5, 0.12), V2(2.8, 0.5), V2(3.9, 1.2), V2(4.6, 2.2), V2(5, 3.4), V2(5, 10), V2(0.01, 10)]
@@ -983,7 +983,7 @@ const strapSamples = [];
 const TH0 = EM + 3, TH1 = 180 - BB + 3, THF = HS('Fz').el, THC = 180 - HS('Cz').el, THP = 180 - HS('Pz').el;
 for (let i = 0; i <= 240; i++) { const th = TH0 + i * (TH1 - TH0) / 240; strapSamples.push(Object.assign({ th }, surf(0, th))); }
 const BAND_W = 26, BAND_T = 2, BAND_LIFT = 1.2;   // band underside 1.2 mm above the skin: the lining
-const SPINE_T = BAND_T, POD_TOP = 28.5;            // carriage top above the scalp (pod height unchanged from v4.1)
+const SPINE_T = BAND_T, POD_TOP = 24;              // v4.3: carriage top 24 mm above the scalp (28.5 in v4.1); cup 8 mm instead of 13 now there is no reservoir
 const strapOff = s => BAND_LIFT + 4.8 * (1 - smooth(TH0 + 2, TH0 + 9, s.th)) + 3 * smooth(TH1 - 8, TH1, s.th);
 const strapMesh = sweep(strapSamples, BAND_W, BAND_T, strapOff, M.spine);
 strapMesh.renderOrder = 5; headset.add(strapMesh); addTo('strap', strapMesh);
@@ -1021,22 +1021,25 @@ function hairInserts(pd, key) {
   return ins;
 }
 hairInserts(fzPod, 'fz'); hairInserts(czPod, 'cz'); hairInserts(pzPod, 'pz');
-// v4: wipe-clean pod cap over each saline cup, with the refill port on top. Size: model estimate (cup inside is the v3 build).
+// v4: wipe-clean pod cap over each cup, with the top-up port on top. v4.3: lower cap whose skirt stops above the tip collar, so the
+// single-use tip shows at a glance. Size: model estimate.
 const CAPS = [];
 for (const [pd, key] of [[fzPod, 'fz'], [czPod, 'cz'], [pzPod, 'pz']]) {
   const cap = new THREE.Group();
-  const shell = new THREE.Mesh(new THREE.LatheGeometry([V2(6.2, 1.6), V2(7.4, 2.2), V2(8.6, 4.2), V2(9.8, 8.5), V2(10.5, 13), V2(10.6, 15.6), V2(10.2, 18.4), V2(8.6, 20.8), V2(5.2, 22.2), V2(2.1, 22.4), V2(2.0, 19.9)], 64), M.cap);   // skirt reaches down to the foam tip, so only the single-use tip shows
+  const shell = new THREE.Mesh(new THREE.LatheGeometry([V2(7.9, 7.0), V2(8.8, 7.6), V2(9.8, 9.2), V2(10.5, 11.5), V2(10.6, 13.2), V2(10.2, 15.0), V2(8.6, 16.6), V2(5.2, 17.6), V2(2.1, 17.8), V2(2.0, 15.4)], 64), M.cap);   // skirt stops above the tip collar
   cap.add(shell); pd.g.add(cap); addTo(key, cap); CAPS.push(shell); explode(cap, UP, 48);
   // v4.2 spring carriage: printed housing clamped on top of the band (M3 screw through the band slot, thumb nut on top); the pod is a
   // plunger inside it that passes through the slot, pushed down by a compression spring (about 6 mm of travel; aim 1-2 N, set in the frame test).
   // Because the band lies on the head, the spring only takes up hair and movement, not head shape. Thumb nut is also the refill port.
-  const top = POD_TOP, base = BAND_LIFT + BAND_T + 0.2, car = new THREE.Group();
-  const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, base), V2(11.9, base + 0.8), V2(12.2, base + 3.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64), M.spine);
+  const top = POD_TOP, base = BAND_LIFT + BAND_T + 0.2, hb = 7.2, car = new THREE.Group();
+  // housing starts above the tip collar; two feet stand it on the band either side of the pod window, so the tip stays in view
+  const housing = new THREE.Mesh(new THREE.LatheGeometry([V2(11.0, hb), V2(11.9, hb + 0.8), V2(12.2, hb + 2.4), V2(12.2, top - 1), V2(11.6, top), V2(3.4, top), V2(3.4, top - 1.2)], 64), M.spine);
+  for (const sx of [-1, 1]) { const foot = new THREE.Mesh(new RoundedBoxGeometry(3.4, hb - base + 0.6, 9, 2, 0.6), M.spine); foot.position.set(sx * 10.6, (hb + base) / 2, 0); car.add(foot); CAPS.push(foot); }
   const nut = new THREE.Mesh(new THREE.LatheGeometry([V2(2.3, top), V2(6.4, top), V2(6.9, top + 1), V2(6.9, top + 2.4), V2(6.2, top + 3), V2(2.3, top + 3), V2(2.3, top)], 48), M.dial);
   const port = new THREE.Mesh(new THREE.CircleGeometry(2.2, 20), M.hole); port.rotation.x = -Math.PI / 2; port.position.y = top + 2.95;
-  const pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 4.4, 22.8 + t * (top - 1.4 - 22.8), Math.sin(a) * 4.4)); }
+  const pts = []; for (let i = 0; i <= 260; i++) { const t = i / 260, a = t * Math.PI * 2 * 6; pts.push(V3(Math.cos(a) * 4.4, 18.2 + t * (top - 1.4 - 18.2), Math.sin(a) * 4.4)); }
   const spring = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 400, 0.42, 6, false), M.metal);
-  const led = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8), M.ledG); led.position.set(0, 17, 12.25);
+  const led = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8), M.ledG); led.position.set(0, top - 5, 12.25);
   car.add(housing, nut, port, spring, led); pd.g.add(car); addTo(key, car); CAPS.push(housing, nut, port, led); explode(car, UP, 66);
   spring.userData.use = 'inside'; nut.userData.use = 'wipe';
   pd.car = car; pd.spring = spring;
@@ -1052,14 +1055,20 @@ const railMat = new THREE.MeshStandardMaterial({ color: 0x1b1f23, roughness: 0.7
 // with the patient's size number, so nothing is read off a scale. Worst-case error at the ends of 300-348 mm: Fz 1, Cz 2, Pz 3 mm.
 const SIZE_NI = [304, 314, 324, 334, 344];
 const sizeFor = ni => ni < 309 ? 1 : ni < 319 ? 2 : ni < 329 ? 3 : ni < 339 ? 4 : 5;
+const SIZE_MAT = [1, 2, 3, 4, 5].map(n => new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, map: tex(64, 64, (g, w, h) => {
+  g.fillStyle = '#1a3f3c'; g.font = '700 48px Geist, Arial, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(String(n), w / 2, h / 2 + 2); }) }));
 const RAILS = [];
 for (const [th, f] of [[THF, 0.3], [THC, 0.5], [THP, 0.7]]) {
   const iC = nearest(strapSamples, s => s.th - th), c = STRAP_CUM[iC];
   for (const ni of SIZE_NI) {
     const d = (f - 0.1) * (ni - HEAD.nasion_inion_mm), s = strapSamples[nearest(STRAP_CUM, x => x - (c + d))];
-    const m = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.7, 0.4, 20), M.slot);
-    m.position.copy(along(s, 9, 1.02)); m.quaternion.setFromUnitVectors(UP, s.nn);   // pin holes beside the pod window
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.4, 20), M.slot);
+    m.position.copy(along(s, 9.5, 1.02)); m.quaternion.setFromUnitVectors(UP, s.nn);   // pin holes beside the pod window
     m.renderOrder = 6; headset.add(m); addTo('strap', m); RAILS.push(m);
+    // printed size number on the other side of the window, read from above
+    const num = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 4.6), SIZE_MAT.at(SIZE_NI.indexOf(ni)));
+    num.position.copy(along(s, -9.5, 1.04)); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(s.side.clone().negate(), s.t.clone().negate(), s.nn));
+    num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num);
   }
 }
 
@@ -1819,7 +1828,7 @@ function pline(pts) { podDims.add(new THREE.LineSegments(new THREE.BufferGeometr
 // ---------- steps ----------
 const STEPS = [
   { src: 'Design doc; v3 review: snap stud for the modular socket (model estimate)', title: 'Print the cup and lid', need: ['3D printer', 'PETG filament (TPU 95A later)', '4 mm snap stud'],
-    text: 'Print the cup and its snap-on lid. The cup is about 14 mm wide, with a side slot for the lead (drawn here 20 mm tall; the v4 cup is 13 mm so the pod fits under the carriage spring). The lid has a 2 mm top-up hole and a 4 mm snap stud that clicks into the carriage socket. v4.3 has no reservoir, so the cup can be shortened once the tip cartridge is sized. Print watertight: 4 or more walls in PETG and seal it, or use a resin (SLA) print. Six pods print in 1–2 hours.',
+    text: 'Print the cup and its snap-on lid. The cup is about 14 mm wide, with a side slot for the lead (drawn here 20 mm tall; the v4.3 hair cup is only 8 mm, because it holds just the contact and a small gap for top-up drops, which keeps the whole pod about 24 mm high). The lid has a 2 mm top-up hole and a 4 mm snap stud that clicks into the carriage socket. v4.3 has no reservoir, so the cup can be shortened once the tip cartridge is sized. Print watertight: 4 or more walls in PETG and seal it, or use a resin (SLA) print. Six pods print in 1–2 hours.',
     cam: [V3(62, 46, 78), V3(0, 17, 0)], st: { lid: 14, elec: null, sponge: null, seal: 0 },
     co: [['Top-up hole, 2 mm', () => V3(0, 26.8 + pod.cur.lid, 0), 110, -40], ['4 mm snap stud → carriage socket', () => V3(4.3, 30.2 + pod.cur.lid, 0), 120, -70], ['Snap-on lid', () => V3(-5.2, 26 + pod.cur.lid, 5.2), -130, -10],
          ['Cup, PETG', () => V3(-5, 19, 5), -140, 10], ['Slot for the lead', () => V3(7, 12.4, 0), 120, 20]],
