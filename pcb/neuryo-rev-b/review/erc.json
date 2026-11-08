@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/erc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-08T18:30:50",
+    "date": "2026-11-08T18:50:00",
     "ignored_checks": [
         {
             "description": "Global label only appears once in the schematic",
@@ -48,7 +48,7 @@
                                 "x": 472.44,
                                 "y": 355.6
                             },
-                            "uuid": "c8cebbb6-db74-4319-b9f5-b28a17bbf384"
+                            "uuid": "635abe71-6342-4e80-8628-35948246e751"
                         }
                     ],
                     "severity": "error",
@@ -58,7 +58,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3A [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J10 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 93.98
@@ -73,7 +73,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3B [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J11 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 109.22
@@ -88,7 +88,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3C [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J12 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 124.46
@@ -103,7 +103,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3D [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J13 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 139.7
@@ -118,7 +118,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3E [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J14 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 154.94
@@ -133,7 +133,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3F [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J15 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 170.18
@@ -148,7 +148,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3G [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J16 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 185.42
@@ -163,7 +163,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3H [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J17 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 200.66
@@ -178,7 +178,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3I [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J18 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 215.9
@@ -193,7 +193,7 @@
                     "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
                     "items": [
                         {
-                            "description": "Symbol J3J [SMTC-TSW-102-X-X-S-X]",
+                            "description": "Symbol J19 [SMTC-TSW-102-X-X-S-X]",
                             "pos": {
                                 "x": 25.4,
                                 "y": 231.14
@@ -2913,7 +2913,7 @@
                                 "x": 447.04,
                                 "y": 134.62
                             },
-                            "uuid": "952b896e-e967-4c93-9869-a453379676a9"
+                            "uuid": "64e31e2f-7acc-455f-9f2c-03a2bdd426e3"
                         }
                     ],
                     "severity": "warning",
@@ -2928,22 +2928,7 @@
                                 "x": 447.04,
                                 "y": 144.78
                             },
-                            "uuid": "7ccc30b6-5ce9-4ded-8ceb-6ea714e03dad"
-                        }
-                    ],
-                    "severity": "warning",
-                    "type": "lib_symbol_issues"
-                },
-                {
-                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
-                    "items": [
-                        {
-                            "description": "Symbol R38 [1029c3af85768c4190bb7ad29bc67b5]",
-                            "pos": {
-                                "x": 447.04,
-                                "y": 154.94
-                            },
-                            "uuid": "31c871bf-ce9f-4d35-96ac-47f888a277e6"
+                            "uuid": "17a08a13-a8b2-43af-bf51-7e8db6b47ad4"
                         }
                     ],
                     "severity": "warning",
@@ -2958,7 +2943,22 @@
                                 "x": 447.04,
                                 "y": 154.94
                             },
-                            "uuid": "4653494f-fdcd-40e5-907f-b8a056d03241"
+                            "uuid": "a939446a-f199-464c-a111-3bc575b05cd3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R38 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 447.04,
+                                "y": 154.94
+                            },
+                            "uuid": "e9fe15c5-7449-47ad-a1ee-8f0ed1820f6b"
                         }
                     ],
                     "severity": "warning",
@@ -2973,7 +2973,7 @@
                                 "x": 447.04,
                                 "y": 165.1
                             },
-                            "uuid": "6c5df640-29f1-489b-ac90-d93e176a738b"
+                            "uuid": "78e27262-c8e2-4bfe-bdb8-0b09a83bf6fb"
                         }
                     ],
                     "severity": "warning",
@@ -2988,7 +2988,7 @@
                                 "x": 447.04,
                                 "y": 175.26
                             },
-                            "uuid": "dba2e8e3-62f7-475a-82b0-b63b6e591410"
+                            "uuid": "8b206c54-9e3f-4a7a-96be-7bf41062b934"
                         }
                     ],
                     "severity": "warning",
@@ -3003,7 +3003,7 @@
                                 "x": 447.04,
                                 "y": 190.5
                             },
-                            "uuid": "94169555-ba32-4f19-ace8-b13db3ab21b0"
+                            "uuid": "3abc7ac8-c0a7-4862-a956-910e917a6701"
                         }
                     ],
                     "severity": "warning",
@@ -3018,7 +3018,7 @@
                                 "x": 447.04,
                                 "y": 190.5
                             },
-                            "uuid": "d1918065-26d5-4e82-a42b-df55741099f7"
+                            "uuid": "e3193d96-5f9c-42f8-9350-a6672e948d1c"
                         }
                     ],
                     "severity": "warning",
@@ -3033,7 +3033,7 @@
                                 "x": 447.04,
                                 "y": 200.66
                             },
-                            "uuid": "42374c8a-2690-47d3-b435-2bc3b66b5ffb"
+                            "uuid": "7de3210c-8a40-4ce2-98ae-1a2e681c6b45"
                         }
                     ],
                     "severity": "warning",
@@ -3048,7 +3048,7 @@
                                 "x": 447.04,
                                 "y": 210.82
                             },
-                            "uuid": "c943f150-c2d6-44c6-804f-fa587524892c"
+                            "uuid": "9a2a52b1-f7d0-46f6-af25-274595bcf7c9"
                         }
                     ],
                     "severity": "warning",
@@ -3063,11 +3063,34 @@
                                 "x": 447.04,
                                 "y": 215.9
                             },
-                            "uuid": "e0caebfd-f9aa-47d4-9e25-e21abbe86735"
+                            "uuid": "2c59374d-c55b-4c4a-90ee-dc6a1ac1bdf3"
                         }
                     ],
                     "severity": "warning",
                     "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Local and global labels have same name",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR050 Hidden pin  [GND, Power input, Line]",
+                            "pos": {
+                                "x": 447.04,
+                                "y": 215.9
+                            },
+                            "uuid": "01470eaa-32e6-4b4e-9e3e-308a534c7342"
+                        },
+                        {
+                            "description": "Label 'GND'",
+                            "pos": {
+                                "x": 48.26,
+                                "y": 91.44
+                            },
+                            "uuid": "84fceeb1-334b-4634-b426-98d6431fa715"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "same_local_global_label"
                 },
                 {
                     "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
@@ -3078,7 +3101,7 @@
                                 "x": 452.12,
                                 "y": 355.6
                             },
-                            "uuid": "3fcfd1a3-fbbc-4068-8aaa-d3951891c686"
+                            "uuid": "b6d815b3-9363-4ead-a4f7-14f6a46eb33f"
                         }
                     ],
                     "severity": "warning",
@@ -3138,7 +3161,7 @@
                                 "x": 459.74,
                                 "y": 293.37
                             },
-                            "uuid": "53537983-e733-43e1-a7a1-cb47ba4d0360"
+                            "uuid": "015444f0-4a70-42f5-9f46-0061333a6cc3"
                         }
                     ],
                     "severity": "warning",
@@ -3153,7 +3176,7 @@
                                 "x": 459.74,
                                 "y": 316.23
                             },
-                            "uuid": "8b1edd0a-83dc-48c2-bf93-47bd6ad963c4"
+                            "uuid": "f5a26015-5601-429e-bc10-a6b19b219db9"
                         }
                     ],
                     "severity": "warning",
@@ -3168,7 +3191,7 @@
                                 "x": 462.28,
                                 "y": 355.6
                             },
-                            "uuid": "222d3032-8443-4799-bd4b-6637b1cae17f"
+                            "uuid": "7ea56aee-9f37-4726-8b90-1913df817686"
                         }
                     ],
                     "severity": "warning",
@@ -3183,7 +3206,7 @@
                                 "x": 464.82,
                                 "y": 134.62
                             },
-                            "uuid": "76cca448-317f-44a3-afd5-06a049599141"
+                            "uuid": "f868702b-8437-49fd-b7a6-08ec035ff356"
                         }
                     ],
                     "severity": "warning",
@@ -3198,7 +3221,7 @@
                                 "x": 464.82,
                                 "y": 144.78
                             },
-                            "uuid": "df557b67-e2f9-43ec-b43c-e1440ce08475"
+                            "uuid": "1fd88d60-c057-4c49-90eb-c326c5337953"
                         }
                     ],
                     "severity": "warning",
@@ -3213,7 +3236,7 @@
                                 "x": 464.82,
                                 "y": 175.26
                             },
-                            "uuid": "c7ad910e-9351-469c-b807-ee4f3205ea17"
+                            "uuid": "a685f16e-3af1-461c-a25b-8dc5066829cd"
                         }
                     ],
                     "severity": "warning",
@@ -3228,7 +3251,7 @@
                                 "x": 464.82,
                                 "y": 200.66
                             },
-                            "uuid": "1b1b8dc6-9493-4432-9706-70cfcce00914"
+                            "uuid": "19b817cc-a165-41a8-8b94-cfd7b79fb8c3"
                         }
                     ],
                     "severity": "warning",
@@ -3243,7 +3266,7 @@
                                 "x": 472.44,
                                 "y": 355.6
                             },
-                            "uuid": "efa9f816-f33c-4aff-a3fe-232285cfe20a"
+                            "uuid": "bac70f6e-4416-4dda-b1da-42a635388397"
                         }
                     ],
                     "severity": "warning",
@@ -3258,7 +3281,7 @@
                                 "x": 482.6,
                                 "y": 355.6
                             },
-                            "uuid": "0309d86b-ca33-4245-9438-b7192bba4ac2"
+                            "uuid": "d1da9a08-4fdd-476e-8e98-654160686477"
                         }
                     ],
                     "severity": "warning",
@@ -3273,7 +3296,7 @@
                                 "x": 492.76,
                                 "y": 355.6
                             },
-                            "uuid": "beb9e3e4-b45e-4c71-8542-93f011645e51"
+                            "uuid": "9dd58202-80df-4e9d-b81e-b25fd082d2c1"
                         }
                     ],
                     "severity": "warning",
@@ -3288,7 +3311,7 @@
                                 "x": 500.38,
                                 "y": 259.08
                             },
-                            "uuid": "73175191-b39b-48a0-9932-3bdb200823a8"
+                            "uuid": "4d0b5584-e9e5-4369-a52b-6f39c6b6aa48"
                         }
                     ],
                     "severity": "warning",
@@ -3303,7 +3326,7 @@
                                 "x": 502.92,
                                 "y": 355.6
                             },
-                            "uuid": "3fe55779-ed32-464c-948f-5c5f951c223a"
+                            "uuid": "4bd99ce0-953c-4e27-9c35-2de8c079123c"
                         }
                     ],
                     "severity": "warning",
@@ -3318,7 +3341,7 @@
                                 "x": 504.19,
                                 "y": 259.08
                             },
-                            "uuid": "b5fadcd4-e2b5-40c1-b7e6-4166318dc3ed"
+                            "uuid": "af31426e-dd7e-440a-84e0-be8b7dce9e47"
                         }
                     ],
                     "severity": "warning",
@@ -3333,7 +3356,7 @@
                                 "x": 508.0,
                                 "y": 259.08
                             },
-                            "uuid": "1677b449-7372-482b-b52b-33b90551de11"
+                            "uuid": "8e1abd29-5384-4b46-b2eb-963bba079fd0"
                         }
                     ],
                     "severity": "warning",
@@ -3348,7 +3371,7 @@
                                 "x": 513.08,
                                 "y": 139.7
                             },
-                            "uuid": "c22f0c21-c04d-4001-ae01-b29b1d694f80"
+                            "uuid": "544ff957-515a-4c5d-8387-ead3d2d4ef12"
                         }
                     ],
                     "severity": "warning",
@@ -3363,34 +3386,11 @@
                                 "x": 524.51,
                                 "y": 231.14
                             },
-                            "uuid": "bc16b86e-b63e-4ac9-bcff-372ec81f0b29"
+                            "uuid": "eb61e12c-8602-438e-932a-35a140c19f20"
                         }
                     ],
                     "severity": "warning",
                     "type": "lib_symbol_issues"
-                },
-                {
-                    "description": "Local and global labels have same name",
-                    "items": [
-                        {
-                            "description": "Symbol #PWR051 Hidden pin  [GND, Power input, Line]",
-                            "pos": {
-                                "x": 524.51,
-                                "y": 231.14
-                            },
-                            "uuid": "046b2df0-57ce-4b6a-bdf2-fc9e48bd2d16"
-                        },
-                        {
-                            "description": "Label 'GND'",
-                            "pos": {
-                                "x": 48.26,
-                                "y": 91.44
-                            },
-                            "uuid": "84fceeb1-334b-4634-b426-98d6431fa715"
-                        }
-                    ],
-                    "severity": "warning",
-                    "type": "same_local_global_label"
                 }
             ]
         }

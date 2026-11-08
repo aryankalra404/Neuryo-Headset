@@ -15,7 +15,7 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
 - [ ] **Change 1 (SRB2).**
   - REF → R27 → SRB2 (pin 18), C31 on that node, pin 17 open.
   - Copper: R27's via (25.5, 44.5) → 2 B.Cu segments → the reference's old SRB2 run.
-  - J3J pin 2 is now a dead pin (silkscreen "REF nc").
+  - J19 (was J3J) pin 2 is now a dead pin (silkscreen "REF nc"). The electrode headers J3A–J3J are now J10–J19 (CHANGES R11).
   - Firmware (F3) sets MISC1 = 0x00, CHnSET SRB2 on channels 1–7 and off on channel 8, and expects the electrodes on the N (−) pins. Bias and lead-off now sense the N inputs (BIAS_SENSN 0x7F, LOFF_SENSN 0xFF, LOFF_SENSP 0x81): agree with this starting point?
 - [ ] **Change 2 (interlock).**
   - AEN schematic; Q1 pinout (Nexperia: 1 G, 2 S, 3 D).

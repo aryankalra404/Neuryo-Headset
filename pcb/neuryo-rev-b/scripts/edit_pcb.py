@@ -9,6 +9,11 @@ X0, Y0 = 98.5011, 80.0036
 src, dst = sys.argv[1], sys.argv[2]
 B = parse(open(src).read())
 LOG = []
+# electrode headers J3A-J3J -> J10-J19 (same rename as the schematic, step 8; KiCad needs a trailing number)
+for f_ in kids(B, 'footprint'):
+    for p_ in kids(f_, 'property'):
+        if p_[1] == 'Reference' and len(p_[2]) == 3 and p_[2][:2] == 'J3' and p_[2][2] in 'ABCDEFGHIJ':
+            p_[2] = 'J%d' % (10 + 'ABCDEFGHIJ'.index(p_[2][2]))
 U = lambda: str(uuid.uuid4())
 F = lambda v: '%.4f' % v
 AX = lambda x: F(x + X0)
@@ -151,7 +156,7 @@ for r, num in (('U1', 8), ('U1', 12), ('U3', 3)):
 
 # ------------------------------------------------------------------ 4. other net changes on kept parts
 # change 1: R27/C31 node moves from SRB1 to SRB2; header SRB2 pin + D5 IO4 become SRB2_HDR
-for r, num, new in (('R27', 2, 'SRB2'), ('C31', 1, 'SRB2'), ('J3J', 2, 'SRB2_HDR'), ('D5', 5, 'SRB2_HDR')):
+for r, num, new in (('R27', 2, 'SRB2'), ('C31', 1, 'SRB2'), ('J19', 2, 'SRB2_HDR'), ('D5', 5, 'SRB2_HDR')):
     set_net(pad(r, num)['el'], new)
 for p in kids(fps('U4')[0], 'pad'):
     if str(p[1]) == '17':

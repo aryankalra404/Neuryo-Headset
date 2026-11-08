@@ -3,10 +3,16 @@ usage: netdiff.py a.net b.net  -> prints every pin whose connections changed"""
 import sys
 sys.path.insert(0, '/home/claude/kw')
 from sx import *
+RENAME = {'J3%s' % c: 'J%d' % (10 + i) for i, c in enumerate('ABCDEFGHIJ')}   # rev B: J3A-J3J renamed J10-J19 (KiCad needs a trailing number)
 
 
 def load(f):
     g = netlist_groups(open(f).read())
+    pin = {}
+    for n, ps in g.items():
+        for p in ps:
+            pin[p] = n
+    g = {n: frozenset(RENAME.get(p.split('.')[0], p.split('.')[0]) + '.' + p.split('.')[1] for p in ps) for n, ps in g.items()}
     pin = {}
     for n, ps in g.items():
         for p in ps:

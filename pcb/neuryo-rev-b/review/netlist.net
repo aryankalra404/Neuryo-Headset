@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/Users/aryankalra/Desktop/Neuryo-Research/pcb-work/revb/Neuryo_RevB.kicad_sch")
-		(date "2026-11-08T18:30:51")
+		(date "2026-11-08T18:50:01")
 		(tool "Eeschema 10.0.8")
 		(textvar
 			(name "DRAWNBY") "Xavier Asghar")
@@ -7383,7 +7383,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "c943f150-c2d6-44c6-804f-fa587524892c")
+			(tstamps "9a2a52b1-f7d0-46f6-af25-274595bcf7c9")
 			(units
 				(unit
 					(name "A")
@@ -8235,7 +8235,123 @@
 			)
 		)
 		(comp
-			(ref "J3A")
+			(ref "J6")
+			(value "MAX30102 earlobe")
+			(footprint "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
+			(fields
+				(field
+					(name "MPN") "Samtec TSW-104-07-T-S or leads soldered in")
+				(field
+					(name "Footprint") "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Neuryo_RevB")
+				(part "Conn_1x04")
+				(description "1x4 2.54 mm header")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-104-07-T-S or leads soldered in")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2d6a452f-6f84-4715-9c03-c5d75433c2a5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J7")
+			(value "BMI270")
+			(footprint "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
+			(fields
+				(field
+					(name "MPN") "Samtec TSW-104-07-T-S or leads soldered in")
+				(field
+					(name "Footprint") "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Neuryo_RevB")
+				(part "Conn_1x04")
+				(description "1x4 2.54 mm header")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-104-07-T-S or leads soldered in")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3a1135c8-d408-4c7c-bede-f3d97aeee1b2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J10")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -8387,7 +8503,7 @@
 			)
 		)
 		(comp
-			(ref "J3B")
+			(ref "J11")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -8539,7 +8655,7 @@
 			)
 		)
 		(comp
-			(ref "J3C")
+			(ref "J12")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -8691,7 +8807,7 @@
 			)
 		)
 		(comp
-			(ref "J3D")
+			(ref "J13")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -8843,7 +8959,7 @@
 			)
 		)
 		(comp
-			(ref "J3E")
+			(ref "J14")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -8995,7 +9111,7 @@
 			)
 		)
 		(comp
-			(ref "J3F")
+			(ref "J15")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -9147,7 +9263,7 @@
 			)
 		)
 		(comp
-			(ref "J3G")
+			(ref "J16")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -9299,7 +9415,7 @@
 			)
 		)
 		(comp
-			(ref "J3H")
+			(ref "J17")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -9451,7 +9567,7 @@
 			)
 		)
 		(comp
-			(ref "J3I")
+			(ref "J18")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -9603,7 +9719,7 @@
 			)
 		)
 		(comp
-			(ref "J3J")
+			(ref "J19")
 			(value "TSW-102-26-F-S")
 			(footprint "Low_Cost_EEG-import-fps:SMTC-TSW-102-26-XX-S")
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
@@ -9749,122 +9865,6 @@
 						)
 						(pin
 							(num "1")
-						)
-					)
-				)
-			)
-		)
-		(comp
-			(ref "J6")
-			(value "MAX30102 earlobe")
-			(footprint "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
-			(fields
-				(field
-					(name "MPN") "Samtec TSW-104-07-T-S or leads soldered in")
-				(field
-					(name "Footprint") "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
-				(field
-					(name "Datasheet")
-				)
-				(field
-					(name "Description")
-				)
-			)
-			(libsource
-				(lib "Neuryo_RevB")
-				(part "Conn_1x04")
-				(description "1x4 2.54 mm header")
-			)
-			(property
-				(name "MPN")
-				(value "Samtec TSW-104-07-T-S or leads soldered in")
-			)
-			(property
-				(name "Sheetname")
-				(value "Neuryo_RevB")
-			)
-			(property
-				(name "Sheetfile")
-				(value "Neuryo_RevB.kicad_sch")
-			)
-			(sheetpath
-				(names "/")
-				(tstamps "/")
-			)
-			(tstamps "ef4522fa-2efa-47da-89b7-3837e8c91f2d")
-			(units
-				(unit
-					(name "A")
-					(pins
-						(pin
-							(num "1")
-						)
-						(pin
-							(num "2")
-						)
-						(pin
-							(num "3")
-						)
-						(pin
-							(num "4")
-						)
-					)
-				)
-			)
-		)
-		(comp
-			(ref "J7")
-			(value "BMI270")
-			(footprint "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
-			(fields
-				(field
-					(name "MPN") "Samtec TSW-104-07-T-S or leads soldered in")
-				(field
-					(name "Footprint") "Neuryo_RevB:PinHeader_1x04_P2.54_TSW")
-				(field
-					(name "Datasheet")
-				)
-				(field
-					(name "Description")
-				)
-			)
-			(libsource
-				(lib "Neuryo_RevB")
-				(part "Conn_1x04")
-				(description "1x4 2.54 mm header")
-			)
-			(property
-				(name "MPN")
-				(value "Samtec TSW-104-07-T-S or leads soldered in")
-			)
-			(property
-				(name "Sheetname")
-				(value "Neuryo_RevB")
-			)
-			(property
-				(name "Sheetfile")
-				(value "Neuryo_RevB.kicad_sch")
-			)
-			(sheetpath
-				(names "/")
-				(tstamps "/")
-			)
-			(tstamps "3e7d0e8e-57da-4d0d-b14e-10bdad764a46")
-			(units
-				(unit
-					(name "A")
-					(pins
-						(pin
-							(num "1")
-						)
-						(pin
-							(num "2")
-						)
-						(pin
-							(num "3")
-						)
-						(pin
-							(num "4")
 						)
 					)
 				)
@@ -10059,7 +10059,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "2c7f853c-6227-4c93-86de-572ccd47fcce")
+			(tstamps "dd4e70d8-8088-4c01-b558-d9acf3b63f0b")
 			(units
 				(unit
 					(name "A")
@@ -13618,7 +13618,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "952b896e-e967-4c93-9869-a453379676a9")
+			(tstamps "64e31e2f-7acc-455f-9f2c-03a2bdd426e3")
 			(units
 				(unit
 					(name "A")
@@ -13674,7 +13674,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "7ccc30b6-5ce9-4ded-8ceb-6ea714e03dad")
+			(tstamps "17a08a13-a8b2-43af-bf51-7e8db6b47ad4")
 			(units
 				(unit
 					(name "A")
@@ -13730,7 +13730,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "31c871bf-ce9f-4d35-96ac-47f888a277e6")
+			(tstamps "e9fe15c5-7449-47ad-a1ee-8f0ed1820f6b")
 			(units
 				(unit
 					(name "A")
@@ -13786,7 +13786,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "6c5df640-29f1-489b-ac90-d93e176a738b")
+			(tstamps "78e27262-c8e2-4bfe-bdb8-0b09a83bf6fb")
 			(units
 				(unit
 					(name "A")
@@ -13842,7 +13842,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "dba2e8e3-62f7-475a-82b0-b63b6e591410")
+			(tstamps "8b206c54-9e3f-4a7a-96be-7bf41062b934")
 			(units
 				(unit
 					(name "A")
@@ -13898,7 +13898,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "94169555-ba32-4f19-ace8-b13db3ab21b0")
+			(tstamps "3abc7ac8-c0a7-4862-a956-910e917a6701")
 			(units
 				(unit
 					(name "A")
@@ -13954,7 +13954,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "42374c8a-2690-47d3-b435-2bc3b66b5ffb")
+			(tstamps "7de3210c-8a40-4ce2-98ae-1a2e681c6b45")
 			(units
 				(unit
 					(name "A")
@@ -15129,7 +15129,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "0194689a-1bb6-4474-85eb-96df6949fbc0")
+			(tstamps "6f766d0f-8f05-46db-b520-14f6709088a5")
 			(units
 				(unit
 					(name "A")
@@ -17111,7 +17111,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3I")
+				(ref "J18")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17134,7 +17134,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3I")
+				(ref "J18")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17157,7 +17157,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3H")
+				(ref "J17")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17180,7 +17180,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3H")
+				(ref "J17")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17203,7 +17203,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3G")
+				(ref "J16")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17226,7 +17226,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3G")
+				(ref "J16")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17249,7 +17249,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3F")
+				(ref "J15")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17272,7 +17272,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3F")
+				(ref "J15")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17295,7 +17295,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3E")
+				(ref "J14")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17318,7 +17318,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3E")
+				(ref "J14")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17341,7 +17341,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3D")
+				(ref "J13")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17364,7 +17364,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3D")
+				(ref "J13")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17387,7 +17387,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3C")
+				(ref "J12")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17410,7 +17410,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3C")
+				(ref "J12")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17433,7 +17433,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3B")
+				(ref "J11")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -17456,7 +17456,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3B")
+				(ref "J11")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -17616,7 +17616,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3A")
+				(ref "J10")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -18236,7 +18236,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3J")
+				(ref "J19")
 				(pin "1")
 				(pinfunction "1_1")
 				(pintype "passive")
@@ -18299,7 +18299,7 @@
 				(pintype "bidirectional")
 			)
 			(node
-				(ref "J3J")
+				(ref "J19")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")
@@ -19054,7 +19054,7 @@
 				(pintype "power_in")
 			)
 			(node
-				(ref "J3A")
+				(ref "J10")
 				(pin "2")
 				(pinfunction "2_2")
 				(pintype "passive")

@@ -3,6 +3,7 @@ usage: copperdiff.py base.kicad_pcb new.kicad_pcb"""
 import sys, math
 sys.path.insert(0, '/home/claude/kw')
 from sx import *
+RENAME = {'J3%s' % c: 'J%d' % (10 + i) for i, c in enumerate('ABCDEFGHIJ')}   # rev B: J3A-J3J renamed J10-J19 (KiCad needs a trailing number)
 X0, Y0 = 98.5011, 80.0036
 def nn(e):
     n = kid(e, 'net'); return (n[-1]) if n else ''
@@ -19,6 +20,7 @@ def load(f):
     F = {}
     for f_ in kids(b, 'footprint'):
         r = [p[2] for p in kids(f_, 'property') if p[1] == 'Reference'][0]
+        r = RENAME.get(r, r)
         a = kid(f_, 'at'); F[r or 'hole@%.0f,%.0f' % (float(a[1]) - X0, float(a[2]) - Y0)] = (round(float(a[1]) - X0, 2), round(float(a[2]) - Y0, 2), a[3] if len(a) > 3 else '0', val(f_, 'layer'))
     return S, V, F
 S0, V0, F0 = load(sys.argv[1]); S1, V1, F1 = load(sys.argv[2])

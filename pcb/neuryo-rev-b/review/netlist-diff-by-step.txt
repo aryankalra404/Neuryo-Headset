@@ -120,3 +120,8 @@ parts removed:
 parts added:   
 pins of kept parts whose connections changed: 66 (65 are GND pins gaining U6.25, not listed)
   U6.25      unconnected-(U6-PAD-Pad25) -> GND   lost   gained C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 ...
+
+### 2nd pass -> rename (J3A-J3J renamed J10-J19; refs mapped before comparing)
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 0

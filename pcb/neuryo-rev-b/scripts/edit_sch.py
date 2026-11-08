@@ -370,6 +370,16 @@ if STEP >= 8:   # housekeeping: the importer wrote instance paths that don't mat
         for pth in kids(kid(kid(y, 'instances'), 'project'), 'path'):
             pth[1] = root
     log.append('instance paths -> %s' % root)
+    # the import named the ten electrode headers J3A-J3J; KiCad treats a reference without a trailing number as
+    # unannotated ("J3A?" in the BOM, annotation-error warning). Renamed J10-J19 in the same order; no connection change.
+    for i, c in enumerate('ABCDEFGHIJ'):
+        for y in by_ref('J3' + c):
+            for p in kids(y, 'property'):
+                if p[1] == 'Reference':
+                    p[2] = 'J%d' % (10 + i)
+            for pth in kids(kid(kid(y, 'instances'), 'project'), 'path'):
+                kid(pth, 'reference')[1] = 'J%d' % (10 + i)
+            log.append('rename J3%s -> J%d' % (c, 10 + i))
 open(dst, 'w').write(dump(numify(s)) + '\n')
 open(dst + '.log', 'w').write('\n'.join(log) + '\n')
 print('\n'.join(l for l in log if not l.startswith('prune')))
