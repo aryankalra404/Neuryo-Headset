@@ -1,8 +1,8 @@
 (export
 	(version "E")
 	(design
-		(source "/Users/aryankalra/Desktop/Neuryo-Research/pcb-work/revb/Neuryo_RevB.kicad_sch")
-		(date "2026-11-08T18:50:01")
+		(source "/Users/aryankalra/Desktop/Neuryo-Headset/pcb/neuryo-rev-b/Neuryo_RevB.kicad_sch")
+		(date "2026-11-09T00:08:40")
 		(tool "Eeschema 10.0.8")
 		(textvar
 			(name "DRAWNBY") "Xavier Asghar")
@@ -64,6 +64,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 			(description "Cap Ceramic 0.47uF 16V X7R 10% Pad SMD 0603 125C Automotive T/R")
 			(fields
+				(field
+					(name "MPN") "Yageo C0603C474K4RACAUTO")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
 				(field
@@ -128,6 +130,10 @@
 				(lib "")
 				(part "b4654b650e69147ec39a6b967a45e02_3")
 				(description "Cap Ceramic 0.47uF 16V X7R 10% Pad SMD 0603 125C Automotive T/R")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C474K4RACAUTO")
 			)
 			(property
 				(name "COMPONENTLINK2DESCRIPTION")
@@ -271,6 +277,8 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
+					(name "MPN") "Murata GCJ21BR71C475KA01K")
+				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
 					(name "TOLERANCE") "10%")
@@ -314,6 +322,10 @@
 				(lib "Altium Content Vault")
 				(part "02cd4be3c70576c341d710602a673aa")
 				(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GCJ21BR71C475KA01K")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -417,6 +429,8 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
+					(name "MPN") "Murata GCJ21BR71C475KA01K")
+				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
 					(name "TOLERANCE") "10%")
@@ -460,6 +474,10 @@
 				(lib "Altium Content Vault")
 				(part "02cd4be3c70576c341d710602a673aa")
 				(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GCJ21BR71C475KA01K")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -563,6 +581,8 @@
 			(description "Ceramic Capacitor for Automotive 2.2uF ±10% 16VDC X7R 0805 Embossed T/R")
 			(fields
 				(field
+					(name "MPN") "Murata GCM21BR71C225KA64K")
+				(field
 					(name "MIN OPERATING TEMPERATURE") "-55°C")
 				(field
 					(name "DIELECTRIC") "X7R")
@@ -612,6 +632,10 @@
 				(lib "")
 				(part "02cd4be3c70576c341d710602a673aa_2")
 				(description "Ceramic Capacitor for Automotive 2.2uF ±10% 16VDC X7R 0805 Embossed T/R")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GCM21BR71C225KA64K")
 			)
 			(property
 				(name "MIN OPERATING TEMPERATURE")
@@ -727,6 +751,8 @@
 			(description "Ceramic Capacitor for Automotive 2.2uF ±10% 16VDC X7R 0805 Embossed T/R")
 			(fields
 				(field
+					(name "MPN") "Murata GCM21BR71C225KA64K")
+				(field
 					(name "MIN OPERATING TEMPERATURE") "-55°C")
 				(field
 					(name "DIELECTRIC") "X7R")
@@ -776,6 +802,10 @@
 				(lib "")
 				(part "02cd4be3c70576c341d710602a673aa_1")
 				(description "Ceramic Capacitor for Automotive 2.2uF ±10% 16VDC X7R 0805 Embossed T/R")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GCM21BR71C225KA64K")
 			)
 			(property
 				(name "MIN OPERATING TEMPERATURE")
@@ -891,6 +921,8 @@
 			(description "CAP CER MLCC")
 			(fields
 				(field
+					(name "MPN") "Murata GRJ21BR61E106KE01L")
+				(field
 					(name "ROHS COMPLIANT") "Yes")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRJ21B-0_3-0_2-MFG")
@@ -904,6 +936,10 @@
 				(lib "")
 				(part "11868f565c42a9108669ba33697ecf6_4")
 				(description "CAP CER MLCC")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GRJ21BR61E106KE01L")
 			)
 			(property
 				(name "ROHS COMPLIANT")
@@ -946,6 +982,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
+				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
 				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
@@ -1014,6 +1052,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -1165,6 +1207,8 @@
 			(description "CAP CER 1500PF 100V NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Murata GRM1885C2A152JA01D")
+				(field
 					(name "MANUFACTURER PART NUMBER") "C0603C152J1GACTU")
 				(field
 					(name "CAPACITANCE") "1,500 pF")
@@ -1230,6 +1274,10 @@
 				(lib "")
 				(part "b4654b650e69147ec39a6b967a45e02_1")
 				(description "CAP CER 1500PF 100V NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GRM1885C2A152JA01D")
 			)
 			(property
 				(name "MANUFACTURER PART NUMBER")
@@ -1377,6 +1425,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -1442,6 +1492,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -1589,6 +1643,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -1654,6 +1710,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -1801,6 +1861,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -1866,6 +1928,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2013,6 +2079,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -2078,6 +2146,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2225,6 +2297,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -2290,6 +2364,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2437,6 +2515,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -2502,6 +2582,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2649,6 +2733,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -2714,6 +2800,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2861,6 +2951,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -2926,6 +3018,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3073,6 +3169,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -3138,6 +3236,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3285,6 +3387,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -3350,6 +3454,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3497,6 +3605,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -3562,6 +3672,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3709,6 +3823,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -3774,6 +3890,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3921,6 +4041,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -3986,6 +4108,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4133,6 +4259,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -4198,6 +4326,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4345,6 +4477,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -4410,6 +4544,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4557,6 +4695,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -4622,6 +4762,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4769,6 +4913,8 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603C102F5GACTU")
+				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -4834,6 +4980,10 @@
 				(lib "Altium Content Vault")
 				(part "b4654b650e69147ec39a6b967a45e02")
 				(description "CAP CER 1000PF 50V 1% NP0 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603C102F5GACTU")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4980,6 +5130,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -4996,6 +5148,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -5043,6 +5199,8 @@
 			(description "CAP CER MLCC")
 			(fields
 				(field
+					(name "MPN") "Murata GRJ21BR61E106KE01L")
+				(field
 					(name "ROHS COMPLIANT") "Yes")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRJ21B-0_3-0_2-MFG")
@@ -5056,6 +5214,10 @@
 				(lib "")
 				(part "11868f565c42a9108669ba33697ecf6_2")
 				(description "CAP CER MLCC")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GRJ21BR61E106KE01L")
 			)
 			(property
 				(name "ROHS COMPLIANT")
@@ -5099,6 +5261,8 @@
 			(description "Chip Multilayer Ceramic Capacitors for General Purpose, 1206, 100uF, X5R, 15%, 20%, 10V")
 			(fields
 				(field
+					(name "MPN") "Murata GRM31CR61A107MEA8L")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRM31C-0_3-e0_3_0_8-IPC_B")
 				(field
 					(name "Datasheet")
@@ -5110,6 +5274,10 @@
 				(lib "Altium Content Vault")
 				(part "f23184f103b6ebe33a8c269c53dcba6")
 				(description "Chip Multilayer Ceramic Capacitors for General Purpose, 1206, 100uF, X5R, 15%, 20%, 10V")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GRM31CR61A107MEA8L")
 			)
 			(property
 				(name "Sheetname")
@@ -5148,6 +5316,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
+				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
 				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
@@ -5216,6 +5386,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -5367,6 +5541,8 @@
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
+				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
 					(name "ROHS") "TRUE")
@@ -5434,6 +5610,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -5584,6 +5764,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -5600,6 +5782,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -5646,6 +5832,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
+				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
 				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
@@ -5714,6 +5902,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -5865,6 +6057,8 @@
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
+				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
 					(name "ROHS") "TRUE")
@@ -5932,6 +6126,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -6083,6 +6281,8 @@
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
+				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
 					(name "ROHS") "TRUE")
@@ -6150,6 +6350,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -6300,6 +6504,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -6316,6 +6522,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -6362,6 +6572,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -6378,6 +6590,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -6424,6 +6640,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
+				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
 				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
@@ -6492,6 +6710,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -6643,6 +6865,8 @@
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
+				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
 					(name "ROHS") "TRUE")
@@ -6710,6 +6934,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -6860,6 +7088,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -6876,6 +7106,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -6922,6 +7156,8 @@
 			(footprint "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 			(description "CAP CER 1UF 16V X7R 0603")
 			(fields
+				(field
+					(name "MPN") "Yageo CC0603KRX7R7BB105")
 				(field
 					(name "PACKAGE") "CC0603-DA")
 				(field
@@ -6990,6 +7226,10 @@
 				(lib "Altium Content Vault")
 				(part "11868f565c42a9108669ba33697ecf6")
 				(description "CAP CER 1UF 16V X7R 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo CC0603KRX7R7BB105")
 			)
 			(property
 				(name "PACKAGE")
@@ -7140,6 +7380,8 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
+					(name "MPN") "Yageo C0603X104J4RACTU")
+				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
@@ -7156,6 +7398,10 @@
 				(lib "Altium Content Vault")
 				(part "CAP")
 				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo C0603X104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -7203,6 +7449,8 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
+					(name "MPN") "Murata GCJ21BR71C475KA01K")
+				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
 					(name "TOLERANCE") "10%")
@@ -7246,6 +7494,10 @@
 				(lib "Altium Content Vault")
 				(part "02cd4be3c70576c341d710602a673aa")
 				(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
+			)
+			(property
+				(name "MPN")
+				(value "Murata GCJ21BR71C475KA01K")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -7405,6 +7657,10 @@
 			(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPD4E1B06DCKR")
+				(field
+					(name "LCSC") "C840093")
+				(field
 					(name "SNAPEDA_LINK") "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap")
 				(field
 					(name "PACKAGE") "SOT-SC70-6 Texas Instruments")
@@ -7428,6 +7684,14 @@
 				(lib "TPD4E1B06DCKR")
 				(part "TPD4E1B06DCKR")
 				(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPD4E1B06DCKR")
+			)
+			(property
+				(name "LCSC")
+				(value "C840093")
 			)
 			(property
 				(name "SNAPEDA_LINK")
@@ -7503,6 +7767,10 @@
 			(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPD4E1B06DCKR")
+				(field
+					(name "LCSC") "C840093")
+				(field
 					(name "SNAPEDA_LINK") "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap")
 				(field
 					(name "PACKAGE") "SOT-SC70-6 Texas Instruments")
@@ -7526,6 +7794,14 @@
 				(lib "TPD4E1B06DCKR")
 				(part "TPD4E1B06DCKR")
 				(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPD4E1B06DCKR")
+			)
+			(property
+				(name "LCSC")
+				(value "C840093")
 			)
 			(property
 				(name "SNAPEDA_LINK")
@@ -7601,6 +7877,10 @@
 			(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPD4E1B06DCKR")
+				(field
+					(name "LCSC") "C840093")
+				(field
 					(name "SNAPEDA_LINK") "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap")
 				(field
 					(name "PACKAGE") "SOT-SC70-6 Texas Instruments")
@@ -7624,6 +7904,14 @@
 				(lib "TPD4E1B06DCKR")
 				(part "TPD4E1B06DCKR")
 				(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPD4E1B06DCKR")
+			)
+			(property
+				(name "LCSC")
+				(value "C840093")
 			)
 			(property
 				(name "SNAPEDA_LINK")
@@ -7699,6 +7987,10 @@
 			(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPD4E1B06DCKR")
+				(field
+					(name "LCSC") "C840093")
+				(field
 					(name "SNAPEDA_LINK") "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap")
 				(field
 					(name "PACKAGE") "SOT-SC70-6 Texas Instruments")
@@ -7722,6 +8014,14 @@
 				(lib "TPD4E1B06DCKR")
 				(part "TPD4E1B06DCKR")
 				(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPD4E1B06DCKR")
+			)
+			(property
+				(name "LCSC")
+				(value "C840093")
 			)
 			(property
 				(name "SNAPEDA_LINK")
@@ -7797,6 +8097,10 @@
 			(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPD4E1B06DCKR")
+				(field
+					(name "LCSC") "C840093")
+				(field
 					(name "SNAPEDA_LINK") "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap")
 				(field
 					(name "PACKAGE") "SOT-SC70-6 Texas Instruments")
@@ -7820,6 +8124,14 @@
 				(lib "TPD4E1B06DCKR")
 				(part "TPD4E1B06DCKR")
 				(description "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPD4E1B06DCKR")
+			)
+			(property
+				(name "LCSC")
+				(value "C840093")
 			)
 			(property
 				(name "SNAPEDA_LINK")
@@ -7895,6 +8207,8 @@
 			(description "Transient Voltage Suppressor Diode, for ESD Protection, 2-Pin SOD-323, Pb-Free, Tape and Reel")
 			(fields
 				(field
+					(name "MPN") "onsemi SD05T1G")
+				(field
 					(name "COMPONENTLINK1DESCRIPTION") "Manufacturer URL")
 				(field
 					(name "PACKAGEREFERENCE") "SOD-323-2-477-02_G")
@@ -7942,6 +8256,10 @@
 				(lib "Altium Content Vault")
 				(part "ONSC-K1A2-2")
 				(description "Transient Voltage Suppressor Diode, for ESD Protection, 2-Pin SOD-323, Pb-Free, Tape and Reel")
+			)
+			(property
+				(name "MPN")
+				(value "onsemi SD05T1G")
 			)
 			(property
 				(name "COMPONENTLINK1DESCRIPTION")
@@ -8053,6 +8371,8 @@
 			(description "Male Header, Pitch 2 mm, 1 x 2 Position, Height 4.8 mm, Tail Length 3.4 mm, -25 to 85 degC, RoHS, Bulk")
 			(fields
 				(field
+					(name "MPN") "JST S2B-PH-K-S(LF)(SN)")
+				(field
 					(name "CAS~{E}PACKAGE") "Radial")
 				(field
 					(name "PACKAGING") "Bulk")
@@ -8110,6 +8430,10 @@
 				(lib "Altium Content Vault")
 				(part "CN-1P-M-R2")
 				(description "Male Header, Pitch 2 mm, 1 x 2 Position, Height 4.8 mm, Tail Length 3.4 mm, -25 to 85 degC, RoHS, Bulk")
+			)
+			(property
+				(name "MPN")
+				(value "JST S2B-PH-K-S(LF)(SN)")
 			)
 			(property
 				(name "CAS~{E}PACKAGE")
@@ -8357,6 +8681,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -8402,6 +8728,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -8509,6 +8839,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -8554,6 +8886,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -8661,6 +8997,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -8706,6 +9044,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -8813,6 +9155,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -8858,6 +9202,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -8965,6 +9313,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9010,6 +9360,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9117,6 +9471,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9162,6 +9518,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9269,6 +9629,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9314,6 +9676,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9421,6 +9787,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9466,6 +9834,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9573,6 +9945,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9618,6 +9992,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9725,6 +10103,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9770,6 +10150,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -9877,6 +10261,8 @@
 			(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
 			(fields
 				(field
+					(name "MPN") "Samtec TSW-102-26-F-S")
+				(field
 					(name "PACKAGEVERSION") "DM, 8/1988")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
@@ -9922,6 +10308,10 @@
 				(lib "Altium Content Vault")
 				(part "SMTC-TSW-102-X-X-S-X")
 				(description "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Samtec TSW-102-26-F-S")
 			)
 			(property
 				(name "PACKAGEVERSION")
@@ -10081,8 +10471,10 @@
 			(ref "R1")
 			(value "130k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_B")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 130K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D1303BP100")
 				(field
 					(name "VOLTAGE RATING (DC)") "50V")
 				(field
@@ -10129,12 +10521,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 130K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_17")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D1303BP100")
 			)
 			(property
 				(name "VOLTAGE RATING (DC)")
@@ -10254,6 +10650,8 @@
 			(description "RES SMD 120K OHM 0.1% 1/10W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo RT0603BRD07120KL")
+				(field
 					(name "LEAD FREE") "Yes")
 				(field
 					(name "AUTOMOTIVE") "No")
@@ -10323,6 +10721,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_15")
 				(description "RES SMD 120K OHM 0.1% 1/10W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo RT0603BRD07120KL")
 			)
 			(property
 				(name "LEAD FREE")
@@ -10478,6 +10880,8 @@
 			(description "RES SMD 105K OHM 0.1% 1/10W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo RT0603BRD07105KL")
+				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
 				(field
 					(name "MANUFACTURER PART NUMBER") "RT0603BRD07105KL")
@@ -10547,6 +10951,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_10")
 				(description "RES SMD 105K OHM 0.1% 1/10W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo RT0603BRD07105KL")
 			)
 			(property
 				(name "COMPONENTLINK2DESCRIPTION")
@@ -10702,6 +11110,8 @@
 			(description "Thin Film Chip Resistors Automotive Grade 100kΩ 0.1% 25ppm/°C 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AT0603BRD07100KL")
+				(field
 					(name "WIDTH") "0.032inch")
 				(field
 					(name "CASE/PACKAGE") "0603")
@@ -10751,6 +11161,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_16")
 				(description "Thin Film Chip Resistors Automotive Grade 100kΩ 0.1% 25ppm/°C 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AT0603BRD07100KL")
 			)
 			(property
 				(name "WIDTH")
@@ -10863,8 +11277,10 @@
 			(ref "R9")
 			(value "1M")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-MFG")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 1M OHM 1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030C1004FPW00")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -10893,12 +11309,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 1M OHM 1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_3")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030C1004FPW00")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11107,8 +11527,10 @@
 			(ref "R11")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11139,12 +11561,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11229,8 +11655,10 @@
 			(ref "R12")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11261,12 +11689,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11351,8 +11783,10 @@
 			(ref "R13")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11383,12 +11817,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11473,8 +11911,10 @@
 			(ref "R14")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11505,12 +11945,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11595,8 +12039,10 @@
 			(ref "R15")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11627,12 +12073,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11717,8 +12167,10 @@
 			(ref "R16")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11749,12 +12201,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11839,8 +12295,10 @@
 			(ref "R17")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11871,12 +12329,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11961,8 +12423,10 @@
 			(ref "R18")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11993,12 +12457,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12083,8 +12551,10 @@
 			(ref "R19")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12115,12 +12585,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12205,8 +12679,10 @@
 			(ref "R20")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12237,12 +12713,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12327,8 +12807,10 @@
 			(ref "R21")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12359,12 +12841,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12449,8 +12935,10 @@
 			(ref "R22")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12481,12 +12969,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12571,8 +13063,10 @@
 			(ref "R23")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12603,12 +13097,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12693,8 +13191,10 @@
 			(ref "R24")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12725,12 +13225,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12815,8 +13319,10 @@
 			(ref "R25")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12847,12 +13353,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12937,8 +13447,10 @@
 			(ref "R26")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12969,12 +13481,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13059,8 +13575,10 @@
 			(ref "R27")
 			(value "2.2k")
 			(footprint "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
-			(description "RES SMD 100 OHM 1% 1/8W 0603")
+			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
+				(field
+					(name "MPN") "Vishay MCT06030D2201BP500")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13091,12 +13609,16 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES SMD 100 OHM 1% 1/8W 0603")
+					(name "Description") "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			)
 			(libsource
 				(lib "Altium Content Vault")
 				(part "1029c3af85768c4190bb7ad29bc67b5")
 				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Vishay MCT06030D2201BP500")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13184,6 +13706,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13195,6 +13719,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_14")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13234,6 +13762,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13245,6 +13775,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_11")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13284,6 +13818,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13295,6 +13831,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_8")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13334,6 +13874,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13345,6 +13887,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_9")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13384,6 +13930,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13395,6 +13943,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_7")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13434,6 +13986,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13445,6 +13999,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_6")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13484,6 +14042,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13495,6 +14055,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_5")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -13534,6 +14098,8 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
+					(name "MPN") "Yageo AC0603FR-7W10KL")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
@@ -13545,6 +14111,10 @@
 				(lib "")
 				(part "1029c3af85768c4190bb7ad29bc67b5_4")
 				(description "RES 10kΩ 1.00% 0.2W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "Yageo AC0603FR-7W10KL")
 			)
 			(property
 				(name "Sheetname")
@@ -14041,6 +14611,8 @@
 			(description "Test Point, Orange, 1-Pin THD, RoHS")
 			(fields
 				(field
+					(name "MPN") "Keystone 5003")
+				(field
 					(name "MAX OPERATING TEMPERATURE") "150 degC")
 				(field
 					(name "PACKAGEREFERENCE") "5003")
@@ -14102,6 +14674,10 @@
 				(lib "Altium Content Vault")
 				(part "TESTPOINT_ORANGE")
 				(description "Test Point, Orange, 1-Pin THD, RoHS")
+			)
+			(property
+				(name "MPN")
+				(value "Keystone 5003")
 			)
 			(property
 				(name "MAX OPERATING TEMPERATURE")
@@ -14426,6 +15002,10 @@
 			(description "IC REG CHARGE PUMP ADJ DL 12WSON")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments LM27762DSSR")
+				(field
+					(name "LCSC") "C473398")
+				(field
 					(name "TOPOLOGY") "Charge Pump")
 				(field
 					(name "MIN OUTPUT VOLTAGE") "1.5V")
@@ -14469,6 +15049,14 @@
 				(lib "Altium Content Vault")
 				(part "ab275a4f98ccada617dcf409ec46a20")
 				(description "IC REG CHARGE PUMP ADJ DL 12WSON")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments LM27762DSSR")
+			)
+			(property
+				(name "LCSC")
+				(value "C473398")
 			)
 			(property
 				(name "TOPOLOGY")
@@ -14605,6 +15193,10 @@
 			(description "IC REG LINEAR 3.3V 300MA SOT23-5")
 			(fields
 				(field
+					(name "MPN") "Texas Instruments TPS7A2033PDBVR")
+				(field
+					(name "LCSC") "C2862740")
+				(field
 					(name "ROHS COMPLIANT") "Yes")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-DBV0005A-MFG")
@@ -14618,6 +15210,14 @@
 				(lib "Altium Content Vault")
 				(part "76aa7ad0ceb1012e0d85aeafc53095f")
 				(description "IC REG LINEAR 3.3V 300MA SOT23-5")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments TPS7A2033PDBVR")
+			)
+			(property
+				(name "LCSC")
+				(value "C2862740")
 			)
 			(property
 				(name "ROHS COMPLIANT")
@@ -14669,6 +15269,10 @@
 			(footprint "Low_Cost_EEG-import-fps:PAG0064A_M")
 			(description "Low-Noise, 8-Channel, 24-Bit Analog Front-End for Biopotential Measurement, 16 KSPS, -40 to 85 degC, 64-Pin PQFP (PAG-64), RoHS, Tape and Reel")
 			(fields
+				(field
+					(name "MPN") "Texas Instruments ADS1299IPAGR")
+				(field
+					(name "LCSC") "C476817")
 				(field
 					(name "ARCHITECTURE") "Delta-Sigma")
 				(field
@@ -14749,6 +15353,14 @@
 				(lib "Altium Content Vault")
 				(part "TI-ADS1299-PAG-64")
 				(description "Low-Noise, 8-Channel, 24-Bit Analog Front-End for Biopotential Measurement, 16 KSPS, -40 to 85 degC, 64-Pin PQFP (PAG-64), RoHS, Tape and Reel")
+			)
+			(property
+				(name "MPN")
+				(value "Texas Instruments ADS1299IPAGR")
+			)
+			(property
+				(name "LCSC")
+				(value "C476817")
 			)
 			(property
 				(name "ARCHITECTURE")
