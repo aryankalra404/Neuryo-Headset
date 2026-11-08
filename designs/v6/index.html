@@ -1328,7 +1328,7 @@ const rearLow = s => along(s, (s.side.y < 0 ? 1 : -1) * 9.6, 0.5);
 const rearFromRight = () => { const out = []; for (let i = 196; i >= 4; i -= 6) out.push(rearLow(bandSamples[i])); return out; };
 function bandRun(iFrom, lift) {   // along the band's left edge, forward to the anchor, then out to the side of the tongue
   const out = []; for (let i = iFrom; i >= 0; i -= 5) out.push(along(strapSamples[i], LS * 17.4, lift));
-  out.push(off(surf(20, EL_A + 8), 3.2), off(surf(21, EL_A + 1), 7.4)); return out; }
+  out.push(off(surf(20, EL_A + 8), 3.2), off(surf(21, EL_A + 1), 8.0)); return out; }
 const podCable = (pd, lift) => [...pd.leadOut(), ...bandRun(pd.iPod - 6, lift), ...frontIn(24), ...intoPod(J1)];
 const FZ_CABLE = podCable(fzPod, 0.35), CZ_CABLE = podCable(czPod, 0.6), PZ_CABLE = podCable(pzPod, 0.85);
 const W = (pts, color, key, r = 0.6) => { const m = wire(pts, color, r); m.userData.wkey = key; return m; };
