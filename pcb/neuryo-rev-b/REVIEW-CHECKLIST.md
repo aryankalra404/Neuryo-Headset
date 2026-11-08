@@ -39,7 +39,7 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
 - [ ] **No third mounting hole.** There is no room at the right end once J1 and SW1 are there; the board relies on the 2 left holes plus a clip. OK for the pod?
 
 ## 4. Firmware ([firmware/](firmware/))
-- [ ] Read F1–F6 in CHANGES.md. Compile status is in `firmware/README.md`. Nothing has run on hardware.
+- [ ] Read F1–F6 in CHANGES.md. It compiles cleanly (0 errors, 0 warnings); nothing has run on hardware.
 - [ ] Electrode wiring changes for the user: electrodes on the − pins of channels 1–7; sign inverted (host must flip it).
 
 ## 5. Parts and assembly

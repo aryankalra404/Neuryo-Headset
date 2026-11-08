@@ -23,7 +23,7 @@ pio run -t upload  # XIAO on USB
 ```
 
 ## Status
-- **Compile:** see the last section.
+- **Compile:** builds with **0 errors and 0 warnings** (8 Nov 2026, PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.0 % (937 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
 - **Bench test:** not done (no board yet). On the first board, in order:
   1. Rails come up with the switch on and USB unplugged.
   2. Rails go off when USB is plugged in.
