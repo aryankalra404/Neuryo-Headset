@@ -555,7 +555,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Neuryo_RevB:SOT-23_2N7002"
+		(property "Footprint" "Neuryo_RevB:SOT-23"
 			(at 0 0 0)
 			(hide yes)
 			(effects

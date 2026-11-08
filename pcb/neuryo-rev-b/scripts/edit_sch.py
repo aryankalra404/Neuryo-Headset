@@ -245,6 +245,18 @@ if STEP >= 1:
             remove(y); log.append('delete VBUS power symbol')
     prune()
     no_connect((180.34, 353.06))   # SW1 pin 3
+    # SW1: Altium 1101M2S3CQE2 (12.9 x 6.8 mm THT) -> C&K PCM12SMTR (SMD, 0.3 A @ 6 VDC, terminal 2 common), so the battery
+    # entry fits at the right-hand end of the 77 mm board. Same pins: 1 VBAT, 2 VIN (common), 3 open.
+    y = by_ref('SW1')[0]
+    set_prop(y, 'Footprint', 'Neuryo_RevB:SW_SPDT_PCM12')
+    for p in list(kids(y, 'property')):
+        if p[1] not in ('Reference', 'Value', 'Footprint', 'Datasheet', 'Description'):
+            y.remove(p)                      # the Altium part's parametric fields (6 A, THT, ...) no longer apply
+    set_prop(y, 'Description', 'SWITCH SLIDE SPDT 0.3A 6VDC SMD')
+    set_prop(y, 'Datasheet', 'https://www.ckswitches.com/media/1424/pcm.pdf')
+    set_prop(y, 'MPN', 'C&K PCM12SMTR'); set_prop(y, 'LCSC', 'C221841')
+    set_prop(y, 'Value', 'PCM12SMTR')
+    log.append('SW1 -> C&K PCM12SMTR, footprint Neuryo_RevB:SW_SPDT_PCM12')
 
 # ---------------------------------------------------------------- step 2: change 1, reference via SRB2 through R27/C31
 if STEP >= 2:
@@ -288,7 +300,7 @@ if STEP >= 5:
     remove(find_wire((416.56, 66.04), (416.56, 60.96)))   # U3 EN off IN
     label('AEN', (416.56, 66.04))
     prune()
-    place('Neuryo_RevB:2N7002', 'Q1', '2N7002', 'Neuryo_RevB:SOT-23_2N7002', (510.54, 134.62), 0,
+    place('Neuryo_RevB:2N7002', 'Q1', '2N7002', 'Neuryo_RevB:SOT-23', (510.54, 134.62), 0,
           {'1': ('L', 'VUSB'), '2': ('P', 'GND'), '3': ('L', 'AEN')}, {'MPN': 'Nexperia 2N7002,215'})
     place(RES, 'R37', '100k', FP_R, (447.04, 144.78), 0, {'1': ('L', 'VUSB'), '2': ('P', 'GND')},
           {'Description': 'RES 100k 1% 0603', 'MPN': 'Yageo AC0603FR-07100KL'})
@@ -311,7 +323,7 @@ if STEP >= 6:
          '6': ('L', 'MISO'), '7': ('NC',), '8': ('L', 'I2C_SCL'), '9': ('L', 'I2C_SDA'), '10': ('L', 'USB_SENSE'),
          '11': ('NC',), '12': ('L', 'XIAO_3V3'), '13': ('P', 'GND'), '14': ('L', 'VUSB'),
          '15': ('NC',), '16': ('NC',), '17': ('NC',), '18': ('NC',), '19': ('NC',), '20': ('NC',), '21': ('NC',), '22': ('NC',),
-         '23': ('P', 'VIN'), '24': ('P', 'GND'), '25': ('NC',)}
+         '23': ('P', 'VIN'), '24': ('P', 'GND'), '25': ('P', 'GND')}   # 25: module's exposed GND copper (Seeed module PCB)
     place('Neuryo_RevB:XIAO-ESP32-S3-SMD', 'U6', 'XIAO ESP32-S3', 'Neuryo_RevB:XIAO-ESP32-S3-SMD', (502.92, 228.6), 0, X,
           {'MPN': 'Seeed Studio XIAO ESP32-S3 (113991114)'})
     place('Neuryo_RevB:Conn_1x04', 'J6', 'MAX30102 earlobe', 'Neuryo_RevB:PinHeader_1x04_P2.54_TSW', (464.82, 297.18), 0,

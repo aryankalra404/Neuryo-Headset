@@ -243,12 +243,18 @@ for e in list(kids(B, 'segment')) + list(kids(B, 'via')):
     if any(55.6 <= x <= 77.5 and 30.6 <= y <= 50.5 for x, y in pts_) and nn(e) not in ('DRDY', 'CS', 'MOSI', 'SCLK', 'MISO', 'ADS_START'):
         B.remove(e); log('delete old copper under the XIAO', e[0], nn(e), pts_)
 XN = {'1': 'VBAT_SENSE', '2': 'DRDY', '3': 'CS', '4': 'MOSI', '5': 'SCLK', '6': 'MISO', '8': 'I2C_SCL', '9': 'I2C_SDA',
-      '10': 'USB_SENSE', '12': 'XIAO_3V3', '13': 'GND', '14': 'VUSB', '23': 'VIN', '24': 'GND'}
+      '10': 'USB_SENSE', '12': 'XIAO_3V3', '13': 'GND', '14': 'VUSB', '23': 'VIN', '24': 'GND', '25': 'GND'}
 u6 = newfp('XIAO-ESP32-S3-SMD.kicad_mod', 'U6', 'XIAO ESP32-S3', (56.0, 31.0), 270, 'F.Cu', XN, {'MPN': 'Seeed Studio 113991114'})
 for p_ in kids(u6, 'property'):
     if p_[1] == 'Reference':
         kid(p_, 'at')[1:3] = [Sym('9'), Sym('-10.5')]
         fnt = kid(kid(p_, 'effects'), 'font'); kid(fnt, 'size')[1:] = [Sym('1'), Sym('1')]
+# pads 15-22 face the module's JTAG/EN/USB test pads, which rev B does not use: copper only (no mask opening, no paste),
+# so nothing is soldered to them and they can't bridge. Pad 25 faces the module's exposed GND copper: GND, with a via.
+for p_ in kids(u6, 'pad'):
+    if str(p_[1]) in [str(k) for k in range(15, 23)]:
+        kid(p_, 'layers')[1:] = ['F.Cu']
+log('U6 pads 15-22: F.Cu only (no F.Mask, no F.Paste); pad 25 -> GND')
 XP = pads(fp('U6'))
 TOP = lambda n: (XP[n][0], 30.9)      # inside the top-row pad (pad spans y 30.46-33.21)
 BOT = lambda n: (XP[n][0], 47.1)      # inside the bottom-row pad (46.62-49.38)
@@ -286,18 +292,19 @@ via((XP['14'][0], 45.5), 'VUSB'); seg((XP['14'][0], 45.5), BOT('14'), 'VUSB', 0.
 via((XP['10'][0], 45.6), 'USB_SENSE'); seg((XP['10'][0], 45.6), BOT('10'), 'USB_SENSE')
 via((65.55, 35.45), 'VIN'); seg((65.55, 35.45), XP['23'], 'VIN', 0.5)
 via((70.0, 35.45), 'GND'); seg((70.0, 35.45), XP['24'], 'GND', 0.5)
+via((XP['25'][0], XP['25'][1] - 0.6), 'GND')     # in pad 25, clear of the B.Cu XIAO_3V3 run at y 41.5
 via((XP['1'][0], 34.4), 'VBAT_SENSE'); seg((XP['1'][0], 34.4), (XP['1'][0], 32.8), 'VBAT_SENSE')
 
 # ---- USB-present divider (bottom, under the XIAO): R39 VUSB->USB_SENSE, R40 USB_SENSE->GND
 newfp('R32', 'R40', '150k', (63.96, 43.6), 90, 'B.Cu', {'1': 'USB_SENSE', '2': 'GND'}, {'MPN': 'Yageo AC0603FR-07150KL'})
-newfp('R32', 'R39', '100k', (66.0, 44.45), 180, 'B.Cu', {'1': 'VUSB', '2': 'USB_SENSE'}, {'MPN': 'Yageo AC0603FR-07100KL'})
+newfp('R32', 'R39', '100k', (66.3, 44.45), 180, 'B.Cu', {'1': 'VUSB', '2': 'USB_SENSE'}, {'MPN': 'Yageo AC0603FR-07100KL'})
 seg((XP['10'][0], 45.6), P('R40', 1), 'USB_SENSE', 0.254, 'B.Cu')
 seg(P('R40', 1), P('R39', 2), 'USB_SENSE', 0.254, 'B.Cu')
 path([P('R39', 1), (73.17, 44.45), (XP['14'][0], 45.4)], 'VUSB', 0.3, 'B.Cu')
 
 # ---- battery divider (bottom): R41 VIN->VBAT_SENSE, R42 VBAT_SENSE->GND, C50 VBAT_SENSE->GND
 newfp('C15', 'C50', '0.1uF', (72.7, 34.4), 180, 'B.Cu', {'1': 'VBAT_SENSE', '2': 'GND'}, {'MPN': 'TDK CGA3E2X7R1H104K080AD'})
-newfp('R32', 'R42', '220k', (72.7, 35.9), 180, 'B.Cu', {'1': 'VBAT_SENSE', '2': 'GND'}, {'MPN': 'Yageo AC0603FR-07220KL'})
+newfp('R32', 'R42', '220k', (72.7, 36.45), 180, 'B.Cu', {'1': 'VBAT_SENSE', '2': 'GND'}, {'MPN': 'Yageo AC0603FR-07220KL'})
 newfp('R32', 'R41', '220k', (72.7, 33.0), 0, 'B.Cu', {'1': 'VIN', '2': 'VBAT_SENSE'}, {'MPN': 'Yageo AC0603FR-07220KL'})
 vbs = (XP['1'][0], 34.4)
 seg(vbs, P('C50', 1), 'VBAT_SENSE', 0.254, 'B.Cu')
@@ -306,30 +313,32 @@ path([vbs, P('R41', 2)], 'VBAT_SENSE', 0.254, 'B.Cu')
 via((70.6, 33.9), 'VIN'); seg((70.6, 33.9), P('R41', 1), 'VIN', 0.3, 'B.Cu')
 path([P('C50', 2), P('R42', 2), (70.0, 35.45)], 'GND', 0.3, 'B.Cu')
 
-# ---- interlock (top, right of the SPI bundle): Q1 2N7002, R37 gate pull-down, R38 AEN pull-up
-newfp('SOT-23_2N7002.kicad_mod', 'Q1', '2N7002', (72.6, 23.2), 0, 'F.Cu', {'1': 'VUSB', '2': 'GND', '3': 'AEN'}, {'MPN': 'Nexperia 2N7002,215'})
-newfp('R30', 'R37', '100k', (71.65, 26.75), 270, 'F.Cu', {'1': 'VUSB', '2': 'GND'}, {'MPN': 'Yageo AC0603FR-07100KL'})
-newfp('R30', 'R38', '100k', (75.6, 22.6), 90, 'F.Cu', {'1': 'VIN', '2': 'AEN'}, {'MPN': 'Yageo AC0603FR-07100KL'})
-seg(P('Q1', 1), P('R37', 1), 'VUSB')
-via((73.2, 26.4), 'VUSB'); seg((73.2, 26.4), P('R37', 1), 'VUSB')
-path([(73.2, 26.4), (76.0, 29.2), (76.0, 43.6), (XP['14'][0], 45.5)], 'VUSB', 0.3, 'B.Cu')
-seg(P('Q1', 3), P('R38', 2), 'AEN')
-# TP6 (VIN test point) moves up beside the LM27762 block, onto its via
-move_tp6 = fp('TP6')
-kid(move_tp6, 'at')[1:3] = [Sym(AX(75.4)), Sym(AY(17.0))]
-for s in list(kids(B, 'segment')):
-    if nn(s) == 'VIN' and near(pt(s, 'start'), (75.5, 23.75)) or nn(s) == 'VIN' and near(pt(s, 'end'), (75.5, 23.75)):
-        B.remove(s); log('delete TP6 trace')
-seg((75.5, 19.5), (75.4, 17.0), 'VIN', 0.4)
-via((75.6, 24.6), 'VIN'); seg(P('R38', 1), (75.6, 24.6), 'VIN', 0.3)
-# AEN: Q1 drain -> via -> B.Cu -> via E3 at U3 EN; LM27762 EN-/EN+ vias E1, E2 joined on B.Cu
-E1, E2, E3, E4 = (66.25, 10.25), (67.10, 13.60), (67.0, 18.2), (71.4, 21.6)
-via(E4, 'AEN'); seg(P('Q1', 3), E4, 'AEN')
+# ---- interlock (top-right corner, between C5 and C3): Q1 2N7002 (KiCad SOT-23), R37 gate pull-down, R38 AEN pull-up
+newfp('SOT-23.kicad_mod', 'Q1', '2N7002', (75.0, 3.4), 0, 'F.Cu', {'1': 'VUSB', '2': 'GND', '3': 'AEN'}, {'MPN': 'Nexperia 2N7002,215'})
+newfp('R30', 'R37', '100k', (72.55, 3.4), 270, 'F.Cu', {'1': 'VUSB', '2': 'GND'}, {'MPN': 'Yageo AC0603FR-07100KL'})
+newfp('R30', 'R38', '100k', (74.9, 6.15), 0, 'F.Cu', {'1': 'VIN', '2': 'AEN'}, {'MPN': 'Yageo AC0603FR-07100KL'})
+log('Q1 pads', P('Q1', 1), P('Q1', 2), P('Q1', 3), 'R37', P('R37', 1), P('R37', 2), 'R38', P('R38', 1), P('R38', 2))
+V5 = (73.3, 1.35)
+seg(P('R37', 1), P('Q1', 1), 'VUSB'); via(V5, 'VUSB'); seg(V5, P('Q1', 1), 'VUSB')
+seg(P('R37', 2), P('Q1', 2), 'GND', 0.3)
+AV = (75.1, 5.0)
+path([P('Q1', 3), (76.0, 5.0), P('R38', 2)], 'AEN'); via(AV, 'AEN'); seg((76.0, 5.0), AV, 'AEN')
+via((73.0, 6.15), 'VIN'); seg(P('R38', 1), (73.0, 6.15), 'VIN', 0.3)
+# VUSB from the XIAO 5V pad up the right edge on B.Cu (x 76.3) to the gate
+path([V5, (75.3, 1.35), (76.3, 2.35), (76.3, 43.3), (XP['14'][0], 45.5)], 'VUSB', 0.3, 'B.Cu')
+# AEN on B.Cu to the LM27762 EN vias (E1, E2) and on to U3 EN (E3)
+E1, E2, E3 = (66.25, 10.25), (67.10, 13.60), (67.0, 18.2)
+path([AV, (70.0, 5.0), (66.25, 8.75), E1], 'AEN', 0.254, 'B.Cu')
 via(E3, 'AEN')
-path([E4, (71.4, 18.0), (67.2, 18.0), E3], 'AEN', 0.254, 'B.Cu')
 path([E1, E2], 'AEN', 0.254, 'B.Cu')
 path([E2, (66.2, 14.5), (66.2, 16.6), (67.0, 17.4), E3], 'AEN', 0.254, 'B.Cu')
 path([P('U3', 3), (66.75, 18.2), E3], 'AEN')
+
+# ---- old TP6 copper (reference: TP6 at 75.5,23.75 with a via at 75.5,19.5) is where SW1 now sits
+for s_ in list(kids(B, 'segment')):
+    if nn(s_) == 'VIN' and any(near(pt(s_, k), q) for k in ('start', 'end') for q in ((75.5, 23.75), (75.5, 19.5))):
+        B.remove(s_); log('delete old TP6 segment', pt(s_, 'start'), pt(s_, 'end'))
+del_via((75.5, 19.5), 'VIN')
 
 # ---- U3 strip (TPS7A2033, C9 out, C10 in)
 path([P('U3', 5), P('C9', 1)], 'DVDD', 0.5)
@@ -340,11 +349,20 @@ via((67.2, 19.6), 'GND'); path([P('U3', 2), (67.2, 19.6), P('C10', 2)], 'GND', 0
 path([P('U3', 1), P('C10', 1)], 'VIN', 0.4)
 via((69.6, 20.05), 'VIN'); seg(P('C10', 1), (69.6, 20.05), 'VIN', 0.4)
 
-# ---- battery: J1.2 (VBAT) -> SW1 pin 1 on F.Cu; D6 / C49 (bottom) on the J1 and SW1 pins; SW1 pin 2 (VIN) to the In2 VIN plane
-path([P('J1', 2), (47.2, 42.45), (50.2, 39.45), P('SW1', 1)], 'VBAT', 0.6)
-seg(P('J1', 2), P('D6', 1), 'VBAT', 0.6, 'B.Cu')
-seg(P('C49', 1), P('SW1', 1), 'VBAT', 0.6, 'B.Cu')
-via((54.9, 43.3), 'VIN'); seg(P('SW1', 2), (54.9, 43.3), 'VIN', 0.6)
+# ---- battery at the right-hand end: J1 (moved in edit_pcb.py) -> SW1 (C&K PCM12SMTR, actuator over the right edge)
+#      -> In2 VIN plane. D6 / C49 (bottom) on J1 pin 2. TP6 (VIN) beside the U3 VIN via.
+newfp('SW_SPDT_PCM12.kicad_mod', 'SW1', 'PCM12SMTR', (74.65, 17.9), 90, 'F.Cu', {'1': 'VBAT', '2': 'VIN'},
+      {'MPN': 'C&K PCM12SMTR', 'LCSC': 'C221841'})
+log('SW1 pads', P('SW1', 1), P('SW1', 2), P('SW1', 3), 'J1', P('J1', 1), P('J1', 2), 'D6', P('D6', 1), P('D6', 2), 'C49', P('C49', 1), P('C49', 2))
+path([P('J1', 2), (72.2, 24.35), (72.2, 21.2), (72.75, 20.65), P('SW1', 1)], 'VBAT', 0.6)
+seg(P('J1', 2), P('C49', 1), 'VBAT', 0.6, 'B.Cu')
+seg(P('C49', 1), P('D6', 1), 'VBAT', 0.5, 'B.Cu')
+via((71.9, 17.15), 'VIN'); via((71.9, 16.2), 'VIN')
+seg(P('SW1', 2), (71.9, 17.15), 'VIN', 0.6); seg((71.9, 17.15), (71.9, 16.2), 'VIN', 0.6)
+tp6 = fp('TP6')
+kid(tp6, 'at')[1:3] = [Sym(AX(67.6)), Sym(AY(23.0))]
+seg(P('C10', 1), (67.6, 23.0), 'VIN', 0.4)
+log('TP6 (VIN) moved to 67.6,23.0 on C10 pin 1 (U3 input)')
 
 # ================================================================== stitching vias that now clash with new copper
 def seg_dist(p, a, b):
@@ -362,7 +380,7 @@ for r in ('U6', 'J6', 'J7', 'R36', 'R37', 'R38', 'R39', 'R40', 'R41', 'R42', 'C5
     for p in kids(f, 'pad'):
         a = kid(p, 'at'); sz = kid(p, 'size')
         dx, dy = rot(float(a[1]), float(a[2]), fr)
-        newpads.append((fx + dx, fy + dy, max(float(sz[1]), float(sz[2])) / 2, nn(p)))
+        newpads.append((fx + dx, fy + dy, math.hypot(float(sz[1]), float(sz[2])) / 2 + 0.15, nn(p)))   # half-diagonal; + room for the 0.45 mm SMD-to-hole rule
 removed = 0
 for v in list(kids(B, 'via')):
     if nn(v) != 'GND':
@@ -387,8 +405,10 @@ for t in list(kids(B, 'gr_text')):
     if t[1] in ('VIN', '3v3', '+', '-') and x > 70 or t[1] == 'GND-RX-TX':
         B.remove(t); log('delete silkscreen text', t[1])
     if t[1] in ('GND', 'AVSS', 'AVDD', 'DVDD') and 55 < x < 57:
-        a[1] = Sym(AX(50.4))
+        a[1] = Sym(AX(52.2 if t[1] == 'GND' else 52.7))   # right-aligned, clear of the test-point pad (and TP1's silk ring)
         fnt = kid(kid(t, 'effects'), 'font'); kid(fnt, 'size')[1:] = [Sym('0.8'), Sym('0.8')]
+        kid(fnt, 'thickness')[1] = Sym('0.15')
+        kid(kid(t, 'effects'), 'justify')[1:] = [Sym('right'), Sym('bottom')]
         log('silkscreen', t[1], 'label moved left of its test point (J6 is now on its right)')
     if t[1] == 'REF SRB2':
         t[1] = 'REF  nc'; log('silkscreen REF SRB2 -> REF nc (header SRB2 pin no longer goes to the ADS1299)')
@@ -402,10 +422,80 @@ def text(s, x, y, layer, size=1.0, mirror=False):
               ['effects', ['font', ['size', Sym(F(size)), Sym(F(size))], ['thickness', Sym('0.15')]], j]])
 
 
-text('I2C: 1 GND 2 3V3 3 SDA 4 SCL', 55.6, 1.95, 'F.SilkS', 0.8)
+text('I2C: GND 3V3 SDA SCL', 55.6, 1.95, 'F.SilkS', 0.8)
 text('Neuryo rev B 2026-11-08', 75.2, 38.8, 'B.SilkS', 0.8, True)
 text('Low-Cost-EEG: X. Asghar', 75.2, 40.0, 'B.SilkS', 0.8, True)
 text('Univ. of Bath, GPL-3.0', 75.2, 41.2, 'B.SilkS', 0.8, True)
+
+# ================================================================== teardrops: follow a renamed track's net, drop those whose track is gone
+for z in list(kids(B, 'zone')):
+    if not kid(z, 'attr'):
+        continue
+    zp = [(float(p[1]) - X0, float(p[2]) - Y0) for p in kid(kid(z, 'polygon'), 'pts')[1:] if p[0] == 'xy']
+    lay = val(z, 'layer')
+    hit = {}
+    for s_ in kids(B, 'segment'):
+        if val(s_, 'layer') != lay:
+            continue
+        w = float(val(s_, 'width'))
+        k = sum(1 for q in zp if seg_dist(q, pt(s_, 'start'), pt(s_, 'end')) < w / 2 + 0.05)
+        if k:
+            hit[nn(s_)] = hit.get(nn(s_), 0) + k
+    if nn(z) in hit:
+        continue
+    if len(hit) == 1:
+        new_net = list(hit)[0]
+        log('teardrop', nn(z), '->', new_net, lay, '%.2f,%.2f' % zp[0]); kid(z, 'net')[1:] = [new_net]
+        if kid(z, 'net_name'):
+            kid(z, 'net_name')[1] = new_net
+    else:
+        B.remove(z); log('delete orphan teardrop', nn(z), lay, '%.2f,%.2f' % zp[0], hit)
+
+# ================================================================== fields of new/changed parts copied from the schematic (parity)
+if len(sys.argv) > 3:
+    S = parse(open(sys.argv[3]).read())
+    SY = {}
+    for y in kids(S, 'symbol'):
+        for p_ in kids(y, 'property'):
+            if p_[1] == 'Reference':
+                SY[p_[2]] = y
+    for r in ('R36', 'R37', 'R38', 'R39', 'R40', 'R41', 'R42', 'C50', 'Q1', 'U6', 'J6', 'J7', 'SW1'):
+        f = fp(r)
+        for p_ in kids(SY[r], 'property'):
+            if p_[1] in ('Reference', 'Value', 'Footprint'):
+                continue
+            cur = [q for q in kids(f, 'property') if q[1] == p_[1]]
+            if cur:
+                cur[0][2] = p_[2]
+            else:
+                f.insert(f.index(kids(f, 'property')[-1]) + 1,
+                         ['property', p_[1], p_[2], ['at', '0', '0', '0'], ['layer', 'F.Fab'], ['hide', Sym('yes')], ['uuid', U()],
+                          ['effects', ['font', ['size', '1', '1'], ['thickness', '0.15']]]])
+    log('fields of the added parts copied from the schematic')
+
+# ================================================================== reference designators of new parts that would overlap other silk
+from silkplace import place_refs
+top = [ref(f) for f in kids(B, 'footprint') if val(f, 'layer') == 'F.Cu' and fp_at(f)[0] > 55
+       and not kid([p_ for p_ in kids(f, 'property') if p_[1] == 'Reference'][0], 'hide')] + ['R36']
+place_refs(B, 'F', top, W, H, 0.8, log)
+place_refs(B, 'B', ['C49', 'D6', 'R41', 'C50', 'R42', 'R40', 'R39'], W, H, 0.8, log)
+
+# ================================================================== stack-up: JLCPCB 4-layer 1.6 mm, JLC7628
+# jlcpcb.com/impedance, JLC04161H-7628: 35 um outer Cu, 7628 prepreg 0.2104 mm (er 4.4), 15.2 um inner Cu, core 1.065 mm (er 4.6),
+# 7628 prepreg 0.2104 mm (er 4.4), 35 um outer Cu (sum 1.59 mm). The reference's file carried Altium's 0.59 mm template.
+st = kid(kid(B, 'setup'), 'stackup')
+L = {l[1]: l for l in kids(st, 'layer')}
+def setthk(name, t):
+    e = kid(L[name], 'thickness')
+    e[1] = Sym(t)
+for n, t in (('F.Cu', '0.035'), ('B.Cu', '0.035'), ('In1.Cu', '0.0152'), ('In2.Cu', '0.0152'), ('dielectric 1', '0.2104'),
+             ('dielectric 2', '1.065'), ('dielectric 3', '0.2104')):
+    setthk(n, t)
+for n, typ, mat, er in (('dielectric 1', 'prepreg', 'FR4 7628', '4.4'), ('dielectric 2', 'core', 'FR4', '4.6'), ('dielectric 3', 'prepreg', 'FR4 7628', '4.4')):
+    kid(L[n], 'type')[1] = typ; kid(L[n], 'material')[1] = mat; kid(L[n], 'epsilon_r')[1] = Sym(er)
+kid(st, 'copper_finish')[1] = 'ENIG'
+kid(kid(B, 'general'), 'thickness')[1] = Sym('1.6')
+log('stack-up: JLC04161H-7628, 1.6 mm (35/15.2/15.2/35 um Cu, 0.2104 prepreg, 1.065 core), ENIG')
 
 open(dst, 'w').write(dump(numify(B)) + '\n')
 open(dst + '.log', 'w').write('\n'.join(LOG) + '\n')

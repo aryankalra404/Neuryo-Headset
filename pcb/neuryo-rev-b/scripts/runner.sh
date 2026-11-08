@@ -1,12 +1,14 @@
 #!/bin/bash
-# Neuryo KiCad runner v3. Runs KiCad's own tools (ERC, DRC with schematic parity, netlist, renders, fab outputs)
+# Neuryo KiCad runner v4. Runs KiCad's own tools (ERC, DRC with schematic parity, netlist, renders, fab outputs)
 # when Claude puts a job file in pcb-work/jobs. Only touches files inside pcb-work. Ctrl+C to stop.
-# Job file: line 1 = project path inside pcb-work without extension; line 2 = options: img refill fab
+# Job file: line 1 = project path inside pcb-work without extension; line 2 = options: img refill fab fw
+# fw: line 1 is a PlatformIO project folder inside pcb-work; builds it with PlatformIO (installed once, by
+# PlatformIO's own installer, into ~/.platformio). Nothing is uploaded to a board.
 CLI=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 W="$HOME/Desktop/Neuryo-Research/pcb-work"
 mkdir -p "$W/jobs" "$W/out"
 "$CLI" version || { echo "kicad-cli not found at $CLI"; exit 1; }
-echo "Runner v3 on, watching $W/jobs. Leave this window open. Ctrl+C to stop."
+echo "Runner v4 on, watching $W/jobs. Leave this window open. Ctrl+C to stop."
 while true; do
   for j in "$W"/jobs/*.job; do
     [ -e "$j" ] || continue
@@ -25,6 +27,13 @@ while true; do
         [ -f "$P.kicad_pcb" ] && "$CLI" pcb render --side top -w 2400 -h 1600 -o "$O/top.png" "$P.kicad_pcb"
         [ -f "$P.kicad_pcb" ] && "$CLI" pcb render --side bottom -w 2400 -h 1600 -o "$O/bottom.png" "$P.kicad_pcb"
         [ -f "$P.kicad_pcb" ] && "$CLI" pcb export pdf --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Silkscreen,B.Silkscreen,Edge.Cuts --mode-multipage -o "$O/layers.pdf" "$P.kicad_pcb"
+      ;; esac
+      case "$opt" in *fw*)
+        PIO="$HOME/.platformio/penv/bin/pio"
+        if [ ! -x "$PIO" ]; then
+          curl -fsSL -o "$W/get-platformio.py" https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py && python3 "$W/get-platformio.py"
+        fi
+        "$PIO" run -d "$P"; echo "pio exit $?"
       ;; esac
       case "$opt" in *fab*)
         mkdir -p "$O/fab"

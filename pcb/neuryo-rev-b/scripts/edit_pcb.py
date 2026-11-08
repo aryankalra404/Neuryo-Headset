@@ -64,7 +64,7 @@ def pad(r, num):
 
 
 # ------------------------------------------------------------------ 1. parts removed (ESP32-S3 module side)
-DEL = 'U5 C11 C12 C13 R7 R8 SW2 SW3 U2 C6 C7 J2 C48 D7 R5 R6 J5 TP5'.split()
+DEL = 'U5 C11 C12 C13 R7 R8 SW2 SW3 U2 C6 C7 J2 C48 D7 R5 R6 J5 TP5 SW1'.split()   # SW1: new part in edit_pcb2.py
 moved_or_deleted_nets = set()
 FREED = []   # (x, y) of deleted pads, so dangling copper ending there is trimmed
 for f in list(kids(B, 'footprint')):
@@ -108,10 +108,11 @@ def move(r, nx, ny, nrot=None, layer=None):
 DX3, DY3 = -19.55, 7.95
 for r in ('U3', 'C9', 'C10'):
     x, y, a = fp_at(fps(r)[0]); move(r, x + DX3, y + DY3)
-move('SW1', 51.8, 43.3)                    # battery on/off (top-actuated slide), bottom-left where the UART header and boot button were
-move('J1', 45.0, 46.1, 0)                  # battery JST-PH at the bottom edge, opening down
-move('D6', 47.6, 46.2)                     # VBAT TVS (bottom side) beside J1
-move('C49', 49.0, 42.0)                    # VBAT 4.7 uF (bottom side) beside SW1
+# Battery entry stays at the right-hand (digital) end, as on the reference, so battery and XIAO currents never cross the
+# analog half. SW1 (Altium 1101M2S3CQE2, 12.9 x 6.8 mm) is replaced by a C&K PCM12 in edit_pcb2.py; it is deleted here.
+move('J1', 73.1, 25.9)                     # battery JST-PH side entry, same rotation as the reference (opening faces the right edge)
+move('D6', 73.4, 22.3, 0)                  # VBAT TVS (bottom side) beside J1 pin 2
+move('C49', 73.2, 24.9, 0)                 # VBAT 4.7 uF (bottom side) beside J1 pin 2
 
 # ------------------------------------------------------------------ 3. LM27762 EN+ (pin 12) and EN- (pin 8) off VIN -> AEN
 def segs():
@@ -149,9 +150,6 @@ for r, num in (('U1', 8), ('U1', 12), ('U3', 3)):
     set_net(pad(r, num)['el'], 'AEN')
 
 # ------------------------------------------------------------------ 4. other net changes on kept parts
-for p in kids(fps('SW1')[0], 'pad'):
-    if str(p[1]) == '3':
-        p.remove(kid(p, 'net'))
 # change 1: R27/C31 node moves from SRB1 to SRB2; header SRB2 pin + D5 IO4 become SRB2_HDR
 for r, num, new in (('R27', 2, 'SRB2'), ('C31', 1, 'SRB2'), ('J3J', 2, 'SRB2_HDR'), ('D5', 5, 'SRB2_HDR')):
     set_net(pad(r, num)['el'], new)

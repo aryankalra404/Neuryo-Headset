@@ -114,3 +114,9 @@ pins of kept parts whose connections changed: 7
   U6.10      /I2C_SCL -> /USB_SENSE   lost J6.4 J7.4  gained R39.2 R40.1
   U6.11      /USB_SENSE -> unconnected-(U6-D10-Pad11)   lost R39.2 R40.1  gained 
   U6.8       unconnected-(U6-D7-Pad8) -> /I2C_SCL   lost   gained J6.4 J7.4
+
+### final -> 2nd pass (8 Nov: XIAO pad 25 to GND; SW1 and Q1 footprints changed, no other connection change)
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 66 (65 are GND pins gaining U6.25, not listed)
+  U6.25      unconnected-(U6-PAD-Pad25) -> GND   lost   gained C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 ...

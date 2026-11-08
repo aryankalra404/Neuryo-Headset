@@ -1,6 +1,6 @@
 # Neuryo EEG board, rev B (plan)
 
-**Status (8 Nov 2026):** designed in KiCad 10 ([neuryo-rev-b/](neuryo-rev-b/)), ERC/DRC/netlist checked, **waiting for professor review, not ordered** ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)). Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
+**Status (8 Nov 2026):** designed in KiCad 10 ([neuryo-rev-b/](neuryo-rev-b/)), ERC/DRC/netlist checked, firmware written, **waiting for professor review, not ordered** ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)). Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
 
 | Folder | What is in it |
 |---|---|
@@ -28,7 +28,7 @@ Placement, routing, ground pours and stitching kept as in the reference, left ha
 |---|---|
 | ESP32-S3-WROOM-1 and its 3.3 V LDO | Seeed XIAO ESP32-S3, soldered flat on castellated pads (Seeed's KiCad footprint); its 3V3 feeds the digital parts |
 | USB-C, USB ESD, boot and reset buttons | The XIAO's own USB-C and buttons |
-| USB / battery selector switch | Battery on/off slide switch; battery JST-PH to the XIAO's BAT pads (the XIAO charges it) and to the LM27762 and TPS7A20 inputs |
+| USB / battery selector switch | Battery on/off slide switch (C&K PCM12, right edge); battery JST-PH (right edge) to the XIAO's BAT pads (the XIAO charges it) and to the LM27762 and TPS7A20 inputs |
 | UART header | J6: earlobe MAX30102 and J7: BMI270, 1×4 headers on one I²C bus (the forehead MAX30102 header J8 was dropped) |
 | | Battery divider (2 × 220 kΩ + 100 nF) to an ADC pin; USB-present divider; USB interlock (Q1, R37, R38) |
 | | Outline 77 × 50 mm (the LM27762 block is kept in place, so 70 was not reachable), 2 mounting holes, for the v6 left pod |
@@ -57,6 +57,7 @@ Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, chang
 1. ~~Import the reference into KiCad and check it~~ (done 8 Nov: BOM references and board/schematic connectivity match; sheet-by-sheet PDF comparison is on the checklist).
 2. ~~Remove the module side; add the XIAO, J6, J7, interlock, dividers~~ (done; see the change list).
 3. ~~ERC, DRC, netlist diff after every change~~ (done; reports in `neuryo-rev-b/review/`). 3D check in the v6 left pod at 77 × 50 mm still to do.
+   - Second pass (8 Nov, done): battery and a smaller switch (C&K PCM12) moved back to the right-hand end; XIAO pad 25 to GND (checked against Seeed's module PCB); KiCad SOT-23 for Q1; JLC 1.6 mm stack-up; silkscreen tidied; rev B firmware written ([neuryo-rev-b/firmware/](neuryo-rev-b/firmware/)). See CHANGES "2nd pass".
 4. Professor review ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)).
 5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs. For the v5 left pod, leave the electrode input headers off and solder each lead into its two holes (the headers stand about 8.4 mm: Samtec TSW-xxx-26 is a 5.84 mm post on a 2.54 mm body). Footprints and layout stay as in the reference.
 6. First board: power rails, ADS1299 ID register, shorted-input noise against the 6 µVpp target, then alpha with eyes closed.

@@ -1,0 +1,200 @@
+(footprint "SOT-23"
+	(version 20241229)
+	(generator "neuryo_convmod")
+	(layer "F.Cu")
+	(descr "SOT-23, Standard (KiCad library, KiCad/kicad-footprints Package_TO_SOT_SMD, CC-BY-SA 4.0 with KiCad exception)")
+	(tags SOT-23)
+	(attr smd)
+	(property "Reference" "REF**"
+		(at 0 -2.5)
+		(layer F.SilkS)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+		(uuid "8a60ef35-6267-41fa-9f2e-004c8293999c")
+	)
+	(property "Value" "SOT-23"
+		(at 0 2.5)
+		(layer F.Fab)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+		(uuid "c2623ebc-4d9a-4067-b70a-1ca43ae28b1c")
+	)
+	(fp_text user %R
+		(at 0 0 90)
+		(layer F.Fab)
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+		(uuid "2421722c-c760-4370-8b65-9b2bce560ba1")
+	)
+	(fp_line
+		(start -0.7 -0.95)
+		(end -0.7 1.5)
+		(layer F.Fab)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(uuid "3a4d1c2b-c5dc-405e-9604-0f3ad14e7516")
+	)
+	(fp_line
+		(start -0.15 -1.52)
+		(end 0.7 -1.52)
+		(layer F.Fab)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(uuid "eebbb984-8762-44ff-a331-49a55d5b34ce")
+	)
+	(fp_line
+		(start -0.7 -0.95)
+		(end -0.15 -1.52)
+		(layer F.Fab)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(uuid "4fc72bad-6c6b-446d-a5c4-bddfcce6b151")
+	)
+	(fp_line
+		(start 0.7 -1.52)
+		(end 0.7 1.52)
+		(layer F.Fab)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(uuid "d86169dc-0eec-4f94-8f64-d96b85201419")
+	)
+	(fp_line
+		(start -0.7 1.52)
+		(end 0.7 1.52)
+		(layer F.Fab)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(uuid "33e6ff56-c373-4588-97a6-57f2179e4371")
+	)
+	(fp_line
+		(start 0.76 1.58)
+		(end 0.76 0.65)
+		(layer F.SilkS)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(uuid "a3fded5a-10f2-4b1c-b87e-ef7cf282ac1a")
+	)
+	(fp_line
+		(start 0.76 -1.58)
+		(end 0.76 -0.65)
+		(layer F.SilkS)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(uuid "e3d9bbbe-3ab1-4391-a270-77aa159267fb")
+	)
+	(fp_line
+		(start -1.7 -1.75)
+		(end 1.7 -1.75)
+		(layer F.CrtYd)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(uuid "df58926a-657d-495e-83a7-e04e8f25ded2")
+	)
+	(fp_line
+		(start 1.7 -1.75)
+		(end 1.7 1.75)
+		(layer F.CrtYd)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(uuid "98b654e6-6145-4f70-8ad0-1e901b87272c")
+	)
+	(fp_line
+		(start 1.7 1.75)
+		(end -1.7 1.75)
+		(layer F.CrtYd)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(uuid "2ca67ba1-2161-47d2-b5ea-e368fbf34e73")
+	)
+	(fp_line
+		(start -1.7 1.75)
+		(end -1.7 -1.75)
+		(layer F.CrtYd)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(uuid "f35661b5-1900-4226-9244-e063052d8511")
+	)
+	(fp_line
+		(start 0.76 -1.58)
+		(end -1.4 -1.58)
+		(layer F.SilkS)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(uuid "2a4659b9-bc7d-4b8c-9775-dd58c3994f17")
+	)
+	(fp_line
+		(start 0.76 1.58)
+		(end -0.7 1.58)
+		(layer F.SilkS)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(uuid "f0617f57-22fc-44c3-acbb-3ec9ece4e114")
+	)
+	(pad "1" smd rect
+		(at -1 -0.95)
+		(size 0.9 0.8)
+		(layers F.Cu F.Paste F.Mask)
+		(uuid "b8dae72e-5546-4a56-a164-3f988daca3fc")
+	)
+	(pad "2" smd rect
+		(at -1 0.95)
+		(size 0.9 0.8)
+		(layers F.Cu F.Paste F.Mask)
+		(uuid "992c9ba5-cd10-4ce5-b129-4499469b63ed")
+	)
+	(pad "3" smd rect
+		(at 1 0)
+		(size 0.9 0.8)
+		(layers F.Cu F.Paste F.Mask)
+		(uuid "2d8d7886-4915-430b-91cc-87491b59c3d7")
+	)
+	(model ${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.wrl
+		(at
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

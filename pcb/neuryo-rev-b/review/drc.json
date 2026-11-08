@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-08T17:53:31",
+    "date": "2026-11-08T18:30:52",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -1087,25 +1087,10 @@
                 {
                     "description": "Footprint C49",
                     "pos": {
-                        "x": 147.5011,
-                        "y": 122.0036
+                        "x": 171.7011,
+                        "y": 104.9036
                     },
                     "uuid": "ed30c859-95f7-49f2-b947-748b5c52ab3c"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
-        },
-        {
-            "description": "Field 'MPN' differs (PCB: 'TDK CGA3E2X7R1H104K080AD', Schematic: 'TDK CGA3E2X7R1H104K080AD (as reference C13)')",
-            "items": [
-                {
-                    "description": "Footprint C50",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 114.4036
-                    },
-                    "uuid": "c049c4ce-1bb5-4ccc-ba94-508a5b3353b6"
                 }
             ],
             "severity": "warning",
@@ -1120,7 +1105,7 @@
                         "x": 171.8011,
                         "y": 114.4036
                     },
-                    "uuid": "b9fd53f5-a40a-497d-95a3-2a9c8e138139"
+                    "uuid": "f8fc33d4-35f6-4f8a-a3d5-aa4d8319c63e"
                 }
             ],
             "severity": "warning",
@@ -1582,8 +1567,8 @@
                 {
                     "description": "Footprint D6",
                     "pos": {
-                        "x": 146.1011,
-                        "y": 126.2036
+                        "x": 171.9011,
+                        "y": 102.3036
                     },
                     "uuid": "d87e5f2f-f59e-42c0-8fc0-af251b67a83d"
                 }
@@ -1597,8 +1582,8 @@
                 {
                     "description": "Footprint J1",
                     "pos": {
-                        "x": 143.5011,
-                        "y": 126.1036
+                        "x": 171.6011,
+                        "y": 105.9036
                     },
                     "uuid": "2da1e7ca-6bdc-4c23-bb42-b4e65b6ea9e1"
                 }
@@ -2042,21 +2027,6 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
-            "items": [
-                {
-                    "description": "Footprint J6",
-                    "pos": {
-                        "x": 156.8011,
-                        "y": 84.6036
-                    },
-                    "uuid": "611ce020-15c2-4c7a-8df9-5313c333fede"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
-        },
-        {
             "description": "Pad net (XIAO_3V3) doesn't match net given by schematic (/XIAO_3V3)",
             "items": [
                 {
@@ -2065,7 +2035,7 @@
                         "x": 156.8011,
                         "y": 87.1436
                     },
-                    "uuid": "d7609cd8-df5f-4153-bd83-ec09d7e57304"
+                    "uuid": "5c02ec7d-001c-4c39-9b1c-d71fd520a6f0"
                 }
             ],
             "severity": "warning",
@@ -2080,7 +2050,7 @@
                         "x": 156.8011,
                         "y": 89.6836
                     },
-                    "uuid": "7611c065-0285-43e1-b5ab-989b02cb287d"
+                    "uuid": "b6abf520-c1d1-463c-b1af-9c200be1f9b2"
                 }
             ],
             "severity": "warning",
@@ -2095,26 +2065,11 @@
                         "x": 156.8011,
                         "y": 92.2236
                     },
-                    "uuid": "d12deb2c-d408-4c50-806f-93d1641344aa"
+                    "uuid": "a9ccd35b-39cc-413c-b5c5-f2beae91928d"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Missing symbol field 'MPN' in footprint",
-            "items": [
-                {
-                    "description": "Footprint J7",
-                    "pos": {
-                        "x": 159.8011,
-                        "y": 84.6036
-                    },
-                    "uuid": "5032f0de-4a5f-472d-ab13-2b0451e06e4a"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (XIAO_3V3) doesn't match net given by schematic (/XIAO_3V3)",
@@ -2125,7 +2080,7 @@
                         "x": 159.8011,
                         "y": 87.1436
                     },
-                    "uuid": "e7d3bd85-c4b3-4848-97e6-60dc18a94df2"
+                    "uuid": "df7fc3c3-c5c0-4cb6-9c9f-4f243d193a99"
                 }
             ],
             "severity": "warning",
@@ -2140,7 +2095,7 @@
                         "x": 159.8011,
                         "y": 89.6836
                     },
-                    "uuid": "d5b2c864-f086-4b85-a902-b7b6f9783f49"
+                    "uuid": "b6a94906-bca5-4f81-8b74-8b70bda4543c"
                 }
             ],
             "severity": "warning",
@@ -2155,7 +2110,7 @@
                         "x": 159.8011,
                         "y": 92.2236
                     },
-                    "uuid": "0f548bd4-80f6-48cb-8b43-6ce886df51cc"
+                    "uuid": "daaf556b-a95b-4549-8412-4f90aabed904"
                 }
             ],
             "severity": "warning",
@@ -2212,10 +2167,10 @@
                 {
                     "description": "Pad 1 [VUSB] of Q1 on Top Layer",
                     "pos": {
-                        "x": 170.1511,
-                        "y": 104.3036
+                        "x": 172.5011,
+                        "y": 82.4536
                     },
-                    "uuid": "a5391e85-7072-4146-90bd-c1cd6d4ac9d5"
+                    "uuid": "dce6f6b8-8191-4306-9c48-b3e793ccafb9"
                 }
             ],
             "severity": "warning",
@@ -2227,10 +2182,10 @@
                 {
                     "description": "Pad 3 [AEN] of Q1 on Top Layer",
                     "pos": {
-                        "x": 171.1011,
-                        "y": 102.1036
+                        "x": 174.5011,
+                        "y": 83.4036
                     },
-                    "uuid": "89b3e724-407e-46dc-81e7-14ab9b522ef4"
+                    "uuid": "f6caa560-77a4-4350-bde0-db24ca7f0e7a"
                 }
             ],
             "severity": "warning",
@@ -3452,21 +3407,6 @@
             "type": "net_conflict"
         },
         {
-            "description": "Field 'MPN' differs (PCB: 'Yageo AC0603FR-7W10KL', Schematic: 'Yageo AC0603FR-7W10KL (same as R28-R35)')",
-            "items": [
-                {
-                    "description": "Footprint R36",
-                    "pos": {
-                        "x": 151.0011,
-                        "y": 111.6036
-                    },
-                    "uuid": "b2c78e6e-8657-460d-920d-bd6102ba4bd8"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
-        },
-        {
             "description": "Pad net (ADS_START) doesn't match net given by schematic (/ADS_START)",
             "items": [
                 {
@@ -3475,26 +3415,11 @@
                         "x": 150.1511,
                         "y": 111.6036
                     },
-                    "uuid": "c6884711-4a2b-491d-9d98-b59e08174f48"
+                    "uuid": "ea671b36-412a-4760-8522-88b7b41bfe01"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 100k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R37",
-                    "pos": {
-                        "x": 170.1511,
-                        "y": 106.7536
-                    },
-                    "uuid": "2495c297-a8b7-436c-9d90-34fa36a47f53"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (VUSB) doesn't match net given by schematic (/VUSB)",
@@ -3502,29 +3427,14 @@
                 {
                     "description": "Pad 1 [VUSB] of R37 on Top Layer",
                     "pos": {
-                        "x": 170.1511,
-                        "y": 105.9036
+                        "x": 171.0511,
+                        "y": 82.5536
                     },
-                    "uuid": "57afc447-074a-4891-a763-1f8650975473"
+                    "uuid": "79fc0054-604c-4b15-ac42-6c7b66ad6f83"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 100k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R38",
-                    "pos": {
-                        "x": 174.1011,
-                        "y": 102.6036
-                    },
-                    "uuid": "a9c6688c-504f-47ac-a441-59a9f228a432"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (AEN) doesn't match net given by schematic (/AEN)",
@@ -3532,29 +3442,14 @@
                 {
                     "description": "Pad 2 [AEN] of R38 on Top Layer",
                     "pos": {
-                        "x": 174.1011,
-                        "y": 101.7536
+                        "x": 174.2511,
+                        "y": 86.1536
                     },
-                    "uuid": "1d92261c-910c-4aa5-95d0-bd99943a4bbf"
+                    "uuid": "f1d2abb2-93e8-4ffa-a555-6c9c7ff15f98"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 100k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R39",
-                    "pos": {
-                        "x": 164.5011,
-                        "y": 124.4536
-                    },
-                    "uuid": "87a0f61e-3a0f-45df-88f1-4dc753f049d5"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (VUSB) doesn't match net given by schematic (/VUSB)",
@@ -3562,10 +3457,10 @@
                 {
                     "description": "Pad 1 [VUSB] of R39 on Bottom Layer",
                     "pos": {
-                        "x": 165.3511,
+                        "x": 165.6511,
                         "y": 124.4536
                     },
-                    "uuid": "56f08fa9-349b-44aa-8aa5-1d4d28a560e4"
+                    "uuid": "9c41045e-3304-4170-a4a8-fb8c784b2c06"
                 }
             ],
             "severity": "warning",
@@ -3577,29 +3472,14 @@
                 {
                     "description": "Pad 2 [USB_SENSE] of R39 on Bottom Layer",
                     "pos": {
-                        "x": 163.6511,
+                        "x": 163.9511,
                         "y": 124.4536
                     },
-                    "uuid": "e74c6e53-2a9f-4330-ae3f-d2223959661f"
+                    "uuid": "e8a77777-2ca0-4e2e-b4ed-4e7e943ecfc8"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 150k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R40",
-                    "pos": {
-                        "x": 162.4611,
-                        "y": 123.6036
-                    },
-                    "uuid": "18c17223-3c7e-43b2-a39a-85d592e00aec"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (USB_SENSE) doesn't match net given by schematic (/USB_SENSE)",
@@ -3610,26 +3490,11 @@
                         "x": 162.4611,
                         "y": 124.4536
                     },
-                    "uuid": "001242ea-b05f-464e-a9c6-ba1d5c6e95c1"
+                    "uuid": "ec8c5959-0713-443c-a101-88d6b5221a0b"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 220k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R41",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 113.0036
-                    },
-                    "uuid": "c036d14d-7a0a-408f-b6f2-e57c92147746"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (VBAT_SENSE) doesn't match net given by schematic (/VBAT_SENSE)",
@@ -3640,26 +3505,11 @@
                         "x": 172.0511,
                         "y": 113.0036
                     },
-                    "uuid": "b65ba76b-e958-4d8f-aa1c-a649d4ab2fe2"
+                    "uuid": "06928d45-84d4-44b1-9cc6-4fe1bddd079e"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 220k 1% 0603')",
-            "items": [
-                {
-                    "description": "Footprint R42",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 115.9036
-                    },
-                    "uuid": "b5f1be93-59f0-418f-be98-f1b17963a1ec"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
         },
         {
             "description": "Pad net (VBAT_SENSE) doesn't match net given by schematic (/VBAT_SENSE)",
@@ -3668,39 +3518,24 @@
                     "description": "Pad 1 [VBAT_SENSE] of R42 on Bottom Layer",
                     "pos": {
                         "x": 172.0511,
-                        "y": 115.9036
+                        "y": 116.4536
                     },
-                    "uuid": "a5464478-0a07-4758-998e-d236beb2a075"
+                    "uuid": "513d0ee1-13ac-427a-a49c-baece8e5dcff"
                 }
             ],
             "severity": "warning",
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'TERMINATION' in footprint",
-            "items": [
-                {
-                    "description": "Footprint SW1",
-                    "pos": {
-                        "x": 150.3011,
-                        "y": 123.3036
-                    },
-                    "uuid": "d508c62c-9448-4819-a257-efc2af49009f"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
-        },
-        {
             "description": "Pad missing net given by schematic (unconnected-(SW1-Pad3))",
             "items": [
                 {
-                    "description": "PTH pad 3 [<no net>] of SW1",
+                    "description": "Pad 3 [<no net>] of SW1 on Top Layer",
                     "pos": {
-                        "x": 150.3011,
-                        "y": 128.0036
+                        "x": 171.7211,
+                        "y": 95.6536
                     },
-                    "uuid": "73e8e2d4-df96-466e-a8f2-e4916a4aaac0"
+                    "uuid": "6091557b-082b-4c18-90c8-fce5004c9699"
                 }
             ],
             "severity": "warning",
@@ -3832,8 +3667,8 @@
                 {
                     "description": "Footprint TP6",
                     "pos": {
-                        "x": 173.9011,
-                        "y": 97.0036
+                        "x": 166.1011,
+                        "y": 103.0036
                     },
                     "uuid": "61425f53-34a8-45c3-9e5e-06255bc659e1"
                 }
@@ -3847,8 +3682,8 @@
                 {
                     "description": "Footprint TP6",
                     "pos": {
-                        "x": 173.9011,
-                        "y": 97.0036
+                        "x": 166.1011,
+                        "y": 103.0036
                     },
                     "uuid": "61425f53-34a8-45c3-9e5e-06255bc659e1"
                 }
@@ -4667,21 +4502,6 @@
             "type": "net_conflict"
         },
         {
-            "description": "Field 'MPN' differs (PCB: 'Seeed Studio 113991114', Schematic: 'Seeed Studio XIAO ESP32-S3 (113991114)')",
-            "items": [
-                {
-                    "description": "Footprint U6",
-                    "pos": {
-                        "x": 154.5011,
-                        "y": 111.0036
-                    },
-                    "uuid": "549774f6-f210-4501-8552-65f095eb7219"
-                }
-            ],
-            "severity": "warning",
-            "type": "footprint_symbol_field_mismatch"
-        },
-        {
             "description": "Pad net (VBAT_SENSE) doesn't match net given by schematic (/VBAT_SENSE)",
             "items": [
                 {
@@ -4690,7 +4510,7 @@
                         "x": 172.6211,
                         "y": 111.8386
                     },
-                    "uuid": "0fb9a93c-2cd5-4195-94aa-88a69bb31185"
+                    "uuid": "584828e6-e944-476c-a328-b0ab14b18bd3"
                 }
             ],
             "severity": "warning",
@@ -4705,7 +4525,7 @@
                         "x": 170.0811,
                         "y": 111.8386
                     },
-                    "uuid": "580fb277-93d7-4953-8636-ebeeb1f9981e"
+                    "uuid": "73762de5-dea6-4eae-bbd5-f18ab8a40ca0"
                 }
             ],
             "severity": "warning",
@@ -4720,7 +4540,7 @@
                         "x": 167.5411,
                         "y": 111.8386
                     },
-                    "uuid": "0b334775-1a2b-4e2e-87e8-2e588f962f9a"
+                    "uuid": "6187c508-449a-4c02-ab0e-66a536d83afe"
                 }
             ],
             "severity": "warning",
@@ -4735,7 +4555,7 @@
                         "x": 165.0011,
                         "y": 111.8386
                     },
-                    "uuid": "447466a2-4685-4909-9dc6-360498c9eba5"
+                    "uuid": "decb6766-55c9-47b9-8b17-06b5d93fdb3f"
                 }
             ],
             "severity": "warning",
@@ -4750,7 +4570,7 @@
                         "x": 162.4611,
                         "y": 111.8386
                     },
-                    "uuid": "9928e485-672a-486c-945d-b7bb1128e778"
+                    "uuid": "ee193b80-675f-4ea8-9b0f-2023dabdcfe9"
                 }
             ],
             "severity": "warning",
@@ -4834,8 +4654,8 @@
                 {
                     "description": "Footprint J1",
                     "pos": {
-                        "x": 143.5011,
-                        "y": 126.1036
+                        "x": 171.6011,
+                        "y": 105.9036
                     },
                     "uuid": "2da1e7ca-6bdc-4c23-bb42-b4e65b6ea9e1"
                 }
@@ -4939,8 +4759,8 @@
                 {
                     "description": "Footprint D6",
                     "pos": {
-                        "x": 146.1011,
-                        "y": 126.2036
+                        "x": 171.9011,
+                        "y": 102.3036
                     },
                     "uuid": "d87e5f2f-f59e-42c0-8fc0-af251b67a83d"
                 }
@@ -4957,7 +4777,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Segment of U6 on Top Overlay",
@@ -4965,7 +4785,7 @@
                         "x": 175.5381,
                         "y": 115.3986
                     },
-                    "uuid": "908f7ded-dd6e-494e-aa70-38c93ed3e410"
+                    "uuid": "edd0e527-e167-4bed-a5c7-a698450ca398"
                 }
             ],
             "severity": "warning",
@@ -4980,7 +4800,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Segment of U6 on Top Overlay",
@@ -4988,7 +4808,7 @@
                         "x": 176.5481,
                         "y": 124.3976
                     },
-                    "uuid": "b0eff065-5806-4396-a5f0-c3027f73b0f7"
+                    "uuid": "e5fd1117-b733-4037-b5de-945c13f0f72b"
                 }
             ],
             "severity": "warning",
@@ -5003,7 +4823,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Segment of U6 on Top Overlay",
@@ -5011,7 +4831,7 @@
                         "x": 175.5381,
                         "y": 126.8786
                     },
-                    "uuid": "9a44abb6-6615-4ed6-93c9-65c996bf7024"
+                    "uuid": "58ed3e7c-849b-4718-843a-dc9959102a52"
                 }
             ],
             "severity": "warning",
@@ -5026,7 +4846,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Arc of U6 on Top Overlay",
@@ -5034,7 +4854,7 @@
                         "x": 173.637099,
                         "y": 112.908601
                     },
-                    "uuid": "1e7beb04-a93f-4389-b493-24632804ab8d"
+                    "uuid": "f725aaf4-8e3b-4726-a8b1-80a03abf4c88"
                 }
             ],
             "severity": "warning",
@@ -5049,7 +4869,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Arc of U6 on Top Overlay",
@@ -5057,7 +4877,7 @@
                         "x": 173.6331,
                         "y": 126.8786
                     },
-                    "uuid": "ceece2ab-8213-4c87-8fa2-0dbf0c9b5fc8"
+                    "uuid": "fe6436bf-156c-4b48-9e02-6b7ae8097489"
                 }
             ],
             "severity": "warning",
@@ -5072,7 +4892,7 @@
                         "x": 175.5011,
                         "y": 81.0036
                     },
-                    "uuid": "2606f4ae-baa1-44b6-a901-c39e1057a123"
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
                 },
                 {
                     "description": "Circle of U6 on Top Overlay",
@@ -5080,7 +4900,53 @@
                         "x": 175.1221,
                         "y": 110.7936
                     },
-                    "uuid": "5649943d-24b9-4b21-9155-e366ebe3f646"
+                    "uuid": "16fd2b34-eef4-44ed-bf88-c9abd228f215"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 175.5011,
+                        "y": 81.0036
+                    },
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
+                },
+                {
+                    "description": "Segment of SW1 on Top Overlay",
+                    "pos": {
+                        "x": 174.8811,
+                        "y": 99.3036
+                    },
+                    "uuid": "79ee78b8-7eb6-4eb8-9d4e-3a2becde3605"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 175.5011,
+                        "y": 81.0036
+                    },
+                    "uuid": "e53b14eb-44b4-41e3-8d27-501fcfc79a24"
+                },
+                {
+                    "description": "Segment of SW1 on Top Overlay",
+                    "pos": {
+                        "x": 176.1711,
+                        "y": 98.0036
+                    },
+                    "uuid": "5ffe24c1-a105-486f-be91-e577f9f40b38"
                 }
             ],
             "severity": "warning",
@@ -5107,8 +4973,8 @@
                 {
                     "description": "Pad 1 [VIN] of TP6 on Top Layer",
                     "pos": {
-                        "x": 173.9011,
-                        "y": 97.0036
+                        "x": 166.1011,
+                        "y": 103.0036
                     },
                     "uuid": "9f2f683a-bb3e-447a-bd9a-d902c48987ea"
                 }
@@ -5141,51 +5007,6 @@
                         "y": 87.5036
                     },
                     "uuid": "fa29142a-75a1-427e-931c-2b022592e585"
-                }
-            ],
-            "severity": "warning",
-            "type": "padstack"
-        },
-        {
-            "description": "Padstack is questionable (negative solder paste margin is larger than pad; no solder paste mask will be generated)",
-            "items": [
-                {
-                    "description": "PTH pad 1 [VBAT] of SW1",
-                    "pos": {
-                        "x": 150.3011,
-                        "y": 118.6036
-                    },
-                    "uuid": "6c8dc752-e5a3-4f12-8251-30af23d95e3a"
-                }
-            ],
-            "severity": "warning",
-            "type": "padstack"
-        },
-        {
-            "description": "Padstack is questionable (negative solder paste margin is larger than pad; no solder paste mask will be generated)",
-            "items": [
-                {
-                    "description": "PTH pad 2 [VIN] of SW1",
-                    "pos": {
-                        "x": 150.3011,
-                        "y": 123.3036
-                    },
-                    "uuid": "2173628b-0f87-4047-af58-a70b93f1ca51"
-                }
-            ],
-            "severity": "warning",
-            "type": "padstack"
-        },
-        {
-            "description": "Padstack is questionable (negative solder paste margin is larger than pad; no solder paste mask will be generated)",
-            "items": [
-                {
-                    "description": "PTH pad 3 [<no net>] of SW1",
-                    "pos": {
-                        "x": 150.3011,
-                        "y": 128.0036
-                    },
-                    "uuid": "73e8e2d4-df96-466e-a8f2-e4916a4aaac0"
                 }
             ],
             "severity": "warning",
@@ -5632,8 +5453,8 @@
                 {
                     "description": "Footprint D6",
                     "pos": {
-                        "x": 146.1011,
-                        "y": 126.2036
+                        "x": 171.9011,
+                        "y": 102.3036
                     },
                     "uuid": "d87e5f2f-f59e-42c0-8fc0-af251b67a83d"
                 }
@@ -5662,8 +5483,8 @@
                 {
                     "description": "Footprint C49",
                     "pos": {
-                        "x": 147.5011,
-                        "y": 122.0036
+                        "x": 171.7011,
+                        "y": 104.9036
                     },
                     "uuid": "ed30c859-95f7-49f2-b947-748b5c52ab3c"
                 }
@@ -5680,7 +5501,22 @@
                         "x": 151.0011,
                         "y": 111.6036
                     },
-                    "uuid": "b2c78e6e-8657-460d-920d-bd6102ba4bd8"
+                    "uuid": "d8aa9e10-c62f-4000-9846-19389baf6b7b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'XIAO-ESP32-S3-SMD' does not match copy in library 'Neuryo_RevB'",
+            "items": [
+                {
+                    "description": "Footprint U6",
+                    "pos": {
+                        "x": 154.5011,
+                        "y": 111.0036
+                    },
+                    "uuid": "3e403fee-2b33-4a7f-8877-eeb80e1cd9b4"
                 }
             ],
             "severity": "warning",
@@ -5695,7 +5531,7 @@
                         "x": 162.4611,
                         "y": 123.6036
                     },
-                    "uuid": "18c17223-3c7e-43b2-a39a-85d592e00aec"
+                    "uuid": "683ef294-baad-40c7-8a20-5a934387c708"
                 }
             ],
             "severity": "warning",
@@ -5707,10 +5543,10 @@
                 {
                     "description": "Footprint R39",
                     "pos": {
-                        "x": 164.5011,
+                        "x": 164.8011,
                         "y": 124.4536
                     },
-                    "uuid": "87a0f61e-3a0f-45df-88f1-4dc753f049d5"
+                    "uuid": "c18723ac-f6a4-4b61-8b2a-e05840f6a500"
                 }
             ],
             "severity": "warning",
@@ -5725,7 +5561,7 @@
                         "x": 171.2011,
                         "y": 114.4036
                     },
-                    "uuid": "c049c4ce-1bb5-4ccc-ba94-508a5b3353b6"
+                    "uuid": "00589884-70a5-4645-822d-fa5026df3506"
                 }
             ],
             "severity": "warning",
@@ -5738,9 +5574,9 @@
                     "description": "Footprint R42",
                     "pos": {
                         "x": 171.2011,
-                        "y": 115.9036
+                        "y": 116.4536
                     },
-                    "uuid": "b5f1be93-59f0-418f-be98-f1b17963a1ec"
+                    "uuid": "2a81df1c-9baa-43a1-9fe9-4c84e93154f5"
                 }
             ],
             "severity": "warning",
@@ -5755,7 +5591,7 @@
                         "x": 171.2011,
                         "y": 113.0036
                     },
-                    "uuid": "c036d14d-7a0a-408f-b6f2-e57c92147746"
+                    "uuid": "68e445bc-7b8c-4c96-9255-cf3e81b0869e"
                 }
             ],
             "severity": "warning",
@@ -5767,10 +5603,10 @@
                 {
                     "description": "Footprint R37",
                     "pos": {
-                        "x": 170.1511,
-                        "y": 106.7536
+                        "x": 171.0511,
+                        "y": 83.4036
                     },
-                    "uuid": "2495c297-a8b7-436c-9d90-34fa36a47f53"
+                    "uuid": "3e13e4fc-cde3-4e01-b40f-f7fb0d0ff538"
                 }
             ],
             "severity": "warning",
@@ -5782,10 +5618,10 @@
                 {
                     "description": "Footprint R38",
                     "pos": {
-                        "x": 174.1011,
-                        "y": 102.6036
+                        "x": 173.4011,
+                        "y": 86.1536
                     },
-                    "uuid": "a9c6688c-504f-47ac-a441-59a9f228a432"
+                    "uuid": "e88b1da1-a19c-4c55-8e84-7e2d6dd9c39b"
                 }
             ],
             "severity": "warning",
@@ -5815,391 +5651,23 @@
             "type": "silk_overlap"
         },
         {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "PCB text 'GND' on Top Overlay",
-                    "pos": {
-                        "x": 148.9011,
-                        "y": 84.4261
-                    },
-                    "uuid": "c5c10c26-0007-464c-a3aa-6fe860924534"
-                },
-                {
-                    "description": "Circle of TP1 on Top Overlay",
-                    "pos": {
-                        "x": 152.5011,
-                        "y": 84.0036
-                    },
-                    "uuid": "cb68ab0d-33cb-4c4e-a7ba-dd1f361fcae5"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of J7 on Top Overlay",
-                    "pos": {
-                        "x": 161.0711,
-                        "y": 83.1436
-                    },
-                    "uuid": "9cfac0a1-b6df-48ef-bee8-0bafe4ba4777"
-                },
-                {
-                    "description": "Reference field of R4",
-                    "pos": {
-                        "x": 161.29423,
-                        "y": 86.68894
-                    },
-                    "uuid": "a0eba22d-704f-4deb-ae20-675c01ee8cfc"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R3",
-                    "pos": {
-                        "x": 161.29423,
-                        "y": 84.68894
-                    },
-                    "uuid": "8622f255-8d4e-4a1f-bc19-7d04c2ab989a"
-                },
-                {
-                    "description": "Segment of J7 on Top Overlay",
-                    "pos": {
-                        "x": 161.0711,
-                        "y": 83.1436
-                    },
-                    "uuid": "9cfac0a1-b6df-48ef-bee8-0bafe4ba4777"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R1 on Top Overlay",
-                    "pos": {
-                        "x": 166.58987,
-                        "y": 96.17253
-                    },
-                    "uuid": "6a155b0c-6faa-4919-8a7d-26319ca03d5e"
-                },
-                {
-                    "description": "Reference field of C10",
-                    "pos": {
-                        "x": 166.703891,
-                        "y": 96.33894
-                    },
-                    "uuid": "e26390c2-fa09-4627-b916-7758af31dedc"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C10",
-                    "pos": {
-                        "x": 166.703891,
-                        "y": 96.33894
-                    },
-                    "uuid": "e26390c2-fa09-4627-b916-7758af31dedc"
-                },
-                {
-                    "description": "Segment of R2 on Top Overlay",
-                    "pos": {
-                        "x": 166.7011,
-                        "y": 95.6536
-                    },
-                    "uuid": "e620423f-75db-4887-8e01-5285220790f9"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of U3",
-                    "pos": {
-                        "x": 163.01804,
-                        "y": 96.33894
-                    },
-                    "uuid": "e4face7b-7f06-4efd-9c65-84f9e2ffb025"
-                },
-                {
-                    "description": "Reference field of C4",
-                    "pos": {
-                        "x": 161.39423,
-                        "y": 95.38894
-                    },
-                    "uuid": "f6401ed3-a474-4d47-b513-b4e2575ab2c0"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of C4 on Top Overlay",
-                    "pos": {
-                        "x": 162.64699,
-                        "y": 95.98271
-                    },
-                    "uuid": "7a7bb1a0-90fe-43f5-8552-043a75859f1b"
-                },
-                {
-                    "description": "Reference field of U3",
-                    "pos": {
-                        "x": 163.01804,
-                        "y": 96.33894
-                    },
-                    "uuid": "e4face7b-7f06-4efd-9c65-84f9e2ffb025"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of C1 on Top Overlay",
-                    "pos": {
-                        "x": 162.1011,
-                        "y": 91.7286
-                    },
-                    "uuid": "22ec4498-ef01-44c3-b9a6-0150f0d9dc01"
-                },
-                {
-                    "description": "Reference field of C1",
-                    "pos": {
-                        "x": 161.16084,
-                        "y": 90.78894
-                    },
-                    "uuid": "6e57baa6-97bc-4bfb-8c0b-6344a36b2adc"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C1",
-                    "pos": {
-                        "x": 161.16084,
-                        "y": 90.78894
-                    },
-                    "uuid": "6e57baa6-97bc-4bfb-8c0b-6344a36b2adc"
-                },
-                {
-                    "description": "Segment of J7 on Top Overlay",
-                    "pos": {
-                        "x": 161.0711,
-                        "y": 83.1436
-                    },
-                    "uuid": "9cfac0a1-b6df-48ef-bee8-0bafe4ba4777"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R37",
-                    "pos": {
-                        "x": 171.4511,
-                        "y": 106.7536
-                    },
-                    "uuid": "91cd72dc-257b-4152-88b3-ca668cbee162"
-                },
-                {
-                    "description": "Segment of R37 on Top Overlay",
-                    "pos": {
-                        "x": 170.9761,
-                        "y": 105.9036
-                    },
-                    "uuid": "fc84d234-3964-44f1-a9e8-14149922309d"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of Q1 on Top Overlay",
-                    "pos": {
-                        "x": 171.6511,
-                        "y": 102.4536
-                    },
-                    "uuid": "51477eed-b43a-433b-a80f-75cc4b638f9d"
-                },
-                {
-                    "description": "Reference field of R38",
-                    "pos": {
-                        "x": 172.8011,
-                        "y": 102.6036
-                    },
-                    "uuid": "efb96e76-f318-4cc4-b9e9-3655c4729b97"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R38 on Top Overlay",
-                    "pos": {
-                        "x": 173.2761,
-                        "y": 103.4536
-                    },
-                    "uuid": "a26b2b4b-8236-46b0-ad91-a5bcdff79a65"
-                },
-                {
-                    "description": "Reference field of R38",
-                    "pos": {
-                        "x": 172.8011,
-                        "y": 102.6036
-                    },
-                    "uuid": "efb96e76-f318-4cc4-b9e9-3655c4729b97"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R36 on Top Overlay",
-                    "pos": {
-                        "x": 150.1511,
-                        "y": 110.7786
-                    },
-                    "uuid": "d860f626-f8b1-47e7-a4c6-b9b7e81a8645"
-                },
-                {
-                    "description": "Reference field of R36",
-                    "pos": {
-                        "x": 151.0011,
-                        "y": 110.3036
-                    },
-                    "uuid": "de404fc1-fe4a-48e2-9a32-d802cab9f789"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C38",
-                    "pos": {
-                        "x": 140.78644,
-                        "y": 121.734129
-                    },
-                    "uuid": "c16b9dad-2c90-4d72-b502-275a20f805cc"
-                },
-                {
-                    "description": "Segment of J1 on Top Overlay",
-                    "pos": {
-                        "x": 140.55105,
-                        "y": 122.30356
-                    },
-                    "uuid": "e1b3c61e-2671-4496-84a7-c4281ee4ef53"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C35",
-                    "pos": {
-                        "x": 145.78644,
-                        "y": 121.734129
-                    },
-                    "uuid": "65164aad-b568-4823-b7fb-e121d1aeb377"
-                },
-                {
-                    "description": "Segment of J1 on Top Overlay",
-                    "pos": {
-                        "x": 145.45109,
-                        "y": 122.30356
-                    },
-                    "uuid": "9ea02b81-22e2-4b1d-87c5-0e368daa954a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of J1 on Top Overlay",
-                    "pos": {
-                        "x": 140.55105,
-                        "y": 122.30356
-                    },
-                    "uuid": "5c700722-5c04-4499-89f0-d43f9867adfc"
-                },
-                {
-                    "description": "Reference field of C38",
-                    "pos": {
-                        "x": 140.78644,
-                        "y": 121.734129
-                    },
-                    "uuid": "c16b9dad-2c90-4d72-b502-275a20f805cc"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "PCB text 'AVSS' on Top Overlay",
+                    "description": "Arc of U6 on Top Overlay",
                     "pos": {
-                        "x": 148.9011,
-                        "y": 88.1761
+                        "x": 173.637099,
+                        "y": 112.908601
                     },
-                    "uuid": "d0911613-8e3d-4d21-bf4b-dbc3f4c3d44f"
+                    "uuid": "f725aaf4-8e3b-4726-a8b1-80a03abf4c88"
                 },
                 {
-                    "description": "Pad 1 [AVSS] of TP3 on Top Layer",
+                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
                     "pos": {
-                        "x": 152.5011,
-                        "y": 87.5036
+                        "x": 172.6211,
+                        "y": 111.8386
                     },
-                    "uuid": "fa29142a-75a1-427e-931c-2b022592e585"
+                    "uuid": "584828e6-e944-476c-a328-b0ab14b18bd3"
                 }
             ],
             "severity": "warning",
@@ -6209,20 +5677,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "PCB text 'AVDD' on Top Overlay",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 148.9011,
-                        "y": 90.9261
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "d7564680-ef2e-4b99-89bf-a1d42802df6b"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "Pad 1 [AVDD] of TP2 on Top Layer",
+                    "description": "Pad 2 [DRDY] of U6 on Top Layer",
                     "pos": {
-                        "x": 152.5011,
-                        "y": 90.5036
+                        "x": 170.0811,
+                        "y": 111.8386
                     },
-                    "uuid": "0446a803-5e7a-467e-995f-279b6796c5af"
+                    "uuid": "73762de5-dea6-4eae-bbd5-f18ab8a40ca0"
                 }
             ],
             "severity": "warning",
@@ -6232,20 +5700,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "PCB text 'DVDD' on Top Overlay",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 148.9011,
-                        "y": 94.4261
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "e8748fbc-bd55-4ed9-832f-0dea0bdb58df"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "Pad 1 [DVDD] of TP4 on Top Layer",
+                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
                     "pos": {
-                        "x": 152.5011,
-                        "y": 93.7536
+                        "x": 172.6211,
+                        "y": 111.8386
                     },
-                    "uuid": "2f8dfb79-f4f9-4deb-a29a-148004fbfe28"
+                    "uuid": "584828e6-e944-476c-a328-b0ab14b18bd3"
                 }
             ],
             "severity": "warning",
@@ -6255,20 +5723,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Reference field of R4",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 161.29423,
-                        "y": 86.68894
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "a0eba22d-704f-4deb-ae20-675c01ee8cfc"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "PTH pad 2 [XIAO_3V3] of J7",
+                    "description": "Pad 3 [CS] of U6 on Top Layer",
                     "pos": {
-                        "x": 159.8011,
-                        "y": 87.1436
+                        "x": 167.5411,
+                        "y": 111.8386
                     },
-                    "uuid": "e7d3bd85-c4b3-4848-97e6-60dc18a94df2"
+                    "uuid": "6187c508-449a-4c02-ab0e-66a536d83afe"
                 }
             ],
             "severity": "warning",
@@ -6278,20 +5746,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Reference field of R3",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 161.29423,
-                        "y": 84.68894
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "8622f255-8d4e-4a1f-bc19-7d04c2ab989a"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "PTH pad 1 [GND] of J7",
+                    "description": "Pad 4 [MOSI] of U6 on Top Layer",
                     "pos": {
-                        "x": 159.8011,
-                        "y": 84.6036
+                        "x": 165.0011,
+                        "y": 111.8386
                     },
-                    "uuid": "d5471f34-6bb9-4228-bb66-50377c088746"
+                    "uuid": "decb6766-55c9-47b9-8b17-06b5d93fdb3f"
                 }
             ],
             "severity": "warning",
@@ -6301,20 +5769,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Reference field of J6",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 159.8011,
-                        "y": 84.6036
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "1a89a87f-906f-4c20-96a5-c8e0de7db45d"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "PTH pad 1 [GND] of J7",
+                    "description": "Pad 5 [SCLK] of U6 on Top Layer",
                     "pos": {
-                        "x": 159.8011,
-                        "y": 84.6036
+                        "x": 162.4611,
+                        "y": 111.8386
                     },
-                    "uuid": "d5471f34-6bb9-4228-bb66-50377c088746"
+                    "uuid": "ee193b80-675f-4ea8-9b0f-2023dabdcfe9"
                 }
             ],
             "severity": "warning",
@@ -6324,20 +5792,20 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Reference field of C10",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 166.703891,
-                        "y": 96.33894
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "e26390c2-fa09-4627-b916-7758af31dedc"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "Pad 1 [AVDD] of R1 on Top Layer",
+                    "description": "Pad 7 [<no net>] of U6 on Top Layer",
                     "pos": {
-                        "x": 167.02172,
-                        "y": 97.0536
+                        "x": 157.3811,
+                        "y": 111.8386
                     },
-                    "uuid": "cbca47d1-79ce-4bf5-9ce7-829d1a4b0db4"
+                    "uuid": "cdcd7d94-3bb4-4b2f-9211-019db40f5b66"
                 }
             ],
             "severity": "warning",
@@ -6347,20 +5815,181 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Reference field of U3",
+                    "description": "Segment of U6 on Top Overlay",
                     "pos": {
-                        "x": 163.01804,
-                        "y": 96.33894
+                        "x": 156.4881,
+                        "y": 111.0036
                     },
-                    "uuid": "e4face7b-7f06-4efd-9c65-84f9e2ffb025"
+                    "uuid": "53946b2b-f6ea-46cc-8bbe-e25e087c53ac"
                 },
                 {
-                    "description": "Pad 2 [GND] of C4 on Top Layer",
+                    "description": "Pad 6 [MISO] of U6 on Top Layer",
                     "pos": {
-                        "x": 163.7511,
-                        "y": 95.37984
+                        "x": 159.9211,
+                        "y": 111.8386
                     },
-                    "uuid": "2163dfe3-f439-480f-a785-86a38591c845"
+                    "uuid": "597a07b9-2ec4-4523-95f4-0b0c6e12dd3b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 8 [I2C_SCL] of U6 on Top Layer",
+                    "pos": {
+                        "x": 157.3811,
+                        "y": 128.0036
+                    },
+                    "uuid": "c8eaabbe-3613-42c1-bbdb-f516db19fbdb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 9 [I2C_SDA] of U6 on Top Layer",
+                    "pos": {
+                        "x": 159.9211,
+                        "y": 128.0036
+                    },
+                    "uuid": "83374363-2742-4ed6-80df-0ca08130938a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 10 [USB_SENSE] of U6 on Top Layer",
+                    "pos": {
+                        "x": 162.4611,
+                        "y": 128.0036
+                    },
+                    "uuid": "2a5c5288-16de-4fa6-a84d-4f4294522817"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 11 [<no net>] of U6 on Top Layer",
+                    "pos": {
+                        "x": 165.0011,
+                        "y": 128.0036
+                    },
+                    "uuid": "2db19558-2829-4afa-9a4c-517da3aaaf40"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 12 [XIAO_3V3] of U6 on Top Layer",
+                    "pos": {
+                        "x": 167.5411,
+                        "y": 128.0036
+                    },
+                    "uuid": "5f081082-b94a-4406-bf06-5cabea254449"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 13 [GND] of U6 on Top Layer",
+                    "pos": {
+                        "x": 170.0811,
+                        "y": 128.0036
+                    },
+                    "uuid": "dfd69c5b-2734-47cb-9ea1-4ce57f3ace46"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of U6 on Top Overlay",
+                    "pos": {
+                        "x": 156.4881,
+                        "y": 128.7836
+                    },
+                    "uuid": "8265750a-db9a-4e15-b431-9a2af1ad0b0e"
+                },
+                {
+                    "description": "Pad 14 [VUSB] of U6 on Top Layer",
+                    "pos": {
+                        "x": 172.6211,
+                        "y": 128.0036
+                    },
+                    "uuid": "0e82b6f4-6ab1-4c08-a434-cbef04cc48b6"
                 }
             ],
             "severity": "warning",
@@ -6375,7 +6004,7 @@
                         "x": 156.4881,
                         "y": 112.9086
                     },
-                    "uuid": "27e9e166-84bf-44e8-937b-399e5428c920"
+                    "uuid": "1cab32fc-1079-45f2-8c15-2a981e745484"
                 },
                 {
                     "description": "Pad 7 [<no net>] of U6 on Top Layer",
@@ -6383,214 +6012,7 @@
                         "x": 157.3811,
                         "y": 111.8386
                     },
-                    "uuid": "88876a3c-f605-4ce0-9545-470b8606862a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of U6",
-                    "pos": {
-                        "x": 165.0011,
-                        "y": 120.0036
-                    },
-                    "uuid": "bfc0ef6f-4d38-459c-bfa7-cc15e34648e1"
-                },
-                {
-                    "description": "Pad 25 [<no net>] of U6 on Top Layer",
-                    "pos": {
-                        "x": 163.0011,
-                        "y": 121.0136
-                    },
-                    "uuid": "784e5c7a-a682-4380-9c36-97f7cd2bd434"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 8 [I2C_SCL] of U6 on Top Layer",
-                    "pos": {
-                        "x": 157.3811,
-                        "y": 128.0036
-                    },
-                    "uuid": "99da3171-fe37-458b-a628-6ba61d90c323"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 9 [I2C_SDA] of U6 on Top Layer",
-                    "pos": {
-                        "x": 159.9211,
-                        "y": 128.0036
-                    },
-                    "uuid": "033a343a-67b6-4019-90cd-c810ba4affec"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 10 [USB_SENSE] of U6 on Top Layer",
-                    "pos": {
-                        "x": 162.4611,
-                        "y": 128.0036
-                    },
-                    "uuid": "e327d563-f1c2-41fc-a98d-5ce8d0d52e0d"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 11 [<no net>] of U6 on Top Layer",
-                    "pos": {
-                        "x": 165.0011,
-                        "y": 128.0036
-                    },
-                    "uuid": "b7ef7148-5001-4116-9472-96f7c803d81f"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 12 [XIAO_3V3] of U6 on Top Layer",
-                    "pos": {
-                        "x": 167.5411,
-                        "y": 128.0036
-                    },
-                    "uuid": "7073c9a4-062a-499a-96e5-b68dad06153a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 13 [GND] of U6 on Top Layer",
-                    "pos": {
-                        "x": 170.0811,
-                        "y": 128.0036
-                    },
-                    "uuid": "3f0539d6-57df-46e7-9e25-e789e281305b"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 128.7836
-                    },
-                    "uuid": "c28964b5-9694-4aeb-be93-833cef332711"
-                },
-                {
-                    "description": "Pad 14 [VUSB] of U6 on Top Layer",
-                    "pos": {
-                        "x": 172.6211,
-                        "y": 128.0036
-                    },
-                    "uuid": "112df7e6-e5f3-4342-a821-81c3a8b04dcc"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Arc of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 126.8786
-                    },
-                    "uuid": "9ded2dc8-db0d-46d5-911f-0641b26ddf13"
-                },
-                {
-                    "description": "Pad 8 [I2C_SCL] of U6 on Top Layer",
-                    "pos": {
-                        "x": 157.3811,
-                        "y": 128.0036
-                    },
-                    "uuid": "99da3171-fe37-458b-a628-6ba61d90c323"
+                    "uuid": "cdcd7d94-3bb4-4b2f-9211-019db40f5b66"
                 }
             ],
             "severity": "warning",
@@ -6605,7 +6027,7 @@
                         "x": 173.6331,
                         "y": 126.8786
                     },
-                    "uuid": "ceece2ab-8213-4c87-8fa2-0dbf0c9b5fc8"
+                    "uuid": "fe6436bf-156c-4b48-9e02-6b7ae8097489"
                 },
                 {
                     "description": "Pad 14 [VUSB] of U6 on Top Layer",
@@ -6613,7 +6035,7 @@
                         "x": 172.6211,
                         "y": 128.0036
                     },
-                    "uuid": "112df7e6-e5f3-4342-a821-81c3a8b04dcc"
+                    "uuid": "0e82b6f4-6ab1-4c08-a434-cbef04cc48b6"
                 }
             ],
             "severity": "warning",
@@ -6625,482 +6047,22 @@
                 {
                     "description": "Arc of U6 on Top Overlay",
                     "pos": {
-                        "x": 173.637099,
-                        "y": 112.908601
-                    },
-                    "uuid": "1e7beb04-a93f-4389-b493-24632804ab8d"
-                },
-                {
-                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
-                    "pos": {
-                        "x": 172.6211,
-                        "y": 111.8386
-                    },
-                    "uuid": "0fb9a93c-2cd5-4195-94aa-88a69bb31185"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
                         "x": 156.4881,
-                        "y": 111.0036
+                        "y": 126.8786
                     },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
+                    "uuid": "1bb8587f-d7e6-49ce-a113-c548283f6e53"
                 },
                 {
-                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
-                    "pos": {
-                        "x": 172.6211,
-                        "y": 111.8386
-                    },
-                    "uuid": "0fb9a93c-2cd5-4195-94aa-88a69bb31185"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 3 [CS] of U6 on Top Layer",
-                    "pos": {
-                        "x": 167.5411,
-                        "y": 111.8386
-                    },
-                    "uuid": "0b334775-1a2b-4e2e-87e8-2e588f962f9a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 2 [DRDY] of U6 on Top Layer",
-                    "pos": {
-                        "x": 170.0811,
-                        "y": 111.8386
-                    },
-                    "uuid": "580fb277-93d7-4953-8636-ebeeb1f9981e"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 4 [MOSI] of U6 on Top Layer",
-                    "pos": {
-                        "x": 165.0011,
-                        "y": 111.8386
-                    },
-                    "uuid": "447466a2-4685-4909-9dc6-360498c9eba5"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 5 [SCLK] of U6 on Top Layer",
-                    "pos": {
-                        "x": 162.4611,
-                        "y": 111.8386
-                    },
-                    "uuid": "9928e485-672a-486c-945d-b7bb1128e778"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 6 [MISO] of U6 on Top Layer",
-                    "pos": {
-                        "x": 159.9211,
-                        "y": 111.8386
-                    },
-                    "uuid": "cfecfb95-3836-42bf-a58d-41c4b88d3b7e"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of U6 on Top Overlay",
-                    "pos": {
-                        "x": 156.4881,
-                        "y": 111.0036
-                    },
-                    "uuid": "fb38ee6e-5ec1-4ddf-a908-3d345ae674dc"
-                },
-                {
-                    "description": "Pad 7 [<no net>] of U6 on Top Layer",
+                    "description": "Pad 8 [I2C_SCL] of U6 on Top Layer",
                     "pos": {
                         "x": 157.3811,
-                        "y": 111.8386
+                        "y": 128.0036
                     },
-                    "uuid": "88876a3c-f605-4ce0-9545-470b8606862a"
+                    "uuid": "c8eaabbe-3613-42c1-bbdb-f516db19fbdb"
                 }
             ],
             "severity": "warning",
             "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R37",
-                    "pos": {
-                        "x": 171.4511,
-                        "y": 106.7536
-                    },
-                    "uuid": "91cd72dc-257b-4152-88b3-ca668cbee162"
-                },
-                {
-                    "description": "Pad 2 [GND] of R37 on Top Layer",
-                    "pos": {
-                        "x": 170.1511,
-                        "y": 107.6036
-                    },
-                    "uuid": "c7b993e7-d0f7-44d2-b046-17ebb7db707e"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R38",
-                    "pos": {
-                        "x": 172.8011,
-                        "y": 102.6036
-                    },
-                    "uuid": "efb96e76-f318-4cc4-b9e9-3655c4729b97"
-                },
-                {
-                    "description": "Pad 2 [AEN] of R38 on Top Layer",
-                    "pos": {
-                        "x": 174.1011,
-                        "y": 101.7536
-                    },
-                    "uuid": "1d92261c-910c-4aa5-95d0-bd99943a4bbf"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R38",
-                    "pos": {
-                        "x": 172.8011,
-                        "y": 102.6036
-                    },
-                    "uuid": "efb96e76-f318-4cc4-b9e9-3655c4729b97"
-                },
-                {
-                    "description": "Pad 1 [VIN] of R38 on Top Layer",
-                    "pos": {
-                        "x": 174.1011,
-                        "y": 103.4536
-                    },
-                    "uuid": "e8ee4a19-9f13-44ab-9a64-4a75a8ac0f09"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R36",
-                    "pos": {
-                        "x": 151.0011,
-                        "y": 110.3036
-                    },
-                    "uuid": "de404fc1-fe4a-48e2-9a32-d802cab9f789"
-                },
-                {
-                    "description": "Pad 2 [GND] of R36 on Top Layer",
-                    "pos": {
-                        "x": 151.8511,
-                        "y": 111.6036
-                    },
-                    "uuid": "1befd890-9042-4cda-b501-34fb70b00400"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R36",
-                    "pos": {
-                        "x": 151.0011,
-                        "y": 110.3036
-                    },
-                    "uuid": "de404fc1-fe4a-48e2-9a32-d802cab9f789"
-                },
-                {
-                    "description": "Pad 1 [ADS_START] of R36 on Top Layer",
-                    "pos": {
-                        "x": 150.1511,
-                        "y": 111.6036
-                    },
-                    "uuid": "c6884711-4a2b-491d-9d98-b59e08174f48"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C34",
-                    "pos": {
-                        "x": 143.28644,
-                        "y": 121.734129
-                    },
-                    "uuid": "5b6d9efa-5d88-4d88-8414-a82f6c2b99a4"
-                },
-                {
-                    "description": "PTH pad 1 [GND] of J1",
-                    "pos": {
-                        "x": 142.5011,
-                        "y": 123.6536
-                    },
-                    "uuid": "f2afea27-29b9-4266-b6ba-a7de17d965c7"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R40",
-                    "pos": {
-                        "x": 161.1611,
-                        "y": 123.6036
-                    },
-                    "uuid": "39c4711d-8ea8-4059-8ec2-14e30325f10a"
-                },
-                {
-                    "description": "Segment of R40 on Bottom Overlay",
-                    "pos": {
-                        "x": 161.6361,
-                        "y": 122.7536
-                    },
-                    "uuid": "ac9f83de-5685-4cfb-9957-410d22c1da79"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R39 on Bottom Overlay",
-                    "pos": {
-                        "x": 163.6511,
-                        "y": 125.2786
-                    },
-                    "uuid": "6e778094-ff85-491e-ae2d-b992a27f2a0f"
-                },
-                {
-                    "description": "Reference field of R39",
-                    "pos": {
-                        "x": 164.5011,
-                        "y": 125.7536
-                    },
-                    "uuid": "c2793cb9-bb99-4e72-b99c-b5dd44922659"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C50",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 115.7036
-                    },
-                    "uuid": "36a66977-5c54-4ec2-a038-88582cd09392"
-                },
-                {
-                    "description": "Segment of C50 on Bottom Overlay",
-                    "pos": {
-                        "x": 170.32077,
-                        "y": 115.2566
-                    },
-                    "uuid": "c153b357-ed43-45ba-b605-be1767a81f61"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R42 on Bottom Overlay",
-                    "pos": {
-                        "x": 170.3511,
-                        "y": 115.0786
-                    },
-                    "uuid": "3343649d-db18-4802-a0fa-8f1aa1a0c2b5"
-                },
-                {
-                    "description": "Reference field of C50",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 115.7036
-                    },
-                    "uuid": "36a66977-5c54-4ec2-a038-88582cd09392"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R42 on Bottom Overlay",
-                    "pos": {
-                        "x": 170.3511,
-                        "y": 115.0786
-                    },
-                    "uuid": "3343649d-db18-4802-a0fa-8f1aa1a0c2b5"
-                },
-                {
-                    "description": "Segment of C50 on Bottom Overlay",
-                    "pos": {
-                        "x": 170.32077,
-                        "y": 115.2566
-                    },
-                    "uuid": "c153b357-ed43-45ba-b605-be1767a81f61"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of R42 on Bottom Overlay",
-                    "pos": {
-                        "x": 170.3511,
-                        "y": 116.7286
-                    },
-                    "uuid": "2ef133a0-1191-472b-9675-5709379e73ec"
-                },
-                {
-                    "description": "Reference field of R42",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 117.2036
-                    },
-                    "uuid": "3f95b55b-2920-4ac4-90c6-d76b892a0e86"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R41",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 111.7036
-                    },
-                    "uuid": "3de6b563-cf55-4e7c-9f98-04f1f42157d5"
-                },
-                {
-                    "description": "Segment of R41 on Bottom Overlay",
-                    "pos": {
-                        "x": 172.0511,
-                        "y": 112.1786
-                    },
-                    "uuid": "c7eb159e-01cc-4099-aac0-56745e5e90ce"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
         },
         {
             "description": "Silkscreen clearance",
@@ -7147,75 +6109,6 @@
             ],
             "severity": "warning",
             "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Segment of R40 on Bottom Overlay",
-                    "pos": {
-                        "x": 163.2861,
-                        "y": 122.7536
-                    },
-                    "uuid": "aeb174a9-45c3-423c-a8bb-37d5e67acd8d"
-                },
-                {
-                    "description": "Pad 2 [USB_SENSE] of R39 on Bottom Layer",
-                    "pos": {
-                        "x": 163.6511,
-                        "y": 124.4536
-                    },
-                    "uuid": "e74c6e53-2a9f-4330-ae3f-d2223959661f"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C50",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 115.7036
-                    },
-                    "uuid": "36a66977-5c54-4ec2-a038-88582cd09392"
-                },
-                {
-                    "description": "Pad 1 [VBAT_SENSE] of R42 on Bottom Layer",
-                    "pos": {
-                        "x": 172.0511,
-                        "y": 115.9036
-                    },
-                    "uuid": "a5464478-0a07-4758-998e-d236beb2a075"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C50",
-                    "pos": {
-                        "x": 171.2011,
-                        "y": 115.7036
-                    },
-                    "uuid": "36a66977-5c54-4ec2-a038-88582cd09392"
-                },
-                {
-                    "description": "Pad 2 [GND] of R42 on Bottom Layer",
-                    "pos": {
-                        "x": 170.3511,
-                        "y": 115.9036
-                    },
-                    "uuid": "1af15c1a-d52a-400a-863d-acd297e67630"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
         }
     ]
 }

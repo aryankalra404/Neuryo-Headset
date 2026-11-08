@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/Users/aryankalra/Desktop/Neuryo-Research/pcb-work/revb/Neuryo_RevB.kicad_sch")
-		(date "2026-11-08T17:53:29")
+		(date "2026-11-08T18:30:51")
 		(tool "Eeschema 10.0.8")
 		(textvar
 			(name "DRAWNBY") "Xavier Asghar")
@@ -7383,7 +7383,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "bf217c8d-4dc2-4761-be29-6108a5017531")
+			(tstamps "c943f150-c2d6-44c6-804f-fa587524892c")
 			(units
 				(unit
 					(name "A")
@@ -9791,7 +9791,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "0ffdfd67-56f3-4c3c-8728-4e0adfbd8945")
+			(tstamps "ef4522fa-2efa-47da-89b7-3837e8c91f2d")
 			(units
 				(unit
 					(name "A")
@@ -9849,7 +9849,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "c2cfbe03-19b1-4eb0-bf35-3ac7100d742a")
+			(tstamps "3e7d0e8e-57da-4d0d-b14e-10bdad764a46")
 			(units
 				(unit
 					(name "A")
@@ -10025,12 +10025,12 @@
 		(comp
 			(ref "Q1")
 			(value "2N7002")
-			(footprint "Neuryo_RevB:SOT-23_2N7002")
+			(footprint "Neuryo_RevB:SOT-23")
 			(fields
 				(field
 					(name "MPN") "Nexperia 2N7002,215")
 				(field
-					(name "Footprint") "Neuryo_RevB:SOT-23_2N7002")
+					(name "Footprint") "Neuryo_RevB:SOT-23")
 				(field
 					(name "Datasheet")
 				)
@@ -10059,7 +10059,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "2d4a2af4-a615-44b1-b8db-c45511d57013")
+			(tstamps "2c7f853c-6227-4c93-86de-572ccd47fcce")
 			(units
 				(unit
 					(name "A")
@@ -13618,7 +13618,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "ab6853e0-6052-440e-a815-828c4e041496")
+			(tstamps "952b896e-e967-4c93-9869-a453379676a9")
 			(units
 				(unit
 					(name "A")
@@ -13674,7 +13674,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "e011facd-d8e0-40f4-a300-1d42be93ecf8")
+			(tstamps "7ccc30b6-5ce9-4ded-8ceb-6ea714e03dad")
 			(units
 				(unit
 					(name "A")
@@ -13730,7 +13730,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "282d931d-27d8-4b91-8403-002999fe7f43")
+			(tstamps "31c871bf-ce9f-4d35-96ac-47f888a277e6")
 			(units
 				(unit
 					(name "A")
@@ -13786,7 +13786,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "49abdaa3-4aab-4012-9036-5f772bc82fa1")
+			(tstamps "6c5df640-29f1-489b-ac90-d93e176a738b")
 			(units
 				(unit
 					(name "A")
@@ -13842,7 +13842,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "17f28365-4bf6-4e33-9eed-d48942750268")
+			(tstamps "dba2e8e3-62f7-475a-82b0-b63b6e591410")
 			(units
 				(unit
 					(name "A")
@@ -13898,7 +13898,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "e9da9abd-bfbe-4947-8edd-31e5c6aedce3")
+			(tstamps "94169555-ba32-4f19-ace8-b13db3ab21b0")
 			(units
 				(unit
 					(name "A")
@@ -13954,7 +13954,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "88eed479-6161-4f53-a03d-5e6dcdc1ad7e")
+			(tstamps "42374c8a-2690-47d3-b435-2bc3b66b5ffb")
 			(units
 				(unit
 					(name "A")
@@ -13971,91 +13971,21 @@
 		)
 		(comp
 			(ref "SW1")
-			(value "1101M2S3CQE2")
-			(footprint "Low_Cost_EEG-import-fps:FP-1101M2S3CQE2-MFG")
-			(description "SWITCH SLIDE SPDT 6A 120V")
+			(value "PCM12SMTR")
+			(footprint "Neuryo_RevB:SW_SPDT_PCM12")
+			(datasheet "https://www.ckswitches.com/media/1424/pcm.pdf")
+			(description "SWITCH SLIDE SPDT 0.3A 6VDC SMD")
 			(fields
 				(field
-					(name "TERMINATION") "PC Pins")
+					(name "MPN") "C&K PCM12SMTR")
 				(field
-					(name "SWITCH TRAVEL") "2.16mm")
+					(name "LCSC") "C221841")
 				(field
-					(name "NUMBER OF POSITIONS") "3")
+					(name "Footprint") "Neuryo_RevB:SW_SPDT_PCM12")
 				(field
-					(name "PACKAGING") "Bulk")
+					(name "Datasheet") "https://www.ckswitches.com/media/1424/pcm.pdf")
 				(field
-					(name "NUMBER OF POLES") "1")
-				(field
-					(name "HOUSING MATERIAL") "Stainless Steel")
-				(field
-					(name "FLAMMABILITY RATING") "UL94 V-0")
-				(field
-					(name "SERIES") "1000")
-				(field
-					(name "CONTACT CURRENT RATING") "6A")
-				(field
-					(name "LENGTH") "12.7mm")
-				(field
-					(name "DEPTH") "6.6mm")
-				(field
-					(name "APPROVALS") "UL")
-				(field
-					(name "ORIENTATION") "Vertical")
-				(field
-					(name "MAX CURRENT RATING") "6A")
-				(field
-					(name "ACTUATOR LENGTH") "5.08mm")
-				(field
-					(name "VOLTAGE RATING (DC)") "28V")
-				(field
-					(name "MAX OPERATING TEMPERATURE") "65°C")
-				(field
-					(name "THROW CONFIGURATION") "SPDT")
-				(field
-					(name "REACH SVHC") "No SVHC")
-				(field
-					(name "MAX VOLTAGE RATING (AC)") "250V")
-				(field
-					(name "CONTACT MATERIAL") "Copper")
-				(field
-					(name "INSULATION RESISTANCE") "1GR")
-				(field
-					(name "BODY MATERIAL") "Stainless Steel")
-				(field
-					(name "ACTUATOR TYPE") "Standard")
-				(field
-					(name "MAX VOLTAGE RATING (DC)") "28V")
-				(field
-					(name "LEAD FREE") "Lead Free")
-				(field
-					(name "CONTACT RESISTANCE") "10mR")
-				(field
-					(name "CURRENT RATING") "6A")
-				(field
-					(name "VOLTAGE RATING (AC)") "120V")
-				(field
-					(name "SWITCH FUNCTION") "On-On")
-				(field
-					(name "CONTACT PLATING") "Silver")
-				(field
-					(name "PACKAGE QUANTITY") "1")
-				(field
-					(name "MIN OPERATING TEMPERATURE") "-30°C")
-				(field
-					(name "ACTUATOR MATERIAL") "Nylon")
-				(field
-					(name "ACTUATOR COLOR") "Black")
-				(field
-					(name "MOUNT") "Through Hole")
-				(field
-					(name "ELECTRICAL LIFE") "40000Cycles")
-				(field
-					(name "Footprint") "Low_Cost_EEG-import-fps:FP-1101M2S3CQE2-MFG")
-				(field
-					(name "Datasheet")
-				)
-				(field
-					(name "Description") "SWITCH SLIDE SPDT 6A 120V")
+					(name "Description") "SWITCH SLIDE SPDT 0.3A 6VDC SMD")
 			)
 			(libsource
 				(lib "Altium Content Vault")
@@ -14063,152 +13993,12 @@
 				(description "SWITCH SLIDE SPDT 6A 120V")
 			)
 			(property
-				(name "TERMINATION")
-				(value "PC Pins")
+				(name "MPN")
+				(value "C&K PCM12SMTR")
 			)
 			(property
-				(name "SWITCH TRAVEL")
-				(value "2.16mm")
-			)
-			(property
-				(name "NUMBER OF POSITIONS")
-				(value "3")
-			)
-			(property
-				(name "PACKAGING")
-				(value "Bulk")
-			)
-			(property
-				(name "NUMBER OF POLES")
-				(value "1")
-			)
-			(property
-				(name "HOUSING MATERIAL")
-				(value "Stainless Steel")
-			)
-			(property
-				(name "FLAMMABILITY RATING")
-				(value "UL94 V-0")
-			)
-			(property
-				(name "SERIES")
-				(value "1000")
-			)
-			(property
-				(name "CONTACT CURRENT RATING")
-				(value "6A")
-			)
-			(property
-				(name "LENGTH")
-				(value "12.7mm")
-			)
-			(property
-				(name "DEPTH")
-				(value "6.6mm")
-			)
-			(property
-				(name "APPROVALS")
-				(value "UL")
-			)
-			(property
-				(name "ORIENTATION")
-				(value "Vertical")
-			)
-			(property
-				(name "MAX CURRENT RATING")
-				(value "6A")
-			)
-			(property
-				(name "ACTUATOR LENGTH")
-				(value "5.08mm")
-			)
-			(property
-				(name "VOLTAGE RATING (DC)")
-				(value "28V")
-			)
-			(property
-				(name "MAX OPERATING TEMPERATURE")
-				(value "65°C")
-			)
-			(property
-				(name "THROW CONFIGURATION")
-				(value "SPDT")
-			)
-			(property
-				(name "REACH SVHC")
-				(value "No SVHC")
-			)
-			(property
-				(name "MAX VOLTAGE RATING (AC)")
-				(value "250V")
-			)
-			(property
-				(name "CONTACT MATERIAL")
-				(value "Copper")
-			)
-			(property
-				(name "INSULATION RESISTANCE")
-				(value "1GR")
-			)
-			(property
-				(name "BODY MATERIAL")
-				(value "Stainless Steel")
-			)
-			(property
-				(name "ACTUATOR TYPE")
-				(value "Standard")
-			)
-			(property
-				(name "MAX VOLTAGE RATING (DC)")
-				(value "28V")
-			)
-			(property
-				(name "LEAD FREE")
-				(value "Lead Free")
-			)
-			(property
-				(name "CONTACT RESISTANCE")
-				(value "10mR")
-			)
-			(property
-				(name "CURRENT RATING")
-				(value "6A")
-			)
-			(property
-				(name "VOLTAGE RATING (AC)")
-				(value "120V")
-			)
-			(property
-				(name "SWITCH FUNCTION")
-				(value "On-On")
-			)
-			(property
-				(name "CONTACT PLATING")
-				(value "Silver")
-			)
-			(property
-				(name "PACKAGE QUANTITY")
-				(value "1")
-			)
-			(property
-				(name "MIN OPERATING TEMPERATURE")
-				(value "-30°C")
-			)
-			(property
-				(name "ACTUATOR MATERIAL")
-				(value "Nylon")
-			)
-			(property
-				(name "ACTUATOR COLOR")
-				(value "Black")
-			)
-			(property
-				(name "MOUNT")
-				(value "Through Hole")
-			)
-			(property
-				(name "ELECTRICAL LIFE")
-				(value "40000Cycles")
+				(name "LCSC")
+				(value "C221841")
 			)
 			(property
 				(name "Sheetname")
@@ -15339,7 +15129,7 @@
 				(names "/")
 				(tstamps "/")
 			)
-			(tstamps "01b04389-8657-4345-b78d-40778405b71c")
+			(tstamps "0194689a-1bb6-4474-85eb-96df6949fbc0")
 			(units
 				(unit
 					(name "A")
@@ -17006,7 +16796,7 @@
 				(field
 					(name "Value") "2N7002")
 				(field
-					(name "Footprint") "Neuryo_RevB:SOT-23_2N7002")
+					(name "Footprint") "Neuryo_RevB:SOT-23")
 				(field
 					(name "Datasheet") "https://assets.nexperia.com/documents/data-sheet/2N7002.pdf")
 				(field
@@ -19425,6 +19215,12 @@
 				(pinfunction "GND_24")
 				(pintype "passive")
 			)
+			(node
+				(ref "U6")
+				(pin "25")
+				(pinfunction "PAD_25")
+				(pintype "passive")
+			)
 		)
 		(net
 			(code "69")
@@ -19833,17 +19629,6 @@
 		)
 		(net
 			(code "96")
-			(name "unconnected-(U6-PAD-Pad25)")
-			(class "Default")
-			(node
-				(ref "U6")
-				(pin "25")
-				(pinfunction "PAD_25")
-				(pintype "passive+no_connect")
-			)
-		)
-		(net
-			(code "97")
 			(name "unconnected-(U6-USB_DN-Pad21)")
 			(class "Default")
 			(node
@@ -19854,7 +19639,7 @@
 			)
 		)
 		(net
-			(code "98")
+			(code "97")
 			(name "unconnected-(U6-USB_DP-Pad22)")
 			(class "Default")
 			(node

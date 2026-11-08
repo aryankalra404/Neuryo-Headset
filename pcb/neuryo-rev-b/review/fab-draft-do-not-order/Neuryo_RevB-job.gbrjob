@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "10.0.8"
     },
-    "CreationDate": "2026-11-08T17:53:35+05:30"
+    "CreationDate": "2026-11-08T18:30:56+05:30"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -18,8 +18,8 @@
       "Y": 50.1
     },
     "LayerNumber": 4,
-    "BoardThickness": 0.5884,
-    "Finish": "None"
+    "BoardThickness": 1.6,
+    "Finish": "ENIG"
   },
   "DesignRules": [
     {
@@ -184,43 +184,43 @@
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0356,
+      "Thickness": 0.035,
       "Name": "Top Layer"
     },
     {
       "Type": "Dielectric",
-      "Thickness": 0.0711,
-      "Material": "PP-006",
+      "Thickness": 0.2104,
+      "Material": "FR4 7628",
       "Name": "Top Layer/GND Layer",
       "Notes": "Type: dielectric layer 1 (from Top Layer to GND Layer)"
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0175,
+      "Thickness": 0.0152,
       "Name": "GND Layer"
     },
     {
       "Type": "Dielectric",
-      "Thickness": 0.32,
-      "Material": "FR-4",
+      "Thickness": 1.065,
+      "Material": "FR4",
       "Name": "GND Layer/Power Layer",
       "Notes": "Type: dielectric layer 2 (from GND Layer to Power Layer)"
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0175,
+      "Thickness": 0.0152,
       "Name": "Power Layer"
     },
     {
       "Type": "Dielectric",
-      "Thickness": 0.0711,
-      "Material": "PP-006",
+      "Thickness": 0.2104,
+      "Material": "FR4 7628",
       "Name": "Power Layer/Bottom Layer",
       "Notes": "Type: dielectric layer 3 (from Power Layer to Bottom Layer)"
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0356,
+      "Thickness": 0.035,
       "Name": "Bottom Layer"
     },
     {

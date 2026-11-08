@@ -60,7 +60,7 @@ pins of kept parts whose connections changed: 15
   new U6.22      on unconnected-(U6-USB_DP-Pad22) with 
   new U6.23      on VIN            with C10.1 C2.1 R38.1 R41.1 SW1.2 TP6.1 U1.3 U3.1
   new U6.24      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
-  new U6.25      on unconnected-(U6-PAD-Pad25) with 
+  new U6.25      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new U6.3       on /CS            with R28.1 U4.39
   new U6.4       on /MOSI          with U4.34
   new U6.5       on /SCLK          with U4.40
