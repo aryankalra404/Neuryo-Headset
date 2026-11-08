@@ -21165,6 +21165,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 284.48 320.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGE" "CC0603-DA"
 			(at 281.686 319.532 0)
 			(hide yes)
@@ -21657,6 +21668,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "DEVICE CLASS L3" "Ceramic Capacitors"
 			(at 175.006 184.912 0)
 			(hide yes)
@@ -22062,6 +22084,17 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 25.4 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGEVERSION" "DM, 8/1988"
 			(at 25.146 131.826 90)
 			(hide yes)
@@ -22337,6 +22370,28 @@
 			)
 		)
 		(property "Description" "IC REG CHARGE PUMP ADJ DL 12WSON"
+			(at 271.78 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Texas Instruments LM27762DSSR"
+			(at 271.78 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C473398"
 			(at 271.78 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -22722,6 +22777,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 203.2 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 203.2 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -23276,7 +23342,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 231.14 0)
 			(hide yes)
 			(show_name no)
@@ -23748,6 +23825,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 292.1 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9118c939-f1fd-4167-b623-a4bddef0c86c")
 		)
@@ -23819,6 +23907,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 25.4 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 25.4 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -24105,6 +24204,17 @@
 			)
 		)
 		(property "Description" "RES SMD 120K OHM 0.1% 1/10W 0603"
+			(at 355.6 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD07120KL"
 			(at 355.6 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -24535,6 +24645,17 @@
 			)
 		)
 		(property "Description" "Test Point, Orange, 1-Pin THD, RoHS"
+			(at 152.4 388.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Keystone 5003"
 			(at 152.4 388.62 0)
 			(hide yes)
 			(show_name no)
@@ -24992,7 +25113,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -25218,7 +25350,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -25444,6 +25587,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 177.8 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 177.8 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -25933,6 +26087,17 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 25.4 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGEVERSION" "DM, 8/1988"
 			(at 25.146 177.546 90)
 			(hide yes)
@@ -26293,6 +26458,17 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GCJ21BR71C475KA01K"
+			(at 327.66 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "CASE/PACKAGE" "0805"
 			(at 324.866 93.472 0)
 			(hide yes)
@@ -26631,6 +26807,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 165.1 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 165.1 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -27046,6 +27233,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 281.94 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 282.194 215.392 90)
 			(hide yes)
@@ -27141,6 +27339,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 327.66 368.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 327.66 368.3 0)
 			(hide yes)
 			(show_name no)
@@ -27569,6 +27778,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 292.1 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0a97d0c1-ee95-4ad9-9a33-c9de8d79985c")
 		)
@@ -27724,6 +27944,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 294.64 325.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 294.894 319.532 90)
 			(hide yes)
@@ -27820,6 +28051,17 @@
 			)
 		)
 		(property "Description" "Thin Film Chip Resistors Automotive Grade 100kΩ 0.1% 25ppm/°C 0603"
+			(at 355.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo AT0603BRD07100KL"
 			(at 355.6 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -28129,6 +28371,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 375.92 320.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 375.92 320.04 0)
 			(hide yes)
 			(show_name no)
@@ -28556,6 +28809,28 @@
 				)
 			)
 		)
+		(property "MPN" "Texas Instruments TPD4E1B06DCKR"
+			(at 96.52 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C840093"
+			(at 96.52 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "SNAPEDA_LINK" "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap"
 			(at 96.52 190.5 0)
 			(hide yes)
@@ -28711,6 +28986,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 165.1 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 165.1 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -29127,6 +29413,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 292.1 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "07995ef0-6f64-403f-937e-9600c6f104e3")
 		)
@@ -29209,6 +29506,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 281.94 264.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "38e242ed-0618-47fa-b56c-c84704ea730b")
 		)
@@ -29280,7 +29588,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -29728,7 +30047,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -29965,6 +30295,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 281.94 248.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "05de08a9-01a4-435b-b9e4-df875ba04403")
 		)
@@ -30047,6 +30388,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 292.1 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "8d7b31b6-ee88-4b84-b0de-816bc71d0122")
 		)
@@ -30118,6 +30470,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 271.78 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 271.78 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -30647,6 +31010,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "DEVICE CLASS L3" "Ceramic Capacitors"
 			(at 175.006 83.312 0)
 			(hide yes)
@@ -31042,6 +31416,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 297.18 342.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 297.18 342.9 0)
 			(hide yes)
 			(show_name no)
@@ -31459,6 +31844,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 190.5 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 190.5 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -31948,6 +32344,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 358.14 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 358.394 215.392 90)
 			(hide yes)
@@ -32043,6 +32450,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 25.4 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 25.4 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -32328,7 +32746,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 208.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 208.28 0)
 			(hide yes)
 			(show_name no)
@@ -32629,6 +33058,17 @@
 			)
 		)
 		(property "Description" "Cap Ceramic 0.47uF 16V X7R 10% Pad SMD 0603 125C Automotive T/R"
+			(at 266.7 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C474K4RACAUTO"
 			(at 266.7 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -33106,6 +33546,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
+			(at 190.5 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "DEVICE CLASS L3" "Ceramic Capacitors"
 			(at 187.706 134.112 0)
 			(hide yes)
@@ -33501,6 +33952,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 203.2 271.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 203.2 271.78 0)
 			(hide yes)
 			(show_name no)
@@ -33916,6 +34378,17 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 25.4 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGEVERSION" "DM, 8/1988"
 			(at 25.146 223.266 90)
 			(hide yes)
@@ -34191,6 +34664,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 297.18 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 297.18 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -34608,7 +35092,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 1M OHM 1% 0603 thin film (Vishay MCT0603)"
+			(at 368.3 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030C1004FPW00"
 			(at 368.3 241.3 0)
 			(hide yes)
 			(show_name no)
@@ -34822,6 +35317,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 25.4 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 25.4 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -35118,6 +35624,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 281.94 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "44479186-4935-4229-82f1-0f30c32990b4")
 		)
@@ -35189,6 +35706,28 @@
 			)
 		)
 		(property "Description" "Quad 0.7-pF, Â±5.5-V, Â±12-kV ESD protection diode with 0.5-nA max leakage in SOT & SC70 packages"
+			(at 96.52 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Texas Instruments TPD4E1B06DCKR"
+			(at 96.52 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C840093"
 			(at 96.52 226.06 0)
 			(hide yes)
 			(show_name no)
@@ -35354,6 +35893,17 @@
 			)
 		)
 		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%"
+			(at 254 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GCJ21BR71C475KA01K"
 			(at 254 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -35777,7 +36327,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -36013,6 +36574,17 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM31CR61A107MEA8L"
+			(at 246.38 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c092f600-14a7-4259-9bba-0159373fabd1")
 		)
@@ -36084,6 +36656,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 25.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 25.4 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -36369,7 +36952,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -36595,6 +37189,17 @@
 			)
 		)
 		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%"
+			(at 162.56 322.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GCJ21BR71C475KA01K"
 			(at 162.56 322.58 0)
 			(hide yes)
 			(show_name no)
@@ -36868,6 +37473,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 408.94 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 408.94 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -37285,7 +37901,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -37521,6 +38148,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 360.68 325.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 360.934 319.532 90)
 			(hide yes)
@@ -37627,6 +38265,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo AC0603FR-7W10KL"
+			(at 281.94 256.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d67b770a-bf73-46ac-bceb-05824ce1b45d")
 		)
@@ -37699,6 +38348,17 @@
 			)
 		)
 		(property "Description" "Ceramic Capacitor for Automotive 2.2uF ±10% 16VDC X7R 0805 Embossed T/R"
+			(at 370.84 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GCM21BR71C225KA64K"
 			(at 370.84 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -38008,6 +38668,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 165.1 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 165.1 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -38423,6 +39094,17 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 25.4 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGEVERSION" "DM, 8/1988"
 			(at 25.146 208.026 90)
 			(hide yes)
@@ -38708,6 +39390,28 @@
 				)
 			)
 		)
+		(property "MPN" "Texas Instruments TPD4E1B06DCKR"
+			(at 96.52 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C840093"
+			(at 96.52 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "SNAPEDA_LINK" "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap"
 			(at 96.52 119.38 0)
 			(hide yes)
@@ -38863,6 +39567,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 203.2 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 203.2 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -39269,6 +39984,17 @@
 			)
 		)
 		(property "Description" "RES SMD 105K OHM 0.1% 1/10W 0603"
+			(at 355.6 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD07105KL"
 			(at 355.6 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -39698,7 +40424,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 266.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 266.7 0)
 			(hide yes)
 			(show_name no)
@@ -39924,6 +40661,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 190.5 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 190.5 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -40339,6 +41087,28 @@
 				)
 			)
 		)
+		(property "MPN" "Texas Instruments TPD4E1B06DCKR"
+			(at 96.52 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C840093"
+			(at 96.52 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "SNAPEDA_LINK" "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap"
 			(at 96.52 154.94 0)
 			(hide yes)
@@ -40569,6 +41339,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 190.5 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 190.5 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -41123,7 +41904,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -41423,6 +42215,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 203.2 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 203.2 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -41838,6 +42641,28 @@
 				)
 			)
 		)
+		(property "MPN" "Texas Instruments TPD4E1B06DCKR"
+			(at 96.52 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C840093"
+			(at 96.52 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "SNAPEDA_LINK" "https://www.snapeda.com/parts/TPD4E1B06DCKR/Texas+Instruments/view-part/?ref=snap"
 			(at 96.52 83.82 0)
 			(hide yes)
@@ -41993,6 +42818,28 @@
 			)
 		)
 		(property "Description" "Low-Noise, 8-Channel, 24-Bit Analog Front-End for Biopotential Measurement, 16 KSPS, -40 to 85 degC, 64-Pin PQFP (PAG-64), RoHS, Tape and Reel"
+			(at 314.96 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Texas Instruments ADS1299IPAGR"
+			(at 314.96 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C476817"
 			(at 314.96 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -42705,6 +43552,17 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GCM21BR71C225KA64K"
+			(at 370.84 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "MIN OPERATING TEMPERATURE" "-55°C"
 			(at 368.046 85.852 0)
 			(hide yes)
@@ -43004,6 +43862,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 25.4 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 25.4 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -43363,6 +44232,28 @@
 			)
 		)
 		(property "Description" "Low-Noise, 8-Channel, 24-Bit Analog Front-End for Biopotential Measurement, 16 KSPS, -40 to 85 degC, 64-Pin PQFP (PAG-64), RoHS, Tape and Reel"
+			(at 320.04 309.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Texas Instruments ADS1299IPAGR"
+			(at 320.04 309.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C476817"
 			(at 320.04 309.88 0)
 			(hide yes)
 			(show_name no)
@@ -44000,6 +44891,28 @@
 				)
 			)
 		)
+		(property "MPN" "Texas Instruments TPS7A2033PDBVR"
+			(at 419.1 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2862740"
+			(at 419.1 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "ROHS COMPLIANT" "Yes"
 			(at 418.592 58.42 0)
 			(hide yes)
@@ -44166,6 +45079,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 165.1 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 165.1 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -44719,7 +45643,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 130K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 355.6 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D1303BP100"
 			(at 355.6 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -45125,6 +46060,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 330.2 386.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 324.612 381.254 0)
 			(hide yes)
@@ -45294,7 +46240,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -45530,6 +46487,17 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo C0603X104J4RACTU"
+			(at 309.88 347.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PART NUMBER" "C0603X104J4RACTU"
 			(at 310.134 342.392 90)
 			(hide yes)
@@ -45700,6 +46668,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 203.2 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 203.2 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -46265,6 +47244,17 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRJ21BR61E106KE01L"
+			(at 459.74 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "ROHS COMPLIANT" "Yes"
 			(at 456.946 62.992 0)
 			(hide yes)
@@ -46650,7 +47640,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -46876,7 +47877,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -47260,6 +48272,17 @@
 				)
 			)
 		)
+		(property "MPN" "onsemi SD05T1G"
+			(at 182.88 325.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "COMPONENTLINK1DESCRIPTION" "Manufacturer URL"
 			(at 177.546 319.532 90)
 			(hide yes)
@@ -47547,6 +48570,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 259.08 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 259.08 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -47964,6 +48998,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1000PF 50V 1% NP0 0603"
+			(at 177.8 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo C0603C102F5GACTU"
 			(at 177.8 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -48448,6 +49493,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 16V X7R 0603"
+			(at 327.66 299.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
 			(at 327.66 299.72 0)
 			(hide yes)
 			(show_name no)
@@ -48950,6 +50006,17 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 25.4 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "PACKAGEVERSION" "DM, 8/1988"
 			(at 25.146 192.786 90)
 			(hide yes)
@@ -49300,7 +50367,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -49526,7 +50604,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -50059,6 +51148,17 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRJ21BR61E106KE01L"
+			(at 373.38 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "ROHS COMPLIANT" "Yes"
 			(at 370.586 215.392 0)
 			(hide yes)
@@ -50216,7 +51316,18 @@
 				)
 			)
 		)
-		(property "Description" "RES SMD 100 OHM 1% 1/8W 0603"
+		(property "Description" "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)"
+			(at 142.24 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Vishay MCT06030D2201BP500"
 			(at 142.24 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -50516,6 +51627,17 @@
 			)
 		)
 		(property "Description" "Male Header, Pitch 2 mm, 1 x 2 Position, Height 4.8 mm, Tail Length 3.4 mm, -25 to 85 degC, RoHS, Bulk"
+			(at 132.08 325.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "JST S2B-PH-K-S(LF)(SN)"
 			(at 132.08 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -50874,6 +51996,17 @@
 			)
 		)
 		(property "Description" "CAP CER 1500PF 100V NP0 0603"
+			(at 381 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C2A152JA01D"
 			(at 381 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -51279,6 +52412,17 @@
 			)
 		)
 		(property "Description" "0.025\" SQ Post Header, Through-hole, Vertical, -55 to 125 degC, 2.54 mm Pitch, 2-Pin, Male, RoHS"
+			(at 386.08 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
 			(at 386.08 200.66 0)
 			(hide yes)
 			(show_name no)

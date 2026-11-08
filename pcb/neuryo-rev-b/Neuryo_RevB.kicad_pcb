@@ -55394,6 +55394,28 @@
 			(justify right bottom)
 		)
 	)
+	(gr_text "+"
+		(at 166.6011 104.9036 0)
+		(layer "F.SilkS")
+		(uuid "8fc32cb9-0661-45e7-8588-812bdae48ea4")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "-"
+		(at 166.6011 106.9036 0)
+		(layer "F.SilkS")
+		(uuid "d8c66f09-3102-4aec-bbe9-905be5e8549e")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
 	(gr_text "DVDD"
 		(at 151.2011 94.4261 0)
 		(layer "F.SilkS")
