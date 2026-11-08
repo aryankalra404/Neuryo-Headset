@@ -56,7 +56,7 @@ Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, chang
 ## Steps
 1. ~~Import the reference into KiCad and check it~~ (done 8 Nov: BOM references and board/schematic connectivity match; sheet-by-sheet PDF comparison is on the checklist).
 2. ~~Remove the module side; add the XIAO, J6, J7, interlock, dividers~~ (done; see the change list).
-3. ~~ERC, DRC, netlist diff after every change~~ (done; reports in `neuryo-rev-b/review/`). 3D check in the v6 left pod at 77 × 50 mm still to do.
+3. ~~ERC, DRC, netlist diff after every change~~ (done; reports in `neuryo-rev-b/review/`). 3D check in the v6 left pod done in the model (9 Nov, v6.1): with every rev B part at its KiCad position and height, the pod grows to about 98 × 77 mm and 22 mm off the skin (docs/v6.md).
    - Second pass (8 Nov, done): battery and a smaller switch (C&K PCM12) moved back to the right-hand end; XIAO pad 25 to GND (checked against Seeed's module PCB); KiCad SOT-23 for Q1; JLC 1.6 mm stack-up; silkscreen tidied; rev B firmware written ([neuryo-rev-b/firmware/](neuryo-rev-b/firmware/)). See CHANGES "2nd pass".
 4. Professor review ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)).
 5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs. For the v6 left pod, leave the electrode input headers off and solder each lead into its two holes (the headers stand about 8.4 mm: Samtec TSW-xxx-26 is a 5.84 mm post on a 2.54 mm body). Footprints and layout stay as in the reference.

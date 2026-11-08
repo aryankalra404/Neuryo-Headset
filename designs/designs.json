@@ -61,11 +61,11 @@
   },
   {
     "id": "v6",
-    "name": "v6 · head ring + v4 midline · 8 Nov",
+    "name": "v6 · head ring + v4 midline · 8 Nov (v6.1, 9 Nov)",
     "date": "2026-11-08",
     "path": "designs/v6/",
     "channels": "7 on the head + ECG test channel",
-    "summary": "v4's midline band lying on the head with a spring carriage per pod (Fz, Cz, Pz at 0.2, 0.4, 0.6 × nasion–inion from Fpz, one size number 1–9), held between a small front anchor (about 34 × 34 × 7.5 mm, replacing v4's brow module) and a cam lock above the rear dial. Head ring: front band across the forehead above the strip, rear band with a hook under the occiput and a dial. Main board in a pod above the left ear, battery above the right (from v5). Real windows in the band and real lead slots in the carriages.",
+    "summary": "v4's midline band lying on the head with a spring carriage per pod (Fz, Cz, Pz at 0.2, 0.4, 0.6 × nasion–inion from Fpz, one size number 1–9), held between a small front anchor (about 34 × 34 × 7.5 mm, replacing v4's brow module) and a cam lock above the rear dial. Head ring: front band across the forehead above the strip, rear band with a hook under the occiput and a dial. Main board in a pod above the left ear, battery above the right (from v5). Real windows in the band and real lead slots in the carriages. v6.1 (9 Nov): the real rev B board, placed from KiCad (77 × 50 mm, electrode end forward), leads ending on its pads, pods resized to about 98 × 77 mm and 22 mm off the skin.",
     "status": "Lead design",
     "docs": "docs/v6.md"
   }

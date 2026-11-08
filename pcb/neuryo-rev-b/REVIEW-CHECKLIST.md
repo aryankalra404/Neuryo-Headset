@@ -28,7 +28,7 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
 - [ ] **Battery divider** 2 × 220 k + 100 nF on GPIO1 (= A0 in Seeed's variant, so ADC-capable). ★ GPIO3 (CS) is a strapping pin (JTAG source select, only if the eFuse is set): ESP32-S3 datasheet not re-opened.
 
 ## 3. Layout items that need a human eye
-- [ ] ★ **Board is 77 × 50 mm, not 70 × 50.** The LM27762 block was kept exactly in place, which sets the width. Check the v6 left pod (and the 2 remaining mounting holes; the right end needs a clip).
+- [ ] ★ **Board is 77 × 50 mm, not 70 × 50.** The LM27762 block was kept exactly in place, which sets the width. The v6 model (v6.1, 9 Nov) now holds the real layout: the left pod grows to about 98 × 77 mm and 22 mm off the skin, and every part clears a 2 mm wall plus 0.5 mm air (tightest: the JP1 header with its shunt, then J1 and the XIAO). Still to check on a print: the 2 remaining mounting holes and the clip at the back end.
 - [ ] ★ **U3 (TPS7A2033) area re-laid out** (CHANGES B4). The reference's copper polygons became traces; same part order and caps. Check DVDD output path, C9/C10 placement and the GND return (via at 67.2, 19.6).
 - [ ] **Battery entry at the right-hand end** (2nd pass, CHANGES B8): J1 opening at the right edge, PCM12 switch actuator about 1 mm past the edge. Check both against the pod (cable exit, a slot for the actuator). ★ The silkscreen doesn't mark which slider position is "on" (common terminal 2 to terminal 1, VBAT). Confirm on the part and add an arrow if wanted.
 - [ ] **SW1 = C&K PCM12SMTR**, 0.3 A at 6 V DC. Enough for the XIAO's BLE peaks plus the analog side? (Datasheet rating; the reference used a 6 A switch.)
