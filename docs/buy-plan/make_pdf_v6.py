@@ -61,19 +61,20 @@ summ = [[P('<b>What</b>'), P('<b>When</b>'), P('<b>Total</b>', CELLR)],
         [P(f'FRI TDE-211 Ag/AgCl pod cores × {fri["qty"]} (import through VIT)'), P('Now (2–3 weeks by DHL)'), P(rs(FRI_V), CELLR)],
         [P('Rev B board × 2 assembled at JLCPCB, Standard PCBA double-sided (import through VIT)'), P('After the professor’s review'), P(rs(JLC_V), CELLR)],
         [P('<b>Total, imports through VIT</b>'), P(''), P(f'<b>{rs(TOT_V)}</b>', CELLRB)],
-        [P(f'If the VIT lab has PETG, TPU, a 0.01 g scale and a caliper (−{rs(SKIP)})'), P(''), P(rs(TOT_V - SKIP), CELLR)],
+        [P(f'If the VIT lab has PETG, TPU, a 0.01 g scale, a caliper and a breadboard set (−{rs(SKIP)})'), P(''), P(rs(TOT_V - SKIP), CELLR)],
         [P('If both imports go as personal imports instead (42.08% duty)'), P(''), P(rs(TOT_P), CELLR)]]
 story += [table(summ, [W * .62, W * .26, W * .12], bold_rows=(4,)), Spacer(1, 5)]
 story.append(P(f'<b>Recommendation.</b> Order the domestic lists and the FRI pods now, and the boards the day your professor signs off. Through VIT this lands at about '
-    f'<b>{rs(TOT_V)}</b> ({rs(TOT_V - SKIP)} if the lab has the filament and tools), about {rs(TOT_V - SKIP - 50000)} over the ₹50,000 grant. '
+    f'<b>{rs(TOT_V)}</b> ({rs(TOT_V - SKIP)} if the lab has the filament, tools and a breadboard set), about {rs(TOT_V - SKIP - 50000)} over the ₹50,000 grant. '
     'The board is the biggest line and the one that decides the demo, so this plan pays for JLCPCB to place both sides of it rather than you hand-soldering '
     f'the 17 input filter capacitors on the underside (that option saves about {rs(JLC_V - JLCE_V)}; section 3). Upload the rev B Gerbers, positions and '
     'bom-jlc.csv to JLCPCB for the real quote before paying.', BODY))
 story.append(Spacer(1, 3))
 story.append(P('<b>Changes from your v4.4 and v5.2 plans.</b> Rev B now exists, so the board is priced from its BOM. Standard PCBA (double-sided) replaces Economic, '
-    'because rev B has 28 parts on the bottom. No ESP32-S3 DevKitC (a spare XIAO does bench firmware), no Koss headphones (v5 arch only), no BMI270 chips on the board '
-    '(rev B takes a breakout on J7), no PA12 band (PETG is enough for the demo), no PVA powder or glycerol. Added: a TP4056 charger and a spare cell (the review says to charge '
-    'cells outside the headset), JST leads (the only in-stock cell has the wrong plug), the logic analyzer (back in stock), a second BMI270 for the second board, and Ten20 paste as demo insurance.', BODY))
+    'because rev B has 28 parts on the bottom. No ESP32-S3 DevKitC (the bench XIAO does bench firmware), no Koss headphones (v5 arch only), no BMI270 chips on the board '
+    '(rev B takes a breakout on J7), no PA12 band (PETG is enough for the demo), no PVA powder or glycerol. One of everything for one headset: 1 cell, 1 charger, 1 MAX30102, '
+    '1 BMI270, 1 PN521, 1 snap-cable pack (no ECG pair), 4 FRI pods, and 2 XIAOs (bench + board). Added: a TP4056 charger (the review says to charge the cell outside the headset), '
+    'JST leads (the only in-stock cell has the wrong plug), the logic analyzer (back in stock) and Ten20 paste as demo insurance. The second JLCPCB board is the assembly minimum: leave it unpopulated until needed.', BODY))
 
 def order_block(o):
     rows = [[P('<b>Item</b>'), P('<b>For</b>'), P('<b>Qty</b>', CELLR), P('<b>Price</b>', CELLR), P('<b>Line</b>', CELLR), P('<b>Read</b>'), P('<b>Link</b>')]]
@@ -90,7 +91,7 @@ for o in orders: story.append(order_block(o))
 
 story.append(P('2 · Imports (route both through VIT purchase)', H2))
 fr = [[P('<b>FRI TDE-211 reusable Ag/AgCl snap electrode</b>'), P('<b>Amount</b>', CELLR), P('<b>Link</b>')],
-      [P(f'{fri["qty"]} × ₹{fri["each_inr"]} (read 9 Nov on FRI’s store): 3 pods + 1 for the Pz paste fallback + 2 spares. DHL is the same for 4 or 6, so the spares cost about ₹1,100 landed instead of a second ₹4,400 shipment'), P(rs(fg), CELLR),
+      [P(f'{fri["qty"]} × ₹{fri["each_inr"]} (read 9 Nov on FRI’s store): 3 pods (Fz, Cz, Pz) + 1 for the Pz paste fallback. No spares: a lost one means a second DHL shipment'), P(rs(fg), CELLR),
        link('https://www.fri-fl-shop.com/products/reusable-snap-ag-agcl-electrode-tde-211')],
       [P('DHL shipping (your 29 Oct cart; FRI shows it only at checkout)'), P(rs(fs), CELLR), P('')],
       [P('Duty and clearance through VIT (~10% + ₹500, plan assumption)'), P(rs(FRI_V - fg - fs), CELLR), P('')],
@@ -111,6 +112,7 @@ alts = [[P('<b>Option</b>'), P('<b>Effect</b>')],
     [P('Economic PCBA, top side only, and hand-solder the 28 bottom parts'), P(f'About {rs(JLCE_V)} instead of {rs(JLC_V)} (saves about {rs(JLC_V - JLCE_V)}). Not recommended: the 17 underside parts are the input filter '
         'capacitors on the noise-critical analog half, and those parts must then be bought separately.')],
     [P('UDL gold cup electrodes, pack of 10 (₹2,999 on 8 Nov) instead of FRI'), P(f'Saves about {rs(FRI_V - 2999)} through VIT. Gold, not Ag/AgCl, so more drift with saline; your semi-dry evidence is for Ag/AgCl. Only if money runs short.')],
+    [P('ECG test pair (channel 8)'), P('Needs a second snap-cable pack (₹1,999) for its 2 leads. Left out: the earlobe sensor already gives heart rate; add it after the demo.')],
     [P('Skip Ten20 (₹1,890)'), P('Fine if the semi-dry pods pass the drying test before the review; it is there so the demo can show eyes-closed alpha even if they do not.')],
     [P('Do not buy'), P('ESP32-S3 DevKitC, Koss headphones, BMI270 chips for the board, PA12 bands, NuPrep, Micropore, PVA powder and glycerol, heat-set insert kits, FR4 strip, '
         'Philips 13955C pads, OpenBCI parts, BioAmp EXG Pill, drone LiPo packs (unprotected; the in-stock 1000 mAh ones on Robu are these).')]]
@@ -121,7 +123,7 @@ for c in ['Re-open each link the day you pay; pay if the price is within 15% of 
           'wearable cell at Robu and Probots was out of stock, which is why the 950 mAh YB-503450 is used.',
           'Battery plug: the YB-503450 page lists a 3-pin 1.25 mm connector; rev B’s J1 is a 2-pin JST-PH 2.0. Cut it off and crimp or solder the 2 mm JST lead, red to the "+" '
           'beside J1 pin 2. Check with a meter before plugging in: rev B has no reverse-polarity protection.',
-          'TP4056 charges at a fixed 1 A, about 1 C for this cell: charge on a hard surface, never inside the pod.',
+          'TP4056 charges at a fixed 1 A, about 1 C for this cell: charge on a hard surface, never inside the pod. Charge between sessions (950 mAh lasts hours; a session is about 5 minutes).',
           'GY-MAX30102: check the I²C pull-ups go to 3.3 V, not 1.8 V, before wiring it to J6.',
           'JLCPCB: upload the Gerbers, positions.csv and bom-jlc.csv for the real quote; the loading fee basis ("per system") and part count are estimates here. Recheck ADS1299 stock (367 on 9 Nov).',
           'Ask VIT purchase whether the JLCPCB and FRI orders can go through the institute import route; the ~10% duty is a plan assumption, not a quote.',
