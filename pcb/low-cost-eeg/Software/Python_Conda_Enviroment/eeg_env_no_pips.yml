@@ -1,0 +1,14 @@
+name: eeg_env
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - scikit-learn
+  - scipy
+  - matplotlib
+  - numpy
+  - liblsl
+  - pyxdf
+  - pygame
+  - python-sounddevice

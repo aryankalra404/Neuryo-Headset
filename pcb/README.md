@@ -4,7 +4,7 @@
 
 | Folder | What is in it |
 |---|---|
-| [reference/low-cost-eeg/](reference/low-cost-eeg/) | The design rev B copies: [Low-Cost-EEG](https://github.com/XavierAsghar/Low-Cost-EEG) by Xavier Asghar, commit `3730d31` (12 Aug 2026). Altium project (schematic, 4-layer PCB, libraries, BOM), Gerbers and drill files, schematic and layout PDF, Final Report and User Guide. GPL-3.0 ([LICENSE](reference/low-cost-eeg/LICENSE)) |
+| [low-cost-eeg/](low-cost-eeg/) | The upstream repo, complete (hardware, production files, firmware, receiver, case STLs, docs). The design rev B copies: [Low-Cost-EEG](https://github.com/XavierAsghar/Low-Cost-EEG) by Xavier Asghar, commit `3730d31` (12 Aug 2026). GPL-3.0 ([LICENSE](low-cost-eeg/LICENSE)); what was left out is listed in its [NOTICE](low-cost-eeg/NOTICE.md) |
 
 ## Why this board
 - **Same chips as ours:** ADS1299 (8 channels, SRB2 reference, bias drive) and an ESP32-S3, battery powered, 4-layer.
@@ -65,7 +65,7 @@ Checked against the reference schematic and firmware (upstream `main.cpp`), the 
 Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, change 1), as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 Cz, ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
 
 ## Steps
-1. Open the reference in KiCad 8+ (File → Import → Altium project) and check the import against `production/PCB Schematic and Layout.pdf`, sheet by sheet and layer by layer.
+1. Open the reference in KiCad 8+ (File → Import → Altium project) and check the import against `low-cost-eeg/Production_Files/PCB Schematic and Layout.pdf`, sheet by sheet and layer by layer.
 2. Delete the digital half; add the XIAO, BMI270, J6, J8, battery switch and divider; keep every analog part, trace and pour.
 3. ERC and DRC at zero; every new net checked against its datasheet; 3D check in the v4 brow module and the v5 left pod.
 4. Professor review of the changed parts and the import.
