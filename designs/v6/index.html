@@ -1018,11 +1018,8 @@ const m1Pad = rectPad(SITE.M1, 'ref'); const m2Pad = rectPad(SITE.M2, 'm2');
 // band's 0 mm mark sits over Fpz on every fit and Fz, Cz and Pz are measured from the same point.
 const ANCHOR = new THREE.Group(); headset.add(ANCHOR);
 const EL_A = 39.5;
-{ const saddle = skinSlab(surf(0, EL_A), 34, 17, 6.05, 10.5, M.dial, 12, 8), tongue = skinSlab(surf(0, EL_A + 9.6), 32, 14, 3.05, 7.5, M.dial, 12, 8);
-  ANCHOR.add(saddle, tongue);
-  for (const sx of [-9, 9]) { const S = surfU(surf(0, EL_A + 10.5).p.clone().addScaledVector(frameAt(surf(0, EL_A + 10.5)).x, sx));
-    const hd = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.75, 1.6, 24), M.metal); orient(hd, S, 7.5 + 0.8);
-    const hx = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 6), M.slot); orient(hx, S, 7.5 + 1.61); ANCHOR.add(hd, hx); }
+{ const saddle = skinSlab(surf(0, EL_A), 34, 17, 6.05, 10.5, M.dial, 12, 8);
+  ANCHOR.add(saddle);
   const notch = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 1.6, 3), M.slot); orient(notch, surf(0, EL_A - 7.6), 9.0); notch.rotateY(Math.PI / 6); ANCHOR.add(notch); }
 ANCHOR.traverse(m => { if (m.isMesh) m.renderOrder = 6; });
 addTo('anchor', ANCHOR);
@@ -1077,19 +1074,25 @@ const liningSpine = new THREE.Group(); headset.add(liningSpine);
   liningSpine.add(sweep(cloneS(strapSamples.slice(iSpl, linEnd + 1)), BAND_W - 8, BAND_LIFT - 0.1, () => 0.1, M.lining)); }
 strapMesh.traverse(m => { if (m.isMesh) m.renderOrder = 5; });
 addTo('strap', strapMesh); addTo('lining', liningSpine);
+// front anchor's tongue: flat on top of the band's front end (the band is flat across its width), screwed through with 2 x M3
+{ const iT = nearest(strapSamples, s => s.th - (EL_A + 9.6)), sT = strapSamples[iT], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sT.side, sT.nn, sT.t));
+  const tongue = new THREE.Mesh(new RoundedBoxGeometry(32, 4.2, 14, 2, 0.8), M.dial); tongue.position.copy(along(sT, 0, 1)).addScaledVector(sT.nn, 2.15); tongue.quaternion.copy(q);
+  tongue.renderOrder = 6; ANCHOR.add(tongue); addTo('anchor', tongue);
+  for (const sx of [-9, 9]) { const hd = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.75, 1.6, 24), M.metal); hd.position.copy(along(sT, sx, 1)).addScaledVector(sT.nn, 4.25 + 0.8); hd.quaternion.setFromUnitVectors(UP, sT.nn);
+    const hx = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 6), M.slot); hx.position.copy(hd.position).addScaledVector(sT.nn, 0.81); hx.quaternion.copy(hd.quaternion); ANCHOR.add(hd, hx); addTo('anchor', hd, hx); } }
 const tailMesh = sweep(cloneS(strapSamples.slice(iSpl)), 22, 2, strapOff, M.tpu);
 tailMesh.renderOrder = 5; headset.add(tailMesh); addTo('strap', tailMesh);
 { const e = strapSamples.at(-1), cap = sweepCap(e, 22, 2, strapOff(e), 0, M.tpu); headset.add(cap); addTo('strap', cap); }
 // splice plate over the joint, with two M3 screws
 const spliceG = new THREE.Group();
 { const sS = strapSamples[iSpl], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sS.side, sS.nn, sS.t));
-  const plate = new THREE.Mesh(new RoundedBoxGeometry(BAND_W + 1, 1.6, 16, 2, 0.6), M.spine); plate.position.copy(along(sS, 0, 1)).addScaledVector(sS.nn, 0.85); plate.quaternion.copy(q); spliceG.add(plate);
-  for (const dz of [-4.5, 4.5]) { const sc = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 1.2, 6), M.metal); sc.position.copy(plate.position).addScaledVector(sS.nn, 1.4).addScaledVector(sS.t, dz); sc.quaternion.setFromUnitVectors(UP, sS.nn); spliceG.add(sc); } }
+  const plate = new THREE.Mesh(new RoundedBoxGeometry(BAND_W + 1, 1.6, 16, 2, 0.6), M.spine); plate.position.copy(along(sS, 0, 1)).addScaledVector(sS.nn, 1.45); plate.quaternion.copy(q); spliceG.add(plate);
+  for (const dz of [-4.5, 4.5]) { const sc = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 1.2, 6), M.metal); sc.position.copy(plate.position).addScaledVector(sS.nn, 1.35).addScaledVector(sS.t, dz); sc.quaternion.setFromUnitVectors(UP, sS.nn); spliceG.add(sc); } }
 headset.add(spliceG); addTo('strap', spliceG);
 // Cam lock above the rear dial: a printed bracket from the rear band's top edge, a lower jaw, two posts and a lever with a pivot.
 // The TPU tail runs between jaw and lever; closing the lever clamps it (about 50 mm of travel, nine marks).
 const LOCK = new THREE.Group(); headset.add(LOCK);
-{ const bracket = skinSlab(surf(180, 4), 24, 22, 3.0, 5.8, M.dial, 10, 10), jaw = skinSlab(surf(180, 7), 26, 12, 5.85, 7.6, M.dial, 10, 6), lever = skinSlab(surf(180, 7), 26, 12, 9.9, 12.2, M.dial, 10, 6);
+{ const bracket = skinSlab(surf(180, 5), 24, 20, 3.0, 5.8, M.dial, 10, 10), jaw = skinSlab(surf(180, 7), 26, 12, 5.85, 7.6, M.dial, 10, 6), lever = skinSlab(surf(180, 7), 26, 12, 9.9, 12.2, M.dial, 10, 6);
   LOCK.add(bracket, jaw, lever);
   const S7 = surf(180, 7), F7 = frameAt(S7);
   for (const sx of [-12.6, 12.6]) LOCK.add(skinSlab(surfU(S7.p.clone().addScaledVector(F7.x, sx)), 2.4, 12, 7.5, 10.0, M.dial, 2, 6));
@@ -1321,7 +1324,7 @@ const frontIn = (from = 16) => { const out = []; for (let i = iFrontAz(from); i 
 const rearLow = s => along(s, (s.side.y < 0 ? 1 : -1) * 9.6, 0.5);
 const rearFromRight = () => { const out = []; for (let i = 196; i >= 4; i -= 6) out.push(rearLow(bandSamples[i])); return out; };
 function bandRun(iFrom, lift) {   // along the band's left edge, forward to the anchor, then out to the side of the tongue
-  const out = []; for (let i = iFrom; i >= 0; i -= 5) out.push(along(strapSamples[i], LS * 16.6, lift));
+  const out = []; for (let i = iFrom; i >= 0; i -= 5) out.push(along(strapSamples[i], LS * 17.4, lift));
   out.push(off(surf(20, EL_A + 8), 3.2), off(surf(21, EL_A + 1), 7.4)); return out; }
 const podCable = (pd, lift) => [...pd.leadOut(), ...bandRun(pd.iPod - 6, lift), ...frontIn(24), ...intoPod(J1)];
 const FZ_CABLE = podCable(fzPod, 0.35), CZ_CABLE = podCable(czPod, 0.6), PZ_CABLE = podCable(pzPod, 0.85);
