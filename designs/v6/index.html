@@ -1075,7 +1075,7 @@ const liningSpine = new THREE.Group(); headset.add(liningSpine);
 strapMesh.traverse(m => { if (m.isMesh) m.renderOrder = 5; });
 addTo('strap', strapMesh); addTo('lining', liningSpine);
 // front anchor's spacer under the back half of its cap, flat on the band's front end (the band is flat across its width); 2 x M3 through cap, spacer and band
-{ const iT = nearest(strapSamples, s => s.th - (EL_A + 10.2)), sT = strapSamples[iT], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sT.side, sT.nn, sT.t));
+{ const iT = nearest(strapSamples, s => s.th - (EL_A + 10.2)), sT = strapSamples[iT], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sT.side, sT.nn, sT.t.clone().negate()));
   const tongue = new THREE.Mesh(new RoundedBoxGeometry(30, 3.4, 12, 2, 0.8), M.dial); tongue.position.copy(along(sT, 0, 1)).addScaledVector(sT.nn, 1.75); tongue.quaternion.copy(q);
   tongue.renderOrder = 6; ANCHOR.add(tongue); addTo('anchor', tongue);
   for (const sx of [-9, 9]) { const hd = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.75, 1.6, 24), M.metal); hd.position.copy(along(sT, sx, 1)).addScaledVector(sT.nn, 7.55 + 0.8); hd.quaternion.setFromUnitVectors(UP, sT.nn);
@@ -1085,7 +1085,7 @@ tailMesh.renderOrder = 5; headset.add(tailMesh); addTo('strap', tailMesh);
 { const e = strapSamples.at(-1), cap = sweepCap(e, 22, 2, strapOff(e), 0, M.tpu); headset.add(cap); addTo('strap', cap); }
 // splice plate over the joint, with two M3 screws
 const spliceG = new THREE.Group();
-{ const sS = strapSamples[iSpl], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sS.side, sS.nn, sS.t));
+{ const sS = strapSamples[iSpl], q = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(sS.side, sS.nn, sS.t.clone().negate()));
   const plate = new THREE.Mesh(new RoundedBoxGeometry(BAND_W + 1, 1.6, 16, 2, 0.6), M.spine); plate.position.copy(along(sS, 0, 1)).addScaledVector(sS.nn, 1.45); plate.quaternion.copy(q); spliceG.add(plate);
   for (const dz of [-4.5, 4.5]) { const sc = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 1.2, 6), M.metal); sc.position.copy(plate.position).addScaledVector(sS.nn, 1.35).addScaledVector(sS.t, dz); sc.quaternion.setFromUnitVectors(UP, sS.nn); spliceG.add(sc); } }
 headset.add(spliceG); addTo('strap', spliceG);
@@ -1197,7 +1197,7 @@ for (const [th, f, key] of [[THF, 0.3, 'fz'], [THC, 0.5, 'cz'], [THP, 0.7, 'pz']
     const m = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 0.12, 20), M.slot); m.position.copy(along(sh, HOLE_X, 1)).addScaledVector(sh.nn, 0.07); m.quaternion.setFromUnitVectors(UP, sh.nn);
     m.renderOrder = 6; headset.add(m); addTo('strap', m); RAILS.push(m);
     const wide = hh.label.length > 1, num = new THREE.Mesh(new THREE.PlaneGeometry(wide ? 3.4 : 2.6, wide ? 1.7 : 2.6), numMat(hh.label, wide));
-    num.position.copy(along(sh, NUM_X, 1)).addScaledVector(sh.nn, 0.04); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sh.side, sh.t.clone().negate(), sh.nn));
+    num.position.copy(along(sh, NUM_X, 1)).addScaledVector(sh.nn, 0.04); num.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(sh.side.clone().negate(), sh.t.clone().negate(), sh.nn));
     num.renderOrder = 6; headset.add(num); addTo('strap', num); RAILS.push(num);
     // this head's hole (size 3; Fz hole 3·4) is under the right foot: the foot's printed 2 mm pin drops into it
   });
