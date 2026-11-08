@@ -73,9 +73,9 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 
 <section class="bar" aria-label="Fit">
   <div class="sliders">
-    <label class="sl" for="size"><div><span>Size</span><b id="sizeV">100%</b></div><input id="size" type="range" min="85" max="115" value="100"></label>
-    <label class="sl" for="up"><div><span>Up / down</span><b id="upV">0 mm</b></div><input id="up" type="range" min="-30" max="30" value="0"></label>
-    <label class="sl" for="fwd"><div><span>Forward / back</span><b id="fwdV">0 mm</b></div><input id="fwd" type="range" min="-30" max="30" value="0"></label>
+    <label class="sl" for="size"><div><span>Size</span><b id="sizeV">115%</b></div><input id="size" type="range" min="85" max="145" value="115"></label>
+    <label class="sl" for="up"><div><span>Up / down</span><b id="upV">1 mm</b></div><input id="up" type="range" min="-30" max="30" value="1"></label>
+    <label class="sl" for="fwd"><div><span>Forward / back</span><b id="fwdV">-8 mm</b></div><input id="fwd" type="range" min="-30" max="30" value="-8"></label>
   </div>
   <div class="btns">
     <button class="btn pri" id="photo" disabled>Take photo</button>
@@ -143,7 +143,11 @@ function applyFit() {
   document.getElementById('upV').textContent = up.value + ' mm';
   document.getElementById('fwdV').textContent = fwd.value + ' mm';
 }
-[size, up, fwd].forEach(el => el.addEventListener('input', applyFit)); applyFit();
+// defaults = the fit checked on a real face (9 Nov: 115 %, +1 mm, -8 mm); each viewer's own fit is remembered
+const FIT_KEY = 'neuryo-v6-fit';
+try { const f = JSON.parse(localStorage.getItem(FIT_KEY) || 'null'); if (f) { size.value = f.size; up.value = f.up; fwd.value = f.fwd; } } catch (e) {}
+function saveFit() { try { localStorage.setItem(FIT_KEY, JSON.stringify({ size: size.value, up: up.value, fwd: fwd.value })); } catch (e) {} }
+[size, up, fwd].forEach(el => el.addEventListener('input', () => { applyFit(); saveFit(); })); applyFit();
 const guideBtn = document.getElementById('guide');
 guideBtn.addEventListener('click', () => {
   const on = guideBtn.getAttribute('aria-pressed') !== 'true'; guideBtn.setAttribute('aria-pressed', on);
