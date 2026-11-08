@@ -33,6 +33,8 @@ orders = [
   ('Worison black foam sheets, A4 × 10', 'Light-blocking pad on the ear clip', 1, 175, AZ + 'B09G3BDXYL', '7 Nov', ''),
   ('Araldite Standard 90 g', 'Seal pod lids, strain relief on soldered leads', 1, 195, AZ + 'B01HS00QX0', '7 Nov', ''),
   ('Romsons alcohol swabs, 100', 'Skin prep', 1, 179, AZ + 'B0G653LQPL', '7 Nov', ''),
+  ('Weaver NuPrep skin prep gel, 114 g', 'Abrasive skin prep: lowers impedance under the forehead, mastoid and eye gel pads (and the Pz paste fallback); alcohol alone does much less', 1, 1480, 'https://www.amazon.in/s?k=nuprep+skin+prep+gel', '9 Nov', ''),
+  ('Hypoallergenic medical tape, 2 rolls', 'Hold leads and pads, strain relief on the ear clip and strip tail', 1, 283, 'https://www.amazon.in/s?k=3m+micropore+surgical+tape+1+inch', '9 Nov', ''),
   ('PVA sponge, pack of 2', 'Cut into the pods’ foam tips', 1, 239, AZ + 'B0BRGG1LFY', '7 Nov', ''),
   ('Flat 6-core 28 AWG cable, 5 m', 'Ear-clip lead (4 wires into J6) and the BMI270 lead (J7)', 1, 140, AZ + 'B084V1TR88', '7 Nov', ''),
   ('2 mm steel dowel pins', 'Size-hole pins under the carriages’ right feet', 1, 200, '', 'est', ''),
@@ -48,6 +50,7 @@ orders = [
  ]),
  dict(store='Chemist', note='', items=[
   ('0.9% saline + three 1 ml syringes (no needle)', 'Wetting the pod tips', 1, 60, '', 'est', ''),
+  ('Cotton buds', 'Apply NuPrep and gel', 1, 40, '', 'est', ''),
  ]),
 ]
 # FRI (import). Price shown in INR on FRI's own store on 9 Nov.

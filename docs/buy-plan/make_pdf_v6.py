@@ -114,7 +114,8 @@ alts = [[P('<b>Option</b>'), P('<b>Effect</b>')],
     [P('UDL gold cup electrodes, pack of 10 (₹2,999 on 8 Nov) instead of FRI'), P(f'Saves about {rs(FRI_V - 2999)} through VIT. Gold, not Ag/AgCl, so more drift with saline; your semi-dry evidence is for Ag/AgCl. Only if money runs short.')],
     [P('ECG test pair (channel 8)'), P('Needs a second snap-cable pack (₹1,999) for its 2 leads. Left out: the earlobe sensor already gives heart rate; add it after the demo.')],
     [P('Skip Ten20 (₹1,890)'), P('Fine if the semi-dry pods pass the drying test before the review; it is there so the demo can show eyes-closed alpha even if they do not.')],
-    [P('Do not buy'), P('ESP32-S3 DevKitC, Koss headphones, BMI270 chips for the board, PA12 bands, NuPrep, Micropore, PVA powder and glycerol, heat-set insert kits, FR4 strip, '
+    [P('Only if a test fails'), P('EVA foam 7 mm for a small-head insert (only if the PN521 will not close small enough), PVA powder + glycerol for a hydrogel tip (only if the damp foam tips fail the drying test).')],
+    [P('Do not buy'), P('ESP32-S3 DevKitC, Koss headphones, BMI270 chips for the board, PA12 bands, heat-set insert kits (M3 nuts in printed pockets), FR4 strip, '
         'Philips 13955C pads, OpenBCI parts, BioAmp EXG Pill, drone LiPo packs (unprotected; the in-stock 1000 mAh ones on Robu are these).')]]
 story.append(table(alts, [W * .32, W * .68]))
 
