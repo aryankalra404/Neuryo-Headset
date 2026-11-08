@@ -1080,7 +1080,7 @@ addTo('strap', strapMesh); addTo('lining', liningSpine);
   tongue.renderOrder = 6; ANCHOR.add(tongue); addTo('anchor', tongue);
   for (const sx of [-9, 9]) { const hd = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.75, 1.6, 24), M.metal); hd.position.copy(along(sT, sx, 1)).addScaledVector(sT.nn, 7.55 + 0.8); hd.quaternion.setFromUnitVectors(UP, sT.nn);
     const hx = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 6), M.slot); hx.position.copy(hd.position).addScaledVector(sT.nn, 0.81); hx.quaternion.copy(hd.quaternion); ANCHOR.add(hd, hx); addTo('anchor', hd, hx); } }
-const tailMesh = sweep(cloneS(strapSamples.slice(iSpl)), 22, 2, strapOff, M.tpu);
+const tailMesh = sweep(cloneS(strapSamples.slice(iSpl + 2)), 22, 2, strapOff, M.tpu);   // starts just behind the band's end, under the splice plate
 tailMesh.renderOrder = 5; headset.add(tailMesh); addTo('strap', tailMesh);
 { const e = strapSamples.at(-1), cap = sweepCap(e, 22, 2, strapOff(e), 0, M.tpu); headset.add(cap); addTo('strap', cap); }
 // splice plate over the joint, with two M3 screws
@@ -1320,7 +1320,7 @@ const J1 = JW(6, 20.6), J2 = JW(27.6, -6), J3 = JW(6, -20.6), J5 = JW(-25.5, -20
 const intoPod = P2 => [off(surf(MOD.azC, MC + 8), 9), P2];
 const intoPodLow = P2 => [off(surf(MOD.azC + 4, MC - 14), 7), P2];
 const LS = Math.sign(LEFT.dot(strapSamples[iCzC].side));   // +1 if a sample's side vector points to the wearer's left
-const frontIn = (from = 16) => { const out = []; for (let i = iFrontAz(from); i >= 0; i -= 6) out.push(along(frontSamples[i], 0, 1.25)); return out; };
+const frontIn = (from = 16) => { const out = []; for (let i = iFrontAz(from); i >= 0; i -= 3) out.push(along(frontSamples[i], 0, 1.35)); out.push(along(frontSamples[0], 0, 2.4)); return out; };
 const rearLow = s => along(s, (s.side.y < 0 ? 1 : -1) * 9.6, 0.5);
 const rearFromRight = () => { const out = []; for (let i = 196; i >= 4; i -= 6) out.push(rearLow(bandSamples[i])); return out; };
 function bandRun(iFrom, lift) {   // along the band's left edge, forward to the anchor, then out to the side of the tongue
