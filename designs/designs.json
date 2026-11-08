@@ -36,7 +36,7 @@
     "path": "designs/v4/",
     "channels": "7 channels on the head, 8-channel chip",
     "summary": "The launch design (v4.4): a 5-minute in-clinic session at baseline, day 7 and every visit. Fp1, Fp2, Fz, Cz, Pz, M2, eye (VEOG); M1 reference, Fpz bias. Single-use hydrogel forehead strip placed by a nasion template, earlobe heart clip. Buildable frame for 500–580 mm circumference and 300–390 mm nasion–inion: bought ratchet harness with a 3 mm lining or 7 mm small-head insert, midline band 3D-printed in the head's curve with a TPU tail, spring-loaded semi-dry pods pinned at one size number (1–9); damp single-use foam tips with top-up drops when the app's wetting check asks. Main board (v4.5) in the brow module: the analog half of the open Low-Cost-EEG board plus a Seeed XIAO ESP32-S3. Session walkthrough, fit sliders, buy/print parts list.",
-    "status": "Current plan",
+    "status": "Superseded by v6 (its midline band is kept)",
     "docs": "docs/v4.md"
   },
   {
@@ -46,7 +46,7 @@
     "path": "designs/v5/",
     "channels": "7 channels on the head, 8-channel chip",
     "summary": "Same electronics and sites as v4.5, new frame: a spring arch over Cz, the main board in a pod above the left ear and the battery above the right, temple arms to soft pads, and a rear band with a hook under the occiput tightened by a dial. v5.2: Fz, Cz and Pz in spring carriages on a rigid spine clipped to the arch at Cz, one soft spring per pod. Forehead bare apart from the strip.",
-    "status": "Concept, to test against v4",
+    "status": "Superseded by v6",
     "docs": "docs/v5.md"
   },
   {
@@ -58,5 +58,15 @@
     "summary": "Holds a Neuryo semi-dry pod in an OpenBCI Ultracortex Mark IV frame node to test a rigid frame with a spring per pod before designing the v5 spine. Four print files: node ring (glued in place of the OpenBCI insert, M20 × 2), pod tube with knob, spring seat and pin slots, pod body with fill tube force mark, tip collar. Bought: 8 mm OD spring about 0.13 N/mm.",
     "status": "Mock-up test part",
     "docs": "docs/v5.md"
+  },
+  {
+    "id": "v6",
+    "name": "v6 · head ring + v4 midline · 8 Nov",
+    "date": "2026-11-08",
+    "path": "designs/v6/",
+    "channels": "7 on the head + ECG test channel",
+    "summary": "v4's midline band lying on the head with a spring carriage per pod (Fz, Cz, Pz at 0.2, 0.4, 0.6 × nasion–inion from Fpz, one size number 1–9), held between a small front anchor (about 34 × 30 × 7.5 mm, replacing v4's brow module) and a cam lock above the rear dial. Head ring: front band across the forehead above the strip, rear band with a hook under the occiput and a dial. Main board in a pod above the left ear, battery above the right (from v5). Real windows in the band and real lead slots in the carriages.",
+    "status": "Lead design",
+    "docs": "docs/v6.md"
   }
 ]
