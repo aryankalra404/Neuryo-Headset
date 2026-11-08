@@ -1,0 +1,3856 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-08T13:59:44",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/57286841-2b36-4e0c-b3ee-d23c37202cdb",
+            "violations": [
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [VBUS, Power input, Line]",
+                            "pos": {
+                                "x": 93.98,
+                                "y": 320.04
+                            },
+                            "uuid": "ff08a304-8c49-46a4-959f-d89c0a8c4769"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [VBAT, Power input, Line]",
+                            "pos": {
+                                "x": 180.34,
+                                "y": 358.14
+                            },
+                            "uuid": "7290e79a-8e85-4ec5-8300-3a350c0fd26a"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [DVDD, Power input, Line]",
+                            "pos": {
+                                "x": 185.42,
+                                "y": 393.7
+                            },
+                            "uuid": "748e8037-1206-4077-9d76-562acb2d76ff"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [AVSS, Power input, Line]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 226.06
+                            },
+                            "uuid": "c946df3b-bbfc-42ff-af0c-9229030a9575"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [VIN, Power input, Line]",
+                            "pos": {
+                                "x": 251.46,
+                                "y": 60.96
+                            },
+                            "uuid": "097f3e2e-d7fb-43df-aafd-d88b835b20de"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [AVDD, Power input, Line]",
+                            "pos": {
+                                "x": 320.04,
+                                "y": 375.92
+                            },
+                            "uuid": "267faa01-c3db-4942-b86d-2f9687368c6c"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Pin not connected",
+                    "items": [
+                        {
+                            "description": "Symbol SW2 Pin 2_1- [2_1-, Passive, Line]",
+                            "pos": {
+                                "x": 472.44,
+                                "y": 292.1
+                            },
+                            "uuid": "a41c9778-a505-4ba1-8469-c6ca665baa33"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "pin_not_connected"
+                },
+                {
+                    "description": "Pin not connected",
+                    "items": [
+                        {
+                            "description": "Symbol SW2 Pin 1_2+ [1_2+, Passive, Line]",
+                            "pos": {
+                                "x": 482.6,
+                                "y": 281.94
+                            },
+                            "uuid": "925fbe95-a5fa-4a2c-a9fc-9bac3b4f7d0d"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "pin_not_connected"
+                },
+                {
+                    "description": "Pin not connected",
+                    "items": [
+                        {
+                            "description": "Symbol SW3 Pin 2_1- [2_1-, Passive, Line]",
+                            "pos": {
+                                "x": 508.0,
+                                "y": 292.1
+                            },
+                            "uuid": "a18ed09d-5730-4229-8cd2-71118b732a95"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "pin_not_connected"
+                },
+                {
+                    "description": "Pin not connected",
+                    "items": [
+                        {
+                            "description": "Symbol SW3 Pin 1_2+ [1_2+, Passive, Line]",
+                            "pos": {
+                                "x": 518.16,
+                                "y": 281.94
+                            },
+                            "uuid": "ae2122c7-869d-423a-8e17-a9d946526216"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "pin_not_connected"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [GND, Power input, Line]",
+                            "pos": {
+                                "x": 518.16,
+                                "y": 299.72
+                            },
+                            "uuid": "14d76ee3-f1d1-4d76-a5ed-e746f827762a"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [3v3, Power input, Line]",
+                            "pos": {
+                                "x": 535.94,
+                                "y": 142.24
+                            },
+                            "uuid": "3a86f552-abf6-4563-89be-992c2ef6825f"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3A [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 93.98
+                            },
+                            "uuid": "700b10d1-69b9-4bc5-94e3-896b764bd82f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3B [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 109.22
+                            },
+                            "uuid": "1c5c8d51-fac9-482d-b56f-faf49bc69f91"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3C [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 124.46
+                            },
+                            "uuid": "606a589d-e474-4bf3-9df1-3f4de488d7d4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3D [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 139.7
+                            },
+                            "uuid": "0c57ea93-1479-48d0-a469-01ea2387364f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3E [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 154.94
+                            },
+                            "uuid": "562098ac-0dfd-4f2d-8b5c-0701b4ec5e56"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3F [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 170.18
+                            },
+                            "uuid": "aaf287eb-1ac7-474b-9072-92f5df7b1e9c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3G [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 185.42
+                            },
+                            "uuid": "2c9a8d9c-5ee2-48b0-9640-3ad775ba891c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3H [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 200.66
+                            },
+                            "uuid": "e3bfb6cc-2372-4146-b67e-b3417ed5f407"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3I [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 215.9
+                            },
+                            "uuid": "84fb0f19-72e9-4b2f-a1d6-d6508d7ead79"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J3J [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 25.4,
+                                "y": 231.14
+                            },
+                            "uuid": "5f331312-5a35-4ede-a65a-9f2a96283f85"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 2.54 mm",
+                            "pos": {
+                                "x": 38.1,
+                                "y": 337.82
+                            },
+                            "uuid": "83cf00d9-22cf-4c44-91b3-6c6ec12569a1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J2 [8b86497a633d14b3f74642136fc0ce6]",
+                            "pos": {
+                                "x": 40.64,
+                                "y": 320.04
+                            },
+                            "uuid": "ca6688ff-1c46-460c-874f-1e989e7fb655"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R5 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 45.72,
+                                "y": 337.82
+                            },
+                            "uuid": "f5fa5494-0497-43f5-8290-6c2bf213655f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 104.14
+                            },
+                            "uuid": "042c8436-532b-4aef-9031-9291a7796239"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 106.68
+                            },
+                            "uuid": "42be3271-49bb-4005-9549-c21ba315e131"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 119.38
+                            },
+                            "uuid": "c0236a7c-fcb8-4076-b267-a63c9c60de40"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 121.92
+                            },
+                            "uuid": "c6a8938c-24b7-4bc1-b1df-373ec4561783"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 134.62
+                            },
+                            "uuid": "ed8062e6-13f5-4a7d-8668-c1192a49b55c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 137.16
+                            },
+                            "uuid": "3276dffd-418b-4523-a37a-ccde60a0afc4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 149.86
+                            },
+                            "uuid": "4eca351d-9bdd-41c9-b572-ba93261e0cf0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 152.4
+                            },
+                            "uuid": "1c30542b-9e43-422a-8318-dd679f178916"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 165.1
+                            },
+                            "uuid": "ff280214-dde7-4df5-81f5-f39220d89dc1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 167.64
+                            },
+                            "uuid": "d7a5c095-4373-46e0-a167-3ca76c382591"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 180.34
+                            },
+                            "uuid": "03f6c9f9-5e7e-4b80-8b9e-d6ee1522ed04"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 182.88
+                            },
+                            "uuid": "9366d5c7-3270-411a-b279-24fcb183c9ae"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 195.58
+                            },
+                            "uuid": "6506c6ed-c5e9-40da-a822-ed991626b5fa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 198.12
+                            },
+                            "uuid": "bd2b20c6-7bf0-4203-8d5e-12046b84890d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 213.36
+                            },
+                            "uuid": "5436a1ff-cb82-4a6c-9089-2c16a60d76c1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 12.70 mm",
+                            "pos": {
+                                "x": 35.56,
+                                "y": 228.6
+                            },
+                            "uuid": "a53e4f9d-0eec-41b9-97e6-1c7b4d2ad7e2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R6 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 48.26,
+                                "y": 363.22
+                            },
+                            "uuid": "608e9736-6aca-4fb4-bd90-1cbdd4a1c0c4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 40.64,
+                                "y": 345.44
+                            },
+                            "uuid": "594799b8-7c99-42a5-b375-da40bcbe8db1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 40.64,
+                                "y": 350.52
+                            },
+                            "uuid": "20a9d3a7-9073-4fc6-9533-87a61217fe1f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 40.64,
+                                "y": 370.84
+                            },
+                            "uuid": "c0e6be5c-5506-430f-be1b-2154a1755a55"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 40.64,
+                                "y": 375.92
+                            },
+                            "uuid": "0d8428de-2f3b-4a7a-9808-10597be28235"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C48 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 63.5,
+                                "y": 320.04
+                            },
+                            "uuid": "0b982807-97a9-4d4c-861a-9015a3285e5d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 63.5,
+                                "y": 325.12
+                            },
+                            "uuid": "f8935cd5-63fd-4c6e-b43f-30cbae8e6761"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 68.58,
+                                "y": 337.82
+                            },
+                            "uuid": "cc5ca019-bf41-43a6-8ced-5c25f0e0de78"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 68.58,
+                                "y": 363.22
+                            },
+                            "uuid": "4345841a-11bb-4b21-a8f3-6de65feb015d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 68.58,
+                                "y": 386.08
+                            },
+                            "uuid": "2a63a2c3-fb1e-46af-8306-850325292f56"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol D7 [d9da4cfb8af32e832502365dfa3d88e]",
+                            "pos": {
+                                "x": 83.82,
+                                "y": 335.28
+                            },
+                            "uuid": "1159c6f6-7304-4ce9-bf1d-988e971a140e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 83.82,
+                                "y": 335.28
+                            },
+                            "uuid": "ff24fdb7-c131-4981-b563-e649a3aa014f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VBUS_BAR]",
+                            "pos": {
+                                "x": 93.98,
+                                "y": 320.04
+                            },
+                            "uuid": "23bf47aa-9d78-48a3-b465-056111bdf86a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'TPD4E1B06DCKR'",
+                    "items": [
+                        {
+                            "description": "Symbol D1 [TPD4E1B06DCKR]",
+                            "pos": {
+                                "x": 96.52,
+                                "y": 83.82
+                            },
+                            "uuid": "a3b8e895-c228-4e81-b8b1-d40c1c59c04e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'TPD4E1B06DCKR'",
+                    "items": [
+                        {
+                            "description": "Symbol D2 [TPD4E1B06DCKR]",
+                            "pos": {
+                                "x": 96.52,
+                                "y": 119.38
+                            },
+                            "uuid": "8517eec1-8b00-457f-8e94-c919f92859cf"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'TPD4E1B06DCKR'",
+                    "items": [
+                        {
+                            "description": "Symbol D3 [TPD4E1B06DCKR]",
+                            "pos": {
+                                "x": 96.52,
+                                "y": 154.94
+                            },
+                            "uuid": "8e72f844-e32e-42ab-b89a-d2e9d4566bab"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'TPD4E1B06DCKR'",
+                    "items": [
+                        {
+                            "description": "Symbol D4 [TPD4E1B06DCKR]",
+                            "pos": {
+                                "x": 96.52,
+                                "y": 190.5
+                            },
+                            "uuid": "39fca3ac-b5cd-4361-9871-cc2633c09a07"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'TPD4E1B06DCKR'",
+                    "items": [
+                        {
+                            "description": "Symbol D5 [TPD4E1B06DCKR]",
+                            "pos": {
+                                "x": 96.52,
+                                "y": 226.06
+                            },
+                            "uuid": "666e8070-ef47-4255-9efe-c8f4981e6c66"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J2 [8b86497a633d14b3f74642136fc0ce6]",
+                            "pos": {
+                                "x": 106.68,
+                                "y": 373.38
+                            },
+                            "uuid": "a79d0ca0-c2a7-41b0-a39a-e00880f3761a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 114.3,
+                                "y": 243.84
+                            },
+                            "uuid": "55114124-ae4d-4233-9bb3-ab7130a1b5cf"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 114.3,
+                                "y": 391.16
+                            },
+                            "uuid": "27326807-7719-47cc-adf8-120e58aa01c5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J5 [SMTC-TSW-103-X-X-S-X]",
+                            "pos": {
+                                "x": 127.0,
+                                "y": 360.68
+                            },
+                            "uuid": "4fde500d-8950-48c5-a9b8-dadd942fec10"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol J1 [CN-1P-M-R2]",
+                            "pos": {
+                                "x": 132.08,
+                                "y": 325.12
+                            },
+                            "uuid": "f6a57d2a-2f38-4b53-a911-5290383fdbec"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R26 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 55.88
+                            },
+                            "uuid": "497d102a-966f-402c-8944-a4437979e4c1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R11 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 63.5
+                            },
+                            "uuid": "2347304b-d75f-46fa-ac51-f9e16f8749ab"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R12 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 71.12
+                            },
+                            "uuid": "e4fa4996-8331-492d-aa2c-e994cf71d84e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R13 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 78.74
+                            },
+                            "uuid": "c061c410-f5ef-46ed-9292-29c84b7f88a2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R14 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 106.68
+                            },
+                            "uuid": "f2257376-e840-48d5-ac0c-b489618401d2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R15 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 114.3
+                            },
+                            "uuid": "d53ea552-4344-47a8-a864-8f4e15ca404c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R16 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 121.92
+                            },
+                            "uuid": "9f5044f7-85da-4bb3-ba4c-7c832d260b13"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R17 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 129.54
+                            },
+                            "uuid": "70393ae6-8203-46f0-b30f-e9a3dac11749"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R18 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 157.48
+                            },
+                            "uuid": "e4a6491b-8e18-41ca-bee7-abaa094141b1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R19 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 165.1
+                            },
+                            "uuid": "4496dff3-eb68-4977-b1f7-d5a302c57611"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R20 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 172.72
+                            },
+                            "uuid": "6b652f7f-c46b-4bfb-9ad2-f64060c3f5be"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R21 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 180.34
+                            },
+                            "uuid": "219d81bb-6e02-464d-9c1f-fba75eb3e73b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R22 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 208.28
+                            },
+                            "uuid": "5657813d-50d8-405c-92df-57c0c837ec45"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R23 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 215.9
+                            },
+                            "uuid": "788c499a-588a-4740-8e50-60f781e0f783"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R24 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 223.52
+                            },
+                            "uuid": "d542d6fd-83d0-45b9-99f5-b22abda048b3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R25 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 231.14
+                            },
+                            "uuid": "1308e230-fa7b-4017-a9cc-b3d17f6a0c6f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R10 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 259.08
+                            },
+                            "uuid": "1834e162-265a-462c-b521-d3d0e05dc13e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R27 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 142.24,
+                                "y": 266.7
+                            },
+                            "uuid": "886c56f4-1a58-45b8-b44c-c66b8a1aad1b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 149.86,
+                                "y": 358.14
+                            },
+                            "uuid": "782d4d36-deaa-4715-953f-1ee5e9b080f0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol TP1 [TESTPOINT_ORANGE]",
+                            "pos": {
+                                "x": 152.4,
+                                "y": 388.62
+                            },
+                            "uuid": "1f6b58fc-e4e2-4776-9620-72ae51378226"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 152.4,
+                                "y": 391.16
+                            },
+                            "uuid": "c0228be4-9d31-4c26-9cdc-2353946a7da6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C49 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 162.56,
+                                "y": 322.58
+                            },
+                            "uuid": "7149d9bd-3c33-4e0d-aed4-5561ed5f3e17"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C15 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 83.82
+                            },
+                            "uuid": "3d0d0388-f796-42da-ba9b-12045445b38b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C19 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 134.62
+                            },
+                            "uuid": "83de769d-e903-4e6b-bf6e-3e62dd279fb2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C23 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 185.42
+                            },
+                            "uuid": "315a9131-494e-48b2-a9cb-97171dad5fc7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C27 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 236.22
+                            },
+                            "uuid": "b5d1e580-8375-45a8-9582-db2346f1560e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP2 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 388.62
+                            },
+                            "uuid": "1f972649-1c33-42d1-b7ae-2a844b246126"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVDD_BAR]",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 393.7
+                            },
+                            "uuid": "36c9b126-384f-4ace-9c7a-1cdac1bc7b01"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP3 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 388.62
+                            },
+                            "uuid": "0e2d8da0-e847-4e11-b810-6914f3fdfefe"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 393.7
+                            },
+                            "uuid": "f099b189-8de4-401e-bf38-67e9f0ba48a4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C16 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 83.82
+                            },
+                            "uuid": "4dedfa0c-7173-4f75-b9de-79ac4da753fd"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C20 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 134.62
+                            },
+                            "uuid": "db4f4f80-a7d0-49ab-abe4-10e9e6d9fb7f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C24 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 185.42
+                            },
+                            "uuid": "073cd6a0-7685-4b25-a661-b7c2c47a4bd1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C28 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 236.22
+                            },
+                            "uuid": "296bd7db-757f-46e4-a42b-c49123ca8d3e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VBUS_BAR]",
+                            "pos": {
+                                "x": 180.34,
+                                "y": 353.06
+                            },
+                            "uuid": "c29b6dae-d880-4879-9447-ff42252ca594"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VBAT_BAR]",
+                            "pos": {
+                                "x": 180.34,
+                                "y": 358.14
+                            },
+                            "uuid": "c23c7d4d-ef91-40e2-ace6-8b95f8d2f0b9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol D6 [ONSC-K1A2-2]",
+                            "pos": {
+                                "x": 182.88,
+                                "y": 325.12
+                            },
+                            "uuid": "d8632135-4434-464f-b256-0bb781bd7849"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP4 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 185.42,
+                                "y": 388.62
+                            },
+                            "uuid": "cf9a658a-a2d3-4280-9b49-fd10e4b87749"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [DVDD_BAR]",
+                            "pos": {
+                                "x": 185.42,
+                                "y": 393.7
+                            },
+                            "uuid": "12173c7d-a14b-44cb-8a8c-88287b1c7ba6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C17 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 83.82
+                            },
+                            "uuid": "8e1d9bc2-d036-40d3-a5b1-829ddea3b7c8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C21 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 134.62
+                            },
+                            "uuid": "5d5e35a0-5858-4267-9908-96f7076a38a3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C25 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 185.42
+                            },
+                            "uuid": "9138ce7d-148c-4501-aeb9-d595f39ae77d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C29 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 236.22
+                            },
+                            "uuid": "4fcc96c3-d496-47f8-a397-11c6f683951d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VBAT_BAR]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 320.04
+                            },
+                            "uuid": "e461f0cc-bf44-4a66-bbec-ba8962f3351c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol SW1 [7fcaa069a19c2acd609832313418d7c]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 355.6
+                            },
+                            "uuid": "4c706d34-a9c6-4b44-8325-353d1c0b3ee2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VIN_BAR]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 355.6
+                            },
+                            "uuid": "673a35c7-90cc-4b0d-baa3-0a9c9dd0d067"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP5 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 388.62
+                            },
+                            "uuid": "e835cd98-0781-4e2c-a4d5-a6faade56de9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [3v3_BAR]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 393.7
+                            },
+                            "uuid": "104081c1-cc7e-4e9e-a960-3426750b03d1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 198.12,
+                                "y": 335.28
+                            },
+                            "uuid": "488620b0-a112-4548-b7a4-79d2b46d2e24"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C18 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 83.82
+                            },
+                            "uuid": "c2cfae1c-1751-42b7-9a71-4afa03818e39"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 91.44
+                            },
+                            "uuid": "e55082f8-206c-4fb6-b31c-8f0ec2ad88f5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C22 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 134.62
+                            },
+                            "uuid": "8715a341-dfce-42e0-a3e7-96141fab1e1c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 142.24
+                            },
+                            "uuid": "caa60dd7-fd27-4c5c-a575-bbad68f47ec0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C26 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 185.42
+                            },
+                            "uuid": "a3618bd3-c612-4f9f-9e56-b1808e955f14"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 193.04
+                            },
+                            "uuid": "abb41537-334d-46ea-b18b-17b9bb3cd0d1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C30 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 236.22
+                            },
+                            "uuid": "1139709d-a348-4783-9348-d5d15da9d0e1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 243.84
+                            },
+                            "uuid": "ee09dfba-558a-491e-a044-8bc23098f1c7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C31 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 271.78
+                            },
+                            "uuid": "5f0bdf27-6709-4822-bdad-33a3386c57e8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 276.86
+                            },
+                            "uuid": "d64d50d3-6685-40d0-b9b5-c081fa66a908"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP6 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 388.62
+                            },
+                            "uuid": "de5ddb87-d531-459f-88a4-8f864e90ce97"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VIN_BAR]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 393.7
+                            },
+                            "uuid": "d6fc88c3-a261-47e6-b1c4-1c81f4545f49"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 30.48 mm",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 63.5
+                            },
+                            "uuid": "759a6e6b-c7d4-490d-af52-72783fe61d35"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 17.78 mm",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 71.12
+                            },
+                            "uuid": "3fb05786-4a57-43e6-b783-5b2731fcae9e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 5.08 mm",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 78.74
+                            },
+                            "uuid": "536c66e3-9c40-46a5-b5b4-2567b0b01568"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 43.18 mm",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 106.68
+                            },
+                            "uuid": "385e7501-c559-462e-8a07-cc81dd984d19"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 30.48 mm",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 114.3
+                            },
+                            "uuid": "e0ce1fb1-3817-4bca-ab94-37890a7da264"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 17.78 mm",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 121.92
+                            },
+                            "uuid": "6977edfa-cff7-4370-a67b-26bd0daabb7a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 5.08 mm",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 129.54
+                            },
+                            "uuid": "7c9d0f6a-a72e-483b-9d3f-5a6c707744eb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 43.18 mm",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 157.48
+                            },
+                            "uuid": "4ceda81d-5d43-4ead-bc72-7c9f8c8708ae"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 30.48 mm",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 165.1
+                            },
+                            "uuid": "afdd0942-ed3e-4a2c-b32d-53872830a4fb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 17.78 mm",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 172.72
+                            },
+                            "uuid": "8683a6bb-01f7-40cc-a9bd-3d3f6d6458d3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 5.08 mm",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 180.34
+                            },
+                            "uuid": "3f92f5cc-00de-483b-9cb4-7ce56ca147d4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 43.18 mm",
+                            "pos": {
+                                "x": 165.1,
+                                "y": 208.28
+                            },
+                            "uuid": "0b8862ff-04a3-4bef-b90c-1bc225bec0c5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 30.48 mm",
+                            "pos": {
+                                "x": 177.8,
+                                "y": 215.9
+                            },
+                            "uuid": "57539145-372c-4fe9-87b5-0399a5bedbf9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 17.78 mm",
+                            "pos": {
+                                "x": 190.5,
+                                "y": 223.52
+                            },
+                            "uuid": "a069aabe-352f-4645-b18a-7bb81aca6e0b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 5.08 mm",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 231.14
+                            },
+                            "uuid": "f98e4c3c-cfb4-4724-a712-43e3045b2f56"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 5.08 mm",
+                            "pos": {
+                                "x": 203.2,
+                                "y": 266.7
+                            },
+                            "uuid": "4af9e336-eb95-4e93-a43c-dd9b0023e537"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C34 [f23184f103b6ebe33a8c269c53dcba6]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 215.9
+                            },
+                            "uuid": "6fca7938-a3be-459f-b7d6-e22cbb87043c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 226.06
+                            },
+                            "uuid": "b514ce32-0ed7-40c1-bedb-1ca43ff75627"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VIN_BAR]",
+                            "pos": {
+                                "x": 251.46,
+                                "y": 60.96
+                            },
+                            "uuid": "04fdf9f0-f284-4033-81fd-4b89f0d76279"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C2 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 254.0,
+                                "y": 63.5
+                            },
+                            "uuid": "66a4cd3c-3264-4949-91e3-8cbff93ad718"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 254.0,
+                                "y": 71.12
+                            },
+                            "uuid": "f5c42d7b-2d8b-46ec-b598-340bc6426278"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Local and global labels have same name",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? Hidden pin  [GND, Power input, Line]",
+                            "pos": {
+                                "x": 254.0,
+                                "y": 71.12
+                            },
+                            "uuid": "0551548c-b885-4504-bd43-d82414f9d028"
+                        },
+                        {
+                            "description": "Label 'GND'",
+                            "pos": {
+                                "x": 48.26,
+                                "y": 91.44
+                            },
+                            "uuid": "84fceeb1-334b-4634-b426-98d6431fa715"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "same_local_global_label"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C35 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 259.08,
+                                "y": 215.9
+                            },
+                            "uuid": "dac8af5d-09b9-4262-8b38-f66e1b6a5302"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C1 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 266.7,
+                                "y": 78.74
+                            },
+                            "uuid": "5bab83b2-702b-44a1-afde-cf383fa9df45"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 266.7,
+                                "y": 91.44
+                            },
+                            "uuid": "b84efffe-09c3-485e-8c1f-4252927e52fe"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [DVDD_BAR]",
+                            "pos": {
+                                "x": 269.24,
+                                "y": 154.94
+                            },
+                            "uuid": "cb4a9690-cb81-4c55-b43d-e4a95b2e1272"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [DVDD_BAR]",
+                            "pos": {
+                                "x": 269.24,
+                                "y": 185.42
+                            },
+                            "uuid": "8ec0a72b-a564-488a-8545-ba492b35cf61"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol U1 [ab275a4f98ccada617dcf409ec46a20]",
+                            "pos": {
+                                "x": 271.78,
+                                "y": 60.96
+                            },
+                            "uuid": "0d7d4901-87c4-4d98-9238-cedd4b97d3aa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C36 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 271.78,
+                                "y": 215.9
+                            },
+                            "uuid": "4baacddf-8171-4871-ae7c-4265e1083a3d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C37 [CAP]",
+                            "pos": {
+                                "x": 281.94,
+                                "y": 220.98
+                            },
+                            "uuid": "32f0d3e7-83c6-4c1f-bcea-7d984904ad4a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R32 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 281.94,
+                                "y": 241.3
+                            },
+                            "uuid": "6410b87a-70a7-40e0-a57b-cfad673ad6c8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R33 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 281.94,
+                                "y": 248.92
+                            },
+                            "uuid": "4a527eaa-fcc1-4779-a9d4-7023bc21a5b5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R34 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 281.94,
+                                "y": 256.54
+                            },
+                            "uuid": "80e44ca8-658b-49b6-8737-cdaffecc09aa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R35 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 281.94,
+                                "y": 264.16
+                            },
+                            "uuid": "4206cbd9-752e-4a5c-a34e-dcccecc2ba3e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVDD_BAR]",
+                            "pos": {
+                                "x": 284.48,
+                                "y": 317.5
+                            },
+                            "uuid": "c96e2cfa-3df7-400d-a54f-e76a368bbfeb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C40 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 284.48,
+                                "y": 320.04
+                            },
+                            "uuid": "018c4796-8ec9-4984-b17d-950a058f07d5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 284.48,
+                                "y": 327.66
+                            },
+                            "uuid": "2af11b6c-d123-4a1f-94b2-036adf8ac9bd"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R28 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 292.1,
+                                "y": 149.86
+                            },
+                            "uuid": "41ae771d-ca25-46de-a4a9-46a143c28efa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R29 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 292.1,
+                                "y": 160.02
+                            },
+                            "uuid": "4b6cce4b-dd03-45d4-bcdf-d0c75823f652"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R30 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 292.1,
+                                "y": 180.34
+                            },
+                            "uuid": "1ae95bda-5a45-4478-be38-712fe6f8de6d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R31 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 292.1,
+                                "y": 190.5
+                            },
+                            "uuid": "36361067-e250-4dae-8317-b6c580158486"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C41 [CAP]",
+                            "pos": {
+                                "x": 294.64,
+                                "y": 325.12
+                            },
+                            "uuid": "37c5cd06-10b3-41c3-9a3a-ba1a71f47089"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C38 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 215.9
+                            },
+                            "uuid": "5fe659c2-eaa8-4d6e-8eb1-da02a7eb669c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [DVDD_BAR]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 340.36
+                            },
+                            "uuid": "baa51bfa-bee3-459f-aae3-71ae23f075cc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C46 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 342.9
+                            },
+                            "uuid": "4e60e707-5248-4677-ab9f-610462c9dec5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 350.52
+                            },
+                            "uuid": "5c806157-e3e2-4159-b475-79c0fae7b73a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 304.8,
+                                "y": 269.24
+                            },
+                            "uuid": "bc812949-b758-4d5d-84d8-177b538de039"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C47 [CAP]",
+                            "pos": {
+                                "x": 309.88,
+                                "y": 347.98
+                            },
+                            "uuid": "c0aae64d-a8ea-4026-a4b0-2aa02db62cae"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol U4 [TI-ADS1299-PAG-64]",
+                            "pos": {
+                                "x": 314.96,
+                                "y": 139.7
+                            },
+                            "uuid": "a4607d48-7846-4804-befa-0fc8607c00c6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol U4 [TI-ADS1299-PAG-64]",
+                            "pos": {
+                                "x": 320.04,
+                                "y": 309.88
+                            },
+                            "uuid": "ac9ffbdd-c536-426e-ac38-af0442ea6e0e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVDD_BAR]",
+                            "pos": {
+                                "x": 320.04,
+                                "y": 375.92
+                            },
+                            "uuid": "2f5c7e29-5717-4e06-8230-c6dbab9e50fb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C3 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 327.66,
+                                "y": 93.98
+                            },
+                            "uuid": "2f2add62-55f1-4e5f-bcf4-0cca367ed09b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 327.66,
+                                "y": 104.14
+                            },
+                            "uuid": "c5c74919-c69f-4833-b95b-07cfb37ae79e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C39 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 327.66,
+                                "y": 299.72
+                            },
+                            "uuid": "e2ae75bf-b39a-48bd-bd63-a22cb0d1577c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C44 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 327.66,
+                                "y": 368.3
+                            },
+                            "uuid": "35402855-bb9e-40b8-84b4-6a79ebb92840"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C45 [CAP]",
+                            "pos": {
+                                "x": 330.2,
+                                "y": 386.08
+                            },
+                            "uuid": "bfddd657-0a38-477f-bbb0-417e4c496f25"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 340.36,
+                                "y": 375.92
+                            },
+                            "uuid": "946c8c2e-1f59-4dcd-9784-19a838f8f6fe"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 350.52
+                            },
+                            "uuid": "47bfc7e8-0392-4f9b-a645-b010ea8bcf1e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R1 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 355.6,
+                                "y": 35.56
+                            },
+                            "uuid": "bb5accf1-3965-476b-afa8-1bb2e6751bed"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R2 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 355.6,
+                                "y": 53.34
+                            },
+                            "uuid": "1f1cf937-1751-4dc6-a3f8-d38b53f08537"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R4 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 355.6,
+                                "y": 71.12
+                            },
+                            "uuid": "38cc46cb-3238-45b6-9648-9d5b19dda774"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R3 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 355.6,
+                                "y": 88.9
+                            },
+                            "uuid": "8806644b-f10b-464a-a603-0b00406802ec"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C32 [CAP]",
+                            "pos": {
+                                "x": 358.14,
+                                "y": 220.98
+                            },
+                            "uuid": "55bce266-2ec1-49fa-8c56-b990a4435d0d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 142.24
+                            },
+                            "uuid": "436ece49-071d-472b-8d32-2a6e11f1840a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 144.78
+                            },
+                            "uuid": "de3a9b3d-1553-4915-9ab5-aa591fd543d2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 147.32
+                            },
+                            "uuid": "479f3976-fe2e-48fc-8414-c7089f089306"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 149.86
+                            },
+                            "uuid": "4a0977c7-6111-40da-8d93-b83d45d1b26f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 152.4
+                            },
+                            "uuid": "24e7a6ca-175c-4caa-8749-da20944fa333"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 154.94
+                            },
+                            "uuid": "13ed549d-8c77-4ec7-84b7-2c76f82ae66c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 157.48
+                            },
+                            "uuid": "76be4ba0-f0ef-4fd7-919a-f19a8a156d92"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 160.02
+                            },
+                            "uuid": "52696d43-72d7-4ef7-aacf-40daea3f8dbb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 162.56
+                            },
+                            "uuid": "6ab5801e-04d9-4178-95a5-4d11fea20f1f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 165.1
+                            },
+                            "uuid": "71c6ce38-927a-402f-bffc-8140ab31359b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 167.64
+                            },
+                            "uuid": "f5bc727e-2eed-4ea8-ab21-e190f8a3ea71"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 170.18
+                            },
+                            "uuid": "246f784c-5744-4307-a8b7-e0bc6b4d9633"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 172.72
+                            },
+                            "uuid": "c0482028-ec40-438d-a0d1-9954ab2dd586"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 175.26
+                            },
+                            "uuid": "3b4206f5-c29d-46cd-bf08-389392879888"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 177.8
+                            },
+                            "uuid": "5c276f82-585f-4d06-9389-190f1293eb1f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 180.34
+                            },
+                            "uuid": "22e8b043-6155-4ce7-87a7-c164fd3efbf7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 190.5
+                            },
+                            "uuid": "923b6a8a-4a83-439c-afc5-36314d8a1815"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 10.16 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 193.04
+                            },
+                            "uuid": "a06696f3-c2e3-4f1e-9e7a-e0d859e5a021"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C42 [CAP]",
+                            "pos": {
+                                "x": 360.68,
+                                "y": 325.12
+                            },
+                            "uuid": "79991782-628e-486b-8e62-ba0bfc7a91f8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 350.52,
+                                "y": 200.66
+                            },
+                            "uuid": "6b21136b-b698-4300-8c4f-b5b330ed5973"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 368.3,
+                                "y": 198.12
+                            },
+                            "uuid": "2ce3dab8-5297-4ddc-9f66-d093c261e6a1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R9 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 368.3,
+                                "y": 241.3
+                            },
+                            "uuid": "6069c1a6-1d8b-4d77-a19a-f7f8407c03e5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVDD_BAR]",
+                            "pos": {
+                                "x": 370.84,
+                                "y": 35.56
+                            },
+                            "uuid": "c5d2cd59-dd82-4267-81e9-b38ef4e6ce52"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C4 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 370.84,
+                                "y": 50.8
+                            },
+                            "uuid": "8339f4f1-f82d-4d92-a79f-e999fa406c8b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C5 [02cd4be3c70576c341d710602a673aa]",
+                            "pos": {
+                                "x": 370.84,
+                                "y": 86.36
+                            },
+                            "uuid": "a7bafbfb-8c8e-477a-862b-79b73ce5211d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 370.84,
+                                "y": 106.68
+                            },
+                            "uuid": "118d022d-d4ce-4274-a402-8b1fc3e3febb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 370.84,
+                                "y": 185.42
+                            },
+                            "uuid": "ee8a6862-06f9-4e9d-85ce-c5425b53f130"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C33 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 373.38,
+                                "y": 215.9
+                            },
+                            "uuid": "f02ed792-4b7a-43a7-a754-ea7b2fe8cbd8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 373.38,
+                                "y": 226.06
+                            },
+                            "uuid": "a2f17760-74d1-44b8-88ca-d9c0c7885cc7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [AVSS_BAR]",
+                            "pos": {
+                                "x": 375.92,
+                                "y": 317.5
+                            },
+                            "uuid": "a708eb25-21a8-4c61-b371-7477040386fa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C43 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 375.92,
+                                "y": 320.04
+                            },
+                            "uuid": "39a1a42b-2d16-4e4f-83ef-3010f34c9ea9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 375.92,
+                                "y": 327.66
+                            },
+                            "uuid": "926adda9-6d9e-4813-bbf9-a35eef2ad27f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 381.0,
+                                "y": 71.12
+                            },
+                            "uuid": "efa1df4c-484d-4a6f-afb4-29f36ac70494"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C14 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 381.0,
+                                "y": 246.38
+                            },
+                            "uuid": "fd9e2172-ae6b-478a-ae8e-889f9bfa21af"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol JP1 [SMTC-TSW-102-X-X-S-X]",
+                            "pos": {
+                                "x": 386.08,
+                                "y": 200.66
+                            },
+                            "uuid": "ffb17447-9d70-405c-bf14-d657a2e97702"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VIN_BAR]",
+                            "pos": {
+                                "x": 406.4,
+                                "y": 60.96
+                            },
+                            "uuid": "e2f2502e-8a20-45ec-84d9-f3857bf4eaca"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C10 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 408.94,
+                                "y": 66.04
+                            },
+                            "uuid": "74749fa5-e3cc-465e-9b61-e59df31ee80c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 408.94,
+                                "y": 78.74
+                            },
+                            "uuid": "48dbd17b-6a42-4188-9d56-80ca9c58afc7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol U3 [76aa7ad0ceb1012e0d85aeafc53095f]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 60.96
+                            },
+                            "uuid": "b4734e19-2d06-4f8c-acef-d7f5c3d42488"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [DVDD_BAR]",
+                            "pos": {
+                                "x": 459.74,
+                                "y": 60.96
+                            },
+                            "uuid": "6b0bc05b-baa5-4de5-8826-9dd0f168c91e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C9 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 459.74,
+                                "y": 63.5
+                            },
+                            "uuid": "c8203207-49ad-45e4-9e10-eec6d29e8ba8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 459.74,
+                                "y": 78.74
+                            },
+                            "uuid": "5b96f2cf-ff98-4c2f-8e17-8c8acfd4f5b3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C11 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 462.28,
+                                "y": 284.48
+                            },
+                            "uuid": "465da389-d072-43be-9632-943641ef7c8d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R7 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 472.44,
+                                "y": 261.62
+                            },
+                            "uuid": "04dbd95a-c920-4738-94de-b17669a28474"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [3v3_BAR]",
+                            "pos": {
+                                "x": 472.44,
+                                "y": 261.62
+                            },
+                            "uuid": "36fa8999-2740-48be-adb8-c57510bb2781"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol SW2 [31b61e1575766857d5d37af9ed38f2e]",
+                            "pos": {
+                                "x": 472.44,
+                                "y": 281.94
+                            },
+                            "uuid": "3eee36b5-ff79-46b7-aaab-b400e94ddbe6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 482.6,
+                                "y": 299.72
+                            },
+                            "uuid": "5ce60469-ac33-4de9-87d4-8fefb297208c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [VIN_BAR]",
+                            "pos": {
+                                "x": 495.3,
+                                "y": 60.96
+                            },
+                            "uuid": "a34ca848-8247-493a-92d1-3f484d27088c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'ESP32-S3-WROOM-1-N8R8'",
+                    "items": [
+                        {
+                            "description": "Symbol U5 [ESP32-S3-WROOM-1-N8R8]",
+                            "pos": {
+                                "x": 495.3,
+                                "y": 172.72
+                            },
+                            "uuid": "7b198c3c-3a5d-47dd-8ee3-b252f21bfdba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C6 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 497.84,
+                                "y": 66.04
+                            },
+                            "uuid": "c4557a51-232e-4129-86f2-dd420c5ccc93"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 497.84,
+                                "y": 78.74
+                            },
+                            "uuid": "99dfc7b4-39f8-4fe3-9baa-0523397f79de"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R8 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 508.0,
+                                "y": 261.62
+                            },
+                            "uuid": "acdb203a-f428-4c56-8c82-c05bca32007f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [3v3_BAR]",
+                            "pos": {
+                                "x": 508.0,
+                                "y": 261.62
+                            },
+                            "uuid": "f4ff3c00-4a97-42c0-b41a-3d4e9e3878c9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol SW3 [31b61e1575766857d5d37af9ed38f2e]",
+                            "pos": {
+                                "x": 508.0,
+                                "y": 281.94
+                            },
+                            "uuid": "d4867a75-de2b-455e-a99d-c9a7a80128aa"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol U2 [0cbbc1df71e5372cce39b1d408f1f92]",
+                            "pos": {
+                                "x": 510.54,
+                                "y": 60.96
+                            },
+                            "uuid": "fc52dcd7-a32f-4926-b5a5-239a2bdf75db"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 518.16,
+                                "y": 299.72
+                            },
+                            "uuid": "b0d91afa-837f-464f-8bf0-1cb0071fca90"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 520.7,
+                                "y": 241.3
+                            },
+                            "uuid": "ceba6bbd-6647-4bd3-a4d0-4640dc0a3b6b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C13 [b4654b650e69147ec39a6b967a45e02]",
+                            "pos": {
+                                "x": 523.24,
+                                "y": 144.78
+                            },
+                            "uuid": "78d9b89f-7546-47ad-b894-226244258b81"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 510.54,
+                                "y": 162.56
+                            },
+                            "uuid": "230b8612-4c30-4846-bb11-c5aa401f9ade"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "Unconnected wire endpoint",
+                    "items": [
+                        {
+                            "description": "Horizontal Wire, length 15.24 mm",
+                            "pos": {
+                                "x": 510.54,
+                                "y": 165.1
+                            },
+                            "uuid": "7ea4d5a2-d1c9-4565-be7c-5849b91f9133"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "unconnected_wire_endpoint"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [3v3_BAR]",
+                            "pos": {
+                                "x": 535.94,
+                                "y": 142.24
+                            },
+                            "uuid": "028861f0-c3d3-43bc-9dd5-0631feac4594"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C12 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 535.94,
+                                "y": 144.78
+                            },
+                            "uuid": "e09cc72e-dc2c-4348-b17c-a52818c05384"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 535.94,
+                                "y": 152.4
+                            },
+                            "uuid": "9b479563-0f72-4d23-a1c6-bc89d537b802"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [3v3_BAR]",
+                            "pos": {
+                                "x": 541.02,
+                                "y": 60.96
+                            },
+                            "uuid": "3f8d4c31-4bd3-4187-8aa6-61e061f5622c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol C7 [11868f565c42a9108669ba33697ecf6]",
+                            "pos": {
+                                "x": 541.02,
+                                "y": 63.5
+                            },
+                            "uuid": "af76db6b-b2b7-4a9b-b6e4-6b15424e168b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Low_Cost_EEG-altium-import'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR? [GND_POWER_GROUND]",
+                            "pos": {
+                                "x": 541.02,
+                                "y": 78.74
+                            },
+                            "uuid": "1882c5a0-1644-4733-a117-1c322a9ea2e6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                }
+            ]
+        }
+    ],
+    "source": "Low_Cost_EEG.kicad_sch"
+}

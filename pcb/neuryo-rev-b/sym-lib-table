@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "Neuryo_RevB")(type "KiCad")(uri "${KIPRJMOD}/Neuryo_RevB.kicad_sym")(options "")(descr "Rev B additions"))
+)

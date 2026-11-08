@@ -1,0 +1,170 @@
+(footprint "CAPC1608X87X45LL20T05"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -3.519481 -0.03534 180)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "35493530-9c7c-46e4-b8a0-128e416a2be7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+		)
+	)
+	(property "Value" "0.1uF"
+		(at 2.68988 -2.738088 90)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "44b7283c-8ff9-486e-b0df-4c0e5f917147")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "45e7db48-b184-44c6-b887-272fde52eb13")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "45d5e57e-c0c1-419f-8126-c6bce8cf5642")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(sheetname "EEG Schematic")
+	(sheetfile "EEG Schematic.kicad_sch")
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.1 0.6)
+		(end -1.1 -0.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a9ef9ce2-f1d2-46b9-898f-ecf24c6d1d9f")
+	)
+	(fp_line
+		(start 0 0.5)
+		(end 0 -0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d2a9c881-4cac-4e4c-a639-f80984455936")
+	)
+	(fp_line
+		(start 0.5 0)
+		(end -0.5 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "33c8843f-30ef-4049-ac0e-9cf91a4f0f8c")
+	)
+	(fp_line
+		(start 1.1 -0.6)
+		(end -1.1 -0.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d90f9cba-3d22-49ae-8b62-ddf75a093fc1")
+	)
+	(fp_line
+		(start 1.1 0.6)
+		(end -1.1 0.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "2d3a6a25-e3cb-41c9-80c5-2ecf32c2213e")
+	)
+	(fp_line
+		(start 1.1 0.6)
+		(end 1.1 -0.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "755fce9e-0c5d-4ecc-8b0c-807b939e81f6")
+	)
+	(fp_line
+		(start -0.9 0.5)
+		(end -0.9 -0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "User.13")
+		(uuid "9a183989-bd97-46f1-b971-ac3710ec2056")
+	)
+	(fp_line
+		(start 0.9 -0.5)
+		(end -0.9 -0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "User.13")
+		(uuid "f14d4277-8804-4b6e-93d9-9dfa787327b5")
+	)
+	(fp_line
+		(start 0.9 0.5)
+		(end -0.9 0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "User.13")
+		(uuid "cb649ad0-40be-4f0a-aa3c-ce81a5db7a26")
+	)
+	(fp_line
+		(start 0.9 0.5)
+		(end 0.9 -0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "User.13")
+		(uuid "8c152a65-a0ba-4ffe-b35c-047672d7a3fa")
+	)
+	(pad "1" smd rect
+		(at -0.6 0 90)
+		(size 0.9 0.85)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "15264107-26c0-4657-a7d7-d121119404a7")
+	)
+	(pad "2" smd rect
+		(at 0.6 0 90)
+		(size 0.9 0.85)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "0584a444-0cf9-4818-a399-655e1e8e61fa")
+	)
+	(embedded_fonts no)
+)

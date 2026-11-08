@@ -1,0 +1,116 @@
+Schematic, step by step (KiCad 10 kicad-cli netlists; connectivity compared pin by pin, net names ignored)
+
+### original import -> step 1 (ESP32-S3 module side removed)
+parts removed: C11 C12 C13 C48 C6 C7 D7 J2 J5 R5 R6 R7 R8 SW2 SW3 TP5 U2 U5
+parts added:   
+pins of kept parts whose connections changed: 0
+
+### step 1 -> step 2
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 6
+  C31.1      /SRB1 -> /SRB2   lost U4.17  gained U4.18
+  D5.5       /SRB2 -> /SRB2_HDR   lost U4.18  gained 
+  J3J.2      /SRB2 -> /SRB2_HDR   lost U4.18  gained 
+  R27.2      /SRB1 -> /SRB2   lost U4.17  gained U4.18
+  U4.17      /SRB1 -> unconnected-(U4A-SRB1-Pad17)   lost C31.1 R27.2  gained 
+  U4.18      /SRB2 -> /SRB2   lost D5.5 J3J.2  gained C31.1 R27.2
+
+### step 2 -> step 3
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 0
+
+### step 3 -> step 4
+parts removed: 
+parts added:   R36
+pins of kept parts whose connections changed: 0
+  new R36.1      on /ADS_START     with U4.38
+  new R36.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+
+### step 4 -> step 5
+parts removed: 
+parts added:   Q1 R37 R38 R39 R40
+pins of kept parts whose connections changed: 9
+  C10.1      VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  C2.1       VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  SW1.2      VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  TP6.1      VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  U1.12      VIN -> /AEN   lost C10.1 C2.1 SW1.2 TP6.1 U1.3 U3.1  gained 
+  U1.3       VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  U1.8       VIN -> /AEN   lost C10.1 C2.1 SW1.2 TP6.1 U1.3 U3.1  gained 
+  U3.1       VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
+  U3.3       VIN -> /AEN   lost C10.1 C2.1 SW1.2 TP6.1 U1.3 U3.1  gained 
+  new Q1.1       on /VUSB          with R37.1 R39.1
+  new Q1.2       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new Q1.3       on /AEN           with R38.2 U1.12 U1.8 U3.3
+  new R37.1      on /VUSB          with Q1.1 R39.1
+  new R37.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new R38.1      on VIN            with C10.1 C2.1 SW1.2 TP6.1 U1.3 U3.1
+  new R38.2      on /AEN           with Q1.3 U1.12 U1.8 U3.3
+  new R39.1      on /VUSB          with Q1.1 R37.1
+  new R39.2      on /USB_SENSE     with R40.1
+  new R40.1      on /USB_SENSE     with R39.2
+  new R40.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+
+### step 5 -> step 6
+parts removed: 
+parts added:   C50 C51 J6 J7 R41 R42 R43 R44 U6
+pins of kept parts whose connections changed: 0
+  new C50.1      on /VBAT_SENSE    with R41.2 R42.1 U6.1
+  new C50.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new C51.1      on /XIAO_3V3      with J6.2 J7.2 R43.1 R44.1 U6.12
+  new C51.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new J6.1       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new J6.2       on /XIAO_3V3      with C51.1 J7.2 R43.1 R44.1 U6.12
+  new J6.3       on /I2C_SDA       with J7.3 R43.2 U6.9
+  new J6.4       on /I2C_SCL       with J7.4 R44.2 U6.10
+  new J7.1       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new J7.2       on /XIAO_3V3      with C51.1 J6.2 R43.1 R44.1 U6.12
+  new J7.3       on /I2C_SDA       with J6.3 R43.2 U6.9
+  new J7.4       on /I2C_SCL       with J6.4 R44.2 U6.10
+  new R41.1      on VIN            with C10.1 C2.1 R38.1 SW1.2 TP6.1 U1.3 U3.1 U6.23
+  new R41.2      on /VBAT_SENSE    with C50.1 R42.1 U6.1
+  new R42.1      on /VBAT_SENSE    with C50.1 R41.2 U6.1
+  new R42.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new R43.1      on /XIAO_3V3      with C51.1 J6.2 J7.2 R44.1 U6.12
+  new R43.2      on /I2C_SDA       with J6.3 J7.3 U6.9
+  new R44.1      on /XIAO_3V3      with C51.1 J6.2 J7.2 R43.1 U6.12
+  new R44.2      on /I2C_SCL       with J6.4 J7.4 U6.10
+  new U6.1       on /VBAT_SENSE    with C50.1 R41.2 R42.1
+  new U6.10      on /I2C_SCL       with J6.4 J7.4 R44.2
+  new U6.11      on /USB_SENSE     with R39.2 R40.1
+  new U6.12      on /XIAO_3V3      with C51.1 J6.2 J7.2 R43.1 R44.1
+  new U6.13      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new U6.14      on /VUSB          with Q1.1 R37.1 R39.1
+  new U6.15      on unconnected-(U6-MTDI-Pad15) with 
+  new U6.16      on unconnected-(U6-MTDO-Pad16) with 
+  new U6.17      on unconnected-(U6-EN-Pad17) with 
+  new U6.18      on unconnected-(U6-GND-Pad18) with 
+  new U6.19      on unconnected-(U6-MTMS-Pad19) with 
+  new U6.2       on /DRDY          with U4.47
+  new U6.20      on unconnected-(U6-MTCK-Pad20) with 
+  new U6.21      on unconnected-(U6-USB_DN-Pad21) with 
+  new U6.22      on unconnected-(U6-USB_DP-Pad22) with 
+  new U6.23      on VIN            with C10.1 C2.1 R38.1 R41.1 SW1.2 TP6.1 U1.3 U3.1
+  new U6.24      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new U6.25      on unconnected-(U6-PAD-Pad25) with 
+  new U6.3       on /CS            with R28.1 U4.39
+  new U6.4       on /MOSI          with U4.34
+  new U6.5       on /SCLK          with U4.40
+  new U6.6       on /MISO          with U4.43
+  new U6.7       on unconnected-(U6-D6-Pad7) with 
+  new U6.8       on unconnected-(U6-D7-Pad8) with 
+  new U6.9       on /I2C_SDA       with J6.3 J7.3 R43.2
+
+### step 6 -> final (I2C/USB-sense pin swap, R43/R44/C51 dropped, PWR_FLAGs, instance paths)
+parts removed: C51 R43 R44
+parts added:   
+pins of kept parts whose connections changed: 7
+  J6.4       /I2C_SCL -> /I2C_SCL   lost U6.10  gained U6.8
+  J7.4       /I2C_SCL -> /I2C_SCL   lost U6.10  gained U6.8
+  R39.2      /USB_SENSE -> /USB_SENSE   lost U6.11  gained U6.10
+  R40.1      /USB_SENSE -> /USB_SENSE   lost U6.11  gained U6.10
+  U6.10      /I2C_SCL -> /USB_SENSE   lost J6.4 J7.4  gained R39.2 R40.1
+  U6.11      /USB_SENSE -> unconnected-(U6-D10-Pad11)   lost R39.2 R40.1  gained 
+  U6.8       unconnected-(U6-D7-Pad8) -> /I2C_SCL   lost   gained J6.4 J7.4

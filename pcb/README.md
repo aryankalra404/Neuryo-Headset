@@ -1,9 +1,10 @@
 # Neuryo EEG board, rev B (plan)
 
-**Status (7 Nov 2026):** planned, not laid out. Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
+**Status (8 Nov 2026):** designed in KiCad 10 ([neuryo-rev-b/](neuryo-rev-b/)), ERC/DRC/netlist checked, **waiting for professor review, not ordered** ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)). Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
 
 | Folder | What is in it |
 |---|---|
+| [neuryo-rev-b/](neuryo-rev-b/) | Rev B in KiCad 10: project, [change list](neuryo-rev-b/CHANGES.md), [review checklist](neuryo-rev-b/REVIEW-CHECKLIST.md), renders, ERC/DRC reports, netlist and copper diffs against the reference, the reference imported into KiCad, and the scripts that made the edits |
 | [low-cost-eeg/](low-cost-eeg/) | The upstream repo, complete (hardware, production files, firmware, receiver, case STLs, docs). The design rev B copies: [Low-Cost-EEG](https://github.com/XavierAsghar/Low-Cost-EEG) by Xavier Asghar, commit `3730d31` (12 Aug 2026). GPL-3.0 ([LICENSE](low-cost-eeg/LICENSE)); what was left out is listed in its [NOTICE](low-cost-eeg/NOTICE.md) |
 
 ## Why this board
@@ -13,6 +14,8 @@
 - **Its analog section follows the OpenBCI Cyton**, like rev A did.
 
 ## What rev B copies unchanged (the analog half, about 55 × 50 mm)
+In the KiCad rev B the analog half (x < 56 mm) and the LM27762 block are unchanged apart from the review changes; the TPS7A20 and its two capacitors had to be re-laid out in a strip under the LM27762 block (see [CHANGES B4](neuryo-rev-b/CHANGES.md)).
+
 Placement, routing, ground pours and stitching kept as in the reference, left half of its board:
 - Electrode inputs: 2.54 mm pin headers, 8 differential pairs, BIAS, SRB2.
 - TPD4E1B06 ESD diodes, then 2.2 kΩ + 1 nF C0G low-pass on every input.
@@ -26,26 +29,12 @@ Placement, routing, ground pours and stitching kept as in the reference, left ha
 | ESP32-S3-WROOM-1 and its 3.3 V LDO | Seeed XIAO ESP32-S3, soldered flat on castellated pads (Seeed's KiCad footprint); its 3V3 feeds the digital parts |
 | USB-C, USB ESD, boot and reset buttons | The XIAO's own USB-C and buttons |
 | USB / battery selector switch | Battery on/off slide switch; battery JST-PH to the XIAO's BAT pads (the XIAO charges it) and to the LM27762 and TPS7A20 inputs |
-| UART header | J6: earlobe MAX30102 (I²C bus 0) · J8: forehead test-window MAX30102 (I²C bus 1) · BMI270 on bus 0 |
-| | Battery divider (2 × 220 kΩ + 100 nF) to an ADC pin |
-| | Outline about 70 × 50 mm (could reach 75), 4 mounting holes, shaped for the brow module (v4) or the left pod (v5 concept) |
+| UART header | J6: earlobe MAX30102 and J7: BMI270, 1×4 headers on one I²C bus (the forehead MAX30102 header J8 was dropped) |
+| | Battery divider (2 × 220 kΩ + 100 nF) to an ADC pin; USB-present divider; USB interlock (Q1, R37, R38) |
+| | Outline 77 × 50 mm (the LM27762 block is kept in place, so 70 was not reachable), 2 mounting holes, for the v6 left pod |
 
-## Draft XIAO pin map (to confirm in the schematic)
-| XIAO pin | GPIO | Use |
-|---|---|---|
-| D8 | 7 | ADS1299 SCLK |
-| D9 | 8 | ADS1299 DOUT (MISO) |
-| D10 | 9 | ADS1299 DIN (MOSI) |
-| D0 | 1 | ADS1299 CS |
-| D1 | 2 | ADS1299 DRDY (interrupt) |
-| D4 | 5 | I²C bus 0 SDA: earlobe MAX30102, BMI270 |
-| D5 | 6 | I²C bus 0 SCL |
-| D6 | 43 | I²C bus 1 SDA: forehead MAX30102 (test kit). Also the boot-log UART TX: harmless to the sensor, can be silenced in firmware |
-| D7 | 44 | I²C bus 1 SCL |
-| D3 | 4 | Battery voltage (ADC1) |
-| D2 | 3 | USB-present sense through a divider from the XIAO 5V pin (strapping pin, only sampled when the JTAG eFuse is set) |
-
-ADS1299 START, RESET and PWDN: no XIAO pins left, so they are tied (change 4) and START and RESET are sent as SPI commands. D2 (GPIO3) senses USB power (change 2).
+## XIAO pin map
+Final map in [neuryo-rev-b/CHANGES.md](neuryo-rev-b/CHANGES.md#final-xiao-pin-map-replaces-the-draft-in-pcbreadmemd). SPI on D1–D5, battery on D0, I²C on D7/D8, USB sense on D9; START, RESET and PWDN are tied (change 4).
 
 ## Review (8 Nov 2026): changes needed before ordering
 Checked against the reference schematic and firmware (upstream `main.cpp`), the ADS1299 datasheet and the Seeed XIAO ESP32-S3 wiki.
@@ -65,10 +54,10 @@ Checked against the reference schematic and firmware (upstream `main.cpp`), the 
 Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, change 1), as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 Cz, ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
 
 ## Steps
-1. Open the reference in KiCad 8+ (File → Import → Altium project) and check the import against `low-cost-eeg/Production_Files/PCB Schematic and Layout.pdf`, sheet by sheet and layer by layer.
-2. Delete the digital half; add the XIAO, BMI270, J6, J8, battery switch and divider; keep every analog part, trace and pour.
-3. ERC and DRC at zero; every new net checked against its datasheet; 3D check in the v4 brow module and the v5 left pod.
-4. Professor review of the changed parts and the import.
+1. ~~Import the reference into KiCad and check it~~ (done 8 Nov: BOM references and board/schematic connectivity match; sheet-by-sheet PDF comparison is on the checklist).
+2. ~~Remove the module side; add the XIAO, J6, J7, interlock, dividers~~ (done; see the change list).
+3. ~~ERC, DRC, netlist diff after every change~~ (done; reports in `neuryo-rev-b/review/`). 3D check in the v6 left pod at 77 × 50 mm still to do.
+4. Professor review ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)).
 5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs. For the v5 left pod, leave the electrode input headers off and solder each lead into its two holes (the headers stand about 8.4 mm: Samtec TSW-xxx-26 is a 5.84 mm post on a 2.54 mm body). Footprints and layout stay as in the reference.
 6. First board: power rails, ADS1299 ID register, shorted-input noise against the 6 µVpp target, then alpha with eyes closed.
 
