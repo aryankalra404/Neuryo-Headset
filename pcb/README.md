@@ -9,7 +9,7 @@
 ## Why this board
 - **Same chips as ours:** ADS1299 (8 channels, SRB2 reference, bias drive) and an ESP32-S3, battery powered, 4-layer.
 - **Built and used:** it recorded ECG, EMG, eyes-closed alpha, SSVEPs and P300s (Final Report, chapter 5), and a second person [rebuilt it](https://github.com/agteo/diy-eeg-mac) from the same files and recorded alpha.
-- **Not measured:** its report has no noise figure for the board itself (the 2 µVpp in it is from TI's evaluation board). Our first-board test fills that in.
+- **Measured:** 1.10 µVpp input-referred noise with the inputs shorted, on the board itself (Final Report, section 6.1; the 2 µVpp earlier in the report is TI's evaluation board). The ADS1299 datasheet gives 1.13 µVpp typical at gain 12, 250 SPS.
 - **Its analog section follows the OpenBCI Cyton**, like rev A did.
 
 ## What rev B copies unchanged (the analog half, about 55 × 50 mm)
@@ -43,12 +43,26 @@ Placement, routing, ground pours and stitching kept as in the reference, left ha
 | D6 | 43 | I²C bus 1 SDA: forehead MAX30102 (test kit). Also the boot-log UART TX: harmless to the sensor, can be silenced in firmware |
 | D7 | 44 | I²C bus 1 SCL |
 | D3 | 4 | Battery voltage (ADC1) |
-| D2 | 3 | Spare (strapping pin; leave free or use for BMI270 INT) |
+| D2 | 3 | USB-present sense through a divider from the XIAO 5V pin (strapping pin, only sampled when the JTAG eFuse is set) |
 
-ADS1299 START, RESET and PWDN: copy the reference's choices where its ESP32 pins are not needed; START and RESET can be sent as SPI opcodes.
+ADS1299 START, RESET and PWDN: no XIAO pins left, so they are tied (change 4) and START and RESET are sent as SPI commands. D2 (GPIO3) senses USB power (change 2).
+
+## Review (8 Nov 2026): changes needed before ordering
+Checked against the reference schematic and firmware (upstream `main.cpp`), the ADS1299 datasheet and the Seeed XIAO ESP32-S3 wiki.
+
+| # | Change | Why |
+|---|---|---|
+| 1 | **Reference through SRB2, filtered.** Move R27 (2.2 kΩ) and C31 (1 nF) from SRB1 (pin 17) to SRB2 (pin 18, the next pin); leave SRB1 open and drop the header's direct SRB2 line. | On the reference, the REF header goes through R27/C31 to SRB1, but its SRB2 pin runs straight to the ADS1299 with no series resistor or filter. Upstream firmware uses SRB1 (MISC1 = 0x20, electrodes on the P inputs). D25 needs SRB2 so channel 8 can run differential (ECG). |
+| 2 | **Analog off while USB is plugged in.** XIAO 5V pin → 2N7002 gate (100 kΩ to ground); its drain pulls the LM27762 EN+/EN− and TPS7A20 EN net (100 kΩ up to the battery) low. D2 (GPIO3) reads USB-present through a divider; firmware keeps the SPI pins high-impedance then. | Recording only on battery isolates the patient from mains. The XIAO's 5V pin is live only on USB (Seeed). The reference author lists this as the top-priority fix (Final Report 6.4). |
+| 3 | **Charge batteries outside the headset.** Removable JST-PH cell, a separate charger and a spare. | The XIAO ESP32-S3 charges at 50 mA (Seeed), about 20 h for 1000 mAh. |
+| 4 | **Pins with no XIAO GPIO:** START to ground through 10 kΩ (use the START command), RESET and PWDN to DVDD through 10 kΩ (RESET command), CLKSEL high as on the reference. Firmware sets BIASREF_INT = 1 (CONFIG3), as upstream does; the BIASREF pin is tied to AVSS on this board. | Datasheet: keep START low when using the command; mode pins through ≥ 10 kΩ. Upstream issue #1 (RESET on GPIO8 vs GPIO14) does not apply: rev B has no RESET GPIO. |
+| 5 | **BIAS series resistor 51 kΩ** (R10, was 2.2 kΩ). Inputs stay 2.2 kΩ for the prototype; revisit with the test lab. | The bias amplifier can source 1.1 mA (datasheet) against DC patient-current limits of 10 µA normal and 50 µA single fault. TI's own figures show 51 kΩ patient-protection resistors. A 51 kΩ input resistor would add about 0.23 µVrms of noise, so not on the inputs yet. The reference author found the bias drive gave no benefit on ECG, so test with it on and off. |
+| 6 | **Keep the bottom-side parts.** The 17 input filter capacitors, R32–R35, C49 and D6 are on the bottom: order two-sided assembly or hand-solder them; don't move analog parts. | The analog layout is the part that is proven. |
+| 7 | **XIAO flat on the board:** its BAT pads are underneath, so the footprint needs matching pads and hot-air or hot-plate soldering; no copper or vias under its other pads. | Castellated edges can be hand-soldered, the underside cannot. |
+| 8 | **Stock check:** ADS1299IPAGR, LM27762DSSR, TPS7A2033PDBVR, TPD4E1B06DCKR at LCSC/JLCPCB. | One order. |
 
 ## Channel map (v4)
-Electrodes on the N inputs with M1 on SRB2, as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 Cz, ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
+Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, change 1), as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 Cz, ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
 
 ## Steps
 1. Open the reference in KiCad 8+ (File → Import → Altium project) and check the import against `production/PCB Schematic and Layout.pdf`, sheet by sheet and layer by layer.
