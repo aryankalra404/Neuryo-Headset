@@ -35,7 +35,10 @@ The new design then shows up on the start page and in the switcher.
 
 AR is tested on v1 only. v3 and v4 show a **View in AR** button on headsets that support WebXR, but it has not been tested on the Quest yet. Try-on is v1 only.
 
-## Try it on (v1, webcam or phone)
+## Try it on (webcam or phone)
+v6: https://aryankalra404.github.io/Neuryo-Headset/designs/v6/tryon.html (or **Try it on** on the v6 page). v1: the link below.
+
+### v1
 Open https://aryankalra404.github.io/Neuryo-Headset/tryon.html on a laptop or phone, press **Start camera** and face the camera. The headset locks onto your head at true size. Use Size / Up-down / Forward-back to fit it, **Show head guide** to check the fit, and **Take photo** to save a picture. Face tracking runs in the browser with Google MediaPipe; the video is not uploaded.
 
 ## In a normal browser
