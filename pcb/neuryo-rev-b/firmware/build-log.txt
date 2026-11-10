@@ -27,7 +27,7 @@ Creating esp32s3 image...
 Merged 1 ELF section
 Successfully created esp32s3 image.
 Compiling .pio/build/xiao_esp32s3/libf2f/SPI/SPI.cpp.o
-Compiling .pio/build/xiao_esp32s3/libefb/ADS1299/ADS1299.cpp.o
+Compiling .pio/build/xiao_esp32s3/lib970/ADS1299/ADS1299.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLE2902.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLE2904.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEAddress.cpp.o
@@ -36,13 +36,13 @@ Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEAdvertising.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEBeacon.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLECharacteristic.cpp.o
 Archiving .pio/build/xiao_esp32s3/libf2f/libSPI.a
+Indexing .pio/build/xiao_esp32s3/libf2f/libSPI.a
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLECharacteristicMap.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEClient.cpp.o
-Indexing .pio/build/xiao_esp32s3/libf2f/libSPI.a
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEDescriptor.cpp.o
+Archiving .pio/build/xiao_esp32s3/lib970/libADS1299.a
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEDescriptorMap.cpp.o
-Archiving .pio/build/xiao_esp32s3/libefb/libADS1299.a
-Indexing .pio/build/xiao_esp32s3/libefb/libADS1299.a
+Indexing .pio/build/xiao_esp32s3/lib970/libADS1299.a
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEDevice.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEEddystoneTLM.cpp.o
 Compiling .pio/build/xiao_esp32s3/libe46/BLE/BLEEddystoneURL.cpp.o
@@ -72,12 +72,12 @@ Compiling .pio/build/xiao_esp32s3/FrameworkArduino/IPv6Address.cpp.o
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/MD5Builder.cpp.o
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/Print.cpp.o
 Archiving .pio/build/xiao_esp32s3/libe46/libBLE.a
-Indexing .pio/build/xiao_esp32s3/libe46/libBLE.a
-Archiving .pio/build/xiao_esp32s3/lib861/libWire.a
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/Stream.cpp.o
-Indexing .pio/build/xiao_esp32s3/lib861/libWire.a
+Indexing .pio/build/xiao_esp32s3/libe46/libBLE.a
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/StreamString.cpp.o
+Archiving .pio/build/xiao_esp32s3/lib861/libWire.a
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/Tone.cpp.o
+Indexing .pio/build/xiao_esp32s3/lib861/libWire.a
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/USB.cpp.o
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/USBCDC.cpp.o
 Compiling .pio/build/xiao_esp32s3/FrameworkArduino/USBMSC.cpp.o
@@ -119,13 +119,13 @@ Retrieving maximum program size .pio/build/xiao_esp32s3/firmware.elf
 Checking size .pio/build/xiao_esp32s3/firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
 RAM:   [=         ]  13.9% (used 45404 bytes from 327680 bytes)
-Flash: [===       ]  28.1% (used 937601 bytes from 3342336 bytes)
+Flash: [===       ]  28.1% (used 937629 bytes from 3342336 bytes)
 Building .pio/build/xiao_esp32s3/firmware.bin
 esptool.py v4.11.0
 Creating esp32s3 image...
 Merged 2 ELF sections
 Successfully created esp32s3 image.
-========================= [SUCCESS] Took 7.19 seconds =========================
+========================= [SUCCESS] Took 6.92 seconds =========================
 
 Processing xiao_esp32s3_bench (platform: espressif32@~6.13.0; board: seeed_xiao_esp32s3; framework: arduino)
 --------------------------------------------------------------------------------
@@ -156,7 +156,7 @@ Creating esp32s3 image...
 Merged 1 ELF section
 Successfully created esp32s3 image.
 Compiling .pio/build/xiao_esp32s3_bench/libf2f/SPI/SPI.cpp.o
-Compiling .pio/build/xiao_esp32s3_bench/libefb/ADS1299/ADS1299.cpp.o
+Compiling .pio/build/xiao_esp32s3_bench/lib970/ADS1299/ADS1299.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLE2902.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLE2904.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEAddress.cpp.o
@@ -164,14 +164,14 @@ Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEAdvertisedDevice.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEAdvertising.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEBeacon.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLECharacteristic.cpp.o
-Archiving .pio/build/xiao_esp32s3_bench/libf2f/libSPI.a
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLECharacteristicMap.cpp.o
+Archiving .pio/build/xiao_esp32s3_bench/libf2f/libSPI.a
 Indexing .pio/build/xiao_esp32s3_bench/libf2f/libSPI.a
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEClient.cpp.o
-Archiving .pio/build/xiao_esp32s3_bench/libefb/libADS1299.a
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEDescriptor.cpp.o
+Archiving .pio/build/xiao_esp32s3_bench/lib970/libADS1299.a
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEDescriptorMap.cpp.o
-Indexing .pio/build/xiao_esp32s3_bench/libefb/libADS1299.a
+Indexing .pio/build/xiao_esp32s3_bench/lib970/libADS1299.a
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEDevice.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEEddystoneTLM.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/libe46/BLE/BLEEddystoneURL.cpp.o
@@ -199,11 +199,11 @@ Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/HardwareSerial.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/IPAddress.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/IPv6Address.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/MD5Builder.cpp.o
-Archiving .pio/build/xiao_esp32s3_bench/libe46/libBLE.a
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/Print.cpp.o
-Indexing .pio/build/xiao_esp32s3_bench/libe46/libBLE.a
+Archiving .pio/build/xiao_esp32s3_bench/libe46/libBLE.a
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/Stream.cpp.o
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/StreamString.cpp.o
+Indexing .pio/build/xiao_esp32s3_bench/libe46/libBLE.a
 Archiving .pio/build/xiao_esp32s3_bench/lib861/libWire.a
 Compiling .pio/build/xiao_esp32s3_bench/FrameworkArduino/Tone.cpp.o
 Indexing .pio/build/xiao_esp32s3_bench/lib861/libWire.a
@@ -248,17 +248,17 @@ Retrieving maximum program size .pio/build/xiao_esp32s3_bench/firmware.elf
 Checking size .pio/build/xiao_esp32s3_bench/firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
 RAM:   [=         ]  13.9% (used 45404 bytes from 327680 bytes)
-Flash: [===       ]  28.0% (used 936709 bytes from 3342336 bytes)
+Flash: [===       ]  28.0% (used 936725 bytes from 3342336 bytes)
 Building .pio/build/xiao_esp32s3_bench/firmware.bin
 esptool.py v4.11.0
 Creating esp32s3 image...
 Merged 2 ELF sections
 Successfully created esp32s3 image.
-========================= [SUCCESS] Took 6.58 seconds =========================
+========================= [SUCCESS] Took 6.54 seconds =========================
 
 Environment         Status    Duration
 ------------------  --------  ------------
-xiao_esp32s3        SUCCESS   00:00:07.187
-xiao_esp32s3_bench  SUCCESS   00:00:06.576
-========================= 2 succeeded in 00:00:13.763 =========================
+xiao_esp32s3        SUCCESS   00:00:06.917
+xiao_esp32s3_bench  SUCCESS   00:00:06.536
+========================= 2 succeeded in 00:00:13.453 =========================
 pio exit 0

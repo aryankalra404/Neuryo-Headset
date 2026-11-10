@@ -8,6 +8,7 @@ MPN and LCSC fields never reach the order. This reads the placed symbols of the
     python3 scripts/jlcbom.py Neuryo_RevB.kicad_sch review/fab-draft-do-not-order/bom-jlc.csv
 
 4th pass: parts JLCPCB does not assemble (the XIAO, J1, the headers, JP1, TP1) go to bom-hand.csv next to it.
+5th pass: a part whose schematic has a "Reference MPN" field is an in-stock equivalent; its note names the reference part.
 """
 import csv
 import re
@@ -49,7 +50,10 @@ def main(sch, out):
         fp = p.get('Footprint', '').split(':')[-1]
         if fp.startswith('TP_SMD'):
             continue  # copper test pad, nothing to place
-        key = (p.get('Value', ''), fp, p.get('MPN', ''), p.get('LCSC', ''), NOTES.get(ref, ''))
+        note = NOTES.get(ref, '')
+        if p.get('Reference MPN') and not note:   # 5th pass: in-stock equivalent of an out-of-stock reference part
+            note = 'In-stock equivalent (same value, tolerance, case) of the reference %s' % p['Reference MPN']
+        key = (p.get('Value', ''), fp, p.get('MPN', ''), p.get('LCSC', ''), note)
         groups.setdefault(key, []).append(ref)
     natural = lambda r: (re.sub(r'\d', '', r), int(re.sub(r'\D', '', r) or 0))
     rows = []

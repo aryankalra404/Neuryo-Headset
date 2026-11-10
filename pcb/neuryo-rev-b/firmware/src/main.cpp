@@ -67,7 +67,8 @@ QueueHandle_t packetQueue;
 uint8_t sampleCounter = 0;
 volatile bool deviceConnected = false;
 volatile bool triggerRecordMode = false;
-volatile bool adsRunning = false;          // ADS1299 powered, configured and converting
+volatile bool adsRunning = false;          // ADS1299 powered, configured and converting (cleared by the USB ISR at once)
+bool adsStarted = false;                   // 5th pass: adsStart() succeeded and adsStop() has not run since (SPI is begun)
 volatile bool usbEvent = false;            // USB_SENSE changed
 uint8_t adsId = 0;                         // last ID register read (0x3E expected; 0 = not read yet)
 String i2cFound = "none";
@@ -169,14 +170,28 @@ void loop() {
   static uint32_t lastStatus = 0;
 
 #ifndef BENCH_NO_INTERLOCK
+  // USB plug-in, then unplug (5th pass; the 4th pass tested adsRunning here, which the ISR has already cleared, so
+  // adsStop() and SPI.end() never ran and SPI.begin() returned early on the restart):
+  //  1. USB in: Q1 pulls AEN low and the ADS1299 rails collapse. usbSenseISR() clears adsRunning and the output
+  //     enables of SCLK, MOSI and CS in the same instant, and sets usbEvent.
+  //  2. DRDY interrupts that still arrive are ignored (dataReadyISR checks adsRunning); a read already in progress
+  //     (27 bytes at 2 MHz, about 0.2 ms) finishes long before step 3.
+  //  3. loop(), 20 ms later: USB_SENSE is high and adsStarted is still true, so adsStop() runs: DRDY interrupt
+  //     detached, ADS.release() calls SPI.end() and sets SCLK, MOSI, CS as inputs, queue emptied, adsStarted false.
+  //  4. USB out: the ISR sees USB_SENSE low and only sets usbEvent; the analog rails come back up.
+  //  5. loop(), 20 ms later: USB_SENSE is low and adsStarted is false, so adsStart() runs: ADS.setup() waits tPOR
+  //     (1 s) and calls SPI.begin() on a bus that was ended in step 3, so it initialises from scratch; then the
+  //     hardware reset, the ID check and the registers, and adsStarted is true again.
+  //  If the ID check fails in step 5, adsStart() releases the lines itself and adsStarted stays false; the next
+  //  unplug event tries again.
   if (usbEvent) {
     usbEvent = false;
     delay(20);                                           // let the divider and the EN net settle
     bool usb = digitalRead(USB_SENSE_PIN) == HIGH;
-    if (usb && adsRunning) {
+    if (usb && adsStarted) {
       adsStop();
-      Serial.println("USB plugged in: ADS1299 stopped, SPI lines released.");
-    } else if (!usb && !adsRunning) {
+      Serial.println("USB plugged in: ADS1299 stopped, SPI ended, lines released.");
+    } else if (!usb && !adsStarted) {
       Serial.println("USB removed: starting the ADS1299.");
       adsStart();
     }
@@ -195,7 +210,7 @@ void loop() {
       Serial.println((config3_val & 0b00000001) ? "Bias Disconnected" : "Bias Connected");
       ADS.WREG(LOFF_SENSP, 0b00000000);
       ADS.WREG(LOFF_SENSN, 0b00000000);
-      ADS.WREG(CONFIG3, 0b11111100);
+      ADS.WREG(CONFIG3, 0b11101100);  // as adsStart() but BIAS_LOFF_SENS = 0 (bit 1); BIAS_MEAS (bit 4) clear, 5th pass
       ADS.RDATAC();
       ADS.START();
       delay(10);
@@ -217,7 +232,8 @@ void loop() {
 //  - bias and lead-off sensing moved from the P to the N inputs to match
 //  - START by command (START pin held low by R36, as the datasheet requires when using the command)
 //  - RESET: hardware pulse on D10 (open-drain), then the RESET command as before
-// Returns false, with adsRunning false and the SPI lines released, if the ID register does not read as an ADS1299.
+// Returns false, with adsRunning and adsStarted false and the SPI lines released (SPI ended), if the ID register does
+// not read as an ADS1299.
 bool adsStart() {
   ADS.setup(DRDY_PIN, CS_PIN, SCK_PIN, MISO_PIN, MOSI_PIN, NO_PIN, NO_PIN);   // waits tPOR, then RESET command
   adsHardwareReset();
@@ -234,7 +250,13 @@ bool adsStart() {
   }
   ADS.WREG(GPIO, 0b00000000);
   ADS.WREG(CONFIG1, 0b10010101);    // 500 SPS (as upstream)
-  ADS.WREG(CONFIG3, 0b11111110);    // internal reference, bias buffer, BIASREF_INT, bias lead-off (as upstream)
+  // CONFIG3 (datasheet Table 15, reset 0x60) = 0xEE = 0b1110'1110:
+  //   bit 7 PD_REFBUF 1 (internal reference buffer on), bits 6:5 reserved 1 1 (must be written as 3h),
+  //   bit 4 BIAS_MEAS 0 (5th pass: was 1 upstream, but no channel uses MUX 010 to measure BIAS_IN),
+  //   bit 3 BIASREF_INT 1 (BIASREF = (AVDD + AVSS) / 2, internal), bit 2 PD_BIAS 1 (bias buffer on),
+  //   bit 1 BIAS_LOFF_SENS 1 (bias sense on), bit 0 BIAS_STAT read-only (written 0)
+  ADS.WREG(CONFIG3, 0b11101110);
+  delay(150);                       // internal reference start-up time 150 ms (datasheet 7.5) before any conversion
   ADS.WREG(CONFIG4, 0b00000010);    // lead-off comparators on (as upstream)
 
   ADS.WREG(MISC1, 0b00000000);      // SRB1 open (upstream: 0b00100100, SRB1 to all N inputs)
@@ -249,6 +271,7 @@ bool adsStart() {
   ADS.WREG(CH8SET, 0b01100000);                                      // gain 24, SRB2 open: differential (ECG)
 
   attachInterrupt(digitalPinToInterrupt(DRDY_PIN), dataReadyISR, FALLING);
+  adsStarted = true;
   adsRunning = true;
   ADS.RDATAC();                     // continuous data mode, then START (command), as the OpenBCI Cyton library does
   ADS.START();
@@ -269,6 +292,7 @@ void adsHardwareReset() {
 
 void adsStop() {
   adsRunning = false;
+  adsStarted = false;
   detachInterrupt(digitalPinToInterrupt(DRDY_PIN));
   ADS.release();                    // SCLK, MOSI, CS -> inputs (the ISR already did this in hardware)
   xQueueReset(packetQueue);

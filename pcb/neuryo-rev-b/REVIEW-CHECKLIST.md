@@ -39,10 +39,10 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
 - [ ] **No third mounting hole.** There is no room at the right end once J1 and SW1 are there; the board relies on the 2 left holes plus a clip. OK for the pod?
 
 ## 4. Firmware ([firmware/](firmware/))
-- [ ] Read F1–F9 in CHANGES.md. Both environments (normal and bench) compile cleanly (0 errors, 0 warnings, 10 Nov); nothing has run on hardware.
+- [ ] Read F1–F12. Both environments (normal and bench) compile cleanly (0 errors, 0 warnings, 11 Nov); nothing has run on hardware.
 - [ ] Electrode wiring changes for the user: electrodes on the − pins of channels 1–7; sign inverted (host must flip it).
 - [ ] **Gain and sample rate.** The firmware keeps upstream's tested gain 24 at 500 SPS (±187.5 mV range); the design doc's D29 says gain 12 at 250 SPS (±375 mV). Keep 24 for bring-up, read each channel's DC offset on real electrodes, then make D29 and the firmware agree (CHnSET 0x58 / CH8SET 0x50 and CONFIG1 0x96 for gain 12 at 250 SPS).
-- [ ] ★ **USB interlock releases SCLK and MOSI?** The ISR clears the GPIO output enables; that releases CS (a plain GPIO), but SCLK and MOSI are driven by the SPI peripheral through the GPIO matrix, and `SPI.end()` only runs in `loop()` 20–120 ms later. Scope SCLK, MOSI and CS while plugging USB in with the board running; if they stay driven, detach the SPI pins in the ISR.
+- [ ] ★ **USB interlock releases SCLK and MOSI?** The ISR clears the GPIO output enables; that releases CS (a plain GPIO), but SCLK and MOSI are driven by the SPI peripheral through the GPIO matrix, and `SPI.end()` only runs in `loop()` 20–120 ms later (since the 5th pass it does run on every plug-in, F10; before, it never ran). Scope SCLK, MOSI and CS while plugging USB in with the board running; if they stay driven, detach the SPI pins in the ISR.
 
 ## 5. Parts and assembly
 - [ ] **Stock and price** (JLCPCB "Extended" parts):
@@ -52,11 +52,11 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
   - TPD4E1B06DCKR: LCSC C840093
 
   Live stock was not visible on the pages.
-- [ ] **Order from [bom-jlc.csv](review/fab-draft-do-not-order/bom-jlc.csv)** (`scripts/jlcbom.py`), not from the value-only `bom.csv`: it carries the reference's part numbers (CHANGES R14), so the 0.1 % thin-film resistors (R1–R4, R10–R27) and C0G capacitors stay what the reference was tested with. If JLCPCB has no exact match, pick the same value, tolerance, dielectric and size. LCSC numbers for the digital-side passives, R28–R35 and Q1 were added in the 4th pass (CHANGES P7); the reference's precision passives and D6 still have none. The XIAO, J1, the headers, JP1 and TP1 are in [bom-hand.csv](review/fab-draft-do-not-order/bom-hand.csv): not assembled by JLCPCB ([ASSEMBLY.md](ASSEMBLY.md)).
+- [ ] **Order from [bom-jlc.csv](review/fab-draft-do-not-order/bom-jlc.csv)** (`scripts/jlcbom.py`), not from the value-only `bom.csv`: it carries the reference's part numbers (CHANGES R14), so the 0.1 % thin-film resistors (R1–R4, R10–R27) and C0G capacitors stay what the reference was tested with. If JLCPCB has no exact match, pick the same value, tolerance, dielectric and size. Since the 5th pass every assembled part has an LCSC number; nine reference parts that were out of stock are replaced by in-stock equivalents of the same value, tolerance and case (CHANGES Q1; R9 becomes thick film, C14 50 V). **Use the order folder [review/order-draft-do-not-order/](review/order-draft-do-not-order/)** (Gerbers and drill, bom-jlc.csv, cpl-jlc.csv). The XIAO, J1, the headers, JP1 and TP1 are in bom-hand.csv: not assembled by JLCPCB ([ASSEMBLY.md](ASSEMBLY.md)).
 - [ ] **Battery polarity** (CHANGES B14): "+" is now beside J1 pin 2. Check every cell's lead order against it before plugging in.
 - [ ] **Two-sided assembly.** Bottom: C15–C31, R32–R35 (as on the reference) plus C49, D6 (moved), R39–R42, C50, and (4th pass) R45, R46, R47.
 - [ ] **I²C header pinout** (1 GND, 2 3V3, 3 SDA, 4 SCL): right for the cables? The board now has its own 4.7 k pull-ups to 3.3 V (R46, R47); for the module's own pull-ups see section 9.
-- [ ] **Fab outputs.** `review/fab-draft-do-not-order/` is a draft from kicad-cli for viewing only, regenerated after the 4th pass (10 Nov) with the renders and DRC/ERC reports. Set the drill/place origin and regenerate after review.
+- [ ] **Fab outputs.** Upload from `review/order-draft-do-not-order/gerber-and-drill/` (11 Gerbers: 4 copper, 2 paste, 2 silkscreen, 2 mask, Edge.Cuts; drill split into PTH and NPTH, 5th pass). In JLCPCB's Gerber viewer the SW1 peg holes and the two mounting holes must show as non-plated (they are the only 4 holes in the NPTH file). `review/fab-draft-do-not-order/` is the full kicad-cli export, for viewing only.
 
 ## 6. KiCad check results to confirm
 - [ ] ERC: 1 error (U1 PGOOD tied to GND meets the GND PWR_FLAG; datasheet allows tying PGOOD to ground). The rest are warnings from the import.
@@ -76,14 +76,17 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
   - two pins at opposite rails: about 100–350 µA (5 V across 4.4 kΩ plus two electrode impedances of 20 kΩ down to 5 kΩ).
 
   The single-fault DC limit quoted in pcb/README is 50 µA. Raising the inputs to 51 kΩ would cover it but adds about 0.23 µVrms each against the ADS1299's own about 0.17 µVrms (1.13 µVpp at gain 12, 250 SPS). Acceptable for an ethics-approved prototype, or change before anyone wears it?
-- [ ] **BIASREF pin.** It is tied to AVSS (as on the reference) while the firmware sets BIASREF_INT = 1 (internal mid-supply). The datasheet text available to me did not say how the pin should be connected in that mode. Is the AVSS tie harmless? (The reference author saw no benefit from the bias drive.)
+- [ ] **BIASREF pin.** It is tied to AVSS (as on the reference) while the firmware sets BIASREF_INT = 1 (internal mid-supply). The datasheet text available to me did not say how the pin should be connected in that mode. Is the AVSS tie harmless? (The reference author saw no benefit from the bias drive.) **Answered by the 11 Nov review:** the datasheet says to tie BIASREF to AVSS or leave it floating when unused, which is the case with BIASREF_INT = 1 (review section 4; not re-opened here).
 
 ## 9. Before paying (4th pass, 10 Nov; for the owner)
-- [ ] **XIAO 5V pin on battery.** Power a bare XIAO from a cell on its BAT pads, no USB, and measure the 5V pin. It must read about 0 V: the interlock depends on it (Seeed's wiki says the pin has no voltage on battery).
+- [ ] **XIAO 5V pin on battery.** Power a bare XIAO from a cell on its BAT pads, no USB, and measure the 5V pin. It must read about 0 V: the interlock depends on it (Seeed's wiki says the pin has no voltage on battery). Since the 5th pass (R37 10 k) the board's VUSB node sees about 0.09 × the open-pin reading; Q1 needs well under 1 V.
 - [ ] **Paper fit.** Print the top layer 1:1 and lay the XIAO, the JST-PH socket and the PCM12 switch on it.
-- [ ] **JLCPCB placement preview.** Check pin 1 of U4 (ADS1299), U1, U3 and D1–D5 against the silkscreen dot. These footprints came from Altium, so their zero rotation may not match JLCPCB's. Ask for placement confirmation before production.
+- [ ] **JLCPCB placement preview.** Go through the list in [ASSEMBLY.md](ASSEMBLY.md) ("Check in JLCPCB's placement preview"): **D6 first** (reversed it shorts the battery through its forward diode), then U4, U1, U3, D1–D5, Q1, R45. The CPL carries KiCad's angles unrotated. Tick "Confirm Parts Placement".
+- [ ] **JLCPCB stock at order time.** LCSC stock was checked on 11 Nov (CHANGES Q1); JLCPCB's own assembly stock could not be read. The tightest line is R11–R27 (Yageo RT0603BRD072K2L, C861295): 17 per board.
+- [ ] **J1 hole vs C49 (5th pass).** DRC has one new error: J1 pin 2's 0.8 mm hole reaches 0.05 mm into C49's courtyard (bottom). C49's pad is 0.44 mm from the hole, its body about 1.15 mm. Decide: accept it, or move C49 about 0.1 mm to the right (existing copper; would need a scripted edit and a DRC run).
 - [ ] **MAX30102 module.** Measure what voltage its SDA/SCL pull-ups go to. If 1.8 V, remove them from the module (the board now pulls up to 3.3 V).
 - [ ] **Professor review** of this checklist, as planned.
 - [ ] **Bench board.** On one board remove Q1 and flash the bench build (ASSEMBLY.md). Check that the status string shows `ads=1 id=3E` and the bench warning, and that SCLK, MOSI, CS (R43–R45), MISO, DRDY and AEN (TP7–TP9) look right on a logic analyzer. Put Q1 back before that board is ever worn, or keep it as the bench board.
 - [ ] **Hardware reset.** With the analog side on, scope D10/RESET: one low pulse of about 10 µs at start-up, otherwise held high by R30. With USB in (Q1 fitted), D10 must stay high-impedance.
 - [ ] **XIAO battery pads.** After soldering BAT+ and BAT− through the holes, check continuity from the battery connector to the XIAO's BAT+ and that the module sits flat.
+- [ ] **USB plug-in then unplug (5th pass, F10).** With the analog side running on battery, plug USB in, then out: the status string must go `ads=0`, then back to `ads=1 id=3E`, and data must resume.

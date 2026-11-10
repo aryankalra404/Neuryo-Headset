@@ -1,0 +1,32 @@
+# Rev B 5th pass (11 Nov 2026): measured on the files
+
+## Gerbers, 4th pass (review/fab-draft at a3c452d) -> 5th pass order set (scripts/gerbdiff.py --revb)
+Top Layer.gtl          regions: 0 (x < 56: 0)
+GND Layer.g1           regions: 0 (x < 56: 0)
+Power Layer.g2         regions: 0 (x < 56: 0)
+Bottom Layer.gbl       regions: 0 (x < 56: 0)
+Top Solder.gts         regions: 0 (x < 56: 0)
+Bottom Solder.gbs      regions: 0 (x < 56: 0)
+Top Paste.gtp          regions: 0 (x < 56: 0)
+Bottom Paste.gbp       regions: 0 (x < 56: 0)
+
+## Copper and placement, 4th pass -> 5th pass (scripts/copperdiff.py)
+FOOTPRINTS
+TRACKS removed
+TRACKS added
+TRACKS kept but net renamed: 0
+VIAS removed 0  analog half: []
+VIAS added 0  analog half: []
+VIAS kept but net renamed: []
+
+## Drill files of the order set
+; #@! TF.FileFunction,NonPlated,1,4,NPTH
+T1C0.900
+T2C3.200
+; #@! TF.FileFunction,Plated,1,4,PTH
+T1C0.300
+T2C0.300
+T3C0.700
+T4C0.800
+T5C1.000
+T6C1.020

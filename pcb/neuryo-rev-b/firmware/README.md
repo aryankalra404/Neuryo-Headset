@@ -26,7 +26,8 @@ pio run -t upload  # XIAO on USB
 ```
 
 ## Status
-- **Compile:** both environments (`xiao_esp32s3`, `xiao_esp32s3_bench`) build with **0 errors and 0 warnings** (10 Nov 2026, 4th pass; PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.1 % (938 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
+- **Compile:** both environments (`xiao_esp32s3`, `xiao_esp32s3_bench`) build with **0 errors and 0 warnings** (11 Nov 2026, 5th pass; PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.1 % (938 kB of 3.3 MB).
+- **5th pass:** clean ADS1299 restart after USB plug-in then unplug (`adsStarted` flag, sequence in a comment in `loop()`), 150 ms wait for the internal reference after the CONFIG3 write, CONFIG3 = 0xEE (BIAS_MEAS cleared). CHANGES F10–F12. Log: [build-log.txt](build-log.txt).
 - **Bench test:** not done (no board yet). On the first board, in order:
   1. Rails come up with the switch on and USB unplugged.
   2. Rails go off when USB is plugged in.

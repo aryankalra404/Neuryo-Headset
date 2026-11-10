@@ -207,6 +207,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "791acefa-4d74-411d-af7b-90502e7b3913")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "39414778-1c17-4dfc-abb9-0b3b75b39185")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cff4b4bc-b475-45e7-a1c6-c1b9b71cf080")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c6da4a6e-30be-4486-b499-315b1664e1a8/c08bdc35-3526-5290-91e3-d172f68ca6f9")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -471,6 +507,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo AT0603BRD07100KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eb8852ee-65ae-4c96-b97a-f91331dcd830")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C855559"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4063f786-4b14-476d-a655-6a0262075944")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1032,6 +1092,42 @@
 				)
 			)
 		)
+		(property "MPN" "UNI-ROYAL 0603WAF1004T5E"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9ff098c6-08fb-453a-bbe9-f93bce089f1d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22935"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "beb05b3c-ca5a-460a-b6ef-25bbb5617fe5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030C1004FPW00"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e25ec861-ca71-4994-acf3-65fb8d0647a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3c7d7b98-851f-424e-acaf-8a1c76dd0129/6abefb8f-0e22-5c41-a185-5e9fe71fe2dd")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -1565,6 +1661,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "488f467d-d64e-4ce0-894e-854e82446d3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de15dd8c-f725-4266-924d-fd33a7235b69")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2176,6 +2296,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1e7e9272-4f99-42dc-980a-a8caeb759dae")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5d1ed14b-22b2-48d0-88fc-5aa1f36c0af9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2886,6 +3030,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "954f86b2-0b1c-4036-98bf-9123726a6ad4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e4597a65-bf3a-4827-abc5-ca123f4e844c/ea493c23-b3da-596b-9a71-b6e34badb541")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -3101,6 +3257,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5832769-1f29-4261-8534-83d779f0ce9f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "89341e9a-6b9d-4edf-a7c2-13cbb402ba19")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70e9bade-8467-4043-b99b-b836c2433cd0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/5037bc25-962e-4591-83a6-e2907878740b/f712300f-2467-5903-9da2-2990761ef673")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -3274,6 +3466,18 @@
 				)
 			)
 		)
+		(property "MPN" "Keystone 5003"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8719652a-c440-47af-a0bd-1b0a8d908281")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3f9c7e55-e354-415c-9389-fd2b7c75c9a6/9875aaeb-50f3-56dd-a07e-88e6ebea6b2e")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -3410,6 +3614,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "430ea4bd-ecd3-48c9-8d30-d2e2908a3506")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bbff7305-1382-465d-8df0-91e61e09a9ed")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd140de7-12ae-4f5f-a717-0b9e4406e727")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3765,6 +4005,18 @@
 				)
 			)
 		)
+		(property "MPN" "JST S2B-PH-K-S(LF)(SN)"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d2589870-fb42-4e6d-8d66-70c8e325c1a5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c2f06383-ad16-4675-bacb-605c349d1de0/4738fd9d-b173-5ffd-bef6-881f71d444fc")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -3984,7 +4236,7 @@
 		(pad "1" thru_hole rect
 			(at -1 -2.45 90)
 			(size 1.2 1.2)
-			(drill 0.7)
+			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -3993,7 +4245,7 @@
 		(pad "2" thru_hole circle
 			(at 1 -2.45 90)
 			(size 1.2 1.2)
-			(drill 0.7)
+			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "VBAT")
@@ -4068,6 +4320,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ff9b556-ab44-496c-959c-49b567f4c1b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7c6202cb-50ae-48ea-b732-6bd167d8ee1c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "17b1fe1b-0101-4f70-afc0-dd316e0a9ba5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -31168,6 +31456,30 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GCM21BR71C225KA64K"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a3433632-ac9e-4f30-941e-82353c484800")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1852484"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "690cd01e-fb91-4d54-a3a3-7ea6be8ee05b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e0cb4d23-ae04-4ca1-b02d-1454ca0ac5ce/8373ab2a-c2fd-583f-b5cf-4357e8a1454d")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -32011,6 +32323,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD0751KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9251ca83-8d48-4e35-b822-951a67222ab9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861458"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "df70bf19-38c6-4c24-b947-e2a8c3f800cf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D5102BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "187ac250-7419-4377-ac21-209c888ddbe7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/51f70da1-3d5a-4210-ac27-f56417db1693/5e1a5a54-54a4-5923-b050-db355e914611")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -32799,6 +33147,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6926cbe1-7f7a-4038-81cb-05ddfdb3f43b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "77fb55ff-8d4c-4db1-ae9a-41aaf256e5c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "20a72570-dd40-4ce6-9158-e0ae8a240c9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c95e8b75-6965-4df9-959b-689fd89f6dd4/85bbe7a2-cd32-54db-ba36-2cf7d1199476")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -33259,6 +33643,30 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3bea3b95-f7f9-41da-932b-979de78ccaa3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7b1a6462-c037-4835-9cf1-8ec8939441d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/aaf5c7b5-aa6c-4eec-8dd4-1d342839f12d/cca9663b-1ec8-5188-ae70-eae6ec000e74")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -33596,6 +34004,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c74cd54-4f0d-4365-b0b7-04a078bf55cc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/61ebc52d-b538-4aaf-aecf-1cee2f968dc9/ee206130-2dbe-5471-a24d-8f122da1a896")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -33808,6 +34228,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7aa9fe4-b327-4d87-aea7-5027b609e1d2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8744172a-c5b6-4e42-a028-6a900459d001")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ac9bc94-41ba-4294-8c7b-2ccb39b3c9cd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -34078,6 +34534,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c7f950cb-b3b2-457a-9809-5cf1cedfe2c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4927d37e-66a2-41f5-835c-af5e312f53a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7c010bef-dbce-49b0-8be6-c1541805ce0f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/1da40d7d-eb24-4463-b156-c91deb8472ae/e347294d-c10f-5217-8f35-2eee77782ffd")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -34247,6 +34739,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cd4d2500-c8d7-44e5-bd5d-05a417d28f2b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "740a0597-f585-46f7-b353-de25d52844b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -34517,6 +35033,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9c81d86e-3113-4993-b9ff-06416b42d5ce")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32a7b828-66d2-4438-8503-62d4ff08514e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "34fef857-4fcd-47ca-a5c9-523d34e1ff71")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/0b263c95-67ac-480f-8234-0672a9900942/c5a79999-7026-5a89-81a4-848c0ae7ae8a")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -34781,6 +35333,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de233664-1363-48ca-8ae2-6c2c3bbd5d68")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "151cbf36-c398-448c-9824-362d789a352c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f972b67a-dd71-4f06-9df1-bdc4c7128ebc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -35120,6 +35708,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "da94bf1f-9ade-4172-8bf8-5d615f5e7847")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "44707d88-244c-48bd-83cd-70b470fa40f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f8efbb8c-75a1-491e-a1f3-e8c6fcd71a04")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/b78b8755-172e-4022-bfc0-681e63b98a6a/76dac604-d8da-55b5-a965-7abcc0dd50e0")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -35384,6 +36008,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD07105KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d6924cb4-cc5d-40e4-8baf-299802b0a2e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861072"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0dc9fc6e-d5ae-42ed-9042-f02daf88e727")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -35654,6 +36302,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "78788b28-c0ba-48ec-80d3-c6dc2c3c48de")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "23b28a51-d019-4b86-ba28-b5a40bd33c30")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fbb68314-3079-4983-bf96-c87170213f42")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f8a78fa3-f854-409a-a528-82127853ef1e/b00f5d18-fc01-522f-89d0-948d18fb4d02")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -35823,6 +36507,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5050e0a6-cc38-45f6-8b64-5477199114ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cda0b994-26a6-4c95-bddf-47d219cd8fac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -36094,6 +36802,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d77c6f8d-bf78-4f18-9d30-06c41a35f61b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/a224488f-731f-4058-a037-5339ec30fff0/2286af08-f1b1-5111-b153-72fd4d8d54e2")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -36306,6 +37026,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "31c72f17-4967-419f-a4a8-a971bf2e1fc8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8d8e52f4-76a6-45f0-a85f-96e716c33db2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -37357,6 +38101,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bdfdf45a-ab51-45f5-be1f-2157fe32672b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f76c1e15-fe00-4255-aa81-d3f9de8fb4ea/2b4f041f-8da5-5543-99b8-9c324ec2464b")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -37569,6 +38325,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samsung CL21B475KOFNNNE"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1facdaa-6418-4829-896d-2f25b4be81f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "13a3c88f-8a99-4305-ba65-d6b7197acd04")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0e3e3ad4-5e3b-4657-a912-c75c316862e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -37840,6 +38632,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "75c28b1d-8c7a-414f-b7b5-6818a2a10587")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/399c692e-a538-47fc-a406-f5d980379ab1/926380ba-cade-5b26-b0de-0d4487b762f6")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -38052,6 +38856,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samsung CL21A106KAYNNNE"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "600bbc6a-417d-4edd-bec0-286dcef73a7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "66e35fee-40c7-4509-8cc5-3e938c05ad8b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GRJ21BR61E106KE01L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "576658a9-e3b7-4340-b965-33cdf1f9dc03")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -38319,6 +39159,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ebd3845-97d6-420a-bade-9e336e222558")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1b362d01-452f-4e4d-aafb-b2f41d884a2a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aeb8018b-9403-4e30-9488-2f399ad5ba62")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -38842,6 +39718,30 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C474K4RACAUTO"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "898f48a2-1409-4487-970b-687f81d24e10")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C561783"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6866eda3-35b7-4874-8b85-f37e85b5e771")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/a095ee1e-03b5-4921-9494-4f5e1f57be17/8273ce8f-ff1d-596f-9169-daaf689d81e6")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -39106,6 +40006,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samsung CL21B475KOFNNNE"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bd0a407c-8e4c-41bd-8e50-051e43285bb0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85eac106-4d9f-4ec2-a16e-503d7620e747")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db0aebec-37aa-4507-9881-192593d08b5f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -39445,6 +40381,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dfc68e6b-5987-4e64-bc60-0873c2327c31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "23906457-e022-490a-86de-baa71727ef38")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "afa289bd-a39c-43fc-b246-e8a9bcd104d8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/0e119430-5080-45ed-8cdf-aaaccf758e73/51d4b0d6-0e66-5cf8-a959-1cd96c6c5d9d")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -39614,6 +40586,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM31CR61A107MEA8L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a89b2474-9627-4ebc-a4a5-4aea0f2096d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C883598"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "52f1c193-b5f8-4c5e-b98c-dac882221471")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -39881,6 +40877,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD07130KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "59e8fe55-29f8-40ac-b057-dec0068f3323")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861109"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c0225f15-41b6-4a4e-8524-6827d2f12408")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D1303BP100"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8d456df6-fb6c-4b96-855b-c08c5b930c8b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -40152,6 +41184,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9e342e18-a7ae-4182-a3c7-ba4ef6c35578")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3a3aca6c-c6f7-406f-882a-f3faaba5af2e/252c0713-1cda-54fd-8b1e-ab1776ac846d")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -40365,6 +41409,18 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "af4c2081-e630-493d-a9b2-bd6b2e43177e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -40643,6 +41699,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d4a9661-7e54-452c-8111-c891f43215a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e2f9bf3b-10c8-4544-9ab1-fa59d2497af2/98c6c5df-a63c-578e-9667-24058c1242b8")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -40855,6 +41923,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "983bfb9f-d135-426c-b37b-7c0e1e486027")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e4c3424c-9567-43bc-9e0d-886b02275972")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c5f497f-50bb-4cdd-a6da-6dd068e9ffe1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -41577,6 +42681,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cb225525-ff5a-48ba-a66d-ccae16c9fa32")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "84f1772d-d41b-4dc6-8c83-6d33ec277995")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "acdbdad5-b37a-4c9f-8ce3-61d84d78f2ee")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c2d5deb3-9bbc-49e2-813a-197a0497a3fb/57253d8f-4b5a-5311-bcd3-8dbf633a82c0")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -41841,6 +42981,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "60a5f607-6c70-40f6-b03b-0632e7a233ef")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c6ae3db0-d8d1-4a98-a1fe-16484af006f7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "58c69164-fc95-47ad-9d1b-9d041af48968")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -42111,6 +43287,30 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6bd374a2-ef15-4295-9fe9-f621668da55d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "24fabf46-1a02-411e-bbdb-04eee6d34b4c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/692719e7-bf92-41ae-9a5a-f2d7bb130bc3/f7ebbb4b-f5ff-5231-94f0-52aa6fb0e464")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -42378,6 +43578,30 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "08e134db-593d-4a69-8dd7-f11ea37efc59")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8b083a14-8e93-48a7-858e-38b58b4a7fa2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f39de320-3cf0-4331-8f48-91075835588a/5ccbd304-2002-580e-a1e9-257b790b3022")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -42642,6 +43866,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD07120KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "19de44ba-f586-402e-b874-0221b0fb3f8c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C705720"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4c092c14-d6e4-44b6-b56a-8db6d8c00ef5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -43177,6 +44425,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d345f539-9c4f-416d-b40e-1ed1f369644b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f861be58-798d-4b8a-bd6a-8d34f4ef807b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1dc802bb-26ff-4fca-ad73-93904daecf2f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -44168,6 +45452,42 @@
 				)
 			)
 		)
+		(property "MPN" "KEMET C0603C104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e15f8a3-df56-4d1b-a6df-42f013999611")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b75f9a1d-68cd-462e-858c-8121e83316ea")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "30a68a8c-64e5-4e72-acfe-815a036a9c5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/fcd2b96b-69e9-4466-8599-6bea1e936c26/9272b22e-b1f9-57b6-af34-be9f996fd204")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -44687,6 +46007,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0cebe937-bbf6-4e0d-9b40-0ee97b470f73")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "307ac8be-0126-4346-b0e3-808a8705216d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "20ec6f09-1596-4868-a790-709d742e7bc1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/d7e20b73-5a48-4df8-ac9b-9bb121dee8a0/51a9256f-5cd0-5516-ab38-ba8a0609df8c")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -44951,6 +46307,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo CC0603KRX7R7BB105"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7e5e1568-3e70-427b-9290-3718bd30e4af")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b1592b3-7ee0-4e3d-96d2-f5d86e44e7e7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -45219,6 +46599,18 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5c1ca699-a93f-440e-905a-79211d77ded2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -45729,6 +47121,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ae2105c-61a0-4e99-80e4-796030b1d992")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/b90dcb14-4edc-499d-afed-1448fd4e3350/39e1bddb-ad62-549c-800a-1d89393fd99e")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -46013,6 +47417,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dda33174-beca-412f-b647-f41ed8c60847")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e3b58ea0-c19e-4bb5-b110-d8ae363ee5f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "950cc8ac-a08b-4b64-9b78-0a55625bdbe9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3852125a-c74c-4a41-9b9e-24dba1f4c292/97ca03eb-0bea-5c93-b961-d76f74d30228")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -46281,6 +47721,18 @@
 				)
 			)
 		)
+		(property "MPN" "Samtec TSW-102-26-F-S"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e79331ca-0c58-4f7c-8eb6-8d5b9a705e70")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/7c235ff9-71f3-43ed-80d2-9c6d63499837/4410542f-bbfc-54ec-ab23-8b3466eebec7")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -46493,6 +47945,30 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GCM21BR71C225KA64K"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "57c66357-0f0e-46d3-b4b6-c6d1490cd5f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1852484"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7b5b9a7e-bec4-4de7-ba51-337ae48942f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -46763,6 +48239,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bab4da4f-fc09-46e9-b4ae-7f164c8c5f8e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7cad3328-5cc3-44fb-8c16-45befac733ed")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85b59b2a-7e65-4daf-9d9c-b6e5d14f3286")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/cc0cd998-1152-4060-9868-faa2df69e022/c835f88f-825f-5cb7-a812-3fef3a494191")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -47027,6 +48539,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "88706868-2b71-467d-9205-dd13df7bdaf9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b11dfca9-e55a-497b-acdf-368fc73c0fca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "705e28e4-96c8-4589-9707-d570ff581cd7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -47297,6 +48845,42 @@
 				)
 			)
 		)
+		(property "MPN" "Yageo RT0603BRD072K2L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "733806c3-14da-430e-9f58-4ed2ac7759f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "40705be3-8258-4d13-9fd2-d97a539fde8a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7714dc8c-cc2d-45f1-a075-928c3456cff9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/9cabaceb-46f2-42cf-b126-851686146b1c/61f5f4ca-4b9b-59a5-9844-066409f3ddb5")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -47529,7 +49113,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "10k"
 			(at -3.07089 1.195173 180)
 			(unlocked yes)
 			(layer "F.SilkS")
@@ -47553,7 +49137,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 100k 1% 0603"
+		(property "Description" "RES 10k 1% 0603"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -47564,7 +49148,7 @@
 				)
 			)
 		)
-		(property "MPN" "UNI-ROYAL 0603WAF1003T5E"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -47576,7 +49160,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25803"
+		(property "LCSC" "C25804"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -48143,6 +49727,42 @@
 				)
 			)
 		)
+		(property "MPN" "Samsung CL21A106KAYNNNE"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9487a17a-3294-417b-b56a-45de6101566b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "90a931ee-e1b8-4ac1-9857-ae90b278b826")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GRJ21BR61E106KE01L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ff64d0e-4fb4-467b-9130-addaf3f67aab")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/69e749d4-2269-4c10-980b-60f3359fb50e/70441abc-c963-5bb7-9164-145c6b57ed5e")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -48407,6 +50027,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H152JA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9dceb97d-6638-4147-a4f8-2b1dac252a77")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C162204"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d200ac5-bebc-41c7-9d90-937156763fbc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GRM1885C2A152JA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1bb8e71-0013-4fef-a12c-0d9986bb1707")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -49351,6 +51007,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a570cf81-7463-4061-97d6-d5b9c06fbe87")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a27ef61e-7836-44dc-b85f-804075066b8b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3d226c34-3621-494d-bb06-a43db606c2b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c16b9617-6dbe-4051-bdb6-4a0e6978f28f/b381e345-6f8b-5ddc-9933-dc5cbd4c8873")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -49620,6 +51312,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6ce77768-140d-4e7e-b430-d03c1ff0eb68")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2a1d23a6-324b-4883-a389-f71d737e751f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a71a79e4-5fe0-4433-94a3-29b9baccf383")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/0c2cf99e-ae29-475b-8ab5-7e3dee3bed0b/f1ac5796-b3e4-5934-8695-b91d485c35bf")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -49886,6 +51614,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f5dda404-6c95-4e53-88e1-588be58c9277")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "675fa6bb-676c-417e-90b3-5896c94858a4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "38e289b1-60cf-4ea3-b630-082c0d24abca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -50448,6 +52212,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "239ff8ff-f751-4745-8b0d-12d9221dfd95")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a0bd9eee-73a9-4c31-9c2f-f333eb7b89e1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d18c023f-36c3-415e-8fa5-8711b90b2634")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -51662,6 +53462,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9a5d52b5-fdb6-4d74-828b-45299adb3fcb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9967bcb1-ecfc-402b-ae71-3b5b82a9770f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b34ad9b7-c25b-4321-a7c6-d06fe980a315")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/110d1c90-d73f-4abb-b8cb-57a988c5f804/192ea0e7-3079-5a46-8ec0-d3b47fa22863")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -52221,6 +54057,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f83c8362-ba40-40cb-9700-8161451ff482")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9698b7ed-74e3-4390-a992-7406a028bad4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7712a07c-19ed-4f93-bfc7-15ee38813d78")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f1d88a56-01dd-4101-a182-b616d7dea444/24468e49-51f3-52e3-afd4-2ae6343aa5e7")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -52487,6 +54359,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cbf51950-4195-44e9-a089-0844b4fdaa08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7bd02de7-500e-493c-a054-7fa04eca25da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f658565a-e7ae-4ec8-94da-7033c06980b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -52759,6 +54667,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9408184-19d2-436e-b73d-1dedacba6719")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ab6531c9-a2e0-4e68-9d09-4c7484d47a29")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b730267a-cc16-4911-84ca-6df53d096526")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/ebaac280-5966-43cb-b06b-00b558893628/c17e055f-f41d-5b78-b2ad-af07d9253054")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -53025,6 +54969,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d57f8500-7111-41a8-9e6a-332fe8087233")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e38203c3-edba-4dd9-86ee-1aadde3a0a9f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "742cc8a0-6049-4254-a193-7ea6fa9243fd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -53297,6 +55277,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cd9c58c5-5281-42ff-8bc4-35265f7d2908")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5451770b-ae5f-49d6-80d3-1ad2c32b23c0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b19e75aa-bad4-4fac-885d-9d63d68736f2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3f1e104a-5632-4d7b-a176-21d5451cca32/942ce525-a404-5598-930f-07025a17a8e2")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -53563,6 +55579,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "09e39bae-7580-4f5f-a0e5-f5bcc98f85e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6e020d7d-0585-4028-9bb4-d43a8283bc04")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "785698e9-4c76-4725-86af-8c850aba2183")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -54128,6 +56180,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7ac1120f-645e-4ed3-a2fe-00577718f245")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2e06e1da-23f2-4724-8b27-a9257d3ab9ad")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bef9d9be-fa63-4827-b4c6-d631873a5638")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/64478844-976c-40d8-a2d2-390249b51850/f9796e80-0aa9-5f86-83ae-ee07ac4bf82c")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -54394,6 +56482,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "123227b7-898a-4429-9e31-306c88598395")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fcd4fcea-51c5-440a-83ee-b5cc1af303d7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "427b1d52-b6b0-4e08-90d8-dc6a805cefd1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -54666,6 +56790,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5dfabb78-b730-4d61-8f17-a14c9fe21b7a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2f055638-c255-4bb6-a7c3-af9208415bfb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bee94e6b-a7f5-46dd-8498-48367d82416e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/5757097b-9429-48d9-bc08-30b44d8e2a1f/088bbd09-2228-5829-875f-ce2858df6495")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -54932,6 +57092,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "882df90d-2c5e-47a9-9872-ff5eac368746")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db667872-73af-4f58-9cb1-0e48034eff83")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9a58899-6a12-41a0-b5ae-d03e5892c233")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -56074,6 +58270,42 @@
 				)
 			)
 		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a48df8fe-5f03-4360-aa55-d46b156a370f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8e8910f9-66ef-43b6-88bc-9fc24a522d35")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0d0b3c41-df2d-42d1-a578-d269cd7bd890")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/cc9083a5-454b-4ef1-a4b8-e570fd3fa08f/239a123f-6d3d-5d94-8606-e97595cdfa1d")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -56343,6 +58575,30 @@
 				)
 			)
 		)
+		(property "MPN" "onsemi SD05T1G"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "69092a89-9686-4059-89f6-560bbff6b8cb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C233423"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6c64130a-39aa-489c-b8dc-3bb070abec35")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e45a9659-45b6-4714-8e43-e840a0afd108/ee2a5a10-d069-5364-82f0-07e4fe8d2f80")
 		(sheetname "EEG Schematic")
 		(sheetfile "EEG Schematic.kicad_sch")
@@ -56565,6 +58821,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Murata GRM1885C1H102FA01D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "738ffef2-fcfb-461d-b7ef-c7f351c4b7f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "64a168ac-e148-4537-b0c9-2427cb13d029")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1c925e4-5510-4c16-96c7-916f3abf8a5e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -56834,6 +59126,42 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Samsung CL21B475KOFNNNE"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d67b246-2308-42f0-81d6-bef6c712949a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef692585-8194-443f-9de7-5c9cd2489030")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "60eeb0b9-37a2-4722-a880-20e52314a96a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -67436,7 +69764,7 @@
 				(xy 161.911334 108.009614) (xy 161.961799 108.043334) (xy 161.961802 108.043334) (xy 161.961803 108.043335)
 				(xy 161.986766 108.0483) (xy 162.036033 108.0581) (xy 162.886166 108.058099) (xy 162.960401 108.043334)
 				(xy 163.044584 107.987084) (xy 163.100834 107.902901) (xy 163.1156 107.828667) (xy 163.115599 106.878534)
-				(xy 163.100834 106.804299) (xy 163.067292 106.7541) (xy 163.044584 106.720115) (xy 162.994119 106.686396)
+				(xy 163.100834 106.804299) (xy 163.064022 106.749206) (xy 163.044584 106.720115) (xy 162.994119 106.686396)
 				(xy 162.960401 106.663866) (xy 162.960399 106.663865) (xy 162.960397 106.663864) (xy 162.942407 106.660286)
 				(xy 162.880497 106.6279) (xy 162.845923 106.567184) (xy 162.8426 106.538669) (xy 162.8426 106.383377)
 				(xy 162.8426 106.383375) (xy 162.816601 106.286346) (xy 162.766376 106.199353) (xy 162.695347 106.128324)
@@ -69381,18 +71709,18 @@
 				(xy 170.436601 110.106346) (xy 170.386376 110.019353) (xy 170.315347 109.948324) (xy 168.308781 107.941758)
 				(xy 168.275296 107.880435) (xy 168.28028 107.810743) (xy 168.322152 107.75481) (xy 168.387616 107.730393)
 				(xy 168.443918 107.739517) (xy 168.451999 107.742864) (xy 168.52608 107.757599) (xy 169.024099 107.757599)
-				(xy 169.0241 107.757598) (xy 169.0241 107.231917) (xy 169.105022 107.2536) (xy 169.197178 107.2536)
-				(xy 169.2781 107.231917) (xy 169.2781 107.757599) (xy 169.776115 107.757599) (xy 169.850206 107.742862)
+				(xy 169.0241 107.757598) (xy 169.0241 107.283681) (xy 169.098439 107.3036) (xy 169.203761 107.3036)
+				(xy 169.2781 107.283681) (xy 169.2781 107.757599) (xy 169.776115 107.757599) (xy 169.850206 107.742862)
 				(xy 169.850209 107.742861) (xy 169.934223 107.686723) (xy 169.990363 107.602704) (xy 169.990364 107.602703)
-				(xy 170.005099 107.528621) (xy 170.0051 107.528618) (xy 170.0051 107.0306) (xy 169.479417 107.0306)
-				(xy 169.5011 106.949678) (xy 169.5011 106.857522) (xy 169.479417 106.7766) (xy 170.005099 106.7766)
+				(xy 170.005099 107.528621) (xy 170.0051 107.528618) (xy 170.0051 107.0306) (xy 169.531181 107.0306)
+				(xy 169.5511 106.956261) (xy 169.5511 106.850939) (xy 169.531181 106.7766) (xy 170.005099 106.7766)
 				(xy 170.005099 106.278585) (xy 169.990362 106.204493) (xy 169.990361 106.20449) (xy 169.934223 106.120476)
 				(xy 169.850204 106.064336) (xy 169.850203 106.064335) (xy 169.776121 106.0496) (xy 169.2781 106.0496)
-				(xy 169.2781 106.575282) (xy 169.197178 106.5536) (xy 169.105022 106.5536) (xy 169.0241 106.575282)
+				(xy 169.2781 106.523518) (xy 169.203761 106.5036) (xy 169.098439 106.5036) (xy 169.0241 106.523518)
 				(xy 169.0241 106.0496) (xy 168.526085 106.0496) (xy 168.451993 106.064337) (xy 168.45199 106.064338)
 				(xy 168.367976 106.120476) (xy 168.311836 106.204495) (xy 168.311835 106.204496) (xy 168.2971 106.278578)
-				(xy 168.2971 106.7766) (xy 168.822783 106.7766) (xy 168.8011 106.857522) (xy 168.8011 106.949678)
-				(xy 168.822783 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311838 107.602709)
+				(xy 168.2971 106.7766) (xy 168.771019 106.7766) (xy 168.7511 106.850939) (xy 168.7511 106.956261)
+				(xy 168.771019 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311838 107.602709)
 				(xy 168.315184 107.610788) (xy 168.32265 107.680258) (xy 168.291372 107.742736) (xy 168.231282 107.778386)
 				(xy 168.161457 107.775889) (xy 168.11294 107.745917) (xy 165.186457 104.819434) (xy 168.2966 104.819434)
 				(xy 168.2966 104.987765) (xy 168.329436 105.152841) (xy 168.329438 105.152849) (xy 168.39385 105.308355)
@@ -71512,18 +73840,18 @@
 				(xy 169.626689 105.637188) (xy 169.694071 105.655667) (xy 169.740765 105.707643) (xy 169.750529 105.736977)
 				(xy 169.759285 105.780997) (xy 169.759286 105.781001) (xy 169.809873 105.856709) (xy 169.830751 105.923387)
 				(xy 169.812267 105.990767) (xy 169.760288 106.037457) (xy 169.706771 106.0496) (xy 169.2781 106.0496)
-				(xy 169.2781 106.575282) (xy 169.197178 106.5536) (xy 169.105022 106.5536) (xy 169.0241 106.575282)
+				(xy 169.2781 106.523518) (xy 169.203761 106.5036) (xy 169.098439 106.5036) (xy 169.0241 106.523518)
 				(xy 169.0241 106.0496) (xy 168.526085 106.0496) (xy 168.451993 106.064337) (xy 168.45199 106.064338)
 				(xy 168.367976 106.120476) (xy 168.311836 106.204495) (xy 168.311835 106.204496) (xy 168.2971 106.278578)
-				(xy 168.2971 106.7766) (xy 168.822783 106.7766) (xy 168.8011 106.857522) (xy 168.8011 106.949678)
-				(xy 168.822783 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311837 107.602706)
+				(xy 168.2971 106.7766) (xy 168.771019 106.7766) (xy 168.7511 106.850939) (xy 168.7511 106.956261)
+				(xy 168.771019 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311837 107.602706)
 				(xy 168.311838 107.602709) (xy 168.367976 107.686723) (xy 168.451995 107.742863) (xy 168.451996 107.742864)
-				(xy 168.52608 107.757599) (xy 169.024099 107.757599) (xy 169.0241 107.757598) (xy 169.0241 107.231917)
-				(xy 169.105022 107.2536) (xy 169.197178 107.2536) (xy 169.2781 107.231917) (xy 169.2781 107.757599)
+				(xy 168.52608 107.757599) (xy 169.024099 107.757599) (xy 169.0241 107.757598) (xy 169.0241 107.283681)
+				(xy 169.098439 107.3036) (xy 169.203761 107.3036) (xy 169.2781 107.283681) (xy 169.2781 107.757599)
 				(xy 169.776115 107.757599) (xy 169.850206 107.742862) (xy 169.850209 107.742861) (xy 169.934223 107.686723)
 				(xy 169.990363 107.602704) (xy 169.990364 107.602703) (xy 170.005099 107.528621) (xy 170.0051 107.528618)
-				(xy 170.0051 107.0306) (xy 169.479417 107.0306) (xy 169.5011 106.949678) (xy 169.5011 106.857522)
-				(xy 169.479417 106.7766) (xy 170.005099 106.7766) (xy 170.005099 106.278585) (xy 169.990362 106.204493)
+				(xy 170.0051 107.0306) (xy 169.531181 107.0306) (xy 169.5511 106.956261) (xy 169.5511 106.850939)
+				(xy 169.531181 106.7766) (xy 170.005099 106.7766) (xy 170.005099 106.278585) (xy 169.990362 106.204493)
 				(xy 169.990361 106.20449) (xy 169.93998 106.12909) (xy 169.919102 106.062413) (xy 169.937586 105.995032)
 				(xy 169.989565 105.948342) (xy 170.043077 105.936199) (xy 171.577506 105.936199) (xy 171.651741 105.921434)
 				(xy 171.651744 105.921431) (xy 171.654303 105.920372) (xy 171.660348 105.919721) (xy 171.663721 105.919051)
@@ -72547,18 +74875,18 @@
 				(xy 160.807914 106.719992) (xy 160.935208 106.7541) (xy 160.93521 106.7541) (xy 161.06699 106.7541)
 				(xy 161.066992 106.7541) (xy 161.194286 106.719992) (xy 161.308414 106.6541) (xy 161.4016 106.560914)
 				(xy 161.467492 106.446786) (xy 161.5016 106.319492) (xy 161.5016 106.278578) (xy 168.2971 106.278578)
-				(xy 168.2971 106.7766) (xy 168.822783 106.7766) (xy 168.8011 106.857522) (xy 168.8011 106.949678)
-				(xy 168.822783 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311837 107.602706)
+				(xy 168.2971 106.7766) (xy 168.771019 106.7766) (xy 168.7511 106.850939) (xy 168.7511 106.956261)
+				(xy 168.771019 107.0306) (xy 168.297101 107.0306) (xy 168.297101 107.528614) (xy 168.311837 107.602706)
 				(xy 168.311838 107.602709) (xy 168.367976 107.686723) (xy 168.451995 107.742863) (xy 168.451996 107.742864)
-				(xy 168.52608 107.757599) (xy 169.024099 107.757599) (xy 169.0241 107.757598) (xy 169.0241 107.231917)
-				(xy 169.105022 107.2536) (xy 169.197178 107.2536) (xy 169.2781 107.231917) (xy 169.2781 107.757599)
+				(xy 168.52608 107.757599) (xy 169.024099 107.757599) (xy 169.0241 107.757598) (xy 169.0241 107.283681)
+				(xy 169.098439 107.3036) (xy 169.203761 107.3036) (xy 169.2781 107.283681) (xy 169.2781 107.757599)
 				(xy 169.776115 107.757599) (xy 169.850206 107.742862) (xy 169.850209 107.742861) (xy 169.934223 107.686723)
 				(xy 169.990363 107.602704) (xy 169.990364 107.602703) (xy 170.005099 107.528621) (xy 170.0051 107.528618)
-				(xy 170.0051 107.0306) (xy 169.479417 107.0306) (xy 169.5011 106.949678) (xy 169.5011 106.857522)
-				(xy 169.479417 106.7766) (xy 170.005099 106.7766) (xy 170.005099 106.278585) (xy 169.990362 106.204493)
+				(xy 170.0051 107.0306) (xy 169.531181 107.0306) (xy 169.5511 106.956261) (xy 169.5511 106.850939)
+				(xy 169.531181 106.7766) (xy 170.005099 106.7766) (xy 170.005099 106.278585) (xy 169.990362 106.204493)
 				(xy 169.990361 106.20449) (xy 169.934223 106.120476) (xy 169.850204 106.064336) (xy 169.850203 106.064335)
-				(xy 169.776121 106.0496) (xy 169.2781 106.0496) (xy 169.2781 106.575282) (xy 169.197178 106.5536)
-				(xy 169.105022 106.5536) (xy 169.0241 106.575282) (xy 169.0241 106.0496) (xy 168.526085 106.0496)
+				(xy 169.776121 106.0496) (xy 169.2781 106.0496) (xy 169.2781 106.523518) (xy 169.203761 106.5036)
+				(xy 169.098439 106.5036) (xy 169.0241 106.523518) (xy 169.0241 106.0496) (xy 168.526085 106.0496)
 				(xy 168.451993 106.064337) (xy 168.45199 106.064338) (xy 168.367976 106.120476) (xy 168.311836 106.204495)
 				(xy 168.311835 106.204496) (xy 168.2971 106.278578) (xy 161.5016 106.278578) (xy 161.5016 106.187708)
 				(xy 161.467492 106.060414) (xy 161.4016 105.946286) (xy 161.308414 105.8531) (xy 161.250202 105.819491)

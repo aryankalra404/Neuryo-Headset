@@ -21512,6 +21512,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 284.48 320.04 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "90761286-25f0-4211-be63-2e6634119382")
 		)
@@ -21668,7 +21677,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 177.8 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -22001,6 +22010,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 177.8 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -22787,7 +22814,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 203.2 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -23122,6 +23149,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 203.2 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 203.2 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2dca6835-e332-45cc-a361-63ce755d4fd6")
 		)
@@ -23353,7 +23398,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 231.14 0)
 			(hide yes)
 			(show_name no)
@@ -23506,6 +23551,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 231.14 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 231.14 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -23734,7 +23797,25 @@
 				(justify left bottom)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D5102BP500"
+		(property "MPN" "Yageo RT0603BRD0751KL"
+			(at 142.24 259.08 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D5102BP500"
+			(at 142.24 259.08 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861458"
 			(at 142.24 259.08 0)
 			(hide yes)
 			(effects
@@ -24582,6 +24663,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C705720"
+			(at 355.6 53.34 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3153df7a-3775-44aa-8de8-f2be34e72668")
 		)
@@ -25133,7 +25223,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -25288,6 +25378,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 180.34 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 180.34 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3e66848d-2645-4b04-afb9-a4cc64f42ced")
 		)
@@ -25370,7 +25478,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -25525,6 +25633,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ac270454-2593-4c4b-afd5-bd5dca659213")
 		)
@@ -25606,7 +25732,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 177.8 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -25939,6 +26065,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 177.8 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -26467,7 +26611,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GCJ21BR71C475KA01K"
+		(property "MPN" "Samsung CL21B475KOFNNNE"
 			(at 327.66 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -26670,6 +26814,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 327.66 93.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 327.66 93.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5addcee3-9f1f-4b16-973f-aa687bebc6c3")
 		)
@@ -26826,7 +26988,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 165.1 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -27161,6 +27323,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 165.1 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 165.1 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "0970a1fd-a91b-4bb1-889a-da1f1a56890b")
 		)
@@ -27242,7 +27422,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 281.94 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -27275,6 +27455,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 281.94 220.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 281.94 220.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -27705,6 +27903,15 @@
 				(justify right bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 327.66 368.3 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "09bd8b0e-405d-4964-a3a8-698e79d0c586")
 		)
@@ -27962,7 +28169,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 294.64 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -27995,6 +28202,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 294.64 325.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 294.64 325.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -28316,6 +28541,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "LCSC" "C855559"
+			(at 355.6 71.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -28746,6 +28980,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 375.92 320.04 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f8703515-e93d-43b7-8088-1bbe28a2637f")
 		)
@@ -29014,7 +29257,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 165.1 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -29349,6 +29592,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 165.1 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 165.1 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f14efafa-fcb0-40bd-a1df-8105939e362c")
 		)
@@ -29635,7 +29896,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -29788,6 +30049,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 165.1 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 165.1 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -30094,7 +30373,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -30247,6 +30526,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 55.88 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 55.88 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -30881,6 +31178,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 271.78 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8d9c56cb-bbbb-4e34-b07f-e098541ec359")
 		)
@@ -31064,7 +31370,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 177.8 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -31397,6 +31703,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 177.8 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -31827,6 +32151,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 297.18 342.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8d406273-1c16-4362-a914-9a058d7c6679")
 		)
@@ -31908,7 +32241,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 190.5 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -32243,6 +32576,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 190.5 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 190.5 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f6b5c1e9-d6b0-4bfc-9273-923ac0b0cb8d")
 		)
@@ -32398,7 +32749,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 358.14 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -32431,6 +32782,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 358.14 220.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 358.14 220.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -32811,7 +33180,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 208.28 0)
 			(hide yes)
 			(show_name no)
@@ -32964,6 +33333,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 208.28 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 208.28 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -33122,7 +33509,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C474K4RACAUTO"
+		(property "MPN" "KEMET C0603C474K4RACAUTO"
 			(at 266.7 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -33445,6 +33832,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C561783"
+			(at 266.7 78.74 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "599813e1-e6f5-4b3f-9e51-a31bb7bd8a85")
 		)
@@ -33600,7 +33996,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 190.5 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -33935,6 +34331,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 190.5 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 190.5 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "3190b3d6-4765-464c-9790-d4f8c8a48af5")
 		)
@@ -34016,7 +34430,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 203.2 271.78 0)
 			(hide yes)
 			(show_name no)
@@ -34349,6 +34763,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 203.2 271.78 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 203.2 271.78 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -35075,6 +35507,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 297.18 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "76c752a1-26a1-4ca8-8416-9f3833986df4")
 		)
@@ -35157,7 +35598,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030C1004FPW00"
+		(property "MPN" "UNI-ROYAL 0603WAF1004T5E"
 			(at 368.3 241.3 0)
 			(hide yes)
 			(show_name no)
@@ -35298,6 +35739,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030C1004FPW00"
+			(at 368.3 241.3 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22935"
+			(at 368.3 241.3 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -35966,7 +36425,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GCJ21BR71C475KA01K"
+		(property "MPN" "Samsung CL21B475KOFNNNE"
 			(at 254 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -36167,6 +36626,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 254 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 254 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -36401,7 +36878,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -36556,6 +37033,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 172.72 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 172.72 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f428f136-8fd1-4796-bcbe-f63fd72bf13e")
 		)
@@ -36642,6 +37137,15 @@
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C883598"
+			(at 246.38 215.9 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37026,7 +37530,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -37181,6 +37685,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 129.54 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 129.54 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "96b81c62-5498-44da-ba87-99a065e22627")
 		)
@@ -37262,7 +37784,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GCJ21BR71C475KA01K"
+		(property "MPN" "Samsung CL21B475KOFNNNE"
 			(at 162.56 322.58 0)
 			(hide yes)
 			(show_name no)
@@ -37463,6 +37985,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Murata GCJ21BR71C475KA01K"
+			(at 162.56 322.58 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C107365"
+			(at 162.56 322.58 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -37893,6 +38433,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 408.94 66.04 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e1d73198-a15d-4a65-97d9-30b255b0e994")
 		)
@@ -37975,7 +38524,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -38130,6 +38679,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "76177430-fac3-4d8e-8c21-45911a719508")
 		)
@@ -38211,7 +38778,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 360.68 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -38244,6 +38811,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 360.68 325.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 360.68 325.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -38669,6 +39254,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C1852484"
+			(at 370.84 50.8 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "55a6c311-99b5-4704-a9f8-08879a75799c")
 		)
@@ -38750,7 +39344,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 165.1 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -39083,6 +39677,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 165.1 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 165.1 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -39649,7 +40261,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 203.2 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -39982,6 +40594,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 203.2 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 203.2 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -40425,6 +41055,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C861072"
+			(at 355.6 88.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "90dfd0c0-b4f5-4411-b8c3-fadcfd90f8a3")
 		)
@@ -40507,7 +41146,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 266.7 0)
 			(hide yes)
 			(show_name no)
@@ -40662,6 +41301,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 266.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 266.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "432c4a22-bb40-4e6c-b709-ac133948760f")
 		)
@@ -40743,7 +41400,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 190.5 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -41076,6 +41733,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 190.5 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 190.5 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -41421,7 +42096,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 190.5 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -41756,6 +42431,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 190.5 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 190.5 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c2b435b0-95a8-4ccb-aa23-31a4f8ccecf1")
 		)
@@ -41987,7 +42680,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -42140,6 +42833,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 121.92 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 121.92 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -42297,7 +43008,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 203.2 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -42630,6 +43341,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 203.2 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 203.2 185.42 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -43861,6 +44590,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "LCSC" "C1852484"
+			(at 370.84 86.36 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -45161,7 +45899,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 165.1 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -45496,6 +46234,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 165.1 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 165.1 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2f0dd488-c447-4374-a100-d6c74ea059fd")
 		)
@@ -45726,7 +46482,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D1303BP100"
+		(property "MPN" "Yageo RT0603BRD07130KL"
 			(at 355.6 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -45977,6 +46733,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D1303BP100"
+			(at 355.6 35.56 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861109"
+			(at 355.6 35.56 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "fbf0920c-238c-4357-96a6-040af4bec361")
 		)
@@ -46132,7 +46906,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 330.2 386.08 0)
 			(hide yes)
 			(show_name no)
@@ -46165,6 +46939,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 330.2 386.08 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 330.2 386.08 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -46323,7 +47115,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -46478,6 +47270,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 78.74 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 78.74 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4de1107b-9814-4b78-bcf3-b125e643155d")
 		)
@@ -46559,7 +47369,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603X104J4RACTU"
+		(property "MPN" "KEMET C0603C104J4RACTU"
 			(at 309.88 347.98 0)
 			(hide yes)
 			(show_name no)
@@ -46592,6 +47402,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603X104J4RACTU"
+			(at 309.88 347.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22401913"
+			(at 309.88 347.98 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -46750,7 +47578,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 203.2 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -47085,6 +47913,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 203.2 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 203.2 83.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a54f1a91-c97e-4a09-98ba-99da5a0b1f2b")
 		)
@@ -47316,7 +48162,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GRJ21BR61E106KE01L"
+		(property "MPN" "Samsung CL21A106KAYNNNE"
 			(at 459.74 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -47337,6 +48183,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Murata GRJ21BR61E106KE01L"
+			(at 459.74 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 459.74 63.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -47723,7 +48587,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -47878,6 +48742,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 114.3 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 114.3 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cb061778-8118-4150-85a3-b3b78f566493")
 		)
@@ -47960,7 +48842,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -48113,6 +48995,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 223.52 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 223.52 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -48571,6 +49471,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C233423"
+			(at 182.88 325.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "99b42b4a-a8cb-476f-b9fa-e85969ee143b")
 		)
@@ -48999,6 +49908,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "LCSC" "C106248"
+			(at 259.08 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "37f374b8-9048-499b-b3bc-78db4a34096f")
 		)
@@ -49080,7 +49998,7 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo C0603C102F5GACTU"
+		(property "MPN" "Murata GRM1885C1H102FA01D"
 			(at 177.8 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -49413,6 +50331,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Yageo C0603C102F5GACTU"
+			(at 177.8 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C913702"
+			(at 177.8 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -49920,6 +50856,15 @@
 					(size 1.27 1.27)
 				)
 				(justify right bottom)
+			)
+		)
+		(property "LCSC" "C106248"
+			(at 327.66 299.72 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -50450,7 +51395,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -50605,6 +51550,24 @@
 				(justify left bottom)
 			)
 		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 157.48 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 157.48 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c7560f57-3fe9-4bd2-b628-16cf09a34e80")
 		)
@@ -50687,7 +51650,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -50840,6 +51803,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 71.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 71.12 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -51220,7 +52201,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GRJ21BR61E106KE01L"
+		(property "MPN" "Samsung CL21A106KAYNNNE"
 			(at 373.38 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -51241,6 +52222,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Murata GRJ21BR61E106KE01L"
+			(at 373.38 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 373.38 215.9 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -51399,7 +52398,7 @@
 				)
 			)
 		)
-		(property "MPN" "Vishay MCT06030D2201BP500"
+		(property "MPN" "Yageo RT0603BRD072K2L"
 			(at 142.24 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -51552,6 +52551,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Vishay MCT06030D2201BP500"
+			(at 142.24 106.68 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C861295"
+			(at 142.24 106.68 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -52078,7 +53095,7 @@
 				)
 			)
 		)
-		(property "MPN" "Murata GRM1885C2A152JA01D"
+		(property "MPN" "Murata GRM1885C1H152JA01D"
 			(at 381 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -52411,6 +53428,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "Reference MPN" "Murata GRM1885C2A152JA01D"
+			(at 381 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C162204"
+			(at 381 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53091,7 +54126,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "10k"
 			(at 450.04 145.78 0)
 			(effects
 				(font
@@ -53120,7 +54155,7 @@
 				(justify left)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10k 1% 0603"
 			(at 447.04 144.78 0)
 			(hide yes)
 			(effects
@@ -53130,7 +54165,7 @@
 				(justify left)
 			)
 		)
-		(property "Description" "RES 100k 1% 0603"
+		(property "Description" "RES 10k 1% 0603"
 			(at 447.04 144.78 0)
 			(hide yes)
 			(effects
@@ -53140,7 +54175,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "UNI-ROYAL 0603WAF1003T5E"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 447.04 144.78 0)
 			(hide yes)
 			(effects
@@ -53150,7 +54185,7 @@
 				(justify left)
 			)
 		)
-		(property "LCSC" "C25803"
+		(property "LCSC" "C25804"
 			(at 447.04 144.78 0)
 			(hide yes)
 			(effects

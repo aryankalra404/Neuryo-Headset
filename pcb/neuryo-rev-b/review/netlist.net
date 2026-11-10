@@ -1,8 +1,8 @@
 (export
 	(version "E")
 	(design
-		(source "/Users/aryankalra/Downloads/pcb-work/sH/Neuryo_RevB.kicad_sch")
-		(date "2026-11-10T20:30:26")
+		(source "/Users/aryankalra/Downloads/pcb-work/p3/Neuryo_RevB.kicad_sch")
+		(date "2026-11-11T01:09:44")
 		(tool "Eeschema 10.0.8")
 		(textvar
 			(name "DRAWNBY") "Xavier Asghar")
@@ -65,7 +65,7 @@
 			(description "Cap Ceramic 0.47uF 16V X7R 10% Pad SMD 0603 125C Automotive T/R")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C474K4RACAUTO")
+					(name "MPN") "KEMET C0603C474K4RACAUTO")
 				(field
 					(name "COMPONENTLINK2DESCRIPTION") "Datasheet")
 				(field
@@ -119,6 +119,8 @@
 				(field
 					(name "HEIGHT") "0.87mm")
 				(field
+					(name "LCSC") "C561783")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -133,7 +135,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C474K4RACAUTO")
+				(value "KEMET C0603C474K4RACAUTO")
 			)
 			(property
 				(name "COMPONENTLINK2DESCRIPTION")
@@ -240,6 +242,10 @@
 				(value "0.87mm")
 			)
 			(property
+				(name "LCSC")
+				(value "C561783")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -277,7 +283,7 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
-					(name "MPN") "Murata GCJ21BR71C475KA01K")
+					(name "MPN") "Samsung CL21B475KOFNNNE")
 				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
@@ -311,6 +317,10 @@
 				(field
 					(name "MAX OPERATING TEMPERATURE") "125°C")
 				(field
+					(name "Reference MPN") "Murata GCJ21BR71C475KA01K")
+				(field
+					(name "LCSC") "C107365")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GCJ21B-0_3-IPC_A")
 				(field
 					(name "Datasheet")
@@ -325,7 +335,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GCJ21BR71C475KA01K")
+				(value "Samsung CL21B475KOFNNNE")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -390,6 +400,14 @@
 			(property
 				(name "MAX OPERATING TEMPERATURE")
 				(value "125°C")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Murata GCJ21BR71C475KA01K")
+			)
+			(property
+				(name "LCSC")
+				(value "C107365")
 			)
 			(property
 				(name "Sheetname")
@@ -429,7 +447,7 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
-					(name "MPN") "Murata GCJ21BR71C475KA01K")
+					(name "MPN") "Samsung CL21B475KOFNNNE")
 				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
@@ -463,6 +481,10 @@
 				(field
 					(name "MAX OPERATING TEMPERATURE") "125°C")
 				(field
+					(name "Reference MPN") "Murata GCJ21BR71C475KA01K")
+				(field
+					(name "LCSC") "C107365")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GCJ21B-0_3-IPC_A")
 				(field
 					(name "Datasheet")
@@ -477,7 +499,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GCJ21BR71C475KA01K")
+				(value "Samsung CL21B475KOFNNNE")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -542,6 +564,14 @@
 			(property
 				(name "MAX OPERATING TEMPERATURE")
 				(value "125°C")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Murata GCJ21BR71C475KA01K")
+			)
+			(property
+				(name "LCSC")
+				(value "C107365")
 			)
 			(property
 				(name "Sheetname")
@@ -620,6 +650,8 @@
 					(name "DEPTH") "1.25mm")
 				(field
 					(name "CASE CODE (METRIC)") "2012")
+				(field
+					(name "LCSC") "C1852484")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GCM21B-0_15-IPC_B")
 				(field
@@ -714,6 +746,10 @@
 				(value "2012")
 			)
 			(property
+				(name "LCSC")
+				(value "C1852484")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -790,6 +826,8 @@
 					(name "DEPTH") "1.25mm")
 				(field
 					(name "CASE CODE (METRIC)") "2012")
+				(field
+					(name "LCSC") "C1852484")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GCM21B-0_15-IPC_B")
 				(field
@@ -884,6 +922,10 @@
 				(value "2012")
 			)
 			(property
+				(name "LCSC")
+				(value "C1852484")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -921,9 +963,13 @@
 			(description "CAP CER MLCC")
 			(fields
 				(field
-					(name "MPN") "Murata GRJ21BR61E106KE01L")
+					(name "MPN") "Samsung CL21A106KAYNNNE")
 				(field
 					(name "ROHS COMPLIANT") "Yes")
+				(field
+					(name "Reference MPN") "Murata GRJ21BR61E106KE01L")
+				(field
+					(name "LCSC") "C15850")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRJ21B-0_3-0_2-MFG")
 				(field
@@ -939,11 +985,19 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GRJ21BR61E106KE01L")
+				(value "Samsung CL21A106KAYNNNE")
 			)
 			(property
 				(name "ROHS COMPLIANT")
 				(value "Yes")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Murata GRJ21BR61E106KE01L")
+			)
+			(property
+				(name "LCSC")
+				(value "C15850")
 			)
 			(property
 				(name "Sheetname")
@@ -1040,6 +1094,8 @@
 					(name "MOUSER DESCRIPTION") "Multilayer Ceramic Capacitor, CC Series, 1 - F, - 10%, X7R, 16 V, 0603 [1608 Metric]")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
+				(field
+					(name "LCSC") "C106248")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
@@ -1170,6 +1226,10 @@
 				(value "Ceramic Capacitors")
 			)
 			(property
+				(name "LCSC")
+				(value "C106248")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -1207,7 +1267,7 @@
 			(description "CAP CER 1500PF 100V NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Murata GRM1885C2A152JA01D")
+					(name "MPN") "Murata GRM1885C1H152JA01D")
 				(field
 					(name "MANUFACTURER PART NUMBER") "C0603C152J1GACTU")
 				(field
@@ -1263,6 +1323,10 @@
 				(field
 					(name "ROHS") "TRUE")
 				(field
+					(name "Reference MPN") "Murata GRM1885C2A152JA01D")
+				(field
+					(name "LCSC") "C162204")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -1277,7 +1341,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GRM1885C2A152JA01D")
+				(value "Murata GRM1885C1H152JA01D")
 			)
 			(property
 				(name "MANUFACTURER PART NUMBER")
@@ -1388,6 +1452,14 @@
 				(value "TRUE")
 			)
 			(property
+				(name "Reference MPN")
+				(value "Murata GRM1885C2A152JA01D")
+			)
+			(property
+				(name "LCSC")
+				(value "C162204")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -1425,7 +1497,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -1481,6 +1553,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -1495,7 +1571,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -1604,6 +1680,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -1643,7 +1727,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -1699,6 +1783,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -1713,7 +1801,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -1822,6 +1910,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -1861,7 +1957,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -1917,6 +2013,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -1931,7 +2031,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2040,6 +2140,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -2079,7 +2187,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -2135,6 +2243,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -2149,7 +2261,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2258,6 +2370,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -2297,7 +2417,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -2353,6 +2473,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -2367,7 +2491,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2476,6 +2600,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -2515,7 +2647,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -2571,6 +2703,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -2585,7 +2721,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2694,6 +2830,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -2733,7 +2877,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -2789,6 +2933,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -2803,7 +2951,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -2912,6 +3060,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -2951,7 +3107,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -3007,6 +3163,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -3021,7 +3181,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3130,6 +3290,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -3169,7 +3337,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -3225,6 +3393,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -3239,7 +3411,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3348,6 +3520,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -3387,7 +3567,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -3443,6 +3623,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -3457,7 +3641,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3566,6 +3750,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -3605,7 +3797,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -3661,6 +3853,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -3675,7 +3871,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -3784,6 +3980,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -3823,7 +4027,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -3879,6 +4083,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -3893,7 +4101,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4002,6 +4210,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -4041,7 +4257,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -4097,6 +4313,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -4111,7 +4331,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4220,6 +4440,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -4259,7 +4487,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -4315,6 +4543,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -4329,7 +4561,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4438,6 +4670,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -4477,7 +4717,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -4533,6 +4773,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -4547,7 +4791,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4656,6 +4900,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -4695,7 +4947,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -4751,6 +5003,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -4765,7 +5021,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -4874,6 +5130,14 @@
 			(property
 				(name "DEVICE CLASS L1")
 				(value "Passive Components")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
 			)
 			(property
 				(name "Sheetname")
@@ -4913,7 +5177,7 @@
 			(description "CAP CER 1000PF 50V 1% NP0 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603C102F5GACTU")
+					(name "MPN") "Murata GRM1885C1H102FA01D")
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
@@ -4969,6 +5233,10 @@
 				(field
 					(name "DEVICE CLASS L1") "Passive Components")
 				(field
+					(name "Reference MPN") "Yageo C0603C102F5GACTU")
+				(field
+					(name "LCSC") "C913702")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
 					(name "Datasheet")
@@ -4983,7 +5251,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603C102F5GACTU")
+				(value "Murata GRM1885C1H102FA01D")
 			)
 			(property
 				(name "DEVICE CLASS L3")
@@ -5094,6 +5362,14 @@
 				(value "Passive Components")
 			)
 			(property
+				(name "Reference MPN")
+				(value "Yageo C0603C102F5GACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C913702")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -5130,11 +5406,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -5151,7 +5431,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -5160,6 +5440,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -5199,9 +5487,13 @@
 			(description "CAP CER MLCC")
 			(fields
 				(field
-					(name "MPN") "Murata GRJ21BR61E106KE01L")
+					(name "MPN") "Samsung CL21A106KAYNNNE")
 				(field
 					(name "ROHS COMPLIANT") "Yes")
+				(field
+					(name "Reference MPN") "Murata GRJ21BR61E106KE01L")
+				(field
+					(name "LCSC") "C15850")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRJ21B-0_3-0_2-MFG")
 				(field
@@ -5217,11 +5509,19 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GRJ21BR61E106KE01L")
+				(value "Samsung CL21A106KAYNNNE")
 			)
 			(property
 				(name "ROHS COMPLIANT")
 				(value "Yes")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Murata GRJ21BR61E106KE01L")
+			)
+			(property
+				(name "LCSC")
+				(value "C15850")
 			)
 			(property
 				(name "Sheetname")
@@ -5263,6 +5563,8 @@
 				(field
 					(name "MPN") "Murata GRM31CR61A107MEA8L")
 				(field
+					(name "LCSC") "C883598")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GRM31C-0_3-e0_3_0_8-IPC_B")
 				(field
 					(name "Datasheet")
@@ -5278,6 +5580,10 @@
 			(property
 				(name "MPN")
 				(value "Murata GRM31CR61A107MEA8L")
+			)
+			(property
+				(name "LCSC")
+				(value "C883598")
 			)
 			(property
 				(name "Sheetname")
@@ -5375,6 +5681,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -5502,6 +5810,10 @@
 			(property
 				(name "DEVICE CLASS L3")
 				(value "Ceramic Capacitors")
+			)
+			(property
+				(name "LCSC")
+				(value "C106248")
 			)
 			(property
 				(name "Sheetname")
@@ -5599,6 +5911,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -5728,6 +6042,10 @@
 				(value "Ceramic Capacitors")
 			)
 			(property
+				(name "LCSC")
+				(value "C106248")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -5764,11 +6082,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -5785,7 +6107,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -5794,6 +6116,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -5891,6 +6221,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -6018,6 +6350,10 @@
 			(property
 				(name "DEVICE CLASS L3")
 				(value "Ceramic Capacitors")
+			)
+			(property
+				(name "LCSC")
+				(value "C106248")
 			)
 			(property
 				(name "Sheetname")
@@ -6115,6 +6451,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -6242,6 +6580,10 @@
 			(property
 				(name "DEVICE CLASS L3")
 				(value "Ceramic Capacitors")
+			)
+			(property
+				(name "LCSC")
+				(value "C106248")
 			)
 			(property
 				(name "Sheetname")
@@ -6339,6 +6681,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -6468,6 +6812,10 @@
 				(value "Ceramic Capacitors")
 			)
 			(property
+				(name "LCSC")
+				(value "C106248")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -6504,11 +6852,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -6525,7 +6877,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -6534,6 +6886,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -6572,11 +6932,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -6593,7 +6957,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -6602,6 +6966,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -6699,6 +7071,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -6826,6 +7200,10 @@
 			(property
 				(name "DEVICE CLASS L3")
 				(value "Ceramic Capacitors")
+			)
+			(property
+				(name "LCSC")
+				(value "C106248")
 			)
 			(property
 				(name "Sheetname")
@@ -6923,6 +7301,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -7052,6 +7432,10 @@
 				(value "Ceramic Capacitors")
 			)
 			(property
+				(name "LCSC")
+				(value "C106248")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -7088,11 +7472,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -7109,7 +7497,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -7118,6 +7506,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -7215,6 +7611,8 @@
 				(field
 					(name "DEVICE CLASS L3") "Ceramic Capacitors")
 				(field
+					(name "LCSC") "C106248")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-CC0603-DA-MFG")
 				(field
 					(name "Datasheet")
@@ -7344,6 +7742,10 @@
 				(value "Ceramic Capacitors")
 			)
 			(property
+				(name "LCSC")
+				(value "C106248")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -7380,11 +7782,15 @@
 			(footprint "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 			(fields
 				(field
-					(name "MPN") "Yageo C0603X104J4RACTU")
+					(name "MPN") "KEMET C0603C104J4RACTU")
 				(field
 					(name "PART NUMBER") "C0603X104J4RACTU")
 				(field
 					(name "MANUFACTURER") "Kemet")
+				(field
+					(name "Reference MPN") "Yageo C0603X104J4RACTU")
+				(field
+					(name "LCSC") "C22401913")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:CAPC1608X87X45LL20T05")
 				(field
@@ -7401,7 +7807,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo C0603X104J4RACTU")
+				(value "KEMET C0603C104J4RACTU")
 			)
 			(property
 				(name "PART NUMBER")
@@ -7410,6 +7816,14 @@
 			(property
 				(name "MANUFACTURER")
 				(value "Kemet")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Yageo C0603X104J4RACTU")
+			)
+			(property
+				(name "LCSC")
+				(value "C22401913")
 			)
 			(property
 				(name "Sheetname")
@@ -7449,7 +7863,7 @@
 			(description "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 4.7uF 10%, 16VDC,  X7R 15%")
 			(fields
 				(field
-					(name "MPN") "Murata GCJ21BR71C475KA01K")
+					(name "MPN") "Samsung CL21B475KOFNNNE")
 				(field
 					(name "CASE/PACKAGE") "0805")
 				(field
@@ -7483,6 +7897,10 @@
 				(field
 					(name "MAX OPERATING TEMPERATURE") "125°C")
 				(field
+					(name "Reference MPN") "Murata GCJ21BR71C475KA01K")
+				(field
+					(name "LCSC") "C107365")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-GCJ21B-0_3-IPC_A")
 				(field
 					(name "Datasheet")
@@ -7497,7 +7915,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Murata GCJ21BR71C475KA01K")
+				(value "Samsung CL21B475KOFNNNE")
 			)
 			(property
 				(name "CASE/PACKAGE")
@@ -7562,6 +7980,14 @@
 			(property
 				(name "MAX OPERATING TEMPERATURE")
 				(value "125°C")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Murata GCJ21BR71C475KA01K")
+			)
+			(property
+				(name "LCSC")
+				(value "C107365")
 			)
 			(property
 				(name "Sheetname")
@@ -8251,6 +8677,8 @@
 				(field
 					(name "DIRECTION") "Unidirectional")
 				(field
+					(name "LCSC") "C233423")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:ONSC-SOD-323-2-477-02_G_V")
 				(field
 					(name "Datasheet")
@@ -8338,6 +8766,10 @@
 			(property
 				(name "DIRECTION")
 				(value "Unidirectional")
+			)
+			(property
+				(name "LCSC")
+				(value "C233423")
 			)
 			(property
 				(name "Sheetname")
@@ -10486,7 +10918,7 @@
 			(description "RES SMD 130K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D1303BP100")
+					(name "MPN") "Yageo RT0603BRD07130KL")
 				(field
 					(name "VOLTAGE RATING (DC)") "50V")
 				(field
@@ -10528,6 +10960,10 @@
 				(field
 					(name "LENGTH") "0.061inch")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D1303BP100")
+				(field
+					(name "LCSC") "C861109")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_B")
 				(field
 					(name "Datasheet")
@@ -10542,7 +10978,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D1303BP100")
+				(value "Yageo RT0603BRD07130KL")
 			)
 			(property
 				(name "VOLTAGE RATING (DC)")
@@ -10623,6 +11059,14 @@
 			(property
 				(name "LENGTH")
 				(value "0.061inch")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D1303BP100")
+			)
+			(property
+				(name "LCSC")
+				(value "C861109")
 			)
 			(property
 				(name "Sheetname")
@@ -10721,6 +11165,8 @@
 					(name "DIGIKEY DESCRIPTION") "RES SMD 120K OHM 0.1% 1/10W 0603")
 				(field
 					(name "POWER RATING") "0.1W")
+				(field
+					(name "LCSC") "C705720")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-RT0603-MFG")
 				(field
@@ -10855,6 +11301,10 @@
 				(value "0.1W")
 			)
 			(property
+				(name "LCSC")
+				(value "C705720")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -10951,6 +11401,8 @@
 					(name "CATEGORY") "Res")
 				(field
 					(name "DEVICE CLASS L2") "Resistors")
+				(field
+					(name "LCSC") "C861072")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-RT0603-MFG")
 				(field
@@ -11085,6 +11537,10 @@
 				(value "Resistors")
 			)
 			(property
+				(name "LCSC")
+				(value "C861072")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -11161,6 +11617,8 @@
 					(name "SERIES") "AT")
 				(field
 					(name "CASE CODE (METRIC)") "1608")
+				(field
+					(name "LCSC") "C855559")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AT0603-IPC_A")
 				(field
@@ -11255,6 +11713,10 @@
 				(value "1608")
 			)
 			(property
+				(name "LCSC")
+				(value "C855559")
+			)
+			(property
 				(name "Sheetname")
 				(value "Neuryo_RevB")
 			)
@@ -11292,7 +11754,7 @@
 			(description "RES SMD 1M OHM 1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030C1004FPW00")
+					(name "MPN") "UNI-ROYAL 0603WAF1004T5E")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11316,6 +11778,10 @@
 				(field
 					(name "DEPTH") "0.85mm")
 				(field
+					(name "Reference MPN") "Vishay MCT06030C1004FPW00")
+				(field
+					(name "LCSC") "C22935")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-MFG")
 				(field
 					(name "Datasheet")
@@ -11330,7 +11796,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030C1004FPW00")
+				(value "UNI-ROYAL 0603WAF1004T5E")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11375,6 +11841,14 @@
 			(property
 				(name "DEPTH")
 				(value "0.85mm")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030C1004FPW00")
+			)
+			(property
+				(name "LCSC")
+				(value "C22935")
 			)
 			(property
 				(name "Sheetname")
@@ -11438,7 +11912,11 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
-					(name "MPN") "Vishay MCT06030D5102BP500")
+					(name "MPN") "Yageo RT0603BRD0751KL")
+				(field
+					(name "Reference MPN") "Vishay MCT06030D5102BP500")
+				(field
+					(name "LCSC") "C861458")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
@@ -11502,7 +11980,15 @@
 			)
 			(property
 				(name "MPN")
+				(value "Yageo RT0603BRD0751KL")
+			)
+			(property
+				(name "Reference MPN")
 				(value "Vishay MCT06030D5102BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861458")
 			)
 			(property
 				(name "Sheetname")
@@ -11542,7 +12028,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11568,6 +12054,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -11582,7 +12072,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11631,6 +12121,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -11670,7 +12168,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11696,6 +12194,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -11710,7 +12212,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11759,6 +12261,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -11798,7 +12308,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11824,6 +12334,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -11838,7 +12352,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -11887,6 +12401,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -11926,7 +12448,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -11952,6 +12474,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -11966,7 +12492,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12015,6 +12541,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12054,7 +12588,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12080,6 +12614,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12094,7 +12632,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12143,6 +12681,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12182,7 +12728,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12208,6 +12754,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12222,7 +12772,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12271,6 +12821,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12310,7 +12868,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12336,6 +12894,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12350,7 +12912,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12399,6 +12961,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12438,7 +13008,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12464,6 +13034,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12478,7 +13052,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12527,6 +13101,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12566,7 +13148,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12592,6 +13174,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12606,7 +13192,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12655,6 +13241,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12694,7 +13288,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12720,6 +13314,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12734,7 +13332,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12783,6 +13381,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12822,7 +13428,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12848,6 +13454,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12862,7 +13472,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -12911,6 +13521,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -12950,7 +13568,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -12976,6 +13594,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -12990,7 +13612,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13039,6 +13661,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -13078,7 +13708,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13104,6 +13734,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -13118,7 +13752,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13167,6 +13801,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -13206,7 +13848,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13232,6 +13874,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -13246,7 +13892,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13295,6 +13941,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -13334,7 +13988,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13360,6 +14014,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -13374,7 +14032,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13423,6 +14081,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -13462,7 +14128,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13488,6 +14154,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -13502,7 +14172,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13551,6 +14221,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -13590,7 +14268,7 @@
 			(description "RES SMD 2.2K OHM 0.1% 0603 thin film (Vishay MCT0603)")
 			(fields
 				(field
-					(name "MPN") "Vishay MCT06030D2201BP500")
+					(name "MPN") "Yageo RT0603BRD072K2L")
 				(field
 					(name "MILITARY STANDARD") "Not")
 				(field
@@ -13616,6 +14294,10 @@
 				(field
 					(name "CASE/PACKAGE") "0603")
 				(field
+					(name "Reference MPN") "Vishay MCT06030D2201BP500")
+				(field
+					(name "LCSC") "C861295")
+				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-MCT0603-IPC_A")
 				(field
 					(name "Datasheet")
@@ -13630,7 +14312,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "Vishay MCT06030D2201BP500")
+				(value "Yageo RT0603BRD072K2L")
 			)
 			(property
 				(name "MILITARY STANDARD")
@@ -13679,6 +14361,14 @@
 			(property
 				(name "CASE/PACKAGE")
 				(value "0603")
+			)
+			(property
+				(name "Reference MPN")
+				(value "Vishay MCT06030D2201BP500")
+			)
+			(property
+				(name "LCSC")
+				(value "C861295")
 			)
 			(property
 				(name "Sheetname")
@@ -14271,21 +14961,21 @@
 		)
 		(comp
 			(ref "R37")
-			(value "100k")
+			(value "10k")
 			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
-			(description "RES 100k 1% 0603")
+			(description "RES 10k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "UNI-ROYAL 0603WAF1003T5E")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
 				(field
-					(name "LCSC") "C25803")
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "RES 100k 1% 0603")
+					(name "Description") "RES 10k 1% 0603")
 			)
 			(libsource
 				(lib "Altium Content Vault")
@@ -14294,11 +14984,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "UNI-ROYAL 0603WAF1003T5E")
+				(value "UNI-ROYAL 0603WAF1002T5E")
 			)
 			(property
 				(name "LCSC")
-				(value "C25803")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")

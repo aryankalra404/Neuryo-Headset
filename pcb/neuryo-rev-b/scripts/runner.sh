@@ -1,14 +1,16 @@
 #!/bin/bash
-# Neuryo KiCad runner v4. Runs KiCad's own tools (ERC, DRC with schematic parity, netlist, renders, fab outputs)
+# Neuryo KiCad runner v5. Runs KiCad's own tools (ERC, DRC with schematic parity, netlist, renders, fab outputs)
 # when Claude puts a job file in pcb-work/jobs. Only touches files inside pcb-work. Ctrl+C to stop.
-# Job file: line 1 = project path inside pcb-work without extension; line 2 = options: img refill fab fw
+# Job file: line 1 = project path inside pcb-work without extension; line 2 = options: img refill fab fw order
+# order (v5): JLCPCB order set in out/<job>/order: Gerbers for copper, paste, silkscreen, mask and Edge.Cuts only, and
+# Excellon drill with plated and non-plated holes in separate files
 # fw: line 1 is a PlatformIO project folder inside pcb-work; builds it with PlatformIO (installed once, by
 # PlatformIO's own installer, into ~/.platformio). Nothing is uploaded to a board.
 CLI=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 W="$HOME/Desktop/Neuryo-Research/pcb-work"
 mkdir -p "$W/jobs" "$W/out"
 "$CLI" version || { echo "kicad-cli not found at $CLI"; exit 1; }
-echo "Runner v4 on, watching $W/jobs. Leave this window open. Ctrl+C to stop."
+echo "Runner v5 on, watching $W/jobs. Leave this window open. Ctrl+C to stop."
 while true; do
   for j in "$W"/jobs/*.job; do
     [ -e "$j" ] || continue
@@ -41,6 +43,12 @@ while true; do
         "$CLI" pcb export drill -o "$O/fab/" "$P.kicad_pcb"
         "$CLI" pcb export pos --format csv --units mm --side both -o "$O/fab/positions.csv" "$P.kicad_pcb"
         [ -f "$P.kicad_sch" ] && "$CLI" sch export bom -o "$O/fab/bom.csv" "$P.kicad_sch"
+      ;; esac
+      case "$opt" in *order*)
+        mkdir -p "$O/order"
+        "$CLI" pcb export gerbers --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts -o "$O/order/" "$P.kicad_pcb"
+        "$CLI" pcb export drill --excellon-separate-th -o "$O/order/" "$P.kicad_pcb"
+        "$CLI" pcb export pos --format csv --units mm --side both -o "$O/order/positions-kicad.csv" "$P.kicad_pcb"
       ;; esac
     } > "$O/log.txt" 2>&1
     date > "$O/DONE"; echo "$(date +%T) $name done"

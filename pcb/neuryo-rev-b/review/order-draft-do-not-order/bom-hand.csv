@@ -1,0 +1,8 @@
+Comment,Designator,Footprint,Quantity,MPN,LCSC Part #,Note
+S2B-PH-K-S(LF)(SN),J1,JST-S2B-PH-K-S_V,1,JST S2B-PH-K-S(LF)(SN),,"Hand-solder; check the battery lead polarity against the ""+"" mark first (ASSEMBLY.md)"
+MAX30102 earlobe,J6,PinHeader_1x04_P2.54_TSW,1,Samtec TSW-104-07-T-S or leads soldered in,,1x4 header or leads soldered in
+BMI270,J7,PinHeader_1x04_P2.54_TSW,1,Samtec TSW-104-07-T-S or leads soldered in,,1x4 header or leads soldered in
+TSW-102-26-F-S,"J10, J11, J12, J13, J14, J15, J16, J17, J18, J19",SMTC-TSW-102-26-XX-S,10,Samtec TSW-102-26-F-S,,For the v6 pod leave off and solder each lead into its two holes (pcb/README step 5)
+TSW-102-26-F-S,JP1,SMTC-TSW-102-26-XX-S,1,Samtec TSW-102-26-F-S,,Hand-solder if wanted
+,TP1,KSTN-5003,1,Keystone 5003,,Hand-solder if wanted
+XIAO ESP32-S3,U6,XIAO-ESP32-S3-SMD,1,Seeed Studio XIAO ESP32-S3 (113991114),,"Hand-solder (ASSEMBLY.md): castellations with an iron, then BAT+/BAT- through their plated holes from the back"
