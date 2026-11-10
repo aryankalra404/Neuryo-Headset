@@ -1,11 +1,11 @@
 # Neuryo EEG board, rev B (plan)
 
-**Status (8 Nov 2026):** designed in KiCad 10 ([neuryo-rev-b/](neuryo-rev-b/)), ERC/DRC/netlist checked, firmware written, **waiting for professor review, not ordered** ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)). Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
+**Status (4th pass, 10 Nov 2026):** designed in KiCad 10 ([neuryo-rev-b/](neuryo-rev-b/)), ERC/DRC/netlist checked after every step, firmware written, **waiting for one more independent review and the professor's, not ordered** ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md), [4th-pass changes](neuryo-rev-b/CHANGES.md#4th-pass-10-nov-2026), [assembly notes](neuryo-rev-b/ASSEMBLY.md)). Rev B copies the analog half of a proven open board and adds a ready-made ESP32 board. Rev A (30 Oct, the v3 board: Cyton circuit, auto-routed, 100 × 80 mm, DevKit on sockets) is removed from this folder; it is in the git history (commit `14b8c37` and earlier).
 
 | Folder | What is in it |
 |---|---|
 | [neuryo-rev-b/](neuryo-rev-b/) | Rev B in KiCad 10: project, [change list](neuryo-rev-b/CHANGES.md), [review checklist](neuryo-rev-b/REVIEW-CHECKLIST.md), renders, ERC/DRC reports, netlist and copper diffs against the reference, the reference imported into KiCad, and the scripts that made the edits |
-| [low-cost-eeg/](low-cost-eeg/) | The upstream repo, complete (hardware, production files, firmware, receiver, case STLs, docs). The design rev B copies: [Low-Cost-EEG](https://github.com/XavierAsghar/Low-Cost-EEG) by Xavier Asghar, commit `3730d31` (12 Aug 2026). GPL-3.0 ([LICENSE](low-cost-eeg/LICENSE)); what was left out is listed in its [NOTICE](low-cost-eeg/NOTICE.md) |
+| [low-cost-eeg/](low-cost-eeg/) | The upstream repo, complete (hardware, production files, firmware, receiver, case STLs, docs). The design rev B copies: [Low-Cost-EEG](https://github.com/XavierAsghar/Low-Cost-EEG) by Xavier Asghar, commit `3730d31` (12 Aug 2026). GPL-3.0 ([LICENSE](low-cost-eeg/LICENSE)); what was left out is listed in its [NOTICE](low-cost-eeg/NOTICE.md). **Do not order from `low-cost-eeg/Production_Files/NC Drill` as it is:** its drill coordinates are offset from the Gerbers (round-hole centres span x 64.4–158.9 mm, y 51.7–97.9 mm, while the Gerber outline is 0–100 × 0–50 mm) |
 
 ## Why this board
 - **Same chips as ours:** ADS1299 (8 channels, SRB2 reference, bias drive) and an ESP32-S3, battery powered, 4-layer.
@@ -34,7 +34,7 @@ Placement, routing, ground pours and stitching kept as in the reference, left ha
 | | Outline 77 × 50 mm (the LM27762 block is kept in place, so 70 was not reachable), 2 mounting holes, for the v6 left pod |
 
 ## XIAO pin map
-Final map in [neuryo-rev-b/CHANGES.md](neuryo-rev-b/CHANGES.md#final-xiao-pin-map-replaces-the-draft-in-pcbreadmemd). SPI on D1–D5, battery on D0, I²C on D7/D8, USB sense on D9; START, RESET and PWDN are tied (change 4).
+Final map in [neuryo-rev-b/CHANGES.md](neuryo-rev-b/CHANGES.md#final-xiao-pin-map-replaces-the-draft-in-pcbreadmemd). SPI on D1–D5 (330 Ω in series on SCLK, MOSI, CS since the 4th pass), battery on D0, I²C on D7/D8 (4.7 k pull-ups), USB sense on D9, ADS1299 RESET on D10 (4th pass); START and PWDN are tied (change 4).
 
 ## Review (8 Nov 2026): changes needed before ordering
 Checked against the reference schematic and firmware (upstream `main.cpp`), the ADS1299 datasheet and the Seeed XIAO ESP32-S3 wiki.
@@ -58,6 +58,7 @@ Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, chang
 2. ~~Remove the module side; add the XIAO, J6, J7, interlock, dividers~~ (done; see the change list).
 3. ~~ERC, DRC, netlist diff after every change~~ (done; reports in `neuryo-rev-b/review/`). 3D check in the v6 left pod done in the model (9 Nov, v6.1): with every rev B part at its KiCad position and height, the pod grows to about 98 × 77 mm and 22 mm off the skin (docs/v6.md).
    - Second pass (8 Nov, done): battery and a smaller switch (C&K PCM12) moved back to the right-hand end; XIAO pad 25 to GND (checked against Seeed's module PCB); KiCad SOT-23 for Q1; JLC 1.6 mm stack-up; silkscreen tidied; rev B firmware written ([neuryo-rev-b/firmware/](neuryo-rev-b/firmware/)). See CHANGES "2nd pass".
+   - Fourth pass (10 Nov, done): from the 10 Nov design review. Plated holes through the XIAO's BAT pads and no paste on its pads; 330 Ω on SCLK/MOSI/CS; 4.7 k I²C pull-ups; D10 to ADS1299 RESET; test pads on MISO/DRDY/AEN; bench firmware build and an honest ADS status; LCSC numbers; [ASSEMBLY.md](neuryo-rev-b/ASSEMBLY.md). See CHANGES "4th pass".
 4. Professor review ([checklist](neuryo-rev-b/REVIEW-CHECKLIST.md)).
 5. Order 2 assembled boards (JLCPCB); hand-solder the XIAOs. For the v6 left pod, leave the electrode input headers off and solder each lead into its two holes (the headers stand about 8.4 mm: Samtec TSW-xxx-26 is a 5.84 mm post on a 2.54 mm body). Footprints and layout stay as in the reference.
 6. First board: power rails, ADS1299 ID register, shorted-input noise against the 6 µVpp target, then alpha with eyes closed.

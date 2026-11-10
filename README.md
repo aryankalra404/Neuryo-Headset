@@ -18,7 +18,7 @@ Add `#v1` to `#v6` to the start page link to open a design straight away.
 
 **Docs:** [docs/](docs/README.md): one file per design ([v1](docs/v1.md), [v2](docs/v2.md), [v3](docs/v3.md), [v4](docs/v4.md), [v5](docs/v5.md), [v6](docs/v6.md), each with why it changed from the one before) and the [shared head](docs/head.md) with all 77 measured 10-10 positions plus the mastoid points M1/M2.
 
-**PCB:** [pcb/](pcb/README.md): rev B in KiCad 10 (77 × 50 mm: Low-Cost-EEG's analog half + a XIAO ESP32-S3, final pin map, ERC/DRC/netlist checks, firmware) and the Low-Cost-EEG reference design it copies (Altium project, Gerbers, schematic, report; GPL-3.0). Laid out, waiting for professor review, not ordered. Rev A (30 Oct, made for v3) is in the git history.
+**PCB:** [pcb/](pcb/README.md): rev B in KiCad 10 (77 × 50 mm: Low-Cost-EEG's analog half + a XIAO ESP32-S3, final pin map, ERC/DRC/netlist checks, firmware) and the Low-Cost-EEG reference design it copies (Altium project, Gerbers, schematic, report; GPL-3.0). 4th pass, 10 Nov (series resistors on SPI, I²C pull-ups, D10 to RESET, test pads, plated XIAO battery holes, bench build). Laid out, waiting for review, not ordered. Rev A (30 Oct, made for v3) is in the git history.
 
 ## Adding a new design
 1. Copy the latest design folder, for example `designs/v5/` to `designs/v6/`, and change the model in `designs/v6/index.html`. It already loads the shared head from `designs/shared/head/`; pick electrode sites by name (`HEAD.sites.F3`, `HEAD.extra.M1` and so on, see [docs/head.md](docs/head.md)).

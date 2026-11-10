@@ -23825,11 +23825,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 292.1 180.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 292.1 180.34 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27778,11 +27787,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 292.1 190.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 292.1 190.5 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29413,11 +29431,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 292.1 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 292.1 149.86 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29506,11 +29533,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 281.94 264.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 281.94 264.16 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30295,11 +30331,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 281.94 248.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 281.94 248.92 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30388,11 +30433,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 292.1 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 292.1 160.02 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35624,11 +35678,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 281.94 241.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 281.94 241.3 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38265,11 +38328,20 @@
 				)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 281.94 256.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 281.94 256.54 0)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52711,7 +52783,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-7W10KL (same as R28-R35)"
+		(property "MPN" "UNI-ROYAL 0603WAF1002T5E"
 			(at 447.04 134.62 0)
 			(hide yes)
 			(effects
@@ -52729,6 +52801,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 447.04 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -52887,6 +52968,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C65189"
+			(at 510.54 134.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53050,7 +53140,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07100KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1003T5E"
 			(at 447.04 144.78 0)
 			(hide yes)
 			(effects
@@ -53058,6 +53148,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 447.04 144.78 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53218,7 +53317,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07100KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1003T5E"
 			(at 447.04 154.94 0)
 			(hide yes)
 			(effects
@@ -53226,6 +53325,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 447.04 154.94 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53387,7 +53495,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07100KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1003T5E"
 			(at 447.04 165.10 0)
 			(hide yes)
 			(effects
@@ -53395,6 +53503,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 447.04 165.1 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53481,7 +53598,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07150KL"
+		(property "MPN" "UNI-ROYAL 0603WAF1503T5E"
 			(at 447.04 175.26 0)
 			(hide yes)
 			(effects
@@ -53489,6 +53606,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C22807"
+			(at 447.04 175.26 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53649,7 +53775,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07220KL"
+		(property "MPN" "UNI-ROYAL 0603WAF2203T5E"
 			(at 447.04 190.50 0)
 			(hide yes)
 			(effects
@@ -53657,6 +53783,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C22961"
+			(at 447.04 190.5 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53818,7 +53953,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "Yageo AC0603FR-07220KL"
+		(property "MPN" "UNI-ROYAL 0603WAF2203T5E"
 			(at 447.04 200.66 0)
 			(hide yes)
 			(effects
@@ -53826,6 +53961,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C22961"
+			(at 447.04 200.66 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -53986,7 +54130,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "TDK CGA3E2X7R1H104K080AD (as reference C13)"
+		(property "MPN" "YAGEO CC0603KRX7R9BB104"
 			(at 447.04 210.82 0)
 			(hide yes)
 			(effects
@@ -53994,6 +54138,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 447.04 210.82 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -55713,6 +55866,719 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "Altium Content Vault:1029c3af85768c4190bb7ad29bc67b5")
+		(at 553.72 226.06 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fd57a5f6-4652-4ca0-86bc-9fcc65b92ea2")
+		(property "Reference" "R43"
+			(at 556.72 224.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "330"
+			(at 556.72 227.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Low_Cost_EEG-import-fps:FP-AC0603-MFG"
+			(at 553.72 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 553.72 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "RES 330R 1% 1/10W 0603"
+			(at 553.72 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "UNI-ROYAL 0603WAF3300T5E"
+			(at 553.72 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C23138"
+			(at 553.72 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "7ae5fc65-c14c-4f8e-83a2-31a4fdf11542")
+		)
+		(pin "2"
+			(uuid "ded66114-f30f-49bc-949b-65d1f56a97f4")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "R43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Altium Content Vault:1029c3af85768c4190bb7ad29bc67b5")
+		(at 553.72 236.22 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "650e37b7-661d-4ed0-9f09-1b9b875785f8")
+		(property "Reference" "R44"
+			(at 556.72 234.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "330"
+			(at 556.72 237.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Low_Cost_EEG-import-fps:FP-AC0603-MFG"
+			(at 553.72 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 553.72 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "RES 330R 1% 1/10W 0603"
+			(at 553.72 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "UNI-ROYAL 0603WAF3300T5E"
+			(at 553.72 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C23138"
+			(at 553.72 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "8fb52090-dd77-46ee-ba9a-0b9a3a99344e")
+		)
+		(pin "2"
+			(uuid "9f453bed-b4eb-43d2-92d6-3862f3734d4c")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "R44")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Altium Content Vault:1029c3af85768c4190bb7ad29bc67b5")
+		(at 553.72 246.38 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2e8eb95b-6702-4913-a956-2d94724588e9")
+		(property "Reference" "R45"
+			(at 556.72 244.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "330"
+			(at 556.72 247.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Low_Cost_EEG-import-fps:FP-AC0603-MFG"
+			(at 553.72 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 553.72 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "RES 330R 1% 1/10W 0603"
+			(at 553.72 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "UNI-ROYAL 0603WAF3300T5E"
+			(at 553.72 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C23138"
+			(at 553.72 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "11ec35c6-ec3d-470d-b981-3cee001ab89c")
+		)
+		(pin "2"
+			(uuid "feb59eaf-097c-444e-be9c-966c3f68bc8b")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "R45")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Altium Content Vault:1029c3af85768c4190bb7ad29bc67b5")
+		(at 553.72 266.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "96cfd890-1c9e-45d8-84b3-0881b5468bb3")
+		(property "Reference" "R46"
+			(at 556.72 264.70 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 556.72 267.70 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Low_Cost_EEG-import-fps:FP-AC0603-MFG"
+			(at 553.72 266.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 553.72 266.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "RES 4.7k 1% 1/10W 0603"
+			(at 553.72 266.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "UNI-ROYAL 0603WAF4701T5E"
+			(at 553.72 266.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 553.72 266.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "cf025379-a661-42e2-a268-6a0133185421")
+		)
+		(pin "2"
+			(uuid "d8eb0570-eb97-4bff-ba47-4593685a041f")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "R46")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Altium Content Vault:1029c3af85768c4190bb7ad29bc67b5")
+		(at 553.72 276.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3129f113-598f-4917-b1a4-e250d4f96655")
+		(property "Reference" "R47"
+			(at 556.72 274.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 556.72 277.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Low_Cost_EEG-import-fps:FP-AC0603-MFG"
+			(at 553.72 276.86 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 553.72 276.86 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "RES 4.7k 1% 1/10W 0603"
+			(at 553.72 276.86 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "UNI-ROYAL 0603WAF4701T5E"
+			(at 553.72 276.86 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 553.72 276.86 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "fd88c487-f27c-4151-af7a-88853eb430c1")
+		)
+		(pin "2"
+			(uuid "6905a147-b493-4872-9ffe-ca547f88d915")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "R47")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Test_Points:TestPoint_SMD")
+		(at 574.0400000000001 226.06 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3c648028-8a94-4c64-a88b-8342957b64d7")
+		(property "Reference" "TP7"
+			(at 577.04 224.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP"
+			(at 577.04 227.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Neuryo_RevB:TP_SMD_D1.0"
+			(at 574.04 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 574.04 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "Test pad 1.0 mm, no paste"
+			(at 574.04 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "(copper test pad, not assembled)"
+			(at 574.04 226.06 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "49449bda-1d60-4ca3-ac75-828ff76ef718")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Test_Points:TestPoint_SMD")
+		(at 574.0400000000001 236.22 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3b69352f-36ab-4c2a-a22b-fc6350ff55d5")
+		(property "Reference" "TP8"
+			(at 577.04 234.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP"
+			(at 577.04 237.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Neuryo_RevB:TP_SMD_D1.0"
+			(at 574.04 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 574.04 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "Test pad 1.0 mm, no paste"
+			(at 574.04 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "(copper test pad, not assembled)"
+			(at 574.04 236.22 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "4a8693c0-272a-4fe1-8b8e-f51ef878f3e9")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Test_Points:TestPoint_SMD")
+		(at 574.0400000000001 246.38 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "5b7d19db-3be0-4611-916f-d49256560160")
+		(property "Reference" "TP9"
+			(at 577.04 244.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP"
+			(at 577.04 247.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Neuryo_RevB:TP_SMD_D1.0"
+			(at 574.04 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 574.04 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "Test pad 1.0 mm, no paste"
+			(at 574.04 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "(copper test pad, not assembled)"
+			(at 574.04 246.38 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "3618b2c5-fe7b-4406-af41-7eeceea53eba")
+		)
+		(instances
+			(project "Low_Cost_EEG"
+				(path "/57286841-2b36-4e0c-b3ee-d23c37202cdb"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
@@ -55877,7 +56743,7 @@
 		)
 		(uuid "45253b65-5009-4efa-a5c1-16884614d39a")
 	)
-	(label "CS"
+	(label "CS_X"
 		(at 481.33 234.95 0)
 		(effects
 			(font
@@ -55887,7 +56753,7 @@
 		)
 		(uuid "6160b675-f871-4fc4-aa6d-a6741d9c74df")
 	)
-	(label "MOSI"
+	(label "MOSI_X"
 		(at 481.33 238.76 0)
 		(effects
 			(font
@@ -55897,7 +56763,7 @@
 		)
 		(uuid "fa5f78e0-6715-48a4-925a-c7017dff2ed1")
 	)
-	(label "SCLK"
+	(label "SCLK_X"
 		(at 481.33 242.57 0)
 		(effects
 			(font
@@ -55950,10 +56816,6 @@
 			(justify left bottom)
 		)
 		(uuid "91e18dab-a0a4-4aea-a9f6-5719beab025f")
-	)
-	(no_connect
-		(at 524.51 238.76)
-		(uuid "80a0c089-bada-4866-8cc1-93c5eb53099c")
 	)
 	(label "XIAO_3V3"
 		(at 524.51 234.95 0)
@@ -56066,5 +56928,145 @@
 			(justify left bottom)
 		)
 		(uuid "8a939fe1-544d-4c49-855e-807a3efeee58")
+	)
+	(label "SCLK_X"
+		(at 553.72 226.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cf8d69a5-1232-4dd5-844e-b9e06b988df6")
+	)
+	(label "SCLK"
+		(at 571.5 226.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "537cd3cb-47ab-4e0c-a619-9e74bab3f36f")
+	)
+	(label "MOSI_X"
+		(at 553.72 236.22 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "16c7ee6f-103a-40d5-bc5d-37013cdefb37")
+	)
+	(label "MOSI"
+		(at 571.5 236.22 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c03ec1ab-c565-446c-b7c3-db22920a0888")
+	)
+	(label "CS_X"
+		(at 553.72 246.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31198587-8472-43a7-a14d-df655440961a")
+	)
+	(label "CS"
+		(at 571.5 246.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0a2e0dc2-3f25-499e-8cea-bb26808b51e5")
+	)
+	(label "I2C_SDA"
+		(at 553.72 266.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7ec529b0-7006-458f-b3f1-2bc5fe17f32b")
+	)
+	(label "XIAO_3V3"
+		(at 571.5 266.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "631b886c-cb24-42c4-a56a-fe106b5c10fa")
+	)
+	(label "I2C_SCL"
+		(at 553.72 276.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0e5b4f70-1903-4032-b1a4-ffdf211ca353")
+	)
+	(label "XIAO_3V3"
+		(at 571.5 276.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2cd1487b-c949-46c5-bdc0-6c6bb922ea03")
+	)
+	(label "ADS_RESET"
+		(at 524.51 238.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f40595f9-c34b-4fe3-bae6-6db0f5cbaceb")
+	)
+	(label "MISO"
+		(at 574.04 231.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cb597194-a5c7-4aed-8d45-23a19f0df906")
+	)
+	(label "DRDY"
+		(at 574.04 241.3 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "da7bfdb4-b4f2-44d9-8e5c-ed184108408b")
+	)
+	(label "AEN"
+		(at 574.04 251.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "13b7d971-25fd-4e96-be82-1f67fc5c862b")
 	)
 )

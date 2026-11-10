@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-09T00:08:42",
+    "date": "2026-11-10T20:30:29",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -1112,7 +1112,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'SNAPEDA_LINK' in footprint",
             "items": [
                 {
                     "description": "Footprint D1",
@@ -1202,7 +1202,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'SNAPEDA_LINK' in footprint",
             "items": [
                 {
                     "description": "Footprint D2",
@@ -1292,7 +1292,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'SNAPEDA_LINK' in footprint",
             "items": [
                 {
                     "description": "Footprint D3",
@@ -1382,7 +1382,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'SNAPEDA_LINK' in footprint",
             "items": [
                 {
                     "description": "Footprint D4",
@@ -1472,7 +1472,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'SNAPEDA_LINK' in footprint",
             "items": [
                 {
                     "description": "Footprint D5",
@@ -3167,7 +3167,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R28",
@@ -3197,7 +3197,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R29",
@@ -3227,7 +3227,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R30",
@@ -3257,7 +3257,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R31",
@@ -3287,7 +3287,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R32",
@@ -3317,7 +3317,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R33",
@@ -3347,7 +3347,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R34",
@@ -3377,7 +3377,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'RES 10kΩ 1.00% 0.2W 0603')",
             "items": [
                 {
                     "description": "Footprint R35",
@@ -3521,6 +3521,156 @@
                         "y": 116.4536
                     },
                     "uuid": "a5ce4493-6bac-4146-8ebc-b6c7dd68fc58"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (SCLK_X) doesn't match net given by schematic (/SCLK_X)",
+            "items": [
+                {
+                    "description": "Pad 1 [SCLK_X] of R43 on Top Layer",
+                    "pos": {
+                        "x": 162.4611,
+                        "y": 109.0536
+                    },
+                    "uuid": "bd71f78b-1cf1-4b78-9d8b-f8c6d3a0ecea"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (SCLK) doesn't match net given by schematic (/SCLK)",
+            "items": [
+                {
+                    "description": "Pad 2 [SCLK] of R43 on Top Layer",
+                    "pos": {
+                        "x": 162.4611,
+                        "y": 107.3536
+                    },
+                    "uuid": "3cbdd29f-f88f-4700-90d4-4e123f0836a9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (MOSI_X) doesn't match net given by schematic (/MOSI_X)",
+            "items": [
+                {
+                    "description": "Pad 1 [MOSI_X] of R44 on Top Layer",
+                    "pos": {
+                        "x": 157.1011,
+                        "y": 108.2536
+                    },
+                    "uuid": "387117ba-26c7-4f1c-a6c1-77228558235d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (MOSI) doesn't match net given by schematic (/MOSI)",
+            "items": [
+                {
+                    "description": "Pad 2 [MOSI] of R44 on Top Layer",
+                    "pos": {
+                        "x": 155.4011,
+                        "y": 108.2536
+                    },
+                    "uuid": "f4eaefa6-8ab8-4fc9-9bcb-17196a326186"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (CS_X) doesn't match net given by schematic (/CS_X)",
+            "items": [
+                {
+                    "description": "Pad 1 [CS_X] of R45 on Bottom Layer",
+                    "pos": {
+                        "x": 164.602141,
+                        "y": 106.034641
+                    },
+                    "uuid": "f2df131a-901e-4952-bc63-3b96a88c66ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (CS) doesn't match net given by schematic (/CS)",
+            "items": [
+                {
+                    "description": "Pad 2 [CS] of R45 on Bottom Layer",
+                    "pos": {
+                        "x": 163.400059,
+                        "y": 104.832559
+                    },
+                    "uuid": "4567096e-b0fc-4391-a128-b88c1b60006a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (I2C_SDA) doesn't match net given by schematic (/I2C_SDA)",
+            "items": [
+                {
+                    "description": "Pad 1 [I2C_SDA] of R46 on Bottom Layer",
+                    "pos": {
+                        "x": 158.7011,
+                        "y": 123.8036
+                    },
+                    "uuid": "53a82b3d-e559-40e7-b906-9cfd31bffbb2"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (XIAO_3V3) doesn't match net given by schematic (/XIAO_3V3)",
+            "items": [
+                {
+                    "description": "Pad 2 [XIAO_3V3] of R46 on Bottom Layer",
+                    "pos": {
+                        "x": 158.7011,
+                        "y": 122.1036
+                    },
+                    "uuid": "d0c44371-3b57-4216-9986-e649b313235c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (I2C_SCL) doesn't match net given by schematic (/I2C_SCL)",
+            "items": [
+                {
+                    "description": "Pad 1 [I2C_SCL] of R47 on Bottom Layer",
+                    "pos": {
+                        "x": 158.3011,
+                        "y": 90.5336
+                    },
+                    "uuid": "7127230f-9e28-48b7-a6cf-65471754fb7c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (XIAO_3V3) doesn't match net given by schematic (/XIAO_3V3)",
+            "items": [
+                {
+                    "description": "Pad 2 [XIAO_3V3] of R47 on Bottom Layer",
+                    "pos": {
+                        "x": 158.3011,
+                        "y": 88.8336
+                    },
+                    "uuid": "642806d0-9d06-4f92-8258-343bb1e6cedd"
                 }
             ],
             "severity": "warning",
@@ -3692,7 +3842,52 @@
             "type": "footprint_symbol_field_mismatch"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Pad net (MISO) doesn't match net given by schematic (/MISO)",
+            "items": [
+                {
+                    "description": "Pad 1 [MISO] of TP7 on Bottom Layer",
+                    "pos": {
+                        "x": 160.0011,
+                        "y": 105.2536
+                    },
+                    "uuid": "c837ed16-9128-43d8-941e-154e5a6dc67f"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (DRDY) doesn't match net given by schematic (/DRDY)",
+            "items": [
+                {
+                    "description": "Pad 1 [DRDY] of TP8 on Top Layer",
+                    "pos": {
+                        "x": 164.3311,
+                        "y": 104.5036
+                    },
+                    "uuid": "c6b25b87-41c4-4bc7-b31d-71be45022bb9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (AEN) doesn't match net given by schematic (/AEN)",
+            "items": [
+                {
+                    "description": "Pad 1 [AEN] of TP9 on Bottom Layer",
+                    "pos": {
+                        "x": 167.0011,
+                        "y": 86.5036
+                    },
+                    "uuid": "aab9d3b2-fad4-4644-b22c-6db54adb529c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Missing symbol field 'TOPOLOGY' in footprint",
             "items": [
                 {
                     "description": "Footprint U1",
@@ -3812,7 +4007,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'ROHS COMPLIANT' in footprint",
             "items": [
                 {
                     "description": "Footprint U3",
@@ -3842,7 +4037,7 @@
             "type": "net_conflict"
         },
         {
-            "description": "Missing symbol field 'MPN' in footprint",
+            "description": "Missing symbol field 'ARCHITECTURE' in footprint",
             "items": [
                 {
                     "description": "Footprint U4",
@@ -4380,201 +4575,6 @@
             ],
             "severity": "warning",
             "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (ADS_GPIO4) doesn't match net given by schematic (/ADS_GPIO4)",
-            "items": [
-                {
-                    "description": "Pad 46 [ADS_GPIO4] of U4 on Top Layer",
-                    "pos": {
-                        "x": 143.8261,
-                        "y": 102.2536
-                    },
-                    "uuid": "b7830d43-f973-44e6-b2a4-372c1101f7b2"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (DRDY) doesn't match net given by schematic (/DRDY)",
-            "items": [
-                {
-                    "description": "Pad 47 [DRDY] of U4 on Top Layer",
-                    "pos": {
-                        "x": 143.8261,
-                        "y": 101.7536
-                    },
-                    "uuid": "8417fa9f-7054-459b-b57a-cc38f80e8d70"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (CLKSEL) doesn't match net given by schematic (/CLKSEL)",
-            "items": [
-                {
-                    "description": "Pad 52 [CLKSEL] of U4 on Top Layer",
-                    "pos": {
-                        "x": 140.2511,
-                        "y": 99.1786
-                    },
-                    "uuid": "49e88114-6ec2-4eb9-9978-6de9da5ca45f"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (VCAP3) doesn't match net given by schematic (/VCAP3)",
-            "items": [
-                {
-                    "description": "Pad 55 [VCAP3] of U4 on Top Layer",
-                    "pos": {
-                        "x": 138.7511,
-                        "y": 99.1786
-                    },
-                    "uuid": "9b751d26-d6e8-4aa9-bb7e-638ed4e174d0"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (BIAS_INV) doesn't match net given by schematic (/BIAS_INV)",
-            "items": [
-                {
-                    "description": "Pad 61 [BIAS_INV] of U4 on Top Layer",
-                    "pos": {
-                        "x": 135.7511,
-                        "y": 99.1786
-                    },
-                    "uuid": "f76eedf4-7594-4b9e-a7e9-82df11f93025"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (BIAS_IN) doesn't match net given by schematic (/BIAS_IN)",
-            "items": [
-                {
-                    "description": "Pad 62 [BIAS_IN] of U4 on Top Layer",
-                    "pos": {
-                        "x": 135.2511,
-                        "y": 99.1786
-                    },
-                    "uuid": "d7d5fffc-dab4-4ca4-a04c-824789bf67ca"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (BIAS_OUT) doesn't match net given by schematic (/BIAS_OUT)",
-            "items": [
-                {
-                    "description": "Pad 63 [BIAS_OUT] of U4 on Top Layer",
-                    "pos": {
-                        "x": 134.7511,
-                        "y": 99.1786
-                    },
-                    "uuid": "34dd002b-d3b7-4966-882e-58dbc37738d5"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad missing net given by schematic (unconnected-(U4A-RESERVED-Pad64))",
-            "items": [
-                {
-                    "description": "Pad 64 [<no net>] of U4 on Top Layer",
-                    "pos": {
-                        "x": 134.2511,
-                        "y": 99.1786
-                    },
-                    "uuid": "bd19a082-05c5-4aef-b2b6-df5adc03c33f"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (VBAT_SENSE) doesn't match net given by schematic (/VBAT_SENSE)",
-            "items": [
-                {
-                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
-                    "pos": {
-                        "x": 172.6211,
-                        "y": 111.8386
-                    },
-                    "uuid": "f14a9b93-6482-4a18-9747-7c3af2e2a1be"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (DRDY) doesn't match net given by schematic (/DRDY)",
-            "items": [
-                {
-                    "description": "Pad 2 [DRDY] of U6 on Top Layer",
-                    "pos": {
-                        "x": 170.0811,
-                        "y": 111.8386
-                    },
-                    "uuid": "9ddaa840-aa49-452b-8de3-6070f9745578"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (CS) doesn't match net given by schematic (/CS)",
-            "items": [
-                {
-                    "description": "Pad 3 [CS] of U6 on Top Layer",
-                    "pos": {
-                        "x": 167.5411,
-                        "y": 111.8386
-                    },
-                    "uuid": "2f31234f-d6b0-4a41-a216-1ced1acb9e57"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (MOSI) doesn't match net given by schematic (/MOSI)",
-            "items": [
-                {
-                    "description": "Pad 4 [MOSI] of U6 on Top Layer",
-                    "pos": {
-                        "x": 165.0011,
-                        "y": 111.8386
-                    },
-                    "uuid": "c83260fe-9a00-40cd-886a-30c5b6a622a4"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "Pad net (SCLK) doesn't match net given by schematic (/SCLK)",
-            "items": [
-                {
-                    "description": "Pad 5 [SCLK] of U6 on Top Layer",
-                    "pos": {
-                        "x": 162.4611,
-                        "y": 111.8386
-                    },
-                    "uuid": "cdc66a72-61ce-4e67-865d-36bc78f53e35"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
         }
     ],
     "source": "Neuryo_RevB.kicad_pcb",
@@ -5058,21 +5058,6 @@
             "type": "lib_footprint_mismatch"
         },
         {
-            "description": "Footprint 'XIAO-ESP32-S3-SMD' does not match copy in library 'Neuryo_RevB'",
-            "items": [
-                {
-                    "description": "Footprint U6",
-                    "pos": {
-                        "x": 154.5011,
-                        "y": 111.0036
-                    },
-                    "uuid": "36d4969d-433d-4f69-ad38-7de6db188477"
-                }
-            ],
-            "severity": "warning",
-            "type": "lib_footprint_mismatch"
-        },
-        {
             "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
             "items": [
                 {
@@ -5082,6 +5067,36 @@
                         "y": 86.1536
                     },
                     "uuid": "3e4500b6-f6ae-44c8-ab7a-4802b6b62cd0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
+            "items": [
+                {
+                    "description": "Footprint R43",
+                    "pos": {
+                        "x": 162.4611,
+                        "y": 108.2036
+                    },
+                    "uuid": "453c6f6b-6356-4fbe-b50c-648283d6e447"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
+            "items": [
+                {
+                    "description": "Footprint R44",
+                    "pos": {
+                        "x": 156.2511,
+                        "y": 108.2536
+                    },
+                    "uuid": "51c04301-3aa7-4369-aefa-1472d9a0b60d"
                 }
             ],
             "severity": "warning",
@@ -5316,6 +5331,36 @@
             "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
             "items": [
                 {
+                    "description": "Footprint R47",
+                    "pos": {
+                        "x": 158.3011,
+                        "y": 89.6836
+                    },
+                    "uuid": "395f88fb-ef30-4b2e-a0f1-daeaae56c423"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
+            "items": [
+                {
+                    "description": "Footprint R45",
+                    "pos": {
+                        "x": 164.0011,
+                        "y": 105.4336
+                    },
+                    "uuid": "3c0f882b-c73b-4399-80af-a45ecdfa4a62"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
+            "items": [
+                {
                     "description": "Footprint R34",
                     "pos": {
                         "x": 139.7511,
@@ -5538,6 +5583,21 @@
             "type": "lib_footprint_mismatch"
         },
         {
+            "description": "Footprint 'FP-AC0603-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
+            "items": [
+                {
+                    "description": "Footprint R46",
+                    "pos": {
+                        "x": 158.7011,
+                        "y": 122.9536
+                    },
+                    "uuid": "b3efa13e-836c-4679-8b5b-fd77c7abbb2b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
             "description": "Footprint 'FP-C0603C-CF-MFG' does not match copy in library 'Low_Cost_EEG-import-fps'",
             "items": [
                 {
@@ -5654,29 +5714,6 @@
             "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Arc of U6 on Top Overlay",
-                    "pos": {
-                        "x": 173.637099,
-                        "y": 112.908601
-                    },
-                    "uuid": "c3241d49-0cd0-45bd-a6e3-1cee517b9adc"
-                },
-                {
-                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
-                    "pos": {
-                        "x": 172.6211,
-                        "y": 111.8386
-                    },
-                    "uuid": "f14a9b93-6482-4a18-9747-7c3af2e2a1be"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
                     "description": "Segment of U6 on Top Overlay",
                     "pos": {
                         "x": 156.4881,
@@ -5731,7 +5768,7 @@
                     "uuid": "ddf428a4-f469-4f34-8b12-1fec6c162e06"
                 },
                 {
-                    "description": "Pad 3 [CS] of U6 on Top Layer",
+                    "description": "Pad 3 [CS_X] of U6 on Top Layer",
                     "pos": {
                         "x": 167.5411,
                         "y": 111.8386
@@ -5754,7 +5791,7 @@
                     "uuid": "ddf428a4-f469-4f34-8b12-1fec6c162e06"
                 },
                 {
-                    "description": "Pad 4 [MOSI] of U6 on Top Layer",
+                    "description": "Pad 4 [MOSI_X] of U6 on Top Layer",
                     "pos": {
                         "x": 165.0011,
                         "y": 111.8386
@@ -5777,7 +5814,7 @@
                     "uuid": "ddf428a4-f469-4f34-8b12-1fec6c162e06"
                 },
                 {
-                    "description": "Pad 5 [SCLK] of U6 on Top Layer",
+                    "description": "Pad 5 [SCLK_X] of U6 on Top Layer",
                     "pos": {
                         "x": 162.4611,
                         "y": 111.8386
@@ -5915,7 +5952,7 @@
                     "uuid": "973e3e79-a67e-48fe-a55e-fee68e6f8d81"
                 },
                 {
-                    "description": "Pad 11 [<no net>] of U6 on Top Layer",
+                    "description": "Pad 11 [ADS_RESET] of U6 on Top Layer",
                     "pos": {
                         "x": 165.0011,
                         "y": 128.0036
@@ -6059,6 +6096,29 @@
                         "y": 128.0036
                     },
                     "uuid": "adcbede9-5819-4417-801f-96db20a4e2ff"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Arc of U6 on Top Overlay",
+                    "pos": {
+                        "x": 173.637099,
+                        "y": 112.908601
+                    },
+                    "uuid": "c3241d49-0cd0-45bd-a6e3-1cee517b9adc"
+                },
+                {
+                    "description": "Pad 1 [VBAT_SENSE] of U6 on Top Layer",
+                    "pos": {
+                        "x": 172.6211,
+                        "y": 111.8386
+                    },
+                    "uuid": "f14a9b93-6482-4a18-9747-7c3af2e2a1be"
                 }
             ],
             "severity": "warning",

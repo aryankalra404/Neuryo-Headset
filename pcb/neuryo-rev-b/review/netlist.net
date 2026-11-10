@@ -1,8 +1,8 @@
 (export
 	(version "E")
 	(design
-		(source "/Users/aryankalra/Desktop/Neuryo-Headset/pcb/neuryo-rev-b/Neuryo_RevB.kicad_sch")
-		(date "2026-11-09T00:08:40")
+		(source "/Users/aryankalra/Downloads/pcb-work/sH/Neuryo_RevB.kicad_sch")
+		(date "2026-11-10T20:30:26")
 		(tool "Eeschema 10.0.8")
 		(textvar
 			(name "DRAWNBY") "Xavier Asghar")
@@ -7601,7 +7601,9 @@
 			(description "Cap Ceramic 100nF 50V X7R 0603")
 			(fields
 				(field
-					(name "MPN") "TDK CGA3E2X7R1H104K080AD (as reference C13)")
+					(name "MPN") "YAGEO CC0603KRX7R9BB104")
+				(field
+					(name "LCSC") "C14663")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-C0603C-CF-MFG")
 				(field
@@ -7617,7 +7619,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "TDK CGA3E2X7R1H104K080AD (as reference C13)")
+				(value "YAGEO CC0603KRX7R9BB104")
+			)
+			(property
+				(name "LCSC")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -10420,6 +10426,8 @@
 				(field
 					(name "MPN") "Nexperia 2N7002,215")
 				(field
+					(name "LCSC") "C65189")
+				(field
 					(name "Footprint") "Neuryo_RevB:SOT-23")
 				(field
 					(name "Datasheet")
@@ -10436,6 +10444,10 @@
 			(property
 				(name "MPN")
 				(value "Nexperia 2N7002,215")
+			)
+			(property
+				(name "LCSC")
+				(value "C65189")
 			)
 			(property
 				(name "Sheetname")
@@ -13706,7 +13718,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -13722,7 +13736,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -13762,7 +13780,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -13778,7 +13798,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -13818,7 +13842,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -13834,7 +13860,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -13874,7 +13904,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -13890,7 +13922,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -13930,7 +13966,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -13946,7 +13984,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -13986,7 +14028,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14002,7 +14046,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -14042,7 +14090,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14058,7 +14108,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -14098,7 +14152,9 @@
 			(description "RES 10kΩ 1.00% 0.2W 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14114,7 +14170,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -14154,7 +14214,9 @@
 			(description "RES 10k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-7W10KL (same as R28-R35)")
+					(name "MPN") "UNI-ROYAL 0603WAF1002T5E")
+				(field
+					(name "LCSC") "C25804")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14170,7 +14232,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-7W10KL (same as R28-R35)")
+				(value "UNI-ROYAL 0603WAF1002T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -14210,7 +14276,9 @@
 			(description "RES 100k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07100KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1003T5E")
+				(field
+					(name "LCSC") "C25803")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14226,7 +14294,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07100KL")
+				(value "UNI-ROYAL 0603WAF1003T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25803")
 			)
 			(property
 				(name "Sheetname")
@@ -14266,7 +14338,9 @@
 			(description "RES 100k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07100KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1003T5E")
+				(field
+					(name "LCSC") "C25803")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14282,7 +14356,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07100KL")
+				(value "UNI-ROYAL 0603WAF1003T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25803")
 			)
 			(property
 				(name "Sheetname")
@@ -14322,7 +14400,9 @@
 			(description "RES 100k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07100KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1003T5E")
+				(field
+					(name "LCSC") "C25803")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14338,7 +14418,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07100KL")
+				(value "UNI-ROYAL 0603WAF1003T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C25803")
 			)
 			(property
 				(name "Sheetname")
@@ -14378,7 +14462,9 @@
 			(description "RES 150k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07150KL")
+					(name "MPN") "UNI-ROYAL 0603WAF1503T5E")
+				(field
+					(name "LCSC") "C22807")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14394,7 +14480,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07150KL")
+				(value "UNI-ROYAL 0603WAF1503T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C22807")
 			)
 			(property
 				(name "Sheetname")
@@ -14434,7 +14524,9 @@
 			(description "RES 220k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07220KL")
+					(name "MPN") "UNI-ROYAL 0603WAF2203T5E")
+				(field
+					(name "LCSC") "C22961")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14450,7 +14542,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07220KL")
+				(value "UNI-ROYAL 0603WAF2203T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C22961")
 			)
 			(property
 				(name "Sheetname")
@@ -14490,7 +14586,9 @@
 			(description "RES 220k 1% 0603")
 			(fields
 				(field
-					(name "MPN") "Yageo AC0603FR-07220KL")
+					(name "MPN") "UNI-ROYAL 0603WAF2203T5E")
+				(field
+					(name "LCSC") "C22961")
 				(field
 					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
 				(field
@@ -14506,7 +14604,11 @@
 			)
 			(property
 				(name "MPN")
-				(value "Yageo AC0603FR-07220KL")
+				(value "UNI-ROYAL 0603WAF2203T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C22961")
 			)
 			(property
 				(name "Sheetname")
@@ -14525,6 +14627,316 @@
 				(tstamps "/")
 			)
 			(tstamps "7de3210c-8a40-4ce2-98ae-1a2e681c6b45")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R43")
+			(value "330")
+			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+			(description "RES 330R 1% 1/10W 0603")
+			(fields
+				(field
+					(name "MPN") "UNI-ROYAL 0603WAF3300T5E")
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "RES 330R 1% 1/10W 0603")
+			)
+			(libsource
+				(lib "Altium Content Vault")
+				(part "1029c3af85768c4190bb7ad29bc67b5")
+				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "UNI-ROYAL 0603WAF3300T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*FP-MCT0603-IPC_A*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fd57a5f6-4652-4ca0-86bc-9fcc65b92ea2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R44")
+			(value "330")
+			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+			(description "RES 330R 1% 1/10W 0603")
+			(fields
+				(field
+					(name "MPN") "UNI-ROYAL 0603WAF3300T5E")
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "RES 330R 1% 1/10W 0603")
+			)
+			(libsource
+				(lib "Altium Content Vault")
+				(part "1029c3af85768c4190bb7ad29bc67b5")
+				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "UNI-ROYAL 0603WAF3300T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*FP-MCT0603-IPC_A*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "650e37b7-661d-4ed0-9f09-1b9b875785f8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R45")
+			(value "330")
+			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+			(description "RES 330R 1% 1/10W 0603")
+			(fields
+				(field
+					(name "MPN") "UNI-ROYAL 0603WAF3300T5E")
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "RES 330R 1% 1/10W 0603")
+			)
+			(libsource
+				(lib "Altium Content Vault")
+				(part "1029c3af85768c4190bb7ad29bc67b5")
+				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "UNI-ROYAL 0603WAF3300T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*FP-MCT0603-IPC_A*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2e8eb95b-6702-4913-a956-2d94724588e9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R46")
+			(value "4.7k")
+			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+			(description "RES 4.7k 1% 1/10W 0603")
+			(fields
+				(field
+					(name "MPN") "UNI-ROYAL 0603WAF4701T5E")
+				(field
+					(name "LCSC") "C23162")
+				(field
+					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "RES 4.7k 1% 1/10W 0603")
+			)
+			(libsource
+				(lib "Altium Content Vault")
+				(part "1029c3af85768c4190bb7ad29bc67b5")
+				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "UNI-ROYAL 0603WAF4701T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C23162")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*FP-MCT0603-IPC_A*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "96cfd890-1c9e-45d8-84b3-0881b5468bb3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R47")
+			(value "4.7k")
+			(footprint "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+			(description "RES 4.7k 1% 1/10W 0603")
+			(fields
+				(field
+					(name "MPN") "UNI-ROYAL 0603WAF4701T5E")
+				(field
+					(name "LCSC") "C23162")
+				(field
+					(name "Footprint") "Low_Cost_EEG-import-fps:FP-AC0603-MFG")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "RES 4.7k 1% 1/10W 0603")
+			)
+			(libsource
+				(lib "Altium Content Vault")
+				(part "1029c3af85768c4190bb7ad29bc67b5")
+				(description "RES SMD 100 OHM 1% 1/8W 0603")
+			)
+			(property
+				(name "MPN")
+				(value "UNI-ROYAL 0603WAF4701T5E")
+			)
+			(property
+				(name "LCSC")
+				(value "C23162")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*FP-MCT0603-IPC_A*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3129f113-598f-4917-b1a4-e250d4f96655")
 			(units
 				(unit
 					(name "A")
@@ -14984,6 +15396,183 @@
 				(tstamps "/")
 			)
 			(tstamps "de5ddb87-d531-459f-88a4-8f864e90ce97")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP7")
+			(value "TP")
+			(footprint "Neuryo_RevB:TP_SMD_D1.0")
+			(description "Test pad 1.0 mm, no paste")
+			(fields
+				(field
+					(name "MPN") "(copper test pad, not assembled)")
+				(field
+					(name "Footprint") "Neuryo_RevB:TP_SMD_D1.0")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Test pad 1.0 mm, no paste")
+			)
+			(libsource
+				(lib "Test_Points")
+				(part "TestPoint_SMD")
+				(description "2mm diameter circular test point,")
+			)
+			(property
+				(name "MPN")
+				(value "(copper test pad, not assembled)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "exclude_from_pos_files")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*TP_SMD_2mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3c648028-8a94-4c64-a88b-8342957b64d7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP8")
+			(value "TP")
+			(footprint "Neuryo_RevB:TP_SMD_D1.0")
+			(description "Test pad 1.0 mm, no paste")
+			(fields
+				(field
+					(name "MPN") "(copper test pad, not assembled)")
+				(field
+					(name "Footprint") "Neuryo_RevB:TP_SMD_D1.0")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Test pad 1.0 mm, no paste")
+			)
+			(libsource
+				(lib "Test_Points")
+				(part "TestPoint_SMD")
+				(description "2mm diameter circular test point,")
+			)
+			(property
+				(name "MPN")
+				(value "(copper test pad, not assembled)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "exclude_from_pos_files")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*TP_SMD_2mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3b69352f-36ab-4c2a-a22b-fc6350ff55d5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP9")
+			(value "TP")
+			(footprint "Neuryo_RevB:TP_SMD_D1.0")
+			(description "Test pad 1.0 mm, no paste")
+			(fields
+				(field
+					(name "MPN") "(copper test pad, not assembled)")
+				(field
+					(name "Footprint") "Neuryo_RevB:TP_SMD_D1.0")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Test pad 1.0 mm, no paste")
+			)
+			(libsource
+				(lib "Test_Points")
+				(part "TestPoint_SMD")
+				(description "2mm diameter circular test point,")
+			)
+			(property
+				(name "MPN")
+				(value "(copper test pad, not assembled)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Neuryo_RevB")
+			)
+			(property
+				(name "Sheetfile")
+				(value "Neuryo_RevB.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "exclude_from_pos_files")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*TP_SMD_2mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5b7d19db-3be0-4611-916f-d49256560160")
 			(units
 				(unit
 					(name "A")
@@ -18164,6 +18753,12 @@
 				(pinfunction "~{RESET}_36")
 				(pintype "input")
 			)
+			(node
+				(ref "U6")
+				(pin "11")
+				(pinfunction "D10_11")
+				(pintype "passive")
+			)
 		)
 		(net
 			(code "22")
@@ -18196,6 +18791,12 @@
 				(ref "R38")
 				(pin "2")
 				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "TP9")
+				(pin "1")
+				(pinfunction "TP_1")
 				(pintype "passive")
 			)
 			(node
@@ -18343,10 +18944,27 @@
 				(pintype "passive")
 			)
 			(node
+				(ref "R45")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
 				(ref "U4")
 				(pin "39")
 				(pinfunction "~{CS}_39")
 				(pintype "input")
+			)
+		)
+		(net
+			(code "30")
+			(name "/CS_X")
+			(class "Default")
+			(node
+				(ref "R45")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
 			)
 			(node
 				(ref "U6")
@@ -18356,9 +18974,15 @@
 			)
 		)
 		(net
-			(code "30")
+			(code "31")
 			(name "/DRDY")
 			(class "Default")
+			(node
+				(ref "TP8")
+				(pin "1")
+				(pinfunction "TP_1")
+				(pintype "passive")
+			)
 			(node
 				(ref "U4")
 				(pin "47")
@@ -18373,7 +18997,7 @@
 			)
 		)
 		(net
-			(code "31")
+			(code "32")
 			(name "/I2C_SCL")
 			(class "Default")
 			(node
@@ -18389,6 +19013,12 @@
 				(pintype "passive")
 			)
 			(node
+				(ref "R47")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
 				(ref "U6")
 				(pin "8")
 				(pinfunction "D7_8")
@@ -18396,7 +19026,7 @@
 			)
 		)
 		(net
-			(code "32")
+			(code "33")
 			(name "/I2C_SDA")
 			(class "Default")
 			(node
@@ -18412,6 +19042,12 @@
 				(pintype "passive")
 			)
 			(node
+				(ref "R46")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
 				(ref "U6")
 				(pin "9")
 				(pinfunction "D8_9")
@@ -18419,7 +19055,7 @@
 			)
 		)
 		(net
-			(code "33")
+			(code "34")
 			(name "/IN1N")
 			(class "Default")
 			(node
@@ -18442,7 +19078,7 @@
 			)
 		)
 		(net
-			(code "34")
+			(code "35")
 			(name "/IN1P")
 			(class "Default")
 			(node
@@ -18465,7 +19101,7 @@
 			)
 		)
 		(net
-			(code "35")
+			(code "36")
 			(name "/IN2N")
 			(class "Default")
 			(node
@@ -18488,7 +19124,7 @@
 			)
 		)
 		(net
-			(code "36")
+			(code "37")
 			(name "/IN2P")
 			(class "Default")
 			(node
@@ -18511,7 +19147,7 @@
 			)
 		)
 		(net
-			(code "37")
+			(code "38")
 			(name "/IN3N")
 			(class "Default")
 			(node
@@ -18534,7 +19170,7 @@
 			)
 		)
 		(net
-			(code "38")
+			(code "39")
 			(name "/IN3P")
 			(class "Default")
 			(node
@@ -18557,7 +19193,7 @@
 			)
 		)
 		(net
-			(code "39")
+			(code "40")
 			(name "/IN4N")
 			(class "Default")
 			(node
@@ -18580,7 +19216,7 @@
 			)
 		)
 		(net
-			(code "40")
+			(code "41")
 			(name "/IN4P")
 			(class "Default")
 			(node
@@ -18603,7 +19239,7 @@
 			)
 		)
 		(net
-			(code "41")
+			(code "42")
 			(name "/IN5N")
 			(class "Default")
 			(node
@@ -18626,7 +19262,7 @@
 			)
 		)
 		(net
-			(code "42")
+			(code "43")
 			(name "/IN5P")
 			(class "Default")
 			(node
@@ -18649,7 +19285,7 @@
 			)
 		)
 		(net
-			(code "43")
+			(code "44")
 			(name "/IN6N")
 			(class "Default")
 			(node
@@ -18672,7 +19308,7 @@
 			)
 		)
 		(net
-			(code "44")
+			(code "45")
 			(name "/IN6P")
 			(class "Default")
 			(node
@@ -18695,7 +19331,7 @@
 			)
 		)
 		(net
-			(code "45")
+			(code "46")
 			(name "/IN7N")
 			(class "Default")
 			(node
@@ -18718,7 +19354,7 @@
 			)
 		)
 		(net
-			(code "46")
+			(code "47")
 			(name "/IN7P")
 			(class "Default")
 			(node
@@ -18741,7 +19377,7 @@
 			)
 		)
 		(net
-			(code "47")
+			(code "48")
 			(name "/IN8N")
 			(class "Default")
 			(node
@@ -18764,7 +19400,7 @@
 			)
 		)
 		(net
-			(code "48")
+			(code "49")
 			(name "/IN8P")
 			(class "Default")
 			(node
@@ -18787,9 +19423,15 @@
 			)
 		)
 		(net
-			(code "49")
+			(code "50")
 			(name "/MISO")
 			(class "Default")
+			(node
+				(ref "TP7")
+				(pin "1")
+				(pinfunction "TP_1")
+				(pintype "passive")
+			)
 			(node
 				(ref "U4")
 				(pin "43")
@@ -18804,14 +19446,31 @@
 			)
 		)
 		(net
-			(code "50")
+			(code "51")
 			(name "/MOSI")
 			(class "Default")
+			(node
+				(ref "R44")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
 			(node
 				(ref "U4")
 				(pin "34")
 				(pinfunction "DIN_34")
 				(pintype "input")
+			)
+		)
+		(net
+			(code "52")
+			(name "/MOSI_X")
+			(class "Default")
+			(node
+				(ref "R44")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
 			)
 			(node
 				(ref "U6")
@@ -18821,7 +19480,7 @@
 			)
 		)
 		(net
-			(code "51")
+			(code "53")
 			(name "/PWDN")
 			(class "Default")
 			(node
@@ -18838,7 +19497,7 @@
 			)
 		)
 		(net
-			(code "52")
+			(code "54")
 			(name "/REF")
 			(class "Default")
 			(node
@@ -18861,14 +19520,31 @@
 			)
 		)
 		(net
-			(code "53")
+			(code "55")
 			(name "/SCLK")
 			(class "Default")
+			(node
+				(ref "R43")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
 			(node
 				(ref "U4")
 				(pin "40")
 				(pinfunction "SCLK_40")
 				(pintype "input")
+			)
+		)
+		(net
+			(code "56")
+			(name "/SCLK_X")
+			(class "Default")
+			(node
+				(ref "R43")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
 			)
 			(node
 				(ref "U6")
@@ -18878,7 +19554,7 @@
 			)
 		)
 		(net
-			(code "54")
+			(code "57")
 			(name "/SRB2")
 			(class "Default")
 			(node
@@ -18901,7 +19577,7 @@
 			)
 		)
 		(net
-			(code "55")
+			(code "58")
 			(name "/SRB2_HDR")
 			(class "Default")
 			(node
@@ -18918,7 +19594,7 @@
 			)
 		)
 		(net
-			(code "56")
+			(code "59")
 			(name "/USB_SENSE")
 			(class "Default")
 			(node
@@ -18941,7 +19617,7 @@
 			)
 		)
 		(net
-			(code "57")
+			(code "60")
 			(name "/VBAT_SENSE")
 			(class "Default")
 			(node
@@ -18970,7 +19646,7 @@
 			)
 		)
 		(net
-			(code "58")
+			(code "61")
 			(name "/VCAP1")
 			(class "Default")
 			(node
@@ -18987,7 +19663,7 @@
 			)
 		)
 		(net
-			(code "59")
+			(code "62")
 			(name "/VCAP2")
 			(class "Default")
 			(node
@@ -19004,7 +19680,7 @@
 			)
 		)
 		(net
-			(code "60")
+			(code "63")
 			(name "/VCAP3")
 			(class "Default")
 			(node
@@ -19027,7 +19703,7 @@
 			)
 		)
 		(net
-			(code "61")
+			(code "64")
 			(name "/VCAP4")
 			(class "Default")
 			(node
@@ -19044,7 +19720,7 @@
 			)
 		)
 		(net
-			(code "62")
+			(code "65")
 			(name "/VREFP")
 			(class "Default")
 			(node
@@ -19067,7 +19743,7 @@
 			)
 		)
 		(net
-			(code "63")
+			(code "66")
 			(name "/VUSB")
 			(class "Default")
 			(node
@@ -19096,7 +19772,7 @@
 			)
 		)
 		(net
-			(code "64")
+			(code "67")
 			(name "/XIAO_3V3")
 			(class "Default")
 			(node
@@ -19112,6 +19788,18 @@
 				(pintype "passive")
 			)
 			(node
+				(ref "R46")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R47")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
 				(ref "U6")
 				(pin "12")
 				(pinfunction "3V3_OUT_12")
@@ -19119,7 +19807,7 @@
 			)
 		)
 		(net
-			(code "65")
+			(code "68")
 			(name "AVDD")
 			(class "Default")
 			(node
@@ -19214,7 +19902,7 @@
 			)
 		)
 		(net
-			(code "66")
+			(code "69")
 			(name "AVSS")
 			(class "Default")
 			(node
@@ -19363,7 +20051,7 @@
 			)
 		)
 		(net
-			(code "67")
+			(code "70")
 			(name "DVDD")
 			(class "Default")
 			(node
@@ -19434,7 +20122,7 @@
 			)
 		)
 		(net
-			(code "68")
+			(code "71")
 			(name "GND")
 			(class "Default")
 			(node
@@ -19835,7 +20523,7 @@
 			)
 		)
 		(net
-			(code "69")
+			(code "72")
 			(name "Net-(U1-C1+)")
 			(class "Default")
 			(node
@@ -19852,7 +20540,7 @@
 			)
 		)
 		(net
-			(code "70")
+			(code "73")
 			(name "Net-(U1-C1-)")
 			(class "Default")
 			(node
@@ -19869,7 +20557,7 @@
 			)
 		)
 		(net
-			(code "71")
+			(code "74")
 			(name "Net-(U1-CP)")
 			(class "Default")
 			(node
@@ -19886,7 +20574,7 @@
 			)
 		)
 		(net
-			(code "72")
+			(code "75")
 			(name "Net-(U1-FB+)")
 			(class "Default")
 			(node
@@ -19909,7 +20597,7 @@
 			)
 		)
 		(net
-			(code "73")
+			(code "76")
 			(name "Net-(U1-FB-)")
 			(class "Default")
 			(node
@@ -19932,7 +20620,7 @@
 			)
 		)
 		(net
-			(code "74")
+			(code "77")
 			(name "VBAT")
 			(class "Default")
 			(node
@@ -19961,7 +20649,7 @@
 			)
 		)
 		(net
-			(code "75")
+			(code "78")
 			(name "VIN")
 			(class "Default")
 			(node
@@ -20020,7 +20708,7 @@
 			)
 		)
 		(net
-			(code "76")
+			(code "79")
 			(name "unconnected-(D1-IO2-Pad2)")
 			(class "Default")
 			(node
@@ -20031,7 +20719,7 @@
 			)
 		)
 		(net
-			(code "77")
+			(code "80")
 			(name "unconnected-(D1-NC-Pad6)")
 			(class "Default")
 			(node
@@ -20042,7 +20730,7 @@
 			)
 		)
 		(net
-			(code "78")
+			(code "81")
 			(name "unconnected-(D2-NC-Pad6)")
 			(class "Default")
 			(node
@@ -20053,7 +20741,7 @@
 			)
 		)
 		(net
-			(code "79")
+			(code "82")
 			(name "unconnected-(D3-NC-Pad6)")
 			(class "Default")
 			(node
@@ -20064,7 +20752,7 @@
 			)
 		)
 		(net
-			(code "80")
+			(code "83")
 			(name "unconnected-(D4-NC-Pad6)")
 			(class "Default")
 			(node
@@ -20075,7 +20763,7 @@
 			)
 		)
 		(net
-			(code "81")
+			(code "84")
 			(name "unconnected-(D5-NC-Pad6)")
 			(class "Default")
 			(node
@@ -20086,7 +20774,7 @@
 			)
 		)
 		(net
-			(code "82")
+			(code "85")
 			(name "unconnected-(SW1-Pad3)")
 			(class "Default")
 			(node
@@ -20097,7 +20785,7 @@
 			)
 		)
 		(net
-			(code "83")
+			(code "86")
 			(name "unconnected-(U4A-CLK-Pad37)")
 			(class "Default")
 			(node
@@ -20108,7 +20796,7 @@
 			)
 		)
 		(net
-			(code "84")
+			(code "87")
 			(name "unconnected-(U4A-NC-Pad27)")
 			(class "Default")
 			(node
@@ -20119,7 +20807,7 @@
 			)
 		)
 		(net
-			(code "85")
+			(code "88")
 			(name "unconnected-(U4A-NC-Pad29)")
 			(class "Default")
 			(node
@@ -20130,7 +20818,7 @@
 			)
 		)
 		(net
-			(code "86")
+			(code "89")
 			(name "unconnected-(U4A-RESERVED-Pad64)")
 			(class "Default")
 			(node
@@ -20141,7 +20829,7 @@
 			)
 		)
 		(net
-			(code "87")
+			(code "90")
 			(name "unconnected-(U4A-SRB1-Pad17)")
 			(class "Default")
 			(node
@@ -20152,7 +20840,7 @@
 			)
 		)
 		(net
-			(code "88")
+			(code "91")
 			(name "unconnected-(U6-D6-Pad7)")
 			(class "Default")
 			(node
@@ -20163,18 +20851,7 @@
 			)
 		)
 		(net
-			(code "89")
-			(name "unconnected-(U6-D10-Pad11)")
-			(class "Default")
-			(node
-				(ref "U6")
-				(pin "11")
-				(pinfunction "D10_11")
-				(pintype "passive+no_connect")
-			)
-		)
-		(net
-			(code "90")
+			(code "92")
 			(name "unconnected-(U6-EN-Pad17)")
 			(class "Default")
 			(node
@@ -20185,7 +20862,7 @@
 			)
 		)
 		(net
-			(code "91")
+			(code "93")
 			(name "unconnected-(U6-GND-Pad18)")
 			(class "Default")
 			(node
@@ -20196,7 +20873,7 @@
 			)
 		)
 		(net
-			(code "92")
+			(code "94")
 			(name "unconnected-(U6-MTCK-Pad20)")
 			(class "Default")
 			(node
@@ -20207,7 +20884,7 @@
 			)
 		)
 		(net
-			(code "93")
+			(code "95")
 			(name "unconnected-(U6-MTDI-Pad15)")
 			(class "Default")
 			(node
@@ -20218,7 +20895,7 @@
 			)
 		)
 		(net
-			(code "94")
+			(code "96")
 			(name "unconnected-(U6-MTDO-Pad16)")
 			(class "Default")
 			(node
@@ -20229,7 +20906,7 @@
 			)
 		)
 		(net
-			(code "95")
+			(code "97")
 			(name "unconnected-(U6-MTMS-Pad19)")
 			(class "Default")
 			(node
@@ -20240,7 +20917,7 @@
 			)
 		)
 		(net
-			(code "96")
+			(code "98")
 			(name "unconnected-(U6-USB_DN-Pad21)")
 			(class "Default")
 			(node
@@ -20251,7 +20928,7 @@
 			)
 		)
 		(net
-			(code "97")
+			(code "99")
 			(name "unconnected-(U6-USB_DP-Pad22)")
 			(class "Default")
 			(node

@@ -27,14 +27,26 @@ ADS1299 ADS;
 #define I2C_SCL_PIN    44   // D7
 #define USB_SENSE_PIN  8    // D9: XIAO 5V through 100k/150k, high = USB present = ADS1299 unpowered (interlock)
 #define BOOT_BUTTON_PIN 0
-// No RESET or START GPIO on rev B: RESET/PWDN are pulled up (10k), START is pulled down (R36 10k).
+// 4th pass: D10 (GPIO9) -> ADS1299 RESET (R30 10k pull-up to DVDD stays). Driven open-drain only, never high, so it
+// cannot back-power the ADS1299 when the analog side is off. Not passed to the library (it would drive it push-pull).
+#define ADS_RESET_PIN  9    // D10
+static_assert(D10 == ADS_RESET_PIN, "XIAO D10 must be GPIO9 (rev B 4th pass pin map)");
+// START has no GPIO: pulled down (R36 10k), START command used. PWDN pulled up (10k).
 #define NO_PIN        -1
+
+// Bench build (env xiao_esp32s3_bench, -D BENCH_NO_INTERLOCK): USB_SENSE is ignored and the ADS1299 starts on USB,
+// for a bench board with Q1 removed (inputs shorted or on a signal generator). Never on a person.
+#ifdef BENCH_NO_INTERLOCK
+#define BENCH_NOTE " BENCH BUILD: interlock ignored, not for use on a person"
+#else
+#define BENCH_NOTE ""
+#endif
 
 // BLUETOOTH DEFINITIONS (unchanged)
 #define bleServerName "ESP32_EEG_DATA"
 #define SERVICE_UUID "91bad492-b950-4226-aa2b-4ede9fa42f59"
 #define CHARACTERISTIC_UUID "cba1d466-344c-4be3-ab3f-189f80dd7518"
-// New, read/notify, ASCII text: "usb=<0|1> ads=<0|1> vbat=<mV> i2c=<addresses>"
+// New, read/notify, ASCII text: "usb=<0|1> ads=<0|1> id=<hex> vbat=<mV> i2c=<addresses>" (+ BENCH_NOTE on the bench build)
 #define STATUS_UUID "5c3a1f2e-8d4b-4f6a-9e21-7b0c6d9a4e13"
 BLECharacteristic *pCharacteristic = NULL;
 BLECharacteristic *pStatus = NULL;
@@ -47,6 +59,7 @@ void readADSDataTask(void * pvParameters);
 void sendDataTask(void * pvParameters);
 bool adsStart();
 void adsStop();
+void adsHardwareReset();
 void updateStatus();
 
 SemaphoreHandle_t drdySemaphore;
@@ -56,6 +69,7 @@ volatile bool deviceConnected = false;
 volatile bool triggerRecordMode = false;
 volatile bool adsRunning = false;          // ADS1299 powered, configured and converting
 volatile bool usbEvent = false;            // USB_SENSE changed
+uint8_t adsId = 0;                         // last ID register read (0x3E expected; 0 = not read yet)
 String i2cFound = "none";
 
 // --------------------------------------------------------------------------------------------------------------------------------------
@@ -83,11 +97,17 @@ void setup() {
   pinMode(MOSI_PIN, INPUT);
   pinMode(CS_PIN, INPUT);
   pinMode(DRDY_PIN, INPUT);
+  pinMode(ADS_RESET_PIN, INPUT);           // R30 holds RESET high; only ever pulled low (open-drain)
   pinMode(USB_SENSE_PIN, INPUT);           // divider drives it; no internal pull
+#ifndef BENCH_NO_INTERLOCK
   attachInterrupt(digitalPinToInterrupt(USB_SENSE_PIN), usbSenseISR, CHANGE);
+#endif
 
   Serial.begin(115200);
   delay(1000);
+#ifdef BENCH_NO_INTERLOCK
+  Serial.println(BENCH_NOTE);
+#endif
   Serial.printf("PSRAM size: %u bytes\n", ESP.getPsramSize());
 
   pinMode(BOOT_BUTTON_PIN, INPUT_PULLUP);
@@ -95,7 +115,7 @@ void setup() {
 
   analogReadResolution(12);
 
-  // I2C: earlobe MAX30102 (0x57) and BMI270 (0x68 or 0x69) on J6/J7. Pull-ups are on the modules.
+  // I2C: earlobe MAX30102 (0x57) and BMI270 (0x68 or 0x69) on J6/J7. 4.7k pull-ups to the XIAO 3V3 on the board (R46, R47).
   Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN, 400000);
   i2cFound = "";
   for (uint8_t a = 0x08; a < 0x78; a++) {
@@ -130,11 +150,15 @@ void setup() {
   xTaskCreatePinnedToCore(readADSDataTask, "ReadTask", 4096, NULL, 3, NULL, 1);
   xTaskCreatePinnedToCore(sendDataTask, "SendTask", 4096, NULL, 1, NULL, 0);
 
+#ifdef BENCH_NO_INTERLOCK
+  adsStart();
+#else
   if (digitalRead(USB_SENSE_PIN) == HIGH) {
     Serial.println("USB present: analog side is off (interlock). Unplug USB to record.");
   } else {
     adsStart();
   }
+#endif
   updateStatus();
   Serial.println("Setup complete\n");
 }
@@ -144,6 +168,7 @@ void setup() {
 void loop() {
   static uint32_t lastStatus = 0;
 
+#ifndef BENCH_NO_INTERLOCK
   if (usbEvent) {
     usbEvent = false;
     delay(20);                                           // let the divider and the EN net settle
@@ -157,6 +182,7 @@ void loop() {
     }
     updateStatus();
   }
+#endif
 
   // BOOT button: turn lead-off detection off (record mode), as upstream
   if (triggerRecordMode) {
@@ -189,14 +215,22 @@ void loop() {
 //  - reference electrode (M1) on SRB2 through R27/C31, so MISC1.SRB1 = 0 and CHnSET.SRB2 = 1 on channels 1-7
 //  - electrodes on the N inputs of channels 1-7 (as on the OpenBCI Cyton); channel 8 differential (ECG), SRB2 open
 //  - bias and lead-off sensing moved from the P to the N inputs to match
-//  - START and RESET by command (START pin held low by R36, as the datasheet requires when using the command)
+//  - START by command (START pin held low by R36, as the datasheet requires when using the command)
+//  - RESET: hardware pulse on D10 (open-drain), then the RESET command as before
+// Returns false, with adsRunning false and the SPI lines released, if the ID register does not read as an ADS1299.
 bool adsStart() {
   ADS.setup(DRDY_PIN, CS_PIN, SCK_PIN, MISO_PIN, MOSI_PIN, NO_PIN, NO_PIN);   // waits tPOR, then RESET command
+  adsHardwareReset();
+  ADS.RESET();                      // RESET command after the pulse, as before
+  delay(1);
   ADS.SDATAC();                     // Stop continuous data mode to allow register configuration
-  uint8_t id = ADS.RREG(ID);
-  Serial.printf("ADS1299 ID = 0x%02X\n", id);
-  if ((id & 0x1F) != 0x1E) {         // ADS1299-8 reads 0x3E (OpenBCI Cyton library checks the same register); upstream does not check
-    Serial.println("ADS1299 not answering: check DVDD/AVDD and the SPI lines.");
+  adsId = ADS.RREG(ID);
+  Serial.printf("ADS1299 ID = 0x%02X\n", adsId);
+  if ((adsId & 0x1F) != 0x1E) {      // ADS1299-8 reads 0x3E (OpenBCI Cyton library checks the same register); upstream does not check
+    Serial.println("ADS1299 not answering: check DVDD/AVDD and the SPI lines. Not started.");
+    adsRunning = false;
+    ADS.release();
+    return false;
   }
   ADS.WREG(GPIO, 0b00000000);
   ADS.WREG(CONFIG1, 0b10010101);    // 500 SPS (as upstream)
@@ -222,6 +256,17 @@ bool adsStart() {
   return true;
 }
 
+// Datasheet: RESET low for at least 2 tCLK (about 1 us at 2.048 MHz); the device is ready 18 tCLK (about 9 us) after
+// RESET goes high. 10 us low and 1 ms wait leave a wide margin. Open-drain: the pin only ever sinks; R30 pulls it high.
+void adsHardwareReset() {
+  digitalWrite(ADS_RESET_PIN, LOW);
+  pinMode(ADS_RESET_PIN, OUTPUT_OPEN_DRAIN);
+  digitalWrite(ADS_RESET_PIN, LOW);
+  delayMicroseconds(10);
+  pinMode(ADS_RESET_PIN, INPUT);
+  delay(1);
+}
+
 void adsStop() {
   adsRunning = false;
   detachInterrupt(digitalPinToInterrupt(DRDY_PIN));
@@ -241,9 +286,9 @@ void IRAM_ATTR usbSenseISR() {
 
 void updateStatus() {
   uint32_t mv = analogReadMilliVolts(VBAT_SENSE_PIN) * 2;   // 220k / 220k divider
-  char s[96];
-  snprintf(s, sizeof(s), "usb=%d ads=%d vbat=%lu i2c=%s", digitalRead(USB_SENSE_PIN) == HIGH, adsRunning ? 1 : 0,
-           (unsigned long)mv, i2cFound.c_str());
+  char s[192];
+  snprintf(s, sizeof(s), "usb=%d ads=%d id=%02X vbat=%lu i2c=%s%s", digitalRead(USB_SENSE_PIN) == HIGH, adsRunning ? 1 : 0,
+           adsId, (unsigned long)mv, i2cFound.c_str(), BENCH_NOTE);
   Serial.println(s);
   if (pStatus) {
     pStatus->setValue((uint8_t *)s, strlen(s));

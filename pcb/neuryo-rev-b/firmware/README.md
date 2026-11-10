@@ -13,17 +13,21 @@ The upstream receiver works unchanged.
 - **Electrode wiring.** Electrodes go on the **−** pins of channels 1–7. The reference (M1) goes on REF, which is wired to SRB2. Leave the + pins of channels 1–7 empty. Channel 8 is differential: ECG goes on + and −.
 - **Sign.** The ADS1299 measures P − N, so channels 1–7 read (reference − electrode). Invert them on the host.
 - **USB.** While USB is plugged in the analog side has no power (interlock), and the firmware leaves the ADS1299 alone. Unplug USB to record. Serial output is there for debugging while USB is connected.
-- **Status characteristic.** UUID `5c3a1f2e-8d4b-4f6a-9e21-7b0c6d9a4e13`, read or notify, every 10 s. Example: `usb=0 ads=1 vbat=3912 i2c=57 68`.
+- **Bench build** (4th pass): `pio run -e xiao_esp32s3_bench` ignores USB_SENSE and starts the ADS1299 on USB, for a bench board with Q1 removed, inputs shorted or on a signal generator. It says `BENCH BUILD: interlock ignored, not for use on a person` at boot and in the status string. Never on a person ([../ASSEMBLY.md](../ASSEMBLY.md)).
+- **RESET** (4th pass): D10 pulses the ADS1299 RESET pin low for 10 µs (open-drain, never driven high) before the RESET command.
+- **Status characteristic.** UUID `5c3a1f2e-8d4b-4f6a-9e21-7b0c6d9a4e13`, read or notify, every 10 s. Example: `usb=0 ads=1 id=3E vbat=3912 i2c=57 68`. `ads=1` only if the ID register read as an ADS1299 (4th pass); otherwise `ads=0` with the ID that was read.
 - **I²C.** The bus is scanned at boot. MAX30102 is at 0x57 and BMI270 at 0x68/0x69. There are no drivers for them yet.
 
 ## Build
 ```
-pio run            # PlatformIO, espressif32 ~6.13.0, board seeed_xiao_esp32s3
+pio run -e xiao_esp32s3        # PlatformIO, espressif32 ~6.13.0, board seeed_xiao_esp32s3
+pio run -e xiao_esp32s3_bench  # bench build (see above)
 pio run -t upload  # XIAO on USB
 ```
 
 ## Status
-- **Compile:** builds with **0 errors and 0 warnings** (8 Nov 2026, PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.0 % (937 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
+- **Compile (4th pass, 10 Nov):** the 4th-pass changes (status string, bench environment, D10 reset) are **not compiled yet**; build both environments and update [build-log.txt](build-log.txt).
+- **Compile (2nd pass):** built with **0 errors and 0 warnings** (8 Nov 2026, PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.0 % (937 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
 - **Bench test:** not done (no board yet). On the first board, in order:
   1. Rails come up with the switch on and USB unplugged.
   2. Rails go off when USB is plugged in.

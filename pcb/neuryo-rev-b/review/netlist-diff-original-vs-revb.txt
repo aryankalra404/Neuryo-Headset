@@ -1,5 +1,5 @@
 parts removed: C11 C12 C13 C48 C6 C7 D7 J2 J5 R5 R6 R7 R8 SW2 SW3 TP5 U2 U5
-parts added:   C50 J6 J7 Q1 R36 R37 R38 R39 R40 R41 R42 U6
+parts added:   C50 J6 J7 Q1 R36 R37 R38 R39 R40 R41 R42 R43 R44 R45 R46 R47 TP7 TP8 TP9 U6
 pins of kept parts whose connections changed: 15
   C10.1      VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
   C2.1       VIN -> VIN   lost U1.12 U1.8 U3.3  gained 
@@ -19,22 +19,22 @@ pins of kept parts whose connections changed: 15
   new C50.1      on /VBAT_SENSE    with R41.2 R42.1 U6.1
   new C50.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new J6.1       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
-  new J6.2       on /XIAO_3V3      with J7.2 U6.12
-  new J6.3       on /I2C_SDA       with J7.3 U6.9
-  new J6.4       on /I2C_SCL       with J7.4 U6.8
+  new J6.2       on /XIAO_3V3      with J7.2 R46.2 R47.2 U6.12
+  new J6.3       on /I2C_SDA       with J7.3 R46.1 U6.9
+  new J6.4       on /I2C_SCL       with J7.4 R47.1 U6.8
   new J7.1       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
-  new J7.2       on /XIAO_3V3      with J6.2 U6.12
-  new J7.3       on /I2C_SDA       with J6.3 U6.9
-  new J7.4       on /I2C_SCL       with J6.4 U6.8
+  new J7.2       on /XIAO_3V3      with J6.2 R46.2 R47.2 U6.12
+  new J7.3       on /I2C_SDA       with J6.3 R46.1 U6.9
+  new J7.4       on /I2C_SCL       with J6.4 R47.1 U6.8
   new Q1.1       on /VUSB          with R37.1 R39.1 U6.14
   new Q1.2       on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
-  new Q1.3       on /AEN           with R38.2 U1.12 U1.8 U3.3
+  new Q1.3       on /AEN           with R38.2 TP9.1 U1.12 U1.8 U3.3
   new R36.1      on /ADS_START     with U4.38
   new R36.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new R37.1      on /VUSB          with Q1.1 R39.1 U6.14
   new R37.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new R38.1      on VIN            with C10.1 C2.1 R41.1 SW1.2 TP6.1 U1.3 U3.1 U6.23
-  new R38.2      on /AEN           with Q1.3 U1.12 U1.8 U3.3
+  new R38.2      on /AEN           with Q1.3 TP9.1 U1.12 U1.8 U3.3
   new R39.1      on /VUSB          with Q1.1 R37.1 U6.14
   new R39.2      on /USB_SENSE     with R40.1 U6.10
   new R40.1      on /USB_SENSE     with R39.2 U6.10
@@ -43,10 +43,23 @@ pins of kept parts whose connections changed: 15
   new R41.2      on /VBAT_SENSE    with C50.1 R42.1 U6.1
   new R42.1      on /VBAT_SENSE    with C50.1 R41.2 U6.1
   new R42.2      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
+  new R43.1      on /SCLK_X        with U6.5
+  new R43.2      on /SCLK          with U4.40
+  new R44.1      on /MOSI_X        with U6.4
+  new R44.2      on /MOSI          with U4.34
+  new R45.1      on /CS_X          with U6.3
+  new R45.2      on /CS            with R28.1 U4.39
+  new R46.1      on /I2C_SDA       with J6.3 J7.3 U6.9
+  new R46.2      on /XIAO_3V3      with J6.2 J7.2 R47.2 U6.12
+  new R47.1      on /I2C_SCL       with J6.4 J7.4 U6.8
+  new R47.2      on /XIAO_3V3      with J6.2 J7.2 R46.2 U6.12
+  new TP7.1      on /MISO          with U4.43 U6.6
+  new TP8.1      on /DRDY          with U4.47 U6.2
+  new TP9.1      on /AEN           with Q1.3 R38.2 U1.12 U1.8 U3.3
   new U6.1       on /VBAT_SENSE    with C50.1 R41.2 R42.1
   new U6.10      on /USB_SENSE     with R39.2 R40.1
-  new U6.11      on unconnected-(U6-D10-Pad11) with 
-  new U6.12      on /XIAO_3V3      with J6.2 J7.2
+  new U6.11      on /ADS_RESET     with R30.1 U4.36
+  new U6.12      on /XIAO_3V3      with J6.2 J7.2 R46.2 R47.2
   new U6.13      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new U6.14      on /VUSB          with Q1.1 R37.1 R39.1
   new U6.15      on unconnected-(U6-MTDI-Pad15) with 
@@ -54,17 +67,17 @@ pins of kept parts whose connections changed: 15
   new U6.17      on unconnected-(U6-EN-Pad17) with 
   new U6.18      on unconnected-(U6-GND-Pad18) with 
   new U6.19      on unconnected-(U6-MTMS-Pad19) with 
-  new U6.2       on /DRDY          with U4.47
+  new U6.2       on /DRDY          with TP8.1 U4.47
   new U6.20      on unconnected-(U6-MTCK-Pad20) with 
   new U6.21      on unconnected-(U6-USB_DN-Pad21) with 
   new U6.22      on unconnected-(U6-USB_DP-Pad22) with 
   new U6.23      on VIN            with C10.1 C2.1 R38.1 R41.1 SW1.2 TP6.1 U1.3 U3.1
   new U6.24      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
   new U6.25      on GND            with C10.2 C15.2 C16.2 C17.2 C18.2 C19.2 C2.2 C20.2 C21.2 C22.2 ...
-  new U6.3       on /CS            with R28.1 U4.39
-  new U6.4       on /MOSI          with U4.34
-  new U6.5       on /SCLK          with U4.40
-  new U6.6       on /MISO          with U4.43
+  new U6.3       on /CS_X          with R45.1
+  new U6.4       on /MOSI_X        with R44.1
+  new U6.5       on /SCLK_X        with R43.1
+  new U6.6       on /MISO          with TP7.1 U4.43
   new U6.7       on unconnected-(U6-D6-Pad7) with 
-  new U6.8       on /I2C_SCL       with J6.4 J7.4
-  new U6.9       on /I2C_SDA       with J6.3 J7.3
+  new U6.8       on /I2C_SCL       with J6.4 J7.4 R47.1
+  new U6.9       on /I2C_SDA       with J6.3 J7.3 R46.1

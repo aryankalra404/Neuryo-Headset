@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/erc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-09T00:08:39",
+    "date": "2026-11-10T20:30:26",
     "ignored_checks": [
         {
             "description": "Global label only appears once in the schematic",
@@ -3387,6 +3387,126 @@
                                 "y": 231.14
                             },
                             "uuid": "eb61e12c-8602-438e-932a-35a140c19f20"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R43 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 553.72,
+                                "y": 226.06
+                            },
+                            "uuid": "fd57a5f6-4652-4ca0-86bc-9fcc65b92ea2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R44 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 553.72,
+                                "y": 236.22
+                            },
+                            "uuid": "650e37b7-661d-4ed0-9f09-1b9b875785f8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R45 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 553.72,
+                                "y": 246.38
+                            },
+                            "uuid": "2e8eb95b-6702-4913-a956-2d94724588e9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R46 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 553.72,
+                                "y": 266.7
+                            },
+                            "uuid": "96cfd890-1c9e-45d8-84b3-0881b5468bb3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Altium Content Vault'",
+                    "items": [
+                        {
+                            "description": "Symbol R47 [1029c3af85768c4190bb7ad29bc67b5]",
+                            "pos": {
+                                "x": 553.72,
+                                "y": 276.86
+                            },
+                            "uuid": "3129f113-598f-4917-b1a4-e250d4f96655"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP7 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 574.04,
+                                "y": 226.06
+                            },
+                            "uuid": "3c648028-8a94-4c64-a88b-8342957b64d7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP8 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 574.04,
+                                "y": 236.22
+                            },
+                            "uuid": "3b69352f-36ab-4c2a-a22b-fc6350ff55d5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "The current configuration does not include the symbol library 'Test_Points'",
+                    "items": [
+                        {
+                            "description": "Symbol TP9 [TestPoint_SMD]",
+                            "pos": {
+                                "x": 574.04,
+                                "y": 246.38
+                            },
+                            "uuid": "5b7d19db-3be0-4611-916f-d49256560160"
                         }
                     ],
                     "severity": "warning",

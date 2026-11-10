@@ -125,3 +125,63 @@ pins of kept parts whose connections changed: 66 (65 are GND pins gaining U6.25,
 parts removed: 
 parts added:   
 pins of kept parts whose connections changed: 0
+
+### 3rd pass -> 4th pass (10 Nov review, REVB-4TH-PASS-PLAN.md), one step at a time
+
+#### step A
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 0
+
+#### step B
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 0
+
+#### step C
+parts removed: 
+parts added:   R43 R44 R45
+pins of kept parts whose connections changed: 7
+  R28.1      /CS -> /CS   lost U6.3  gained 
+  U4.34      /MOSI -> /MOSI   lost U6.4  gained 
+  U4.39      /CS -> /CS   lost U6.3  gained 
+  U4.40      /SCLK -> /SCLK   lost U6.5  gained 
+  U6.3       /CS -> /CS_X   lost R28.1 U4.39  gained 
+  U6.4       /MOSI -> /MOSI_X   lost U4.34  gained 
+  U6.5       /SCLK -> /SCLK_X   lost U4.40  gained 
+  new R43.1      on /SCLK_X        with U6.5
+  new R43.2      on /SCLK          with U4.40
+  new R44.1      on /MOSI_X        with U6.4
+  new R44.2      on /MOSI          with U4.34
+  new R45.1      on /CS_X          with U6.3
+  new R45.2      on /CS            with R28.1 U4.39
+
+#### step D
+parts removed: 
+parts added:   R46 R47
+pins of kept parts whose connections changed: 0
+  new R46.1      on /I2C_SDA       with J6.3 J7.3 U6.9
+  new R46.2      on /XIAO_3V3      with J6.2 J7.2 R47.2 U6.12
+  new R47.1      on /I2C_SCL       with J6.4 J7.4 U6.8
+  new R47.2      on /XIAO_3V3      with J6.2 J7.2 R46.2 U6.12
+
+#### step E
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 3
+  R30.1      /ADS_RESET -> /ADS_RESET   lost   gained U6.11
+  U4.36      /ADS_RESET -> /ADS_RESET   lost   gained U6.11
+  U6.11      unconnected-(U6-D10-Pad11) -> /ADS_RESET   lost   gained R30.1 U4.36
+
+#### step F
+parts removed: 
+parts added:   TP7 TP8 TP9
+pins of kept parts whose connections changed: 0
+  new TP7.1      on /MISO          with U4.43 U6.6
+  new TP8.1      on /DRDY          with U4.47 U6.2
+  new TP9.1      on /AEN           with Q1.3 R38.2 U1.12 U1.8 U3.3
+
+#### step H
+parts removed: 
+parts added:   
+pins of kept parts whose connections changed: 0
