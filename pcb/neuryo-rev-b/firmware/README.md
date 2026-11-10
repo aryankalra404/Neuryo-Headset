@@ -26,8 +26,7 @@ pio run -t upload  # XIAO on USB
 ```
 
 ## Status
-- **Compile (4th pass, 10 Nov):** the 4th-pass changes (status string, bench environment, D10 reset) are **not compiled yet**; build both environments and update [build-log.txt](build-log.txt).
-- **Compile (2nd pass):** built with **0 errors and 0 warnings** (8 Nov 2026, PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.0 % (937 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
+- **Compile:** both environments (`xiao_esp32s3`, `xiao_esp32s3_bench`) build with **0 errors and 0 warnings** (10 Nov 2026, 4th pass; PlatformIO, espressif32 6.13.0, Arduino core 2.0.17). RAM 13.9 % (45 kB), flash 28.1 % (938 kB of 3.3 MB). Log: [build-log.txt](build-log.txt).
 - **Bench test:** not done (no board yet). On the first board, in order:
   1. Rails come up with the switch on and USB unplugged.
   2. Rails go off when USB is plugged in.

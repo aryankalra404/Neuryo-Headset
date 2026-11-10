@@ -39,7 +39,7 @@ Open `Neuryo_RevB.kicad_pro` in KiCad 9 or 10. The baseline (the reference impor
 - [ ] **No third mounting hole.** There is no room at the right end once J1 and SW1 are there; the board relies on the 2 left holes plus a clip. OK for the pod?
 
 ## 4. Firmware ([firmware/](firmware/))
-- [ ] Read F1–F9 in CHANGES.md. The 2nd-pass firmware compiled cleanly (0 errors, 0 warnings); the 4th-pass changes (F7–F9) are not compiled yet. Nothing has run on hardware.
+- [ ] Read F1–F9 in CHANGES.md. Both environments (normal and bench) compile cleanly (0 errors, 0 warnings, 10 Nov); nothing has run on hardware.
 - [ ] Electrode wiring changes for the user: electrodes on the − pins of channels 1–7; sign inverted (host must flip it).
 - [ ] **Gain and sample rate.** The firmware keeps upstream's tested gain 24 at 500 SPS (±187.5 mV range); the design doc's D29 says gain 12 at 250 SPS (±375 mV). Keep 24 for bring-up, read each channel's DC offset on real electrodes, then make D29 and the firmware agree (CHnSET 0x58 / CH8SET 0x50 and CONFIG1 0x96 for gain 12 at 250 SPS).
 - [ ] ★ **USB interlock releases SCLK and MOSI?** The ISR clears the GPIO output enables; that releases CS (a plain GPIO), but SCLK and MOSI are driven by the SPI peripheral through the GPIO matrix, and `SPI.end()` only runs in `loop()` 20–120 ms later. Scope SCLK, MOSI and CS while plugging USB in with the board running; if they stay driven, detach the SPI pins in the ISR.
