@@ -51,7 +51,7 @@ Checked against the reference schematic and firmware (upstream `main.cpp`), the 
 | 8 | **Stock check:** ADS1299IPAGR, LM27762DSSR, TPS7A2033PDBVR, TPD4E1B06DCKR at LCSC/JLCPCB. | One order. |
 
 ## Channel map (v4)
-Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, change 1), as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 Cz, ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
+Electrodes on the N inputs with M1 on SRB2 (through the filtered REF path, change 1), as on the Cyton: ch 1 Fp1, ch 2 Fp2, ch 3 Fz, ch 4 Pz, ch 5 M2, ch 6 eye, ch 7 free on the product headset (Cz pod, test kit only, since v6.2), ch 8 ECG (SRB2 off, differential, test kit). BIAS to Fpz.
 
 ## Steps
 1. ~~Import the reference into KiCad and check it~~ (done 8 Nov: BOM references and board/schematic connectivity match; sheet-by-sheet PDF comparison is on the checklist).

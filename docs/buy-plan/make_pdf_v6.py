@@ -54,7 +54,7 @@ JE = (JU + jlc_econ_delta) * CARD; JLCE_V = round(JE * 1.10 + 500)
 TOT_V = DOM + FRI_V + JLC_V; TOT_P = DOM + FRI_P + JLC_P
 
 story = [P('Neuryo v6 prototype buy plan', H1),
-         P('9 Nov 2026 · for v6 with the rev B board (77 × 50 mm, KiCad) · prices marked 9 Nov were read on the seller page today; 7 Nov / 8 Nov come from '
+         P('9 Nov 2026, wording updated 10 Nov for v6.2 · for v6 with the rev B board (77 × 50 mm, KiCad) · prices marked 9 Nov were read on the seller page that day; 7 Nov / 8 Nov come from '
            'your v4.4 and v5.2 plans; yellow rows are estimates · USD at ₹' + f'{RATE_MID} mid-market (7 Nov), ₹{CARD} on the card', SUB)]
 summ = [[P('<b>What</b>'), P('<b>When</b>'), P('<b>Total</b>', CELLR)],
         [P('Domestic orders: Upside Down Labs, Robu, Probots, Vishaworld, Robocraze, Amazon, ToolBuy, chemist'), P('Now'), P(rs(DOM), CELLR)],
@@ -69,6 +69,9 @@ story.append(P(f'<b>Recommendation.</b> Order the domestic lists and the FRI pod
     'The board is the biggest line and the one that decides the demo, so this plan pays for JLCPCB to place both sides of it rather than you hand-soldering '
     f'the 17 input filter capacitors on the underside (that option saves about {rs(JLC_V - JLCE_V)}; section 3). Upload the rev B Gerbers, positions and '
     'bom-jlc.csv to JLCPCB for the real quote before paying.', BODY))
+story.append(Spacer(1, 3))
+story.append(P('<b>v6.2 (10 Nov).</b> The product headset has two hair pods (Fz, Pz); the Cz pod is a test-kit part, so its lead and pod core stay on this list as test-kit items. '
+    'The 2 mm dowel pins are removed (the carriages now click into notches). No prices were re-read on 10 Nov.', BODY))
 story.append(Spacer(1, 3))
 story.append(P('<b>Changes from your v4.4 and v5.2 plans.</b> Rev B now exists, so the board is priced from its BOM. Standard PCBA (double-sided) replaces Economic, '
     'because rev B has 28 parts on the bottom. No ESP32-S3 DevKitC (the bench XIAO does bench firmware), no Koss headphones (v5 arch only), no BMI270 chips on the board '
@@ -91,7 +94,7 @@ for o in orders: story.append(order_block(o))
 
 story.append(P('2 · Imports (route both through VIT purchase)', H2))
 fr = [[P('<b>FRI TDE-211 reusable Ag/AgCl snap electrode</b>'), P('<b>Amount</b>', CELLR), P('<b>Link</b>')],
-      [P(f'{fri["qty"]} × ₹{fri["each_inr"]} (read 9 Nov on FRI’s store): 3 pods (Fz, Cz, Pz) + 1 for the Pz paste fallback. No spares: a lost one means a second DHL shipment'), P(rs(fg), CELLR),
+      [P(f'{fri["qty"]} × ₹{fri["each_inr"]} (read 9 Nov on FRI’s store): 2 product pods (Fz, Pz) + 1 test-kit Cz pod + 1 for the Pz paste fallback. No spares: a lost one means a second DHL shipment'), P(rs(fg), CELLR),
        link('https://www.fri-fl-shop.com/products/reusable-snap-ag-agcl-electrode-tde-211')],
       [P('DHL shipping (your 29 Oct cart; FRI shows it only at checkout)'), P(rs(fs), CELLR), P('')],
       [P('Duty and clearance through VIT (~10% + ₹500, plan assumption)'), P(rs(FRI_V - fg - fs), CELLR), P('')],

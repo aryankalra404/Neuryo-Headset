@@ -1,11 +1,11 @@
-# Neuryo v6 buy plan data (9 Nov 2026). price = INR incl. GST.
+# Neuryo v6 buy plan data (9 Nov 2026; v6.2 wording 10 Nov: Cz pod is test kit, no carriage pins). price = INR incl. GST.
 # seen: '9 Nov' = read on the seller page on 9 Nov; '7 Nov' / '8 Nov' = read then (v4.4 / v5.2 plans, not re-read); 'est' = estimate.
 RATE_MID = 94.05            # x-rates, 7 Nov 2026 16:25 UTC (carried over)
 CARD = round(RATE_MID * 1.035, 2)   # ~3.5% card markup
 AZ = 'https://www.amazon.in/dp/'
 orders = [
  dict(store='Upside Down Labs', note='Free delivery above ₹999 (store page).', items=[
-  ('UDL colour snap cables, pack of 10 (100 cm, snap one end)', '9 head leads (Fp1, Fp2, Fpz bias, eye, M1, M2, Fz, Cz, Pz) + 1 spare; cut the plug end and solder into the board holes', 1, 1999, 'https://store.upsidedownlabs.tech/product/different-color-snap-cables-pack-of-10/', '9 Nov', ''),
+  ('UDL colour snap cables, pack of 10 (100 cm, snap one end)', '8 head leads (Fp1, Fp2, Fpz bias, eye, M1, M2, Fz, Pz) + 1 for the test-kit Cz pod + 1 spare; cut the plug end and solder into the board holes', 1, 1999, 'https://store.upsidedownlabs.tech/product/different-color-snap-cables-pack-of-10/', '9 Nov', ''),
   ('UDL Neo Gel electrodes, 100 pcs (3.2 × 2.5 cm)', 'Forehead pads (Fp1, Fpz, Fp2), M1, M2, eye pad, ECG pair', 1, 799, 'https://store.upsidedownlabs.tech/product/neo-gel-electrodes/', '9 Nov', ''),
  ]),
  dict(store='Robu', note='XIAO in stock on 9 Nov (Robu search page). Filament: skip if the VIT printer room has it.', items=[
@@ -37,7 +37,6 @@ orders = [
   ('Hypoallergenic medical tape, 2 rolls', 'Hold leads and pads, strain relief on the ear clip and strip tail', 1, 283, 'https://www.amazon.in/s?k=3m+micropore+surgical+tape+1+inch', '9 Nov', ''),
   ('PVA sponge, pack of 2', 'Cut into the pods’ foam tips', 1, 239, AZ + 'B0BRGG1LFY', '7 Nov', ''),
   ('Flat 6-core 28 AWG cable, 5 m', 'Ear-clip lead (4 wires into J6) and the BMI270 lead (J7)', 1, 140, AZ + 'B084V1TR88', '7 Nov', ''),
-  ('2 mm steel dowel pins', 'Size-hole pins under the carriages’ right feet', 1, 200, '', 'est', ''),
   ('Breadboard, jumper wires, male headers', 'Bench firmware on the bench XIAO with the MAX30102 and BMI270', 1, 508, '', 'est', 'skip'),
   ('IONIX 150 cm tailor tape', 'Head circumference, nasion–inion, size tape', 1, 99, AZ + 'B098R1VVWX', '7 Nov', ''),
   ('Weaver Ten20 paste, 228 g', 'Demo insurance: paste + a TDE-211 at Pz if the semi-dry pods are not ready for the review. Check seal and expiry', 1, 1890, '', '8 Nov', ''),
