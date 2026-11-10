@@ -1,11 +1,11 @@
-# Neuryo v6 buy plan data (9 Nov 2026; v6.2 wording 10 Nov: Cz pod is test kit, no carriage pins). price = INR incl. GST.
+# Neuryo v6 buy plan data (9 Nov 2026; v6.2 wording 10 Nov: no carriage pins; v6.3 11 Nov: no Cz anywhere, D36, FRI 4 -> 3). price = INR incl. GST.
 # seen: '9 Nov' = read on the seller page on 9 Nov; '7 Nov' / '8 Nov' = read then (v4.4 / v5.2 plans, not re-read); 'est' = estimate.
 RATE_MID = 94.05            # x-rates, 7 Nov 2026 16:25 UTC (carried over)
 CARD = round(RATE_MID * 1.035, 2)   # ~3.5% card markup
 AZ = 'https://www.amazon.in/dp/'
 orders = [
  dict(store='Upside Down Labs', note='Free delivery above ₹999 (store page).', items=[
-  ('UDL colour snap cables, pack of 10 (100 cm, snap one end)', '8 head leads (Fp1, Fp2, Fpz bias, eye, M1, M2, Fz, Pz) + 1 for the test-kit Cz pod + 1 spare; cut the plug end and solder into the board holes', 1, 1999, 'https://store.upsidedownlabs.tech/product/different-color-snap-cables-pack-of-10/', '9 Nov', ''),
+  ('UDL colour snap cables, pack of 10 (100 cm, snap one end)', '8 head leads (Fp1, Fp2, Fpz bias, eye, M1, M2, Fz, Pz) + 2 spare; cut the plug end and solder into the board holes', 1, 1999, 'https://store.upsidedownlabs.tech/product/different-color-snap-cables-pack-of-10/', '9 Nov', ''),
   ('UDL Neo Gel electrodes, 100 pcs (3.2 × 2.5 cm)', 'Forehead pads (Fp1, Fpz, Fp2), M1, M2, eye pad, ECG pair', 1, 799, 'https://store.upsidedownlabs.tech/product/neo-gel-electrodes/', '9 Nov', ''),
  ]),
  dict(store='Robu', note='XIAO in stock on 9 Nov (Robu search page). Filament: skip if the VIT printer room has it.', items=[
@@ -53,7 +53,7 @@ orders = [
  ]),
 ]
 # FRI (import). Price shown in INR on FRI's own store on 9 Nov.
-fri = dict(qty=4, each_inr=500, ship_inr=4400)   # DHL figure from the 29 Oct cart (shown only at checkout)
+fri = dict(qty=3, each_inr=500, ship_inr=4400)   # v6.3: Fz, Pz, Pz paste fallback (no Cz pod, D36)   # DHL figure from the 29 Oct cart (shown only at checkout)
 # JLCPCB, rev B, 2 boards, Standard PCBA double-sided (rev B has 28 parts on the bottom).
 jlc = [  # (line, usd, seen, link)
  ('4-layer PCB, 1.6 mm, 77 × 50 mm, 5 pcs', 10.00, 'est', ''),
