@@ -1,4 +1,4 @@
-// Head ring path check for the v7 page (11 Nov 2026). Paste into the browser console on designs/v7/ (or run with a page-JS tool).
+// Head ring path check for the v7 page (11 Nov 2026; v7.1: flat print outline). Paste into the browser console on designs/v7/ (or run with a page-JS tool).
 // The ring strap (14 x 3 mm on its lining) from pivot to pivot: smallest distance from its lower edge to the top of the ear, smallest
 // distance from the strap (lining underside, full width) to the forehead strip, and the gap between the strap's top and the board's
 // underside (and its bottom-side parts) where it runs under the left pod; the same for the battery cell in the right pod.
@@ -32,7 +32,21 @@
   for (let i = 1; i < loop.length - 1; i++) { const a = loop[i - 1].p, b = loop[i].p, c = loop[i + 1].p; const t1 = b.clone().sub(a), t2 = c.clone().sub(b); const ang = t1.angleTo(t2), ds = (t1.length() + t2.length()) / 2; if (ds > 0.05 && ang > 1e-6) { const r = ds / ang; if (r < rMin) { rMin = r; rAt = [+loop[i].az.toFixed(1), +loop[i].el.toFixed(1)]; } } }
   const turn = (a, b, c) => +(b.clone().sub(a).angleTo(c.clone().sub(b)) * 57.3).toFixed(1);
   const st = RING.strap, np = RING.nape;
-  return { strapToEarTop_mm: +earMin.toFixed(1), strapToStrip_mm: +stripMin.toFixed(1), stripAt, strapTopToBoardUnderside_mm: +bMin.toFixed(2), setBy: bWho, at: bAt,
+  // v7.1 (F5): flat print outline. The centre line laid into its best-fit plane with the same length and the same in-plane curve:
+  // project onto the plane, keep each step's turning angle there, rebuild with the 3D step lengths.
+  const P = S.map(x => x.p.clone().addScaledVector(x.n, ringOff(x) + STRAP_T / 2)), c0 = P.reduce((a, p) => a.add(p), new V()).multiplyScalar(1 / P.length);
+  let xx = 0, xy = 0, xz = 0, yy = 0, yz = 0, zz = 0; for (const p of P) { const d = p.clone().sub(c0); xx += d.x * d.x; xy += d.x * d.y; xz += d.x * d.z; yy += d.y * d.y; yz += d.y * d.z; zz += d.z * d.z; }
+  const inv = new THREE.Matrix3().set(xx, xy, xz, xy, yy, yz, xz, yz, zz).invert(); let nrm = new V(0.3, 1, 0.2).normalize(); for (let i = 0; i < 60; i++) nrm = nrm.applyMatrix3(inv).normalize();
+  const u1 = new V().crossVectors(nrm, new V(1, 0, 0)).normalize(), u2 = new V().crossVectors(nrm, u1);
+  const Q = P.map(p => { const d = p.clone().sub(c0); return [d.dot(u1), d.dot(u2)]; }); let dev = 0; for (const p of P) dev = Math.max(dev, Math.abs(p.clone().sub(c0).dot(nrm)));
+  const flat = [[0, 0]]; let ang = Math.atan2(Q[1][1] - Q[0][1], Q[1][0] - Q[0][0]), len3 = 0;
+  for (let i = 1; i < P.length; i++) { const L3 = P[i].distanceTo(P[i - 1]); len3 += L3; if (i > 1) { const a0 = Math.atan2(Q[i - 1][1] - Q[i - 2][1], Q[i - 1][0] - Q[i - 2][0]), a1 = Math.atan2(Q[i][1] - Q[i - 1][1], Q[i][0] - Q[i - 1][0]); let da = a1 - a0; while (da > Math.PI) da -= 2 * Math.PI; while (da < -Math.PI) da += 2 * Math.PI; ang += da; }
+    const q = flat.at(-1); flat.push([q[0] + L3 * Math.cos(ang), q[1] + L3 * Math.sin(ang)]); }
+  const xs = flat.map(q => q[0]), ys = flat.map(q => q[1]), W = Math.max(...xs) - Math.min(...xs), H = Math.max(...ys) - Math.min(...ys);
+  // align the outline's long side with x for the bed size: try rotations
+  let best = [1e9, 0, 0]; for (let a = 0; a < Math.PI; a += Math.PI / 180) { const c = Math.cos(a), si = Math.sin(a), rx = flat.map(q => q[0] * c - q[1] * si), ry = flat.map(q => q[0] * si + q[1] * c), w = Math.max(...rx) - Math.min(...rx), h = Math.max(...ry) - Math.min(...ry); if (Math.max(w, h) < best[0]) best = [Math.max(w, h), w, h]; }
+  const flatPrint = { developedLength_mm: +len3.toFixed(0), outline_mm: [+best[1].toFixed(0), +best[2].toFixed(0)], outOfPlaneBefore_mm: +dev.toFixed(1), fitsBed220: best[0] + STRAP_W < 220 };
+  return { flatPrint, strapToEarTop_mm: +earMin.toFixed(1), strapToStrip_mm: +stripMin.toFixed(1), stripAt, strapTopToBoardUnderside_mm: +bMin.toFixed(2), setBy: bWho, at: bAt,
     strapTopToBatteryCell_mm: cMin === 1e9 ? 'not under the cell' : +cMin.toFixed(2), podBaseAboveStrapTop_mm: +tMin.toFixed(2), podBaseAt: tAt, tightestBendRadius_mm: +rMin.toFixed(1), bendAt: rAt,
     pivotTurn_deg: { left: turn(st[1].p, st[0].p, np[1].p), right: turn(st.at(-2).p, st.at(-1).p, np.at(-2).p) } };
 })();

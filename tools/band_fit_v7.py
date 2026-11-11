@@ -1,4 +1,4 @@
-"""v7 midline band check (11 Nov 2026): tools/band_fit.py (v6.3) with v7's band: one short Fz window (20 mm, the pod fixed at
+"""v7 midline band check (11 Nov 2026; v7.1: Pz window 2 mm longer at the front): tools/band_fit.py (v6.3) with v7's band: one short Fz window (20 mm, the pod fixed at
 69 mm behind the band's zero, 0.2 x 345 mm) and the zero set by the nasion gauge in three steps (31.5, 34.5, 37.5 mm above the nasion
 for sizes 1-3, 4-6, 7-9) instead of exactly 0.1 x NI. Everything else as v6.3. The v6.3 docstring follows.
 
@@ -55,6 +55,7 @@ NOTCH = {'v6.2': (np.arange(304, 385, 10.), 299, [((1, 2), 309.), ((3, 4), 329.)
 SIZE_NI = NOTCH['v6.2'][0]   # windows: the band's travel (the 1 mm shift between tables moves a window end by under 1 mm)
 def window(key):
     if key == 'fz7': c = site_u['fz'] + 0.2 * (FZ_NI - NI0); return (c - 10, c + 10)   # v7: 20 mm, just the pod
+    if key == 'pz7': a, b = window('pz'); return (a - 2, b)                              # v7.1: Pz window 2 mm longer at the front
     c = site_u[key]; return (c + (FRAC[key]-0.1)*(SIZE_NI[0]-NI0) - 8, c + (FRAC[key]-0.1)*(SIZE_NI[-1]-NI0) + 8)
 def size_for(ni, notch): return int(max(1, min(9, np.floor((ni - NOTCH[notch][1]) / 10) + 1)))
 def hole_ni(key, ni, notch='v6.3'):
@@ -129,13 +130,14 @@ def heads():
 
 if __name__ == '__main__':
     print(f'Mannequin NI {NI0} mm (profile {NIm:.1f}); band from the anchor, sites along the band: ' + ', '.join(f'{k} {v:.0f} mm' for k, v in site_u.items()))
-    print('Windows (mm from the anchor): ' + ', '.join(f'{k} {a:.0f}-{b:.0f}' for k, (a, b) in ((k, window(k)) for k in ('fz', 'fz7', 'pz'))))
-    a, b = window('fz7')[1], window('pz')[0]
-    print(f'v7 solid section between the Fz and Pz windows: {a:.0f}-{b:.0f} mm, {b - a:.0f} mm long')
+    print('Windows (mm from the anchor): ' + ', '.join(f'{k} {a:.0f}-{b:.0f}' for k, (a, b) in ((k, window(k)) for k in ('fz', 'fz7', 'pz', 'pz7'))))
+    a, b = window('fz7')[1], window('pz7')[0]
+    print(f'v7.1 solid section between the Fz and Pz windows: {a:.0f}-{b:.0f} mm, {b - a:.0f} mm long')
     print(f'Section bending stiffness (per E): solid 30 x 1.8 = {30*1.8**3/12:.1f} mm^4, two 7 x 3 rails = {2*7*27/12:.1f} mm^4')
     cases = {'v6.3 band (Fz, Pz windows, 1.8 mm between)': (['fz', 'pz'], {}),
              'v7 band (short Fz window, fixed Fz, gauge zero)': (['fz7', 'pz'], dict(v7=True)),
-             'v7 printed in a 345 mm head curve (still open)': (['fz7', 'pz'], dict(v7=True, print_ni=345))}
+             'v7.1 band (Pz window 2 mm longer at the front)': (['fz7', 'pz7'], dict(v7=True)),
+             'v7.1 printed in a 345 mm head curve (still open)': (['fz7', 'pz7'], dict(v7=True, print_ni=345))}
     HS = list(heads())
     rows = []
     for T, F, E, k in [(4, 1, 2000, 3), (4, 3, 2000, 3), (6, 1, 2000, 3), (6, 3, 2000, 3), (10, 3, 2000, 3), (6, 3, 1700, 3), (6, 3, 2000, 30)]:
