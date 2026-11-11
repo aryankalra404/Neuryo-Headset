@@ -2,6 +2,8 @@
 // Product mode, parts inside the pods (board, battery) left out. Serve the repo root, then:
 //   python3 -m http.server 8765 &   node tools/export_glb.js http://localhost:8765/designs/v6/ designs/v6/neuryo-v6.glb
 // Needs playwright-core and Chrome (set PLAYWRIGHT_CORE and CHROME if they are not on the default paths).
+// v7 (11 Nov): node tools/export_glb.js http://localhost:8765/designs/v7/ designs/v7/neuryo-v7.glb. The nasion gauge and the test-kit
+// chin strap are hidden in the default view, so the try-on model leaves them out.
 const { chromium } = require(process.env.PLAYWRIGHT_CORE || 'playwright-core');
 const fs = require('fs');
 (async () => {

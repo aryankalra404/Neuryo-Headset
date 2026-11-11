@@ -66,7 +66,17 @@
     "path": "designs/v6/",
     "channels": "6 on the head + ECG test channel",
     "summary": "v4's midline band lying on the head with a spring carriage per pod (Fz and Pz at 0.2 and 0.6 × nasion–inion from Fpz, one size number 1–9), held between a small front anchor (about 34 × 34 × 7.5 mm, replacing v4's brow module) and a cam lock above the rear dial. Head ring: front band across the forehead above the strip, rear band with a hook under the occiput and a dial. Main board in a pod above the left ear, battery above the right (from v5). Real windows in the band and real lead slots in the carriages. v6.1 (9 Nov): the real rev B board, placed from KiCad (77 × 50 mm, electrode end forward), leads ending on its pads, pods resized to about 98 × 77 mm and 22 mm off the skin. v6.2 (10 Nov): carriages wrap the rails and click into size notches (they could lift off before), rails 3 mm thick beside the windows, Cz pod moved to the test kit (product: Fz and Pz). v6.3 (11 Nov): no Cz anywhere (decision D36); two windows in the band (Fz, Pz), two lead clips on the solid section between them, size table centred on 300–390 mm.",
-    "status": "Lead design",
+    "status": "Superseded by v7 (kept for comparison; the adjustable-Fz alternative)",
     "docs": "docs/v6.md"
+  },
+  {
+    "id": "v7",
+    "name": "v7 · simplified ring and fixed Fz · 11 Nov",
+    "date": "2026-11-11",
+    "path": "designs/v7/",
+    "channels": "6 on the head + ECG test channel",
+    "summary": "Proposed, from the 11 Nov design review of v6.3; nothing printed or measured. Same montage, electrodes, rev B board and firmware as v6.3. One continuous printed head ring strap from a pivot behind the left pod, across the forehead and under both pods (a tunnel in each pod's base, 2 × M3), with the PN521 nape section kept whole and pivoting on its ends; the pods carry no ring tension. Chin-strap tabs on the ring, the strap in the test kit. Side pods with a flat face parallel to the board, 15 mm off the skin (was 22), JP1 and TP1 left off. A clip-in nasion gauge sets the midline band's zero; the forehead strip goes on after the headset, from the anchor's pointer. Fz fixed at 69 mm behind the zero (up to 9 mm from its 10-20 site, the same spot every visit); only Pz has a size setting. Tail travel corrected to about 82 mm, pull tab with stretch marks. v6 stays as the adjustable-Fz alternative.",
+    "status": "Lead design (proposed; v6 kept as the adjustable-Fz alternative)",
+    "docs": "docs/v7.md"
   }
 ]
